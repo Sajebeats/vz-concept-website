@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foto-Vergleich – VZ Concept Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── Vergleichs-Seite ── */
+    body { background: #f0f0f0; }
+
+    .vergleich-header {
+      background: #0C3530;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .vergleich-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin: 0 0 0.5rem;
+    }
+    .vergleich-header p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .foto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .foto-option {
+      position: relative;
+      background: #0C3530;
+    }
+
+    /* Echte Hero-Simulation */
+    .hero-sim {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      align-items: center;
+      padding: 3rem 2.5rem;
+      gap: 2rem;
+    }
+
+    .hero-sim__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-sim__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #00C8A8;
+    }
+
+    .hero-sim__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: white;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .hero-sim__title span { color: #00C8A8; }
+
+    .hero-sim__sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .hero-sim__btns {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .btn-sim {
+      display: inline-block;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .btn-sim--primary { background: #00C8A8; color: #0C3530; }
+    .btn-sim--outline { border: 1.5px solid rgba(255,255,255,0.4); color: white; }
+
+    .hero-sim__trust {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .trust-item::before {
+      content: '✓';
+      color: #00C8A8;
+      font-weight: 700;
+    }
+
+    /* Foto-Seite der Hero-Simulation */
+    .hero-sim__photo {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .hero-sim__photo img {
+      width: 100%;
+      max-width: 280px;
+      height: 420px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* Label-Badge */
+    .foto-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #00C8A8;
+      color: #0C3530;
+      font-weight: 800;
+      font-size: 1.1rem;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 0 10px 0;
+      z-index: 10;
+    }
+
+    /* Trennlinie zwischen Optionen */
+    .foto-option {
+      border: 3px solid rgba(255,255,255,0.08);
+    }
+
+    /* Auswahl-Button */
+    .foto-pick-bar {
+      background: rgba(0,0,0,0.35);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .foto-pick-bar__desc {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+
+    .foto-pick-bar__desc strong {
+      color: white;
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.1rem;
+    }
+
+    /* Highlight on hover */
+    .foto-option:hover { border-color: #00C8A8; }
+    .foto-option:hover .foto-label { transform: scale(1.1); }
+
+    /* Hinweis-Box */
+    .hinweis {
+      background: #fff3cd;
+      border-left: 4px solid #f0a500;
+      padding: 1rem 1.5rem;
+      margin: 0;
+      font-size: 0.82rem;
+      color: #5a3e00;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .foto-grid { grid-template-columns: 1fr; }
+      .hero-sim { grid-template-columns: 1fr; min-height: auto; }
+      .hero-sim__photo img { max-width: 200px; height: 280px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="vergleich-header">
+    <h1>Foto-Vergleich – Hero Sektion</h1>
+    <p>So sehen die 6 neuen Fotos in der echten Hero-Umgebung aus · Bitte ein Foto auswählen</p>
+  </div>
+
+  <div class="hinweis">
+    💡 Jede Option zeigt das Foto so, wie es auf der Startseite im Hero erscheinen würde. Die Buchstaben A–F helfen bei der Auswahl.
+  </div>
+
+  <div class="foto-grid">
+
+    <!-- Option A -->
+    <div class="foto-option">
+      <div class="foto-label">A</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-A.png" alt="Foto A">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option A</strong>
+          Frontal · Beige Blazer · Heller Türkis-Hintergrund
+        </div>
+      </div>
+    </div>
+
+    <!-- Option B -->
+    <div class="foto-option">
+      <div class="foto-label">B</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-B.png" alt="Foto B">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option B</strong>
+          Schräg · Weißer Blazer · Dunkler Türkis-Hintergrund
+        </div>
+      </div>
+    </div>
+
+    <!-- Option C -->
+    <div class="foto-option">
+      <div class="foto-label">C</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-C.png" alt="Foto C">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option C</strong>
+          Schräg · Weißer Blazer · Starker Türkis-Akzent im Haar
+        </div>
+      </div>
+    </div>
+
+    <!-- Option D -->
+    <div class="foto-option">
+      <div class="foto-label">D</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-D.png" alt="Foto D">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option D</strong>
+          Frontal · Weißer Blazer mit Hemd · Hände gefaltet
+        </div>
+      </div>
+    </div>
+
+    <!-- Option E -->
+    <div class="foto-option">
+      <div class="foto-label">E</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-E.png" alt="Foto E">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option E</strong>
+          Schräg · Weißer Blazer · Dunkler Hintergrund · Eleganter Look
+        </div>
+      </div>
+    </div>
+
+    <!-- Option F -->
+    <div class="foto-option">
+      <div class="foto-label">F</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-F.png" alt="Foto F">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option F</strong>
+          Nah · Weißer Blazer · Perlen-Kette · Warmer Look
+        </div>
+      </div>
+    </div>
+
+    <!-- Option G -->
+    <div class="foto-option">
+      <div class="foto-label">G</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-G.png" alt="Foto G">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option G</strong>
+          Hand auf Hüfte · Weißer Blazer mit Hemd · Selbstbewusste Pose
+        </div>
+      </div>
+    </div>
+
+    <!-- Option H -->
+    <div class="foto-option">
+      <div class="foto-label">H</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-H.png" alt="Foto H">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option H</strong>
+          Arme verschränkt · Weißer Blazer · Entspannte, offene Haltung
+        </div>
+      </div>
+    </div>
+
+    <!-- Option I -->
+    <div class="foto-option">
+      <div class="foto-label">I</div>
+      <div class="hero-sim">
+        <div class="hero-sim__content">
+          <p class="hero-sim__eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+          <h2 class="hero-sim__title">Nicht theoretisch.<br><span>Sondern so, dass es im Markt funktioniert.</span></h2>
+          <p class="hero-sim__sub">Ich begleite Gründer:innen, Selbstständige und Unternehmen in Momenten, in denen unternehmerische Entscheidungen wirtschaftlich bestehen müssen.</p>
+          <div class="hero-sim__btns">
+            <span class="btn-sim btn-sim--primary">Erstgespräch buchen</span>
+            <span class="btn-sim btn-sim--outline">Für wen ich arbeite</span>
+          </div>
+          <div class="hero-sim__trust">
+            <span class="trust-item">16 Jahre Unternehmerinnenerfahrung</span>
+            <span class="trust-item">Förderung bis 100&nbsp;% möglich</span>
+          </div>
+        </div>
+        <div class="hero-sim__photo">
+          <img src="assets/images/vanessa/vanessa-neu-I.png" alt="Foto I">
+        </div>
+      </div>
+      <div class="foto-pick-bar">
+        <div class="foto-pick-bar__desc">
+          <strong>Option I</strong>
+          Nahaufnahme · Beiger Blazer · Warmer, persönlicher Ausdruck
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /foto-grid -->
+
+  <div class="hinweis" style="background:#e8f5f0; border-color:#00C8A8; color:#0C3530; padding: 1.5rem 2rem; font-size:0.9rem;">
+    <strong>So geht's weiter:</strong> Einfach den Buchstaben des bevorzugten Fotos mitteilen (z.B. „Foto G nehmen") — dann wird es sofort als neues Hero-Bild in die Website eingebaut.
+  </div>
+
+</body>
+</html>

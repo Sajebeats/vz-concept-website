@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Partner & Netzwerk von VZ Concept – Kooperationen mit Rechtsanwalt, Trägern, Akademien, Transfergesellschaften und Gründerinnenzentren für eine vollständige Beratung.">
+  <title>Partner & Netzwerk – VZ Concept | Vanessa Zimmer</title>
+  <link rel="canonical" href="https://www.vz-concept.de/partner.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <style>
+    /* ── Partner-Karten ── */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .partner-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .partner-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-accent-mid);
+    }
+
+    .partner-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    .partner-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .partner-card__icon svg { width: 24px; height: 24px; }
+
+    .partner-card__category {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .partner-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--fs-xl);
+      color: var(--color-primary);
+      line-height: 1.25;
+    }
+
+    .partner-card__desc {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    .partner-card__benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-md);
+    }
+
+    .partner-card__benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      line-height: 1.45;
+    }
+
+    .partner-card__benefits li svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--color-accent);
+    }
+
+    /* ── Vertrauens-Band ── */
+    .partner-quote {
+      background: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 4vw, 3.5rem);
+      text-align: center;
+      margin-block: var(--space-2xl);
+    }
+
+    .partner-quote__mark {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      color: var(--color-accent);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: var(--space-md);
+      opacity: 0.5;
+    }
+
+    .partner-quote__text {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      color: var(--color-white);
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto var(--space-md);
+    }
+
+    .partner-quote__author {
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── Kooperations-Anfrage ── */
+    .kooperation-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+      background: var(--color-accent-light);
+      border: 1px solid var(--color-accent-mid);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 4vw, 3rem);
+    }
+
+    .kooperation-box__title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .kooperation-box__text {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    .kooperation-box__cta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      align-items: flex-start;
+    }
+
+    /* ── Logo-Strip ── */
+    .logo-strip {
+      background: var(--color-primary);
+      padding-block: var(--space-xl);
+    }
+
+    .logo-strip__label {
+      text-align: center;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: var(--space-lg);
+    }
+
+    .logo-strip__grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .logo-strip__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .logo-strip__item:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(0,200,168,0.4);
+    }
+
+    .logo-strip__item img {
+      max-height: 56px;
+      max-width: 180px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+      transition: opacity var(--transition);
+    }
+
+    .logo-strip__item:hover img {
+      opacity: 1;
+    }
+
+    /* Gründerinnenzentrale-Siegel braucht etwas mehr Platz */
+    .logo-strip__item--badge img {
+      max-height: 72px;
+      max-width: 220px;
+    }
+
+    @media (max-width: 600px) {
+      .logo-strip__grid { gap: var(--space-md); }
+      .logo-strip__item img { max-height: 44px; max-width: 140px; }
+    }
+
+    @media (max-width: 900px) {
+      .partner-grid { grid-template-columns: 1fr; }
+      .kooperation-box { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite">
+          <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white">
+          <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color">
+        </a>
+        <ul class="nav__menu" role="list">
+          <li><a href="ueber-mich.html" class="nav__link">Über mich</a></li>
+          <li class="nav__item--dropdown">
+            <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+              Leistungen
+              <svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+              <li><a href="leistungen.html#gruendung" class="nav__dropdown-link">
+                <strong>Gründungs- &amp; Entscheidungsbegleitung</strong>
+                <span>Ich will gründen – aber nicht blind starten</span>
+              </a></li>
+              <li><a href="leistungen.html#avgs" class="nav__dropdown-link">
+                <strong>AVGS-Gründercoaching</strong>
+                <span>Geförderte Gründung realistisch vorbereiten</span>
+              </a></li>
+              <li><a href="leistungen.html#krise" class="nav__dropdown-link">
+                <strong>Krisen- &amp; Neuaufstellung</strong>
+                <span>Mein Unternehmen steht unter Druck</span>
+              </a></li>
+              <li><a href="leistungen.html#struktur" class="nav__dropdown-link">
+                <strong>Struktur &amp; Unternehmensentwicklung</strong>
+                <span>Es läuft – aber intern funktioniert es nicht sauber</span>
+              </a></li>
+              <li><a href="leistungen.html#b2b" class="nav__dropdown-link">
+                <strong>B2B &amp; Unternehmerkompetenz</strong>
+                <span>Ich will wachsen, habe aber kein Vertriebssystem</span>
+              </a></li>
+              <li><a href="leistungen.html#businessplan" class="nav__dropdown-link">
+                <strong>Businessplan-Service</strong>
+                <span>Für Bank, Investor oder Ausländerbehörde</span>
+              </a></li>
+              <li class="nav__dropdown-divider"></li>
+              <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen →</a></li>
+            </ul>
+          </li>
+          <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+          <li><a href="partner.html" class="nav__link active">Partner</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespräch buchen
+          </a>
+        </div>
+        <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Brotkrumen">
+        <a href="index.html">Startseite</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Partner &amp; Netzwerk</span>
+      </nav>
+      <div class="page-hero__inner">
+        <p class="section-label section-label--light">Kooperationen &amp; Netzwerk</p>
+        <h1 class="page-hero__title" id="page-title">Ein Netzwerk, das Beratung sinnvoll ergänzt.</h1>
+        <p class="page-hero__subtitle">Wenn eine Situation mehr braucht als reine Beratung, greife ich auf verlässliche Partner aus Recht, Förderung, Bildung und Unternehmertum zurück – abgestimmt, seriös und mit klarem Nutzen.</p>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════
+       PARTNER-CARDS
+  ════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="partner-title">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-label">Mein Netzwerk</p>
+        <h2 class="section-title" id="partner-title">Mit wem ich zusammenarbeite</h2>
+        <p class="section-subtitle" style="margin-inline:auto;">Diese Kooperationen entstanden nicht aus Zufall, sondern aus gemeinsamer Arbeit und gegenseitigem Vertrauen. Jede Zusammenarbeit hat eine klare Funktion – für Gründer:innen, Unternehmen oder Institutionen.</p>
+      </div>
+
+      <div class="partner-grid">
+
+        <!-- Rechtsanwalt -->
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <div class="partner-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <p class="partner-card__category">Recht</p>
+              <h3 class="partner-card__title">Rechtliche Begleitung</h3>
+            </div>
+          </div>
+          <p class="partner-card__desc">
+            Wenn wirtschaftliche Entscheidungen rechtliche Fragen berühren, arbeite ich mit einem erfahrenen Rechtsanwalt zusammen. So bekommst du wirtschaftliche und rechtliche Einschätzungen aus einer Hand – ohne selbst mehrere Stellen koordinieren zu müssen.
+          </p>
+          <ul class="partner-card__benefits">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Vertragsrechtliche Fragen bei Gründung und Restrukturierung
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Begleitung in Insolvenzumfeld und Haftungsfragen
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Geordnete Schnittstelle zwischen Beratung und Recht
+            </li>
+          </ul>
+        </article>
+
+        <!-- Träger & Fördereinrichtungen -->
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <div class="partner-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <p class="partner-card__category">Förderung</p>
+              <h3 class="partner-card__title">Träger &amp; Fördereinrichtungen</h3>
+            </div>
+          </div>
+          <p class="partner-card__desc">
+            Ich kooperiere mit zugelassenen Trägern, über die eine geförderte Beratung in bestimmten Kontexten möglich ist – z.&nbsp;B. über den AVGS (Bundesagentur für Arbeit) oder INQA-Coaching. Die Zusammenarbeit läuft transparent und abgestimmt auf deine individuelle Ausgangslage.
+          </p>
+          <ul class="partner-card__benefits">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Förderkontexte individuell prüfbar
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Zusammenarbeit im AVGS- und INQA-Kontext über zugelassene Träger
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Transparente Abstimmung ohne bürokratischen Mehraufwand für dich
+            </li>
+          </ul>
+        </article>
+
+        <!-- Gründerinnenzentrale / Gründungsnetzwerke -->
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <div class="partner-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
+            </div>
+            <div>
+              <p class="partner-card__category">Gründung</p>
+              <h3 class="partner-card__title">Gründerinnenzentrale &amp; Netzwerke</h3>
+            </div>
+          </div>
+          <p class="partner-card__desc">
+            Ich bin in Netzwerken verankert, die Gründerinnen und Gründer in der Frühphase unterstützen. Diese Kooperationen ermöglichen mir, gezielt weiterführende Angebote, lokale Ressourcen und ergänzende Unterstützung zu vermitteln – wenn es zur Situation passt.
+          </p>
+          <ul class="partner-card__benefits">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Regionale Gründerinnennetzwerke und Anlaufstellen
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Weiterführende Angebote für Gründerinnen in personenbezogenen Berufen
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Vermittlung auf Anfrage und nach Bedarf
+            </li>
+          </ul>
+        </article>
+
+        <!-- Transfergesellschaften & Akademien -->
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <div class="partner-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div>
+              <p class="partner-card__category">B2B &amp; Institutionen</p>
+              <h3 class="partner-card__title">Transfergesellschaften &amp; Akademien</h3>
+            </div>
+          </div>
+          <p class="partner-card__desc">
+            Als B2B-Partnerin arbeite ich mit Transfergesellschaften, Bildungsträgern und Akademien zusammen. Ich bringe unternehmerische Einschätzung in Kontexte ein, in denen Menschen auf dem Weg in die Selbstständigkeit realistisch begleitet werden müssen – mit Assessment, Einzel- und Gruppenformaten.
+          </p>
+          <ul class="partner-card__benefits">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Gründungspotenzial-Assessments im Trägerkontext
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Einzel- und Gruppenberatung für Teilnehmende in Transfermaßnahmen
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Branchenspezifische Beiträge in Qualifizierungsprogrammen
+            </li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       LOGO-STRIP: Offizielle Zertifizierungen & Netzwerke
+  ════════════════════════════════════════ -->
+  <section class="logo-strip" aria-label="Offizielle Partnerschaften und Zertifizierungen">
+    <div class="container">
+      <p class="logo-strip__label">Offizielle Partnerschaften &amp; Zertifizierungen</p>
+      <div class="logo-strip__grid">
+
+        <div class="logo-strip__item logo-strip__item--badge">
+          <img
+            src="assets/images/partner-logos/siegel-gruenderinnenzentrale.png"
+            alt="Kooperationspartnerin der Gründerinnenzentrale"
+          >
+        </div>
+
+        <div class="logo-strip__item">
+          <img
+            src="assets/images/partner-logos/erfolgspfad-coaching-partner.png"
+            alt="Erfolgspfad – Offizieller Coaching-Partner"
+          >
+        </div>
+
+        <div class="logo-strip__item">
+          <img
+            src="assets/images/partner-logos/vital-kosmetikakademie.jpg"
+            alt="Vital Kosmetikakademie"
+          >
+        </div>
+
+        <div class="logo-strip__item">
+          <img
+            src="assets/images/partner-logos/gruenderplattform-weiss.png"
+            alt="Gründerplattform"
+          >
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       ZITAT
+  ════════════════════════════════════════ -->
+  <section class="section section--off-white" aria-label="Haltung zum Netzwerk">
+    <div class="container">
+      <div class="partner-quote">
+        <span class="partner-quote__mark" aria-hidden="true">"</span>
+        <p class="partner-quote__text">
+          Kein Netzwerk ersetzt klare Beratung. Aber gute Beratung wird stärker, wenn sie auf verlässliche Partner zurückgreifen kann – zum richtigen Zeitpunkt, im richtigen Kontext.
+        </p>
+        <p class="partner-quote__author">— Vanessa Zimmer, VZ Concept</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       KOOPERATIONSANFRAGE
+  ════════════════════════════════════════ -->
+  <section class="section" id="kooperation" aria-labelledby="koop-title">
+    <div class="container">
+      <div class="kooperation-box">
+        <div>
+          <p class="section-label">Zusammenarbeit</p>
+          <h2 class="kooperation-box__title" id="koop-title">Interesse an einer Kooperation?</h2>
+          <p class="kooperation-box__text">
+            Wenn du als Träger, Akademie, Transfergesellschaft oder Institution mit mir zusammenarbeiten möchtest – oder wenn du eine Anfrage zu einer spezifischen Partnerschaft hast – schreib mir direkt. Ich prüfe jeden Kontext individuell und melde mich zeitnah.
+          </p>
+        </div>
+        <div class="kooperation-box__cta">
+          <a href="mailto:vz@vz-concept.de?subject=Kooperationsanfrage%20VZ%20Concept" class="btn btn--primary btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Kooperationsanfrage senden
+          </a>
+          <p style="font-size: var(--fs-xs); color: var(--color-text-muted);">Oder ruf direkt an: <a href="tel:+4915254596585" style="color: var(--color-primary); font-weight: 600;">+49 152 54596585</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta-section section" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-section__inner">
+        <p class="section-label section-label--light">Nächster Schritt</p>
+        <h2 class="cta-section__title" id="cta-title">
+          Lass uns klären, welcher nächste Schritt passt.
+        </h2>
+        <p class="cta-section__text">
+          Ob Gründung, Struktur, Neuaufstellung oder Kooperation – im Erstgespräch ordnen wir die Situation ein und klären, ob eine Zusammenarbeit sinnvoll ist.
+        </p>
+        <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Erstgespräch buchen
+        </a>
+        <p class="cta-section__note">Unverbindlich · Klar · Ohne Vertriebsdruck</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logo-white.png" alt="VZ Concept Logo">
+          </div>
+          <p class="footer__tagline">Gründungs- und Unternehmensberatung für Vorhaben, die im Markt und im Alltag bestehen sollen.</p>
+          <div class="footer__social" aria-label="Social Media">
+            <a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__nav-title">Navigation</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ablauf.html">Ablauf</a></li>
+            <li><a href="referenzen.html">Stimmen</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="partner.html">Partner &amp; Netzwerk</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__nav-title">Kooperationen</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="partner.html#kooperation">Rechtliche Begleitung</a></li>
+            <li><a href="partner.html#kooperation">Träger &amp; Förderung</a></li>
+            <li><a href="partner.html#kooperation">Gründerinnennetzwerke</a></li>
+            <li><a href="partner.html#kooperation">Transfergesellschaften</a></li>
+            <li><a href="leistungen.html#b2b">B2B &amp; Assessment</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__nav-title">Kontakt</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+            <li><a href="tel:+4915254596585">+49 152 54596585</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 VZ Concept – Coaching &amp; Consulting UG · Alle Rechte vorbehalten
+        </p>
+        <nav class="footer__legal" aria-label="Rechtliche Links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

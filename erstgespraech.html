@@ -1,0 +1,757 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Erstgespräch mit Vanessa Zimmer – Gründungsberaterin und Unternehmensberaterin. Situation einordnen, nächste Schritte klären und realistische Entscheidungen vorbereiten.">
+  <title>Erstgespräch buchen – VZ Concept | Vanessa Zimmer</title>
+  <link rel="canonical" href="https://www.vz-concept.de/erstgespraech.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <style>
+    /* ── Erstgespräch-spezifische Styles ── */
+
+    /* Hero: dunkel mit Akzent-Highlight */
+    .eg-hero {
+      background: var(--color-primary-deep);
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .eg-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,200,168,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .eg-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: center;
+    }
+    .eg-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,200,168,0.15);
+      border: 1px solid rgba(0,200,168,0.3);
+      color: var(--color-accent);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: var(--space-md);
+    }
+    .eg-hero__title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--color-white);
+      margin-bottom: var(--space-md);
+    }
+    .eg-hero__title em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+    .eg-hero__text {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+    .eg-hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .eg-hero__meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.7);
+      font-size: var(--fs-sm);
+    }
+    .eg-hero__meta-item svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--color-accent);
+    }
+
+    /* Calendly Card */
+    .eg-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 4vw, 3rem);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    .eg-card__label {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .eg-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--fs-xl);
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+    .eg-card__divider {
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-accent), transparent);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Calendly Embed Placeholder */
+    .calendly-placeholder {
+      background: var(--color-bg-light);
+      border: 2px dashed var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 3rem 2rem;
+      text-align: center;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .calendly-placeholder__icon {
+      width: 56px;
+      height: 56px;
+      background: var(--color-accent-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .calendly-placeholder__icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--color-accent);
+    }
+    .calendly-placeholder__text {
+      font-size: var(--fs-base);
+      color: var(--color-text-muted);
+      max-width: 320px;
+    }
+    .calendly-placeholder__note {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+
+    .calendly-inline-widget {
+      width: 100%;
+      min-width: 100% !important;
+      height: min(700px, 75vh) !important;
+    }
+
+    /* Was dich erwartet – Steps */
+    .eg-steps {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      background: var(--color-white);
+    }
+    .eg-steps__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+    .eg-step {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .eg-step__num {
+      width: 48px;
+      height: 48px;
+      background: var(--color-accent-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--fs-lg);
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    .eg-step__title {
+      font-family: var(--font-heading);
+      font-size: var(--fs-lg);
+      color: var(--color-primary);
+    }
+    .eg-step__text {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-size: var(--fs-base);
+    }
+
+    /* Für wen / Nicht für wen – Split Box */
+    .eg-split {
+      background: var(--color-bg-light);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+    .eg-split__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+    .eg-split__col {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    .eg-split__col--yes {
+      border-top: 4px solid var(--color-accent);
+    }
+    .eg-split__col--no {
+      border-top: 4px solid #E0E0E0;
+    }
+    .eg-split__col-title {
+      font-family: var(--font-heading);
+      font-size: var(--fs-lg);
+      color: var(--color-primary);
+      margin-bottom: var(--space-md);
+    }
+    .eg-split__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .eg-split__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: var(--fs-base);
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+    .eg-split__list li svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .eg-split__list--yes li svg { color: var(--color-accent); }
+    .eg-split__list--no li svg { color: #BDBDBD; }
+
+    /* Vanessa-Quote */
+    .eg-quote {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+    .eg-quote__inner {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    .eg-quote__photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(0,200,168,0.4);
+      flex-shrink: 0;
+    }
+    .eg-quote__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .eg-quote__text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: var(--space-sm);
+    }
+    .eg-quote__attribution {
+      font-size: var(--fs-sm);
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    /* Häufige Fragen (Mini-FAQ) */
+    .eg-faq {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      background: var(--color-white);
+    }
+    .eg-faq__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .eg-faq__item {
+      background: var(--color-bg-light);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+    }
+    .eg-faq__q {
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: var(--fs-base);
+      margin-bottom: 0.5rem;
+    }
+    .eg-faq__a {
+      color: var(--color-text-muted);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .eg-hero__inner { grid-template-columns: 1fr; }
+      .eg-steps__grid { grid-template-columns: 1fr 1fr; }
+      .eg-quote__inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    }
+    @media (max-width: 768px) {
+      .eg-steps__grid { grid-template-columns: 1fr; }
+      .eg-split__grid { grid-template-columns: 1fr; }
+      .eg-faq__grid { grid-template-columns: 1fr; }
+      .eg-hero__meta { flex-direction: column; gap: 0.75rem; }
+      .eg-card { padding: 1.5rem; }
+      .calendly-inline-widget { height: 68vh !important; }
+    }
+    @media (max-width: 480px) {
+      .calendly-placeholder {
+        padding: 2rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite">
+          <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white">
+          <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color">
+        </a>
+        <ul class="nav__menu" role="list">
+          <li><a href="ueber-mich.html" class="nav__link">Über mich</a></li>
+        <li class="nav__item--dropdown">
+          <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Leistungen
+            <svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+            <li><a href="leistungen.html#gruendung" class="nav__dropdown-link">
+              <strong>Gründungs- &amp; Entscheidungsbegleitung</strong>
+              <span>Ich will gründen – aber nicht blind starten</span>
+            </a></li>
+            <li><a href="leistungen.html#avgs" class="nav__dropdown-link">
+              <strong>AVGS-Gründercoaching</strong>
+              <span>Geförderte Gründung realistisch vorbereiten</span>
+            </a></li>
+            <li><a href="leistungen.html#krise" class="nav__dropdown-link">
+              <strong>Krisen- &amp; Neuaufstellung</strong>
+              <span>Mein Unternehmen steht unter Druck</span>
+            </a></li>
+            <li><a href="leistungen.html#struktur" class="nav__dropdown-link">
+              <strong>Struktur &amp; Unternehmensentwicklung</strong>
+              <span>Es läuft – aber intern funktioniert es nicht sauber</span>
+            </a></li>
+            <li><a href="leistungen.html#b2b" class="nav__dropdown-link">
+              <strong>B2B &amp; Unternehmerkompetenz</strong>
+              <span>Ich will wachsen, habe aber kein Vertriebssystem</span>
+            </a></li>
+            <li><a href="leistungen.html#businessplan" class="nav__dropdown-link">
+              <strong>Businessplan-Service</strong>
+              <span>Für Bank, Investor oder Ausländerbehörde</span>
+            </a></li>
+            <li class="nav__dropdown-divider"></li>
+            <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen →</a></li>
+          </ul>
+        </li>
+          <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+          <li><a href="partner.html" class="nav__link">Partner</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary active">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespräch buchen
+          </a>
+        </div>
+        <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="eg-hero" aria-labelledby="eg-hero-title">
+    <div class="container">
+      <div class="eg-hero__inner">
+
+        <!-- Left: Copy -->
+        <div class="reveal">
+          <span class="eg-hero__badge">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;"><polyline points="20 6 9 17 4 12"/></svg>
+            Unverbindlich & klar
+          </span>
+          <h1 class="eg-hero__title" id="eg-hero-title">
+            30 Minuten, die dir <em>Klarheit</em> bringen.
+          </h1>
+          <p class="eg-hero__text">
+            Du musst noch keine fertige Entscheidung mitbringen. Im Erstgespräch sortieren wir, wo du stehst, welche Fragen offen sind und welcher nächste Schritt wirtschaftlich sinnvoll ist.
+          </p>
+          <div class="eg-hero__meta">
+            <span class="eg-hero__meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              30–45 Minuten
+            </span>
+            <span class="eg-hero__meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.93 18.18z"/></svg>
+              Video- oder Telefongespräch
+            </span>
+            <span class="eg-hero__meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Vertraulich & ohne Verkaufsdruck
+            </span>
+            <span class="eg-hero__meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Termin in 60 Sekunden buchbar
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Booking Card -->
+        <div class="eg-card reveal">
+          <p class="eg-card__label">Termin buchen</p>
+          <h2 class="eg-card__title">Dein Erstgespräch</h2>
+          <div class="eg-card__divider"></div>
+
+          <!--
+            CALENDLY EMBED:
+            Ersetze den Inhalt dieses Containers durch das offizielle Calendly-Widget.
+            Beispiel-Einbindung:
+
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/DEIN-USERNAME/erstgespraech"
+                 style="min-width:280px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+            Den Link erhältst du in deinem Calendly-Konto unter "Event Types > Share".
+          -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/vz-vz-concept/30min?month=2026-04" role="region" aria-label="Terminbuchung"></div>
+
+          <p style="font-size: var(--fs-sm); color: var(--color-text-muted); text-align: center; margin-top: 1.25rem;">
+            Deine Daten werden vertraulich behandelt.<br>Keine Weitergabe, kein Spam, kein Verkaufsdruck.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TRUST BAND -->
+  <div style="background: var(--color-accent-light); padding: 1.25rem 0; border-top: 1px solid rgba(0,200,168,0.2); border-bottom: 1px solid rgba(0,200,168,0.2);">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem;">
+        <span style="font-size: var(--fs-sm); font-weight: 600; color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--color-accent);" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Förderung individuell prüfbar
+        </span>
+        <span style="font-size: var(--fs-sm); font-weight: 600; color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--color-accent);" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          INQA-Beratungsförderung für KMU prüfbar
+        </span>
+        <span style="font-size: var(--fs-sm); font-weight: 600; color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--color-accent);" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          16 Jahre Unternehmerinnenerfahrung
+        </span>
+        <span style="font-size: var(--fs-sm); font-weight: 600; color: var(--color-primary); display: flex; align-items: center; gap: 0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;color:var(--color-accent);" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Klarheit ohne Verkaufsdruck
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- WAS DICH ERWARTET -->
+  <section class="eg-steps section" aria-labelledby="eg-steps-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Im Erstgespräch</p>
+        <h2 class="section-title" id="eg-steps-title">Was klären wir in den 30 Minuten?</h2>
+        <p class="section-subtitle">Wir sortieren deine Situation, benennen offene Punkte und prüfen, ob eine Zusammenarbeit sinnvoll ist.</p>
+      </div>
+      <div class="eg-steps__grid">
+
+        <div class="eg-step reveal">
+          <div class="eg-step__num" aria-hidden="true">1</div>
+          <h3 class="eg-step__title">Deine Situation</h3>
+          <p class="eg-step__text">Du schilderst mir, wo du gerade stehst: Was ist dein Vorhaben, welche Entscheidung steht an und was macht die Situation gerade unklar?</p>
+        </div>
+
+        <div class="eg-step reveal">
+          <div class="eg-step__num" aria-hidden="true">2</div>
+          <h3 class="eg-step__title">Meine erste Einschätzung</h3>
+          <p class="eg-step__text">Ich gebe dir ein ehrliches Feedback: Was ich für realistisch halte, welche Risiken ich sehe – und wo ich tatsächlich helfen kann.</p>
+        </div>
+
+        <div class="eg-step reveal">
+          <div class="eg-step__num" aria-hidden="true">3</div>
+          <h3 class="eg-step__title">Mögliche nächste Schritte</h3>
+          <p class="eg-step__text">Wenn es passt, skizziere ich, was eine Zusammenarbeit aussehen könnte. Wenn nicht, sage ich das auch – und empfehle dir eine bessere Alternative.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FÜR WEN / NICHT FÜR WEN -->
+  <section class="eg-split" aria-labelledby="eg-split-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Passgenauigkeit</p>
+        <h2 class="section-title" id="eg-split-title">Für wen ist das Erstgespräch gedacht?</h2>
+      </div>
+      <div class="eg-split__grid">
+
+        <div class="eg-split__col eg-split__col--yes reveal">
+          <h3 class="eg-split__col-title">Das Gespräch ist richtig für dich, wenn …</h3>
+          <ul class="eg-split__list eg-split__list--yes" role="list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              du eine Gründung planst und noch prüfen willst, ob deine Idee im Markt und im Alltag funktioniert
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              dein Unternehmen in einer schwierigen Phase steckt und du nicht weißt, wo du anfangen sollst
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              du einen Businessplan brauchst – für eine Bank, Investoren oder die Ausländerbehörde
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              du als Träger, Akademie oder Transfergesellschaft eine unternehmerische Einschätzung für Teilnehmende brauchst
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              du einen AVGS-Gutschein hast und nicht weißt, wie du ihn sinnvoll einsetzen kannst
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              du eine klare Einschätzung brauchst – nicht nur Zuspruch
+            </li>
+          </ul>
+        </div>
+
+        <div class="eg-split__col eg-split__col--no reveal">
+          <h3 class="eg-split__col-title">Eher nicht, wenn …</h3>
+          <ul class="eg-split__list eg-split__list--no" role="list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              du fertige Antworten erwartest, ohne selbst Informationen preiszugeben
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              du ausschließlich nach dem günstigsten Anbieter suchst
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              dein Fokus liegt auf Technologie-Startups mit Venture-Capital-Finanzierung
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              du Aufgaben delegieren willst, ohne in den Prozess eingebunden zu sein
+            </li>
+          </ul>
+          <p style="margin-top: var(--space-md); font-size: var(--fs-sm); color: var(--color-text-muted); font-style: italic;">
+            Ich sage dir im Gespräch ganz offen, wenn ich nicht die richtige Ansprechpartnerin für dich bin – und empfehle dir, wo du besser aufgehoben bist.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- VANESSA QUOTE -->
+  <section class="eg-quote" aria-labelledby="eg-quote-title">
+    <div class="container">
+      <div class="eg-quote__inner">
+        <div class="eg-quote__photo reveal">
+          <img src="assets/images/vanessa/vanessa-hero-schwarz.png" alt="Vanessa Zimmer – Gründungs- und Unternehmensberaterin" loading="lazy">
+        </div>
+        <div class="reveal">
+          <h2 class="eg-quote__text" id="eg-quote-title">
+            „Ich führe das Erstgespräch nicht, um dir etwas zu verkaufen. Ich führe es, weil ich wissen will, ob ich dir wirklich helfen kann. Das ist der Unterschied."
+          </h2>
+          <p class="eg-quote__attribution">Vanessa Zimmer · Gründungsberaterin &amp; Unternehmensberaterin</p>
+          <a href="#buchung" class="btn btn--outline" style="margin-top: 1.75rem; border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9);">
+            Jetzt Termin sichern
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MINI-FAQ -->
+  <section class="eg-faq" aria-labelledby="eg-faq-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Häufige Fragen</p>
+        <h2 class="section-title" id="eg-faq-title">Kurze Antworten vorab</h2>
+      </div>
+      <div class="eg-faq__grid">
+
+        <div class="eg-faq__item reveal">
+          <p class="eg-faq__q">Ist das Gespräch wirklich kostenfrei?</p>
+          <p class="eg-faq__a">Ja, aktuell ist das Erstgespräch kostenfrei und unverbindlich. Wenn eine Zusammenarbeit für beide Seiten sinnvoll erscheint, besprechen wir das offen – aber ohne Druck.</p>
+        </div>
+
+        <div class="eg-faq__item reveal">
+          <p class="eg-faq__q">Was soll ich für das Gespräch vorbereiten?</p>
+          <p class="eg-faq__a">Nichts zwingend. Es hilft, wenn du weißt, was dein Anliegen ist. Ein Pitch-Deck oder Businessplan ist nicht nötig – ich arbeite auch mit vagen Ideen und offenen Fragen.</p>
+        </div>
+
+        <div class="eg-faq__item reveal">
+          <p class="eg-faq__q">Wie schnell bekomme ich einen Termin?</p>
+          <p class="eg-faq__a">Über Calendly siehst du sofort, wann ich verfügbar bin. In der Regel gibt es Termine innerhalb von 3–7 Werktagen. In dringenden Fällen schreib mir direkt per E-Mail.</p>
+        </div>
+
+        <div class="eg-faq__item reveal">
+          <p class="eg-faq__q">Findet das Gespräch per Video oder Telefon statt?</p>
+          <p class="eg-faq__a">Standardmäßig per Video (Zoom oder Teams). Wenn du lieber telefonierst, teile das gerne bei der Buchung mit – das ist kein Problem.</p>
+        </div>
+
+        <div class="eg-faq__item reveal">
+          <p class="eg-faq__q">Ich habe einen AVGS-Gutschein – kann ich den nutzen?</p>
+          <p class="eg-faq__a">Ja. Je nach Ausgangslage ist eine Zusammenarbeit über zugelassene Träger möglich. Im Erstgespräch besprechen wir, wie du den Gutschein sinnvoll einsetzen kannst.</p>
+        </div>
+
+        <div class="eg-faq__item reveal">
+          <p class="eg-faq__q">Was passiert nach dem Gespräch?</p>
+          <p class="eg-faq__a">Wenn wir beide der Meinung sind, dass eine Zusammenarbeit Sinn ergibt, erhältst du ein individuelles Angebot. Wenn nicht, ist das ebenfalls ein Ergebnis: Du gehst mit einer ersten Einordnung und einem klareren nächsten Schritt aus dem Gespräch.</p>
+        </div>
+
+      </div>
+      <p style="text-align:center; margin-top: var(--space-lg);">
+        <a href="faq.html" style="color: var(--color-accent); font-weight: 600; text-decoration: underline;">Alle weiteren Fragen im FAQ →</a>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section class="cta-section" aria-labelledby="cta-final-title">
+    <div class="container">
+      <p class="section-label section-label--light">Nächster Schritt</p>
+      <h2 class="cta-section__title" id="cta-final-title">Lass uns deine Situation einordnen.</h2>
+      <p class="cta-section__text">30 Minuten für eine erste Einschätzung und einen realistischen nächsten Schritt.</p>
+      <a href="#buchung" class="btn btn--primary btn--lg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Termin im Kalender wählen
+      </a>
+      <p class="cta-section__note">
+        Lieber direkt schreiben?&nbsp;
+        <a href="mailto:vz@vz-concept.de" style="color: rgba(255,255,255,0.8); text-decoration: underline;">vz@vz-concept.de</a>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo"></div>
+          <p class="footer__tagline">Gründungs- und Unternehmensberatung mit klarem Blick auf Markt, Struktur und Alltag.</p>
+        </div>
+        <div>
+          <p class="footer__nav-title">Navigation</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ablauf.html">Ablauf</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__nav-title">Leistungen</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="leistungen.html#gruendung">Gründungsberatung</a></li>
+            <li><a href="leistungen.html#avgs">AVGS-Gründercoaching</a></li>
+            <li><a href="leistungen.html#krise">Krisenberatung</a></li>
+            <li><a href="leistungen.html#businessplan">Businessplan</a></li>
+            <li><a href="leistungen.html#aufenthaltsrecht">Aufenthaltsrecht</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__nav-title">Kontakt</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 VZ Concept – Coaching &amp; Consulting UG</p>
+        <nav class="footer__legal" aria-label="Rechtliche Links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll to Buchung section when anchor links clicked
+    document.querySelectorAll('a[href="#buchung"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector('.eg-hero');
+        if (target) {
+          var navHeight = document.querySelector('.nav') ? document.querySelector('.nav').offsetHeight : 80;
+          window.scrollTo({ top: target.offsetTop - navHeight, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
+

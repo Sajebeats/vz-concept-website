@@ -1,0 +1,944 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VZ Concept – Gründungsberatung und Unternehmensberatung. Klare Einschätzungen, belastbare Entscheidungen und realistische Strukturen mit 16 Jahren eigener unternehmerischer Erfahrung.">
+  <meta name="robots" content="index, follow">
+  <title>VZ Concept – Gründungsberatung & Unternehmensberatung | Vanessa Zimmer</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.vz-concept.de/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VZ Concept – Gründungsberatung mit echter Unternehmerinnenerfahrung">
+  <meta property="og:description" content="Ich berate Gründer:innen und Unternehmen mit klaren Einschätzungen – nicht theoretisch, sondern aus 16 Jahren eigener unternehmerischer Erfahrung.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vz-concept.de/">
+  <meta property="og:image" content="assets/images/vanessa/vanessa-hero-schwarz.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon (Platzhalter – gegen eigenes Favicon ersetzen) -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <style>
+    /* ── Seitenspezifische Ergänzungen ── */
+
+    /* Branchen-Tags */
+    .branche-strip {
+      background: var(--color-accent-light);
+      border-top: 1px solid var(--color-accent-mid);
+      border-bottom: 1px solid var(--color-accent-mid);
+      padding-block: var(--space-sm);
+      overflow: hidden;
+    }
+
+    .branche-strip__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .branche-strip__dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    /* Differenzierung-Box */
+    .diff-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+
+    .diff-box__col {
+      padding: var(--space-xl);
+      background: var(--color-white);
+    }
+
+    .diff-box__col--dark {
+      background: var(--color-primary);
+    }
+
+    .diff-box__label {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .diff-box__col .diff-box__label {
+      color: var(--color-text-muted);
+    }
+
+    .diff-box__col--dark .diff-box__label {
+      color: var(--color-accent);
+    }
+
+    .diff-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: var(--fs-sm);
+      padding-block: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+      line-height: 1.45;
+      color: var(--color-text-muted);
+    }
+
+    .diff-list li:last-child { border-bottom: none; }
+
+    .diff-box__col--dark .diff-list li {
+      color: rgba(255,255,255,0.75);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .diff-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Kennzahlen-Band */
+    .kpi-band {
+      background: var(--color-primary);
+      padding-block: var(--space-2xl);
+    }
+
+    @media (max-width: 768px) {
+      .diff-box {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav__inner">
+
+        <!-- Logo: weiß (auf Hero) + farbig (gescrollt) -->
+        <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite">
+          <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white">
+          <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color">
+        </a>
+
+        <!-- Desktop-Menü -->
+        <ul class="nav__menu" role="list">
+          <li><a href="ueber-mich.html" class="nav__link">Über mich</a></li>
+        <li class="nav__item--dropdown">
+          <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Leistungen
+            <svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+            <li><a href="leistungen.html#gruendung" class="nav__dropdown-link">
+              <strong>Gründungs- &amp; Entscheidungsbegleitung</strong>
+              <span>Ich will gründen – aber nicht blind starten</span>
+            </a></li>
+            <li><a href="leistungen.html#avgs" class="nav__dropdown-link">
+              <strong>AVGS-Gründercoaching</strong>
+              <span>Geförderte Gründung realistisch vorbereiten</span>
+            </a></li>
+            <li><a href="leistungen.html#krise" class="nav__dropdown-link">
+              <strong>Krisen- &amp; Neuaufstellung</strong>
+              <span>Mein Unternehmen steht unter Druck</span>
+            </a></li>
+            <li><a href="leistungen.html#struktur" class="nav__dropdown-link">
+              <strong>Struktur &amp; Unternehmensentwicklung</strong>
+              <span>Es läuft – aber intern funktioniert es nicht sauber</span>
+            </a></li>
+            <li><a href="leistungen.html#b2b" class="nav__dropdown-link">
+              <strong>B2B &amp; Unternehmerkompetenz</strong>
+              <span>Ich will wachsen, habe aber kein Vertriebssystem</span>
+            </a></li>
+            <li><a href="leistungen.html#businessplan" class="nav__dropdown-link">
+              <strong>Businessplan-Service</strong>
+              <span>Für Bank, Investor oder Ausländerbehörde</span>
+            </a></li>
+            <li class="nav__dropdown-divider"></li>
+            <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen →</a></li>
+          </ul>
+        </li>
+          <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+          <li><a href="partner.html" class="nav__link">Partner</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <div class="nav__cta">
+          <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespräch buchen
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <header class="hero" id="hero">
+    <div class="container">
+      <div class="hero__inner">
+
+        <!-- Linke Seite: Text -->
+        <div class="hero__content">
+
+          <div class="hero__eyebrow">
+            Gründungs- &amp; Unternehmensberatung
+          </div>
+
+          <!-- ERA: Emotion → Realität → Aktion -->
+          <h1 class="hero__title">
+            Gründung braucht mehr als eine gute Idee.<br>
+            <span class="line-accent">Sie muss im Markt funktionieren.</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            Du bekommst eine klare Prüfung deiner Geschäftsidee, deines Marktes und
+            deiner Zahlen. Wir klären, ob dein Vorhaben wirtschaftlich Sinn ergibt,
+            welche Risiken du kennen musst und welche nächsten Schritte nötig sind –
+            von Gründung und AVGS bis Businessplan, Struktur oder Neuaufstellung.
+          </p>
+
+          <div class="hero__cta">
+            <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Erstgespräch buchen
+            </a>
+            <a href="#zielgruppen" class="btn btn--outline-white">
+              Passt das zu deiner Situation?
+            </a>
+          </div>
+
+          <p class="hero__cta-note">
+            Du musst noch keine fertige Entscheidung mitbringen. Wir klären zuerst, wo du stehst und welcher nächste Schritt sinnvoll ist.
+          </p>
+
+          <div class="hero__proof-list" aria-label="Schnelle Orientierung">
+            <a href="ueber-mich.html#story-title" class="hero__proof-item" aria-label="Mehr über Vanessas Unternehmerinnenerfahrung lesen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              16 Jahre Unternehmerinnenerfahrung
+            </a>
+            <a href="leistungen.html#gruendung" class="hero__proof-item" aria-label="Gründungs-Check ansehen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
+              Gründer-Check
+            </a>
+            <a href="leistungen.html#avgs" class="hero__proof-item" aria-label="Informationen zum AVGS-Gründercoaching ansehen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+              AVGS möglich
+            </a>
+            <a href="leistungen.html#avgs" class="hero__proof-item" aria-label="Fördermöglichkeiten im AVGS-Kontext prüfen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Förder-Check
+            </a>
+            <a href="leistungen.html#krise" class="hero__proof-item" aria-label="Krisen-Check ansehen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Krisen-Check
+            </a>
+            <a href="assets/downloads/avgs-information-gruendercoaching.pdf" class="hero__proof-item" target="_blank" rel="noopener" aria-label="AVGS-Information zum Gründercoaching als PDF öffnen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download
+            </a>
+          </div>
+
+        </div><!-- /hero__content -->
+
+        <!-- Rechte Seite: Foto -->
+        <div class="hero__image" aria-hidden="true">
+          <div class="hero__image-wrap">
+            <img src="assets/images/vanessa/vanessa-hero-main.png" alt="Vanessa Zimmer – Gründungsberaterin und Unternehmensberaterin">
+          </div>
+        </div><!-- /hero__image -->
+
+      </div>
+    </div>
+
+    <!-- Scroll-Indikator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════
+       PARTNER
+  ════════════════════════════════════════ -->
+  <section class="partner-teaser" aria-labelledby="partner-teaser-title">
+    <div class="container">
+      <div class="partner-teaser__inner">
+        <p class="partner-teaser__kicker">Partner &amp; Netzwerk</p>
+        <h2 class="partner-teaser__title" id="partner-teaser-title">Ausgew&auml;hlte Partner von VZ Concept</h2>
+
+        <div class="partner-marquee" aria-label="Ausgewählte Partner und Netzwerke">
+          <div class="partner-marquee__track">
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/siegel-gruenderinnenzentrale.png" alt="Gründerinnenzentrale">
+              <span>Gr&uuml;nderinnenzentrale</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/erfolgspfad-coaching-partner.png" alt="Erfolgspfad">
+              <span>Erfolgspfad</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/vital-kosmetikakademie.jpg" alt="Vital Kosmetikakademie">
+              <span>Vital Kosmetikakademie</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/gruenderplattform-weiss.png" alt="Gründerplattform">
+              <span>Gr&uuml;nderplattform</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/siegel-gruenderinnenzentrale.png" alt="">
+              <span>Gr&uuml;nderinnenzentrale</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/erfolgspfad-coaching-partner.png" alt="">
+              <span>Erfolgspfad</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/vital-kosmetikakademie.jpg" alt="">
+              <span>Vital Kosmetikakademie</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/gruenderplattform-weiss.png" alt="">
+              <span>Gr&uuml;nderplattform</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="partner.html" class="partner-teaser__link">Partner &amp; Netzwerk ansehen</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       ZIELGRUPPEN
+  ════════════════════════════════════════ -->
+  <section class="section zielgruppen" id="zielgruppen" aria-labelledby="zg-title">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-label">Für wen ich arbeite</p>
+        <h2 class="section-title" id="zg-title">Erkennst du dich wieder?</h2>
+        <p class="section-subtitle">Ich arbeite mit Menschen und Unternehmen in unternehmerischen Übergangs-, Wachstums- und Belastungssituationen – dort, wo Entscheidungen anfallen und wirtschaftliche Klarheit gefragt ist.</p>
+      </div>
+
+      <div class="grid-3">
+
+        <article class="zielgruppe-card">
+          <p class="zielgruppe-card__num">01 · Gründer:innen</p>
+          <h3 class="zielgruppe-card__title">Du willst gründen – aber nicht blind starten.</h3>
+          <p class="zielgruppe-card__desc">Du hast eine Idee und vielleicht schon erste Schritte gemacht. Aber dir fehlt eine ehrliche Einschätzung dazu, ob das Vorhaben unter realen Bedingungen sinnvoll ist. Genau dort setze ich an.</p>
+          <div class="zielgruppe-card__tags" aria-label="Schlagworte">
+            <span class="tag">Businessplan</span>
+            <span class="tag">Einschätzung</span>
+            <span class="tag">Orientierung</span>
+          </div>
+        </article>
+
+        <article class="zielgruppe-card">
+          <p class="zielgruppe-card__num">02 · Selbstständige</p>
+          <h3 class="zielgruppe-card__title">Dein Unternehmen läuft – aber intern funktioniert es nicht sauber.</h3>
+          <p class="zielgruppe-card__desc">Du trägst zu viel allein, Entscheidungen bleiben liegen und trotz Einsatz entsteht kein sauberes System. Ich helfe dir, Unklarheit und Überforderung wieder in eine steuerbare Struktur zu bringen.</p>
+          <div class="zielgruppe-card__tags" aria-label="Schlagworte">
+            <span class="tag">Struktur</span>
+            <span class="tag">Überblick</span>
+            <span class="tag">Neuordnung</span>
+          </div>
+        </article>
+
+        <article class="zielgruppe-card">
+          <p class="zielgruppe-card__num">03 · Unternehmen in der Krise</p>
+          <h3 class="zielgruppe-card__title">Du stehst unter Druck und musst neu entscheiden.</h3>
+          <p class="zielgruppe-card__desc">Wenn Schieflage, Erschöpfung, Unsicherheit oder Exit-Gedanken im Raum stehen, braucht es einen klaren Blick auf die Situation, echte Optionen und einen Weg, der verantwortbar ist.</p>
+          <div class="zielgruppe-card__tags" aria-label="Schlagworte">
+            <span class="tag">Krise</span>
+            <span class="tag">Neuentscheidung</span>
+            <span class="tag">Exit</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-xl">
+        <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Jetzt Erstgespräch vereinbaren
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       BERATUNGSBILD
+  ════════════════════════════════════════ -->
+  <section class="beratung-strip" aria-label="Einblick in die Arbeitsweise">
+    <div class="container">
+      <div class="beratung-strip__inner">
+
+        <div class="beratung-strip__image">
+          <img
+            src="assets/images/vanessa/vanessa-telefon.jpg"
+            alt="Vanessa Zimmer – Unternehmensberaterin in der Praxis"
+            loading="lazy"
+          >
+        </div>
+
+        <div class="beratung-strip__content">
+          <p class="beratung-strip__label">Meine Arbeitsweise</p>
+          <blockquote class="beratung-strip__quote">
+            Ich kenne die Situationen, über die wir sprechen – nicht aus Lehrbüchern, sondern weil ich selbst mittendrin war. Mit Personal, Investitionen, wirtschaftlichem Druck und Entscheidungen, die nicht angenehm, aber notwendig waren.
+          </blockquote>
+          <p class="beratung-strip__author">Vanessa Zimmer, Inhaberin VZ Concept</p>
+
+          <div class="beratung-strip__facts">
+            <div>
+              <span class="beratung-strip__fact-num">16+</span>
+              <span class="beratung-strip__fact-label">Jahre eigene unternehmerische Verantwortung</span>
+            </div>
+            <div>
+              <span class="beratung-strip__fact-num">600 qm</span>
+              <span class="beratung-strip__fact-label">Betrieb eigenständig aufgebaut &amp; geführt</span>
+            </div>
+            <div>
+              <span class="beratung-strip__fact-num">AEVO</span>
+              <span class="beratung-strip__fact-label">Zertifizierte Ausbilderin &amp; Betriebswirtin</span>
+            </div>
+            <div>
+              <span class="beratung-strip__fact-num">IHK</span>
+              <span class="beratung-strip__fact-label">Geprüfte Qualifikation für Gründungsberatung</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       LEISTUNGS-ÜBERSICHT
+  ════════════════════════════════════════ -->
+  <section class="section section--off-white" id="leistungen-uebersicht" aria-labelledby="ls-title">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-label">Meine Leistungen</p>
+        <h2 class="section-title" id="ls-title">Unterstützung, die zur Situation passt.</h2>
+        <p class="section-subtitle">Meine Leistungen sind nicht nach interner Logik aufgebaut, sondern danach, wo du gerade stehst und was als Nächstes geklärt werden muss.</p>
+      </div>
+
+      <div class="grid-2">
+
+        <!-- Gründung & Entscheidung -->
+        <article class="service-card">
+          <div class="service-card__header">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
+            </div>
+            <h3 class="service-card__title">Gründung &amp; Entscheidung</h3>
+            <p class="service-card__zielgruppe">Für Menschen, die gründen wollen – aber mit klarer Einschätzung</p>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__usp">
+              Ich helfe dir, ein Vorhaben nicht nur zu formulieren, sondern realistisch zu prüfen: in Markt, Zahlen, Alltag und Entscheidung. Damit du nicht mit einer Idee startest, sondern mit Klarheit.
+            </p>
+            <span class="service-card__foerderung">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Zusammenarbeit je nach Ausgangslage auch im Trägerkontext möglich
+            </span>
+            <a href="leistungen.html#gruendung" class="service-card__link">
+              Details ansehen
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Krise & Neuaufstellung -->
+        <article class="service-card">
+          <div class="service-card__header">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="service-card__title">Krisen- &amp; Neuaufstellungsberatung</h3>
+            <p class="service-card__zielgruppe">Für Selbstständige und Unternehmen in Druck- und Umbruchphasen</p>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__usp">
+              Wenn etwas kippt, reicht Durchhalten allein nicht mehr. Ich arbeite mit dir an Einordnung, Stabilisierung und den Entscheidungen, die in schwierigen Phasen wirklich tragen müssen.
+            </p>
+            <span class="service-card__foerderung">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Förderkontexte werden individuell geprüft
+            </span>
+            <a href="leistungen.html#krise" class="service-card__link">
+              Details ansehen
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- B2B & Unternehmerkompetenz -->
+        <article class="service-card">
+          <div class="service-card__header">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h3 class="service-card__title">B2B &amp; Unternehmerkompetenz</h3>
+            <p class="service-card__zielgruppe">Für Träger, Institutionen, Akademien und Kooperationspartner</p>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__usp">
+              Ich bringe unternehmerische Einschätzung in Kontexte ein, in denen Menschen auf dem Weg in Selbstständigkeit oder Neuorientierung realistisch begleitet werden müssen.
+            </p>
+            <a href="leistungen.html#b2b" class="service-card__link">
+              Details ansehen
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Struktur & Unternehmensentwicklung -->
+        <article class="service-card">
+          <div class="service-card__header">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+            <h3 class="service-card__title">Struktur &amp; Unternehmensentwicklung</h3>
+            <p class="service-card__zielgruppe">Für kleine Betriebe, die intern wieder steuerbar werden müssen</p>
+          </div>
+          <div class="service-card__body">
+            <p class="service-card__usp">
+              Viele Unternehmen wirken nach außen stabil, funktionieren intern aber nur über Dauerbelastung. Ich helfe dir, Verantwortung, Abläufe und Struktur wieder so aufzubauen, dass Entwicklung möglich wird.
+            </p>
+            <span class="service-card__foerderung">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Förderkontexte werden individuell geprüft
+            </span>
+            <a href="leistungen.html#struktur" class="service-card__link">
+              Details ansehen
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-xl">
+        <a href="leistungen.html" class="btn btn--outline">
+          Alle Leistungen im Überblick
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       POSITIONIERUNG
+  ════════════════════════════════════════ -->
+  <section class="section positioning" id="positionierung" aria-labelledby="pos-title">
+    <div class="container">
+      <div class="positioning__inner">
+
+        <!-- Zitat-Box -->
+        <div class="positioning__quote" aria-label="Kernaussage">
+          <span class="positioning__quote-mark" aria-hidden="true">"</span>
+          <p class="positioning__quote-text">
+            Meine unternehmerische Laufbahn begann nicht im Seminarraum, sondern auf einer Baustelle. Ich habe selbst aufgebaut, geführt, investiert, Krisen durchlebt und Restrukturierungen umgesetzt.
+          </p>
+          <p class="positioning__quote-author">— Vanessa Zimmer, VZ Concept</p>
+        </div>
+
+        <!-- Text -->
+        <div class="positioning__text">
+          <p class="section-label">Wofür ich stehe</p>
+          <h2 class="section-title" id="pos-title">
+            Klarheit für Situationen, in denen Entscheidungen Folgen haben.
+          </h2>
+          <p>
+            Ich arbeite mit Gründer:innen, Selbstständigen und kleinen Unternehmen, wenn etwas nicht mehr nur mit Fleiß, Hoffnung oder Bauchgefühl lösbar ist.
+          </p>
+          <p>
+            Meine Stärke liegt darin, Situationen ruhig einzuordnen, wirtschaftliche Realität sichtbar zu machen und mit dir Entscheidungen vorzubereiten, die unter echten Bedingungen bestehen können.
+          </p>
+
+          <div class="positioning__pillars" role="list">
+            <div class="pillar" role="listitem">
+              <div class="pillar__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <p class="pillar__title">Wirtschaftliche Realität prüfen</p>
+                <p class="pillar__desc">Nicht jede Idee, jeder Weg und nicht jede Fortsetzung ist sinnvoll. Ich helfe dir, das früh und klar zu erkennen.</p>
+              </div>
+            </div>
+            <div class="pillar" role="listitem">
+              <div class="pillar__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <p class="pillar__title">Klare Entscheidungen treffen</p>
+                <p class="pillar__desc">Wenn Druck, Verantwortung und Unsicherheit zusammenkommen, braucht es keine Parolen, sondern Orientierung und eine belastbare Entscheidung.</p>
+              </div>
+            </div>
+            <div class="pillar" role="listitem">
+              <div class="pillar__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <div>
+                <p class="pillar__title">Stabile Strukturen aufbauen</p>
+                <p class="pillar__desc">Ich übersetze Chaos, Überforderung und operative Unklarheit in Strukturen, mit denen wieder geführt und entschieden werden kann.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="ueber-mich.html" class="btn btn--ghost">
+            Mehr über mich &amp; meinen Ansatz
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       BRANCHEN-STRIP
+  ════════════════════════════════════════ -->
+  <div class="branche-strip" aria-label="Branchenexpertise">
+    <div class="container">
+      <div class="branche-strip__inner">
+        <span>Besondere Expertise in:</span>
+        <span class="branche-strip__dot" aria-hidden="true"></span>
+        <span>Gesundheit</span>
+        <span class="branche-strip__dot" aria-hidden="true"></span>
+        <span>Beauty &amp; Wellness</span>
+        <span class="branche-strip__dot" aria-hidden="true"></span>
+        <span>Pflege</span>
+        <span class="branche-strip__dot" aria-hidden="true"></span>
+        <span>Dienstleistung</span>
+        <span class="branche-strip__dot" aria-hidden="true"></span>
+        <span>Personenbezogene Berufe</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       ÜBER MICH PREVIEW
+  ════════════════════════════════════════ -->
+  <section class="about-preview section" id="ueber-mich-teaser" aria-labelledby="about-title">
+    <div class="container">
+
+      <div class="about-preview__text-block">
+        <p class="section-label section-label--light">Über mich</p>
+        <h2 class="about-preview__title" id="about-title">
+          Vanessa Zimmer –<br>
+          <span class="script-text" style="font-size:1.15em; color: var(--color-accent);">Erfahrung, die Verantwortung kennt.</span>
+        </h2>
+        <p class="about-preview__story">
+          Ich habe selbst aufgebaut, geführt, entschieden und getragen. Nicht als Beobachterin, sondern in eigener Verantwortung: mit Personal, Investitionen, wirtschaftlichem Druck und den Phasen, in denen Entscheidungen nicht angenehm, aber notwendig sind.
+        </p>
+        <p class="about-preview__story">
+          Genau deshalb erkenne ich heute schneller, wo etwas nur nach außen funktioniert, wo Zahlen täuschen und wo Klarheit fehlt. Meine Beratung entsteht nicht aus Theorie, sondern aus unternehmerischer Realität.
+        </p>
+        <a href="ueber-mich.html" class="btn btn--outline-white">
+          Mehr über meinen Hintergrund
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="about-preview__facts" role="list">
+        <div class="fact" role="listitem">
+          <span class="fact__num">16+</span>
+          <span class="fact__label">Jahre unternehmerische Verantwortung</span>
+        </div>
+        <div class="fact" role="listitem">
+          <span class="fact__num">600 qm</span>
+          <span class="fact__label">Betrieb eigenständig aufgebaut &amp; geführt</span>
+        </div>
+        <div class="fact" role="listitem">
+          <span class="fact__num">AEVO · IHK</span>
+          <span class="fact__label">Zertifizierte Ausbilderin &amp; geprüfte Beraterin</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       NICHT THEORETISCH – DIFFERENZIERUNG
+  ════════════════════════════════════════ -->
+  <section class="section" id="differenzierung" aria-labelledby="diff-title">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-label">Was mich unterscheidet</p>
+        <h2 class="section-title" id="diff-title">Ich arbeite nicht an schönen Antworten, sondern an klaren Entscheidungen.</h2>
+        <p class="section-subtitle" style="margin-inline:auto;">Viele Beratungen bleiben auf der Ebene von Zuspruch, Modellen oder Ideen. Meine Arbeit beginnt dort, wo Verantwortung, wirtschaftliche Realität und echte Konsequenzen zusammenkommen.</p>
+      </div>
+
+      <div class="diff-box" style="max-width:820px; margin:0 auto;" role="table" aria-label="Vergleich: Andere vs. VZ Concept">
+        <div class="diff-box__col" role="rowgroup">
+          <p class="diff-box__label" role="columnheader">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Häufige Beratung
+          </p>
+          <ul class="diff-list" role="list">
+            <li>Viel Begleitung, aber wenig echte Einordnung der wirtschaftlichen Lage</li>
+            <li>Richtungen werden offen gehalten, obwohl eine klare Entscheidung nötig wäre</li>
+            <li>Modelle und Methoden stehen vor der konkreten Situation</li>
+            <li>Allgemeine Sprache statt operativer und unternehmerischer Realität</li>
+            <li>Ideen wirken gut – halten aber dem Alltag oft nicht stand</li>
+          </ul>
+        </div>
+        <div class="diff-box__col diff-box__col--dark" role="rowgroup">
+          <p class="diff-box__label" role="columnheader">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            VZ Concept
+          </p>
+          <ul class="diff-list" role="list">
+            <li>16 Jahre eigene Verantwortung in Aufbau, Führung, Druck- und Umbruchphasen</li>
+            <li>Ruhige, klare Einschätzung – auch dann, wenn sie unbequem ist</li>
+            <li>Starker Bezug zu personenbezogenen Branchen und kleinen Betrieben</li>
+            <li>Sprache von Struktur, Zahlen, Verantwortung und Entscheidung</li>
+            <li>Fokus auf das, was unter realen Bedingungen im Markt und Alltag funktioniert</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       TESTIMONIALS (Platzhalter)
+  ════════════════════════════════════════ -->
+  <section class="section section--accent-light" id="testimonials" aria-labelledby="test-title">
+    <div class="container">
+      <div class="section-header text-center">
+        <p class="section-label">Stimmen aus der Zusammenarbeit</p>
+        <h2 class="section-title" id="test-title">Was sich nach der Zusammenarbeit verändert hat</h2>
+      </div>
+
+      <div class="grid-3">
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-label="5 von 5 Sternen">
+            ★★★★★
+          </div>
+          <p class="testimonial-card__text">
+            „Ich war an einem Punkt, an dem ich nicht wusste, ob mein Geschäftsmodell überhaupt so weiter Sinn ergibt. Vanessa hat sehr schnell herausgearbeitet, worauf ich wirklich schauen muss. Danach war klar, was ich verändern muss und was ich lassen sollte.“
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">S.M.</div>
+            <div>
+              <span class="testimonial-card__name">S. Müller</span>
+              <span class="testimonial-card__role">Inhaberin eines Kosmetikstudios</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-label="5 von 5 Sternen">
+            ★★★★★
+          </div>
+          <p class="testimonial-card__text">
+            „Ich stand wirtschaftlich und persönlich stark unter Druck. Was mir geholfen hat, war nicht Zuspruch, sondern dass Vanessa die Situation ruhig eingeordnet und mit mir echte Optionen sortiert hat. Dadurch konnte ich wieder handlungsfähig werden.“
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">T.K.</div>
+            <div>
+              <span class="testimonial-card__name">T. Krause</span>
+              <span class="testimonial-card__role">Inhaber eines Pflegedienstes</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-label="5 von 5 Sternen">
+            ★★★★★
+          </div>
+          <p class="testimonial-card__text">
+            „Für mein Vorhaben musste ein Businessplan nicht nur vollständig, sondern auch nachvollziehbar und überzeugend sein. Vanessa hat die wirtschaftliche Logik sauber aufgebaut und den Prozess professionell begleitet. Das hat mir Sicherheit gegeben.“
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">A.L.</div>
+            <div>
+              <span class="testimonial-card__name">A. Lindner</span>
+              <span class="testimonial-card__role">Selbstständig im Bereich Wellness &amp; Health</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p style="text-align:center; font-size:var(--fs-xs); color:var(--color-text-light); margin-top:var(--space-md);">
+        * Testimonials sind Platzhalter. Bitte durch echte Kundenstimmen ersetzen.
+      </p>
+
+      <div class="text-center mt-lg">
+        <a href="referenzen.html" class="btn btn--outline">Alle Stimmen ansehen</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       CTA – ABSCHLUSS
+  ════════════════════════════════════════ -->
+  <section class="cta-section section" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-section__inner">
+        <p class="section-label section-label--light">Nächster Schritt</p>
+        <h2 class="cta-section__title" id="cta-title">
+          Lass uns gemeinsam einordnen,<br>was gerade wirklich ansteht.
+        </h2>
+        <p class="cta-section__text">
+          Im Erstgespräch geht es nicht um Druck, sondern um eine erste klare Einschätzung. Wir schauen gemeinsam auf deine Situation, sortieren die offenen Punkte und klären, ob und in welcher Form eine Zusammenarbeit sinnvoll ist.
+        </p>
+        <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Erstgespräch buchen
+        </a>
+        <p class="cta-section__note">Unverbindlich · Klar · Ohne Vertriebsdruck</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logo-white.png" alt="VZ Concept Logo">
+          </div>
+          <p class="footer__tagline">
+            Gründungs- und Unternehmensberatung für Vorhaben, die im Markt und im Alltag bestehen sollen.
+          </p>
+          <div class="footer__social" aria-label="Social Media">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="footer__nav-title">Navigation</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ablauf.html">Ablauf</a></li>
+            <li><a href="referenzen.html">Stimmen</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Leistungen -->
+        <div>
+          <p class="footer__nav-title">Leistungen</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="leistungen.html#gruendung">Gründungsberatung</a></li>
+            <li><a href="leistungen.html#avgs">AVGS-Gründercoaching</a></li>
+            <li><a href="leistungen.html#krise">Krisenberatung</a></li>
+            <li><a href="leistungen.html#businessplan">Businessplan-Service</a></li>
+            <li><a href="leistungen.html#aufenthaltsrecht">Aufenthaltsrecht</a></li>
+            <li><a href="leistungen.html#b2b">B2B / Assessment</a></li>
+            <li><a href="leistungen.html#struktur">Struktur &amp; Unternehmensentwicklung</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontakt -->
+        <div>
+          <p class="footer__nav-title">Kontakt</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+            <li><a href="tel:+4915254596585">+49 152 54596585</a></li>
+            <li><a href="https://www.vz-concept.de" target="_blank" rel="noopener">www.vz-concept.de</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 VZ Concept – Coaching &amp; Consulting UG · Alle Rechte vorbehalten
+        </p>
+        <nav class="footer__legal" aria-label="Rechtliche Links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Häufige Fragen zur Gründungsberatung, Unternehmensberatung und Krisenberatung bei VZ Concept – Vanessa Zimmer. AVGS, Businessplan, Ablauf & mehr.">
+  <title>FAQ – VZ Concept | Vanessa Zimmer</title>
+  <link rel="canonical" href="https://www.vz-concept.de/faq.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <style>
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .faq-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite">
+          <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white">
+          <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color">
+        </a>
+        <ul class="nav__menu" role="list">
+          <li><a href="ueber-mich.html" class="nav__link">Über mich</a></li>
+        <li class="nav__item--dropdown">
+          <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Leistungen
+            <svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+            <li><a href="leistungen.html#gruendung" class="nav__dropdown-link">
+              <strong>Gründungs- &amp; Entscheidungsbegleitung</strong>
+              <span>Ich will gründen – aber nicht blind starten</span>
+            </a></li>
+            <li><a href="leistungen.html#avgs" class="nav__dropdown-link">
+              <strong>AVGS-Gründercoaching</strong>
+              <span>Geförderte Gründung realistisch vorbereiten</span>
+            </a></li>
+            <li><a href="leistungen.html#krise" class="nav__dropdown-link">
+              <strong>Krisen- &amp; Neuaufstellung</strong>
+              <span>Mein Unternehmen steht unter Druck</span>
+            </a></li>
+            <li><a href="leistungen.html#struktur" class="nav__dropdown-link">
+              <strong>Struktur &amp; Unternehmensentwicklung</strong>
+              <span>Es läuft – aber intern funktioniert es nicht sauber</span>
+            </a></li>
+            <li><a href="leistungen.html#b2b" class="nav__dropdown-link">
+              <strong>B2B &amp; Unternehmerkompetenz</strong>
+              <span>Ich will wachsen, habe aber kein Vertriebssystem</span>
+            </a></li>
+            <li><a href="leistungen.html#businessplan" class="nav__dropdown-link">
+              <strong>Businessplan-Service</strong>
+              <span>Für Bank, Investor oder Ausländerbehörde</span>
+            </a></li>
+            <li class="nav__dropdown-divider"></li>
+            <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen →</a></li>
+          </ul>
+        </li>
+          <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+          <li><a href="faq.html" class="nav__link active">FAQ</a></li>
+          <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+          <li><a href="partner.html" class="nav__link">Partner</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespräch buchen
+          </a>
+        </div>
+        <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Brotkrumen">
+        <a href="index.html">Startseite</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>FAQ</span>
+      </nav>
+      <div class="page-hero__inner">
+        <p class="section-label section-label--light">Häufige Fragen</p>
+        <h1 class="page-hero__title" id="page-title">Klare Antworten, bevor du entscheidest.</h1>
+        <p class="page-hero__subtitle">Hier findest du Antworten auf die Fragen, die vor einer Gründung, Beratung oder Zusammenarbeit oft offen sind.</p>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- FAQ-INHALT -->
+  <section class="section" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="faq-layout">
+
+        <!-- FAQ-Liste -->
+        <div>
+
+          <!-- ── Gründung & Entscheidung ── -->
+          <h2 style="font-size: var(--fs-xl); color: var(--color-primary); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-accent);" id="faq-gruendung">Gründung &amp; Entscheidung</h2>
+
+          <div role="list" aria-label="FAQ Gründung und Entscheidung">
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Ich will gründen – woher weiß ich, ob meine Idee wirtschaftlich funktioniert?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Genau das ist der erste Schritt der Beratung: Wir prüfen deine Idee nicht nach dem Bauchgefühl, sondern anhand wirtschaftlicher Kennzahlen – Kalkulation, Marktumfeld, Kostenstruktur, realistisches Kundenvolumen. Das Ergebnis: eine ehrliche Einschätzung, die dir zeigt, ob und unter welchen Bedingungen das Vorhaben funktionieren kann. Keine Beschönigung, kein Druck – sondern Klarheit.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was ist der Unterschied zwischen Gründungsberatung und einem Businessplan?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Gründungsberatung ist der umfassendere Prozess: Wir erarbeiten gemeinsam, ob und wie dein Vorhaben funktioniert – welche Struktur, welche Strategie, welches Angebot. Ein Businessplan ist ein konkretes Dokument (für Banken, Investoren oder Behörden), das ich auf Basis einer soliden inhaltlichen Grundlage erstelle. Beide Leistungen biete ich an – separat oder kombiniert.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Wann ist der richtige Zeitpunkt, eine Beratung zu starten?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                So früh wie möglich – bevor größere Investitionen getroffen werden. Viele kommen erst, wenn sie schon mitten im Prozess stecken. Das geht auch, kostet aber mehr Aufwand. Ideal: Du hast eine konkrete Idee und weißt noch nicht, ob sie im Markt und Alltag funktioniert. Dann ist der Moment für ein erstes Gespräch da.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Schreibe ich den Businessplan für mich – oder arbeiten wir zusammen?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Das kommt auf dein Anliegen und deine Kapazität an. Ich biete beides: vollständige Erstellung (du lieferst mir die Grunddaten, ich erarbeite den Plan) sowie begleitende Unterstützung, bei der du den Plan selbst entwickelst und ich dir Feedback, Struktur und wirtschaftliche Schärfe gebe. Im Erstgespräch besprechen wir, was für dich sinnvoller ist.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Wie lange dauert die Erstellung eines Businessplans?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Typischerweise 2–4 Wochen, abhängig von Komplexität und deiner Mitwirkung. Dringende Businesspläne – z. B. für aufenthaltsrechtliche Verfahren oder kurzfristige Bankgespräche – können wir je nach Verfügbarkeit auch schneller umsetzen. Sprich den Zeitrahmen bitte direkt im Erstgespräch an.
+              </div>
+            </div>
+
+          </div><!-- /Gründung -->
+
+
+          <!-- ── Krise & Neuaufstellung ── -->
+          <h2 style="font-size: var(--fs-xl); color: var(--color-primary); margin-top: var(--space-2xl); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-accent);" id="faq-krise">Krise &amp; Neuaufstellung</h2>
+
+          <div role="list" aria-label="FAQ Krisenberatung">
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Woran erkenne ich, dass mein Unternehmen in der Krise ist?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Typische Zeichen: Die Liquidität wird enger, Rechnungen werden später bezahlt, du arbeitest mehr – aber verdienst nicht mehr. Du weißt, dass etwas nicht stimmt, aber nicht genau was. Oder du weißt es und willst es nicht wahrhaben. Wenn eines dieser Muster zutrifft, ist der richtige Zeitpunkt für ein offenes Gespräch – jetzt, nicht in drei Monaten.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was ist, wenn ich in einer akuten Unternehmenskrise stecke?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Dann ist jetzt der richtige Moment – nicht später. Je früher Klarheit entsteht, desto mehr Handlungsoptionen bleiben offen. Im Erstgespräch schauen wir gemeinsam, was die Situation ist, was die echten Engpässe sind – und was realistisch möglich ist. Ich arbeite in Krisen mit vollem Fokus auf Klarheit, Optionen und belastbare Entscheidungen.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Hilfst du auch bei Exit-Strategien und Unternehmensauflösung?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Ja. Exit-Beratung ist ein fester Bestandteil meiner Krisenarbeit. Ein Exit ist keine Niederlage – er kann die wirtschaftlich klügste Entscheidung sein. Ich helfe dir, alle Optionen zu verstehen: Restrukturierung, Verkauf, geordnete Auflösung oder Neustart. Ohne Schönreden – mit Klarheit.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Arbeitest du auch mit einem Rechtsanwalt zusammen?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Ja. In Krisensituationen, die rechtliche Dimensionen berühren – z. B. Vertragsauflösungen, Haftungsfragen oder Insolvenzumfeld – kooperiere ich mit einem Rechtsanwalt meines Netzwerks. So bekommst du wirtschaftliche und rechtliche Einschätzungen aus einer Hand, ohne selbst mehrere Stellen koordinieren zu müssen.
+              </div>
+            </div>
+
+          </div><!-- /Krise -->
+
+
+          <!-- ── Struktur & Unternehmensentwicklung ── -->
+          <h2 style="font-size: var(--fs-xl); color: var(--color-primary); margin-top: var(--space-2xl); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-accent);" id="faq-struktur">Struktur &amp; Unternehmensentwicklung</h2>
+
+          <div role="list" aria-label="FAQ Strukturberatung">
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Mein Betrieb läuft – aber alles hängt an mir. Was kann ich dagegen tun?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Das ist ein klassisches Skalierungsproblem: Das Unternehmen ist von einer Person abhängig, ohne klare Strukturen, Abläufe oder Verantwortlichkeiten. Ich analysiere, wo die operative Abhängigkeit entsteht, und erarbeite mit dir Schritt für Schritt, wie dein Betrieb stabiler, steuerbarer und weniger personengebunden wird.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was bedeutet Strukturberatung konkret – was passiert in der Zusammenarbeit?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Wir beginnen mit einer Bestandsaufnahme: Wie ist dein Unternehmen aufgestellt? Wo verlierst du Zeit, Geld oder Qualität? Was fehlt – Prozesse, Zuständigkeiten, Kennzahlen? Daraus entsteht ein konkreter Maßnahmenplan. Ich begleite die Umsetzung, gebe Feedback und bin Ansprechpartnerin für Entscheidungen auf dem Weg.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Für wie lange und wie intensiv sollte die Zusammenarbeit sein?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Das ist sehr individuell. Manche Themen lösen sich in 2–3 Sitzungen – wenn es um klar abgegrenzte Fragen geht. Tiefere Strukturarbeit braucht 3–6 Monate, damit Veränderungen wirklich im Alltag ankommen. Ich arbeite ergebnisorientiert: so lange wie nötig, so kurz wie möglich.
+              </div>
+            </div>
+
+          </div><!-- /Struktur -->
+
+
+          <!-- ── Träger & Förderung ── -->
+          <h2 style="font-size: var(--fs-xl); color: var(--color-primary); margin-top: var(--space-2xl); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-accent);" id="faq-foerderung">Träger, Institutionen &amp; Förderung</h2>
+
+          <div role="list" aria-label="FAQ Förderung und Träger">
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was ist der AVGS und wer hat Anspruch darauf?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Der Aktivierungs- und Vermittlungsgutschein (AVGS) ist ein Fördermittel der Bundesagentur für Arbeit. Anspruch haben Personen, die arbeitslos gemeldet sind oder Arbeitslosengeld beziehen und eine Selbstständigkeit anstreben. Er ermöglicht in bestimmten Konstellationen eine geförderte Beratung über zugelassene Träger. Förderkontexte werden individuell geprüft – im Erstgespräch klären wir gemeinsam, welche Wege für deine Ausgangslage in Frage kommen.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was ist INQA-Coaching und für wen ist es gedacht?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                INQA-Coaching ist ein Förderprogramm des Bundesministeriums für Arbeit und Soziales – speziell für kleine und mittelständische Unternehmen (KMU). Es unterstützt Betriebe dabei, Strukturen zu verbessern, Prozesse zu optimieren und sich auf Veränderungen einzustellen. Die Förderung beträgt bis zu 80 % der Beratungskosten. Förderkontexte werden individuell geprüft – im Erstgespräch klären wir, ob dein Unternehmen förderfähig ist.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Ich bin nicht arbeitslos – kann ich trotzdem gefördert werden?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                AVGS ist für arbeitslos Gemeldete. Wenn du bereits selbstständig oder angestellt bist, gibt es andere Förderoptionen – z. B. INQA-Coaching für Unternehmen oder private Beratung ohne Förderung. Ich erkläre dir im Erstgespräch, welche Möglichkeiten für deine spezifische Situation bestehen.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Ich bin Träger, Transfergesellschaft oder Akademie – wie können wir zusammenarbeiten?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Ich arbeite im B2B-Kontext mit Trägern, Transfergesellschaften, Gründerinnenzentren und Bildungseinrichtungen zusammen. Mein Leistungsangebot umfasst Gründungspotenzialanalysen, Einzel- und Gruppenassessments sowie branchenspezifische Qualifizierungsbeiträge. Wir klären im Gespräch, welches Format für euren Trägerrahmen passt. Schreib mir gerne direkt an: vz@vz-concept.de
+              </div>
+            </div>
+
+          </div><!-- /Förderung -->
+
+
+          <!-- ── Allgemeines & Ablauf ── -->
+          <h2 style="font-size: var(--fs-xl); color: var(--color-primary); margin-top: var(--space-2xl); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-accent);" id="faq-allgemein">Allgemeines &amp; Ablauf</h2>
+
+          <div role="list" aria-label="FAQ Allgemein und Ablauf">
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Wer ist VZ Concept und was macht Vanessa Zimmer?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                VZ Concept ist das Beratungsunternehmen von Vanessa Zimmer. Mit 16 Jahren eigener Unternehmerinnenerfahrung begleite ich Gründer:innen, Selbstständige und Unternehmen bei Gründung, Unternehmensstruktur, Businessplan und Neuaufstellung. Mein Ansatz: wirtschaftliche Realität prüfen, klare Entscheidungen vorbereiten und Strukturen schaffen, die im Alltag funktionieren.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was unterscheidet dich von anderen Beratern?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Ich bin Beraterin mit eigener operativer Unternehmerinnenerfahrung – inklusive Aufbau, Führung, Personal, Krise und Restrukturierung. Ich kenne wirtschaftliche Realität nicht aus Lehrbüchern, sondern aus eigener Verantwortung. Ich sage klar, was ich denke – auch wenn das zunächst unbequem ist. Das ist mein Qualitätsversprechen.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Wie läuft das Erstgespräch ab und kostet es etwas?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Das Erstgespräch ist unverbindlich und aktuell kostenfrei. Es dauert 30–45 Minuten und findet online statt (Zoom, Teams oder Telefon). Du buchst direkt über Calendly. Im Gespräch lerne ich deine Situation kennen, und du erfährst, ob und wie eine Zusammenarbeit sinnvoll ist. Keine versteckten Kosten, kein Verkaufsdruck.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Was kostet eine Beratung bei VZ Concept?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Die Kosten sind individuell und abhängig vom Beratungsumfang, der Komplexität des Themas und dem gewählten Format. Nach dem Erstgespräch erhältst du ein transparentes Angebot. Förderkontexte werden individuell geprüft – je nach Ausgangslage ist eine Zusammenarbeit über zugelassene Träger möglich.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Findet die Beratung online oder vor Ort statt?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Primär online – das spart Zeit und ermöglicht flexible Terminplanung. Präsenztermine sind nach Absprache möglich. Das Erstgespräch findet immer online statt.
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Bietest du auch Beratung auf Englisch oder in anderen Sprachen an?
+                <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              </button>
+              <div class="faq-answer">
+                Meine Beratung findet primär auf Deutsch statt. Für spezifische Zielgruppen – z. B. bei Businessplänen für Aufenthaltsrechtsverfahren – ist eine mehrsprachige Abstimmung nach Absprache möglich. Bitte sprich das Thema gerne im Erstgespräch an.
+              </div>
+            </div>
+
+          </div><!-- /Allgemein & Ablauf -->
+
+        </div><!-- /FAQ-Liste -->
+
+
+        <!-- Sidebar -->
+        <div style="position: sticky; top: calc(76px + 2rem);">
+
+          <div class="highlight-box mb-md">
+            <p style="font-weight:700; font-size: var(--fs-sm); color: var(--color-primary); margin-bottom: 0.5rem;">Deine Frage ist nicht dabei?</p>
+            <p style="font-size: var(--fs-sm); color: var(--color-text-muted); margin-bottom: var(--space-md);">Stell sie mir direkt im Erstgespräch – unverbindlich und klar.</p>
+            <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="width:100%; justify-content:center;">
+              Erstgespräch buchen
+            </a>
+          </div>
+
+          <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden;">
+            <div style="padding: var(--space-md); border-bottom: 1px solid var(--color-border);">
+              <p style="font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); margin-bottom: 0.75rem;">Bereiche</p>
+              <ul style="display:flex; flex-direction:column; gap:0.375rem; list-style:none;">
+                <li><a href="#faq-gruendung" style="font-size: var(--fs-sm); color: var(--color-text-muted); transition: color var(--transition);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Gründung &amp; Entscheidung</a></li>
+                <li><a href="#faq-krise" style="font-size: var(--fs-sm); color: var(--color-text-muted);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Krise &amp; Neuaufstellung</a></li>
+                <li><a href="#faq-struktur" style="font-size: var(--fs-sm); color: var(--color-text-muted);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Struktur &amp; Entwicklung</a></li>
+                <li><a href="#faq-foerderung" style="font-size: var(--fs-sm); color: var(--color-text-muted);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Träger &amp; Förderung</a></li>
+                <li><a href="#faq-allgemein" style="font-size: var(--fs-sm); color: var(--color-text-muted);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Allgemeines &amp; Ablauf</a></li>
+              </ul>
+            </div>
+            <div style="padding: var(--space-md);">
+              <p style="font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted); margin-bottom: 0.75rem;">Direkt erreichen</p>
+              <a href="mailto:vz@vz-concept.de" style="display:flex; align-items:center; gap:0.5rem; font-size: var(--fs-sm); color: var(--color-primary); font-weight:600;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                vz@vz-concept.de
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /sidebar -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta-section section" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-section__inner">
+        <p class="section-label section-label--light">Nächster Schritt</p>
+        <h2 class="cta-section__title" id="cta-title">Alle Fragen lassen sich am besten im Gespräch klären.</h2>
+        <p class="cta-section__text">Im Erstgespräch sortieren wir deine Situation und klären, welcher nächste Schritt sinnvoll ist.</p>
+        <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Erstgespräch buchen
+        </a>
+        <p class="cta-section__note">Unverbindlich · Klar · Ohne Vertriebsdruck</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo"></div>
+          <p class="footer__tagline">Gründungs- und Unternehmensberatung mit klarem Blick auf Markt, Struktur und Alltag.</p>
+        </div>
+        <div>
+          <p class="footer__nav-title">Navigation</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="ueber-mich.html">Über mich</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="ablauf.html">Ablauf</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__nav-title">Leistungen</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="leistungen.html#gruendung">Gründungsberatung</a></li>
+            <li><a href="leistungen.html#avgs">AVGS-Gründercoaching</a></li>
+            <li><a href="leistungen.html#krise">Krisenberatung</a></li>
+            <li><a href="leistungen.html#businessplan">Businessplan</a></li>
+            <li><a href="leistungen.html#aufenthaltsrecht">Aufenthaltsrecht</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__nav-title">Kontakt</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 VZ Concept – Coaching &amp; Consulting UG</p>
+        <nav class="footer__legal" aria-label="Rechtliche Links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
