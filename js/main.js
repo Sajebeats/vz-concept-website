@@ -128,7 +128,7 @@
 
   if ('IntersectionObserver' in window) {
     const animEls = document.querySelectorAll(
-      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .fact, .stat-item'
+      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .fact, .stat-item, .v4-situation-list a, .v4-offer-card, .v4-process article, .v4-testimonials article, .v4-proof-points div'
     );
 
     animEls.forEach(function (el) {

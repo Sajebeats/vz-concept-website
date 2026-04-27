@@ -136,6 +136,797 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Neue Startseiten-Version: Conversion-Struktur im bestehenden Branding */
+    .home-v4 {
+      background: var(--color-white);
+      overflow: hidden;
+    }
+
+    .home-v4 > .v4-section,
+    .home-v4 > .v4-final-cta {
+      display: none;
+    }
+
+    .homepage-legacy--active > .hero,
+    .homepage-legacy--active > .partner-teaser {
+      display: none;
+    }
+
+    .v4-hero {
+      position: relative;
+      min-height: 100svh;
+      padding-top: 76px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 86% 24%, rgba(0,200,168,0.32), transparent 36%),
+        radial-gradient(circle at 58% 58%, rgba(0,200,168,0.08), transparent 32%),
+        linear-gradient(112deg, #061815 0%, #081F1C 28%, #0C3530 62%, #0B7669 100%);
+      color: var(--color-white);
+    }
+
+    .v4-hero::before {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+
+    .v4-hero::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 150px;
+      background: linear-gradient(to bottom, transparent, rgba(8,31,28,0.48));
+      pointer-events: none;
+    }
+
+    .v4-hero__glow {
+      position: absolute;
+      width: clamp(180px, 26vw, 360px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,168,0.26), transparent 68%);
+      filter: blur(8px);
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .v4-hero__glow--left {
+      left: -9vw;
+      bottom: 8vh;
+    }
+
+    .v4-hero__glow--right {
+      right: 8vw;
+      top: 12vh;
+    }
+
+    .v4-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .v4-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.92fr);
+      gap: clamp(2rem, 4vw, 4.25rem);
+      align-items: end;
+      padding-block: clamp(4rem, 7vw, 6rem) clamp(0.75rem, 1.8vw, 1.35rem);
+    }
+
+    .v4-eyebrow,
+    .v4-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+      font-size: var(--fs-xs);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .v4-eyebrow::before,
+    .v4-kicker::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .v4-hero__title {
+      display: grid;
+      gap: 0.08em;
+      max-width: 650px;
+      color: var(--color-white);
+      margin-bottom: 1.35rem;
+    }
+
+    .v4-hero__title-main {
+      display: block;
+      font-family: var(--font-body);
+      font-size: clamp(3rem, 5.4vw, 5.05rem);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      text-shadow: 0 18px 48px rgba(0,0,0,0.22);
+    }
+
+    .v4-hero__title-script {
+      display: block;
+      margin-top: -0.02em;
+      color: var(--color-accent);
+      font-family: var(--font-script);
+      font-size: clamp(3.45rem, 6.4vw, 6rem);
+      font-weight: 600;
+      line-height: 0.84;
+      letter-spacing: -0.035em;
+      text-shadow: 0 18px 45px rgba(0,200,168,0.15);
+    }
+
+    .v4-hero__title span:not(.v4-hero__title-main):not(.v4-hero__title-script) {
+      color: var(--color-accent);
+    }
+
+    .v4-hero__text {
+      max-width: 540px;
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(1rem, 1.25vw, 1.15rem);
+      line-height: 1.72;
+      margin-bottom: 2.15rem;
+    }
+
+    .v4-hero__actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .v4-hero .btn {
+      min-width: 190px;
+      justify-content: center;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      box-shadow: none;
+    }
+
+    .v4-hero .btn--primary {
+      background: transparent;
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    .v4-hero .btn--primary:hover {
+      background: var(--color-accent);
+      color: var(--color-primary-deep);
+      border-color: var(--color-accent);
+      box-shadow: 0 18px 42px rgba(0,200,168,0.22);
+    }
+
+    .v4-hero .btn--outline-white {
+      background: rgba(255,255,255,0.02);
+      color: rgba(255,255,255,0.84);
+      border-color: rgba(255,255,255,0.38);
+    }
+
+    .v4-hero__note {
+      max-width: 560px;
+      margin-top: 1rem;
+      color: rgba(255,255,255,0.62);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+
+    .v4-hero__visual {
+      position: relative;
+      justify-self: end;
+      width: min(46vw, 590px);
+      aspect-ratio: 4 / 5;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+      transform: translateY(clamp(0.5rem, 1.5vw, 1.2rem));
+    }
+
+    .v4-hero__visual::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      right: clamp(-19rem, -20vw, -10rem);
+      top: clamp(-3rem, -2vw, -1rem);
+      width: min(94vw, 1220px);
+      height: min(84vh, 880px);
+      background-image: url('assets/images/vanessa/vz-background-mark.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.3;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .v4-hero__visual img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      filter:
+        drop-shadow(0 32px 54px rgba(0,0,0,0.34))
+        drop-shadow(0 0 10px rgba(0,200,168,0.06));
+    }
+
+    .v4-hero__badge {
+      display: none;
+      position: absolute;
+      z-index: 2;
+      left: 1.1rem;
+      right: 1.1rem;
+      bottom: 1.1rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 20px;
+      background: rgba(8,31,28,0.78);
+      backdrop-filter: blur(12px);
+    }
+
+    .v4-hero__badge strong {
+      color: var(--color-accent);
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .v4-hero__badge span {
+      color: rgba(255,255,255,0.8);
+      font-size: var(--fs-xs);
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .v4-trustbar {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1px;
+      max-width: 1000px;
+      margin: 0 0 clamp(1.35rem, 3vw, 2.5rem);
+      position: relative;
+      z-index: 4;
+      border: 1px solid rgba(0,200,168,0.28);
+      border-radius: 10px;
+      background: rgba(0,200,168,0.08);
+      overflow: hidden;
+      box-shadow: none;
+    }
+
+    .v4-trustbar a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 1rem;
+      color: rgba(255,255,255,0.84);
+      background: rgba(4,34,30,0.28);
+      font-size: var(--fs-sm);
+      font-weight: 800;
+      text-align: center;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .v4-trustbar a:hover {
+      color: var(--color-primary-deep);
+      background: var(--color-accent);
+    }
+
+    .v4-partners {
+      background: var(--color-primary-deep);
+      padding-block: clamp(2rem, 4vw, 3rem);
+      border-top: 1px solid rgba(0,200,168,0.16);
+    }
+
+    .v4-partners .v4-kicker {
+      margin-bottom: 0.35rem;
+    }
+
+    .v4-partners__top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .v4-partners__top h2 {
+      color: var(--color-white);
+      font-size: clamp(1.55rem, 2.4vw, 2.3rem);
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .v4-partners__top > a {
+      color: var(--color-accent);
+      font-size: var(--fs-sm);
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .v4-partners .partner-marquee {
+      width: 100%;
+      margin-top: 1.15rem;
+      border-block-color: rgba(255,255,255,0.1);
+    }
+
+    .v4-section {
+      padding-block: clamp(5rem, 9vw, 8rem);
+    }
+
+    .v4-section--light {
+      background: linear-gradient(180deg, var(--color-light-bg), var(--color-white));
+    }
+
+    .v4-section--dark {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(0,200,168,0.16), transparent 30%),
+        var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .v4-section--faq {
+      background: var(--color-off-white);
+    }
+
+    .v4-section-head {
+      max-width: 780px;
+      margin-bottom: clamp(2.2rem, 5vw, 4rem);
+    }
+
+    .v4-section-head--dark .v4-title,
+    .v4-section--dark .v4-title {
+      color: var(--color-white);
+    }
+
+    .v4-section-head--dark .v4-lead,
+    .v4-section--dark .v4-lead {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .v4-title {
+      color: var(--color-primary);
+      font-size: clamp(2.2rem, 4.6vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin-bottom: 1rem;
+    }
+
+    .v4-lead {
+      max-width: 650px;
+      color: var(--color-text-muted);
+      font-size: clamp(1.03rem, 1.3vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .v4-split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+
+    .v4-situation-list {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .v4-situation-list a {
+      display: grid;
+      gap: 0.35rem;
+      padding: 1.25rem 1.35rem;
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.78);
+      box-shadow: 0 18px 50px rgba(12,53,48,0.07);
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .v4-situation-list a:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-accent-mid);
+      box-shadow: var(--shadow-md);
+    }
+
+    .v4-situation-list strong {
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+      font-size: var(--fs-lg);
+      line-height: 1.25;
+    }
+
+    .v4-situation-list span {
+      color: var(--color-text-muted);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+
+    .v4-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--color-border);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .v4-compare__side {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      background: var(--color-white);
+    }
+
+    .v4-compare__side--dark {
+      background: var(--color-primary);
+    }
+
+    .v4-compare__label {
+      color: var(--color-accent);
+      font-size: var(--fs-xs);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .v4-compare li {
+      position: relative;
+      padding: 0.75rem 0 0.75rem 1.6rem;
+      border-bottom: 1px solid var(--color-border-light);
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    .v4-compare__side--dark li {
+      color: rgba(255,255,255,0.78);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    .v4-compare li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.25rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .v4-offer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .v4-offer-card {
+      display: flex;
+      min-height: 340px;
+      flex-direction: column;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      background: rgba(255,255,255,0.055);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.16);
+      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+    }
+
+    .v4-offer-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,200,168,0.45);
+      background: rgba(255,255,255,0.085);
+    }
+
+    .v4-offer-card span {
+      color: var(--color-accent);
+      font-size: var(--fs-xs);
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      margin-bottom: 1.6rem;
+    }
+
+    .v4-offer-card h3 {
+      color: var(--color-white);
+      font-size: clamp(1.35rem, 2vw, 1.85rem);
+      line-height: 1.12;
+      margin-bottom: 1rem;
+    }
+
+    .v4-offer-card p {
+      color: rgba(255,255,255,0.72);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+      margin-bottom: 1.6rem;
+    }
+
+    .v4-offer-card a {
+      margin-top: auto;
+      color: var(--color-accent);
+      font-size: var(--fs-sm);
+      font-weight: 800;
+    }
+
+    .v4-center-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .v4-proof-split {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .v4-proof-image {
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      aspect-ratio: 4 / 5;
+      background: var(--color-light-bg);
+    }
+
+    .v4-proof-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .v4-proof-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    .v4-proof-points div {
+      padding: 1.1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      background: var(--color-white);
+    }
+
+    .v4-proof-points strong {
+      display: block;
+      color: var(--color-accent);
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .v4-proof-points span {
+      color: var(--color-text-muted);
+      font-size: var(--fs-xs);
+      line-height: 1.35;
+    }
+
+    .v4-process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .v4-process article {
+      position: relative;
+      min-height: 245px;
+      padding: 1.4rem;
+      border: 1px solid var(--color-border);
+      border-radius: 26px;
+      background: var(--color-white);
+      box-shadow: 0 18px 45px rgba(12,53,48,0.07);
+    }
+
+    .v4-process span {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 1.4rem;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: var(--color-accent);
+      font-weight: 900;
+    }
+
+    .v4-process h3 {
+      font-size: var(--fs-xl);
+      margin-bottom: 0.75rem;
+    }
+
+    .v4-process p {
+      color: var(--color-text-muted);
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+    }
+
+    .v4-testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .v4-testimonials article {
+      padding: 1.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 26px;
+      background: var(--color-white);
+      box-shadow: 0 18px 48px rgba(12,53,48,0.08);
+    }
+
+    .v4-testimonials p {
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+      font-size: var(--fs-lg);
+      font-style: italic;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    .v4-testimonials span {
+      color: var(--color-text-muted);
+      font-size: var(--fs-sm);
+      font-weight: 700;
+    }
+
+    .v4-faq-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+
+    .v4-faq-list {
+      box-shadow: var(--shadow-md);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .v4-final-cta {
+      padding-block: clamp(5rem, 9vw, 8rem);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(0,200,168,0.16), transparent 34%),
+        linear-gradient(135deg, var(--color-primary-deep), var(--color-primary));
+      color: var(--color-white);
+    }
+
+    .v4-final-cta__inner {
+      max-width: 820px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .v4-final-cta__inner .v4-kicker {
+      justify-content: center;
+    }
+
+    .v4-final-cta h2 {
+      color: var(--color-white);
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.2rem;
+    }
+
+    .v4-final-cta p {
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      color: rgba(255,255,255,0.78);
+      font-size: var(--fs-lg);
+      line-height: 1.7;
+    }
+
+    .v4-final-cta .v4-hero__actions {
+      justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .v4-hero__grid,
+      .v4-split,
+      .v4-proof-split,
+      .v4-faq-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .v4-hero__visual {
+        justify-self: start;
+        width: min(100%, 400px);
+        transform: translateY(0.75rem);
+      }
+
+      .v4-hero__visual::before {
+        right: -12rem;
+        top: -1rem;
+        width: min(125vw, 820px);
+        height: 600px;
+      }
+
+      .v4-partners__top {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .v4-trustbar,
+      .v4-offer-grid,
+      .v4-process,
+      .v4-testimonials {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .v4-proof-points {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .v4-hero {
+        min-height: auto;
+        padding-top: 68px;
+      }
+
+      .v4-hero__grid {
+        padding-block: 2.5rem 1.5rem;
+      }
+
+      .v4-hero__visual {
+        width: min(100%, 335px);
+        transform: translateY(0.4rem);
+      }
+
+      .v4-hero__visual::before {
+        right: -9rem;
+        top: -1rem;
+        width: 640px;
+        height: 500px;
+        opacity: 0.2;
+      }
+
+      .v4-hero__title {
+        font-size: clamp(2.35rem, 14vw, 3.7rem);
+      }
+
+      .v4-hero__actions .btn,
+      .v4-final-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .v4-trustbar,
+      .v4-compare,
+      .v4-offer-grid,
+      .v4-proof-points,
+      .v4-process,
+      .v4-testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .v4-trustbar a {
+        min-height: 52px;
+      }
+
+      .v4-section {
+        padding-block: 4rem;
+      }
+    }
   </style>
 </head>
 
@@ -216,6 +1007,333 @@
     </div>
   </nav>
 
+  <main class="home-v4" id="startseite-neu">
+
+    <header class="v4-hero" id="hero-neu">
+      <span class="v4-hero__glow v4-hero__glow--left" aria-hidden="true"></span>
+      <span class="v4-hero__glow v4-hero__glow--right" aria-hidden="true"></span>
+      <div class="container">
+        <div class="v4-hero__grid">
+          <div class="v4-hero__content">
+            <p class="v4-eyebrow">Gründungs- &amp; Unternehmensberatung</p>
+            <h1 class="v4-hero__title">
+              <span class="v4-hero__title-main">Deine Idee.</span>
+              <span class="v4-hero__title-main">Dein Markt.</span>
+              <span class="v4-hero__title-script">Deine Entscheidung.</span>
+            </h1>
+            <p class="v4-hero__text">
+              Ich prüfe mit dir, ob dein Vorhaben wirtschaftlich Sinn ergibt, welche Förderung möglich ist und welche nächsten Schritte jetzt wirklich zählen.
+            </p>
+            <div class="v4-hero__actions">
+              <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+                Erstgespräch buchen
+              </a>
+              <a href="#leistungen-uebersicht" class="btn btn--outline-white">
+                Angebote ansehen
+              </a>
+            </div>
+            <p class="v4-hero__note">
+              Du musst noch keine fertige Entscheidung mitbringen. Im ersten Schritt klären wir, wo du stehst und was jetzt sinnvoll ist.
+            </p>
+          </div>
+
+          <div class="v4-hero__visual" aria-label="Vanessa Zimmer">
+            <img src="assets/images/vanessa/vanessa-cutout-hero-final.png" alt="Vanessa Zimmer, Gründungsberaterin und Unternehmensberaterin">
+          </div>
+        </div>
+
+        <div class="v4-trustbar" aria-label="Schnelle Orientierung">
+          <a href="ueber-mich.html#story-title">16 Jahre Erfahrung</a>
+          <a href="leistungen.html#avgs">AVGS möglich</a>
+          <a href="leistungen.html#gruendung">Gründer-Check</a>
+          <a href="leistungen.html#businessplan">Businessplan</a>
+          <a href="partner.html">Partner &amp; Netzwerk</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="v4-partners" aria-labelledby="v4-partners-title">
+      <div class="container">
+        <div class="v4-partners__top">
+          <div>
+            <p class="v4-kicker">Partner &amp; Netzwerk</p>
+            <h2 id="v4-partners-title">Ausgewählte Partner von VZ Concept</h2>
+          </div>
+          <a href="partner.html">Netzwerk ansehen</a>
+        </div>
+
+        <div class="partner-marquee" aria-label="Ausgewählte Partner und Netzwerke">
+          <div class="partner-marquee__track">
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/siegel-gruenderinnenzentrale.png" alt="Gründerinnenzentrale">
+              <span>Gr&uuml;nderinnenzentrale</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/erfolgspfad-coaching-partner.png" alt="Erfolgspfad">
+              <span>Erfolgspfad</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/vital-kosmetikakademie.jpg" alt="Vital Kosmetikakademie">
+              <span>Vital Kosmetikakademie</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card">
+              <img src="assets/images/partner-logos/gruenderplattform-weiss.png" alt="Gründerplattform">
+              <span>Gr&uuml;nderplattform</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/siegel-gruenderinnenzentrale.png" alt="">
+              <span>Gr&uuml;nderinnenzentrale</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/erfolgspfad-coaching-partner.png" alt="">
+              <span>Erfolgspfad</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/vital-kosmetikakademie.jpg" alt="">
+              <span>Vital Kosmetikakademie</span>
+            </a>
+            <a href="partner.html" class="partner-logo-card" aria-hidden="true" tabindex="-1">
+              <img src="assets/images/partner-logos/gruenderplattform-weiss.png" alt="">
+              <span>Gr&uuml;nderplattform</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-section v4-section--light" id="v4-experiment-zielgruppen" aria-labelledby="v4-zielgruppen-title">
+      <div class="container">
+        <div class="v4-split">
+          <div>
+            <p class="v4-kicker">Für wen ich arbeite</p>
+            <h2 class="v4-title" id="v4-zielgruppen-title">Erkennst du dich wieder?</h2>
+            <p class="v4-lead">
+              Ich arbeite mit Gründer:innen, Selbstständigen und Unternehmen, wenn eine Entscheidung nicht länger nur ein Gefühl bleiben darf.
+            </p>
+          </div>
+          <div class="v4-situation-list">
+            <a href="leistungen.html#gruendung">
+              <strong>Du willst gründen.</strong>
+              <span>Aber du willst wissen, ob Idee, Markt, Zahlen und nächster Schritt wirklich zusammenpassen.</span>
+            </a>
+            <a href="leistungen.html#avgs">
+              <strong>Du möchtest AVGS nutzen.</strong>
+              <span>Du brauchst Orientierung, ob eine Förderung möglich ist und wie du dein Vorhaben sauber vorbereitest.</span>
+            </a>
+            <a href="leistungen.html#struktur">
+              <strong>Dein Unternehmen läuft, aber nicht rund.</strong>
+              <span>Es fehlt Struktur, Priorität oder ein klarer Blick auf das, was wirtschaftlich wirklich zählt.</span>
+            </a>
+            <a href="leistungen.html#krise">
+              <strong>Der Druck steigt.</strong>
+              <span>Du brauchst eine ehrliche Einordnung, welche Optionen sinnvoll sind und welche Entscheidung jetzt ansteht.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-section" id="problem-loesung" aria-labelledby="v4-problem-title">
+      <div class="container">
+        <div class="v4-section-head">
+          <p class="v4-kicker">Problem &amp; Lösung</p>
+          <h2 class="v4-title" id="v4-problem-title">Viele Vorhaben scheitern nicht an Motivation. Sondern an fehlender Klarheit.</h2>
+          <p class="v4-lead">Die Beratung setzt dort an, wo Bauchgefühl, Hoffnung und To-do-Listen nicht mehr reichen.</p>
+        </div>
+
+        <div class="v4-compare">
+          <div class="v4-compare__side">
+            <p class="v4-compare__label">Ohne klare Einordnung</p>
+            <ul>
+              <li>Die Idee klingt gut, aber der Markt ist nicht geprüft.</li>
+              <li>Zahlen, Preise und Kosten bleiben zu ungenau.</li>
+              <li>Förderung, Businessplan oder nächste Schritte sind unklar.</li>
+              <li>Entscheidungen werden verschoben, bis der Druck größer wird.</li>
+            </ul>
+          </div>
+          <div class="v4-compare__side v4-compare__side--dark">
+            <p class="v4-compare__label">Mit VZ Concept</p>
+            <ul>
+              <li>Du weißt, ob dein Vorhaben wirtschaftlich Sinn ergibt.</li>
+              <li>Du bekommst Struktur in Idee, Zahlen, Markt und Vorgehen.</li>
+              <li>Du erkennst Risiken früh, statt später teuer zu korrigieren.</li>
+              <li>Du gehst mit einer klaren nächsten Entscheidung weiter.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-section v4-section--dark" id="v4-experiment-angebote" aria-labelledby="v4-angebote-title">
+      <div class="container">
+        <div class="v4-section-head v4-section-head--dark">
+          <p class="v4-kicker">Angebote</p>
+          <h2 class="v4-title" id="v4-angebote-title">Wähle den Einstieg, der zu deiner Situation passt.</h2>
+          <p class="v4-lead">Jedes Angebot ist darauf ausgerichtet, schneller von Unsicherheit zu einer belastbaren Entscheidung zu kommen.</p>
+        </div>
+
+        <div class="v4-offer-grid">
+          <article class="v4-offer-card">
+            <span>01</span>
+            <h3>Gründer-Check</h3>
+            <p>Für Geschäftsideen, die geprüft werden müssen: Markt, Angebot, Zielgruppe, Zahlen und nächster Schritt.</p>
+            <a href="leistungen.html#gruendung">Mehr zur Gründung</a>
+          </article>
+          <article class="v4-offer-card">
+            <span>02</span>
+            <h3>AVGS-Gründercoaching</h3>
+            <p>Für geförderte Gründungsvorbereitung mit klarer Struktur, Businessplan-Logik und realistischer Umsetzung.</p>
+            <a href="leistungen.html#avgs">AVGS ansehen</a>
+          </article>
+          <article class="v4-offer-card">
+            <span>03</span>
+            <h3>Unternehmensentwicklung</h3>
+            <p>Für Selbstständige und Unternehmen, die Ordnung, Prioritäten, Prozesse und wirtschaftliche Steuerung brauchen.</p>
+            <a href="leistungen.html#struktur">Struktur aufbauen</a>
+          </article>
+          <article class="v4-offer-card">
+            <span>04</span>
+            <h3>Krise &amp; Neuaufstellung</h3>
+            <p>Für Situationen mit Druck, offenen Entscheidungen oder der Frage, ob und wie es sinnvoll weitergeht.</p>
+            <a href="leistungen.html#krise">Optionen klären</a>
+          </article>
+        </div>
+
+        <div class="v4-center-cta">
+          <a href="leistungen.html" class="btn btn--primary">Alle Leistungen ansehen</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-section v4-section--image" aria-labelledby="v4-why-title">
+      <div class="container">
+        <div class="v4-proof-split">
+          <div class="v4-proof-image">
+            <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer in einer Beratungssituation">
+          </div>
+          <div>
+            <p class="v4-kicker">Warum VZ Concept</p>
+            <h2 class="v4-title" id="v4-why-title">Beratung aus echter unternehmerischer Verantwortung.</h2>
+            <p class="v4-lead">
+              Vanessa Zimmer hat selbst aufgebaut, geführt, investiert, entschieden und Verantwortung getragen. Genau daraus entsteht die Fähigkeit, Vorhaben nicht nur wohlwollend zu betrachten, sondern wirtschaftlich einzuordnen.
+            </p>
+            <div class="v4-proof-points">
+              <div><strong>16 Jahre</strong><span>eigene Unternehmerinnenerfahrung</span></div>
+              <div><strong>600 qm</strong><span>Betrieb aufgebaut und geführt</span></div>
+              <div><strong>IHK / AEVO</strong><span>geprüfte Beratung und Ausbildung</span></div>
+            </div>
+            <a href="ueber-mich.html" class="btn btn--outline">Mehr über Vanessa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-section v4-section--light" id="ablauf" aria-labelledby="v4-ablauf-title">
+      <div class="container">
+        <div class="v4-section-head">
+          <p class="v4-kicker">Ablauf</p>
+          <h2 class="v4-title" id="v4-ablauf-title">So wird aus Unsicherheit ein klarer nächster Schritt.</h2>
+        </div>
+        <div class="v4-process">
+          <article>
+            <span>1</span>
+            <h3>Erstgespräch buchen</h3>
+            <p>Du buchst einen Termin und beschreibst kurz, worum es geht.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>Situation einordnen</h3>
+            <p>Wir klären, wo du stehst, was offen ist und welche Entscheidung ansteht.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Passenden Weg wählen</h3>
+            <p>Gründung, AVGS, Businessplan, Struktur oder Neuaufstellung werden sauber zugeordnet.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3>Umsetzung vorbereiten</h3>
+            <p>Du gehst mit Struktur, Prioritäten und einem realistischen nächsten Schritt weiter.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-section" id="stimmen" aria-labelledby="v4-stimmen-title">
+      <div class="container">
+        <div class="v4-section-head">
+          <p class="v4-kicker">Vertrauen</p>
+          <h2 class="v4-title" id="v4-stimmen-title">Klarheit, die wieder handlungsfähig macht.</h2>
+          <p class="v4-lead">Platzhalter für echte Kundenstimmen. Diese Sektion sollte später mit authentischen Aussagen ersetzt werden.</p>
+        </div>
+        <div class="v4-testimonials">
+          <article>
+            <p>„Nach dem Gespräch wusste ich zum ersten Mal konkret, welche Schritte wirklich wichtig sind und welche Idee ich loslassen muss.“</p>
+            <span>Gründerin, Dienstleistungsbereich</span>
+          </article>
+          <article>
+            <p>„Vanessa hat nicht schöngeredet, sondern die Situation sortiert. Genau das hat mir geholfen, wieder Entscheidungen zu treffen.“</p>
+            <span>Selbstständige Unternehmerin</span>
+          </article>
+          <article>
+            <p>„Der Businessplan wurde nicht nur ausgefüllt, sondern wirtschaftlich nachvollziehbar aufgebaut.“</p>
+            <span>Gründungsvorhaben, Health &amp; Beauty</span>
+          </article>
+        </div>
+        <div class="v4-center-cta">
+          <a href="referenzen.html" class="btn btn--outline">Referenzen ansehen</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-section v4-section--faq" id="faq-start" aria-labelledby="v4-faq-title">
+      <div class="container">
+        <div class="v4-faq-layout">
+          <div>
+            <p class="v4-kicker">FAQ</p>
+            <h2 class="v4-title" id="v4-faq-title">Häufige Fragen vor dem ersten Gespräch.</h2>
+            <p class="v4-lead">Kurz beantwortet, damit du besser einschätzen kannst, ob der nächste Schritt passt.</p>
+            <a href="faq.html" class="btn btn--outline">Alle Fragen ansehen</a>
+          </div>
+          <div class="v4-faq-list">
+            <div class="faq-item open">
+              <button class="faq-question" type="button">Ist das Erstgespräch verbindlich?<span class="faq-icon">+</span></button>
+              <div class="faq-answer">Nein. Es dient der ersten Einordnung. Wir klären, ob und in welcher Form eine Zusammenarbeit sinnvoll ist.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button">Kann ich auch kommen, wenn meine Idee noch unsortiert ist?<span class="faq-icon">+</span></button>
+              <div class="faq-answer">Ja. Gerade dann hilft eine klare Prüfung von Idee, Zielgruppe, Markt, Zahlen und nächsten Schritten.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button">Geht es nur um Gründung?<span class="faq-icon">+</span></button>
+              <div class="faq-answer">Nein. Neben Gründung und AVGS geht es auch um Unternehmensentwicklung, Struktur, Businessplan und Neuaufstellung.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button">Ist AVGS-Förderung möglich?<span class="faq-icon">+</span></button>
+              <div class="faq-answer">Je nach persönlicher Situation kann eine Förderung möglich sein. Im Gespräch klären wir, ob dieser Weg für dich relevant ist.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-final-cta" aria-labelledby="v4-final-title">
+      <div class="container">
+        <div class="v4-final-cta__inner">
+          <p class="v4-kicker">Nächster Schritt</p>
+          <h2 id="v4-final-title">Lass uns prüfen, welcher Weg für deine Situation sinnvoll ist.</h2>
+          <p>Im Erstgespräch bekommst du keine Verkaufspräsentation, sondern eine erste klare Einordnung deiner Situation.</p>
+          <div class="v4-hero__actions">
+            <a href="https://calendly.com/vz-vz-concept/30min?month=2026-04" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Erstgespräch buchen</a>
+            <a href="leistungen.html" class="btn btn--outline-white">Leistungen ansehen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="homepage-legacy homepage-legacy--active">
 
   <!-- ════════════════════════════════════════
        HERO
@@ -259,6 +1377,7 @@
           </p>
 
           <div class="hero__proof-list" aria-label="Schnelle Orientierung">
+            <span class="hero__proof-label">Schnell zur richtigen Einordnung</span>
             <a href="ueber-mich.html#story-title" class="hero__proof-item" aria-label="Mehr über Vanessas Unternehmerinnenerfahrung lesen">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               16 Jahre Unternehmerinnenerfahrung
@@ -851,6 +1970,8 @@
     </div>
   </section>
 
+
+  </div>
 
   <!-- ════════════════════════════════════════
        FOOTER
