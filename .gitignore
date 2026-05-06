@@ -1,0 +1,15 @@
+# Private Workspace-Dateien (bleiben lokal, nicht auf GitHub)
+context/
+plans/
+outputs/
+scripts/
+shell-aliases.md
+
+# Mac/Windows Systemmüll
+__MACOSX/
+.DS_Store
+Thumbs.db
+
+# Node (falls mal genutzt)
+node_modules/
+package-lock.json
