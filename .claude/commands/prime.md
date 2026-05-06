@@ -1,24 +1,30 @@
-# Prime
+# /prime — Session-Start für vz-concept.de
 
-> Führe die folgenden Abschnitte aus, um den Workspace zu verstehen, und fasse dann dein Verständnis zusammen.
+Lies diese Dateien in dieser Reihenfolge (nicht mehr):
 
-## Ausführen
+1. `context/current-data.md` — aktueller Stand, offene Punkte
+2. `context/strategy.md` — was wir bauen, was wir nicht wollen
+3. `reference/website-struktur.md` — Seiten, Ordner, Git-Workflow
 
-ls -la
-find . -type f -name "\*.md" | head -20
+Dann gib **genau diese Ausgabe** (kein Fließtext, keine langen Erklärungen):
 
-## Lesen
+---
 
-~/.claude/SOUL.md
-CLAUDE.md
-./context
+## 👋 Bereit — vz-concept.de
 
-## Zusammenfassung
+**Live-Status:** [Anzahl] Seiten online auf vz-concept.de
 
-Nach dem Lesen, liefere:
+**Offene Punkte:**
+- [aus current-data.md übernehmen, max. 3 Punkte]
 
-1. Eine kurze Zusammenfassung, wer ich bin, wofür dieser Workspace ist und was deine Rolle ist
-2. Dein Verständnis der Workspace-Struktur und des Zwecks jedes Abschnitts/jeder Datei
-3. Welche Commands verfügbar sind
-4. Eine Zusammenfassung meiner/unserer aktuellen Strategien und Prioritäten
-5. Bestätigung, dass du bereit bist, mir bei der Verfolgung dieser Ziele durch die Nutzung dieses Workspace zu helfen
+**Verfügbare Commands:**
+- `/new-page [name]` — neue Seite erstellen
+- `/deploy [nachricht]` — Änderungen live schalten
+- `/create-plan [aufgabe]` — Plan vor größerer Arbeit
+- `/implement [plan]` — Plan umsetzen
+
+**Was möchtest du angehen?**
+
+---
+
+Keine langen Zusammenfassungen. Keine Wiederholung was Vanessa macht. Direkt bereit für die nächste Aufgabe.
