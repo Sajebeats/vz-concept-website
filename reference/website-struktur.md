@@ -1,29 +1,33 @@
 # Website-Struktur: vz-concept.de
 
-## Datei-Struktur (Arbeitsordner)
+## Ordner-Struktur (Workspace)
 ```
-C:\Users\Anwender\Desktop\Vanessa Zimmer\WebsiteV3\Website\
-├── index.html
-├── ueber-mich.html
-├── leistungen.html
-├── ablauf.html
-├── faq.html
-├── referenzen.html
-├── partner.html
-├── erstgespraech.html
-├── impressum.html
-├── datenschutz.html
-├── foto-vergleich.html      ← intern, kein Nav-Link
-├── css/
-│   └── style.css            ← alle Styles in einer Datei
-├── js/
-│   └── main.js              ← Nav, FAQ, Scroll-Reveal
-└── assets/
-    ├── images/
-    │   ├── logo.png / logo-white.png
-    │   ├── vanessa-portrait.jpg
-    │   └── vanessa/ (Hero-Fotos)
-    └── downloads/           ← PDFs für Download-CTAs
+claude-workspace-Vanessa Zimmer/
+│
+├── docs/                        ← WEBSITE (GitHub Pages serviert von hier)
+│   ├── index.html
+│   ├── ablauf.html
+│   ├── datenschutz.html
+│   ├── erstgespraech.html
+│   ├── faq.html
+│   ├── impressum.html
+│   ├── leistungen.html
+│   ├── partner.html
+│   ├── referenzen.html
+│   ├── ueber-mich.html
+│   ├── foto-vergleich.html      ← intern, kein Nav-Link
+│   ├── css/style.css
+│   ├── js/main.js
+│   └── assets/images/
+│
+├── context/           🔒 Lokal  ← Claude-Kontext, nicht auf GitHub
+├── reference/                   ← Docs, Templates, Guides
+├── plans/             🔒 Lokal  ← Implementierungspläne
+├── outputs/           🔒 Lokal  ← Arbeitsergebnisse
+├── CLAUDE.md                    ← Auto-geladen bei Session-Start
+└── .claude/
+    ├── commands/                ← /prime /deploy /new-page etc.
+    └── settings.json
 ```
 
 ## Navigation
@@ -31,11 +35,15 @@ C:\Users\Anwender\Desktop\Vanessa Zimmer\WebsiteV3\Website\
 Über mich | Leistungen ▾ | Ablauf | FAQ | Stimmen | Partner | [Erstgespräch buchen]
 ```
 
-## GitHub Workflow
+## GitHub Pages Einstellung
+- **Repo:** github.com/Sajebeats/vz-concept-website
+- **Branch:** main
+- **Folder:** `/docs`  ← wichtig, nicht root!
+
+## Git-Workflow (aus Workspace-Root)
 ```bash
-# Änderungen pushen (aus Website/ Ordner):
 git add .
-git commit -m "Beschreibung"
+git commit -m "docs: Was geändert"
 git push origin main
 # → GitHub Pages updated automatisch in ~2 Min
 ```
@@ -43,4 +51,4 @@ git push origin main
 ## Wichtige URLs
 - Live: https://vz-concept.de
 - Repo: https://github.com/Sajebeats/vz-concept-website
-- Calendly (Erstgespräch): https://calendly.com/vz-vz-concept/30min
+- Calendly: https://calendly.com/vz-vz-concept/30min

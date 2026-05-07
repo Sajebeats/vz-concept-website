@@ -4,7 +4,8 @@
 **Website:** vz-concept.de — Vanessa Zimmer, Gründungs- & Unternehmensberaterin  
 **Stack:** Static HTML/CSS/JS → GitHub Pages (kein CMS, kein Framework)  
 **Repo:** github.com/Sajebeats/vz-concept-website  
-**Arbeitsordner:** `C:\Users\Anwender\Desktop\claude-workspace-Vanessa Zimmer\`
+**Arbeitsordner:** `C:\Users\Anwender\Desktop\claude-workspace-Vanessa Zimmer\`  
+**Website-Dateien:** im `docs/` Unterordner — GitHub Pages serviert von dort
 
 ---
 
@@ -12,18 +13,19 @@
 ```
 claude-workspace-Vanessa Zimmer/
 ├── CLAUDE.md                    ← Diese Datei (immer geladen)
-├── index.html                   ← Startseite (live)
-├── [weitere Seiten].html        ← Alle 11 Seiten live
-├── css/style.css                ← Alle Styles in einer Datei
-├── js/main.js                   ← Nav, FAQ, Scroll-Reveal
-├── assets/images/               ← Logos, Vanessa-Fotos
-├── CNAME                        ← vz-concept.de (GitHub Pages)
+│
+├── docs/                        ← WEBSITE (GitHub Pages serviert von hier)
+│   ├── index.html + alle Seiten
+│   ├── css/ js/ assets/
+│   └── CNAME
 │
 ├── context/          🔒 LOKAL   ← Business, Personen, Status, Strategie
-├── reference/                   ← Design-Tokens, Seiten-Template, Struktur
+├── reference/                   ← Design-Tokens, Template, Guides
 ├── plans/            🔒 LOKAL   ← Implementierungspläne
 ├── outputs/          🔒 LOKAL   ← Arbeitsergebnisse
-└── .claude/commands/            ← Slash-Commands
+└── .claude/
+    ├── commands/                ← Slash-Commands
+    └── settings.json
 ```
 
 ---
