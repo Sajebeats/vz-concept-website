@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Bash(git pull*)",
+      "Bash(git remote*)",
+      "Bash(ls*)",
+      "Bash(find*)",
+      "Bash(grep*)",
+      "Bash(cat*)",
+      "Bash(wc*)",
+      "Bash(echo*)",
+      "Bash(node*)",
+      "Bash(npm*)",
+      "Bash(mkdir*)",
+      "Bash(cp*)",
+      "Bash(du*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(git push --force*)"
+    ]
+  }
+}
