@@ -35,6 +35,7 @@ claude-workspace-Vanessa Zimmer/
 - Vor Code-Änderungen: kurz erklären WAS und WARUM
 - HTML-Änderungen: CSS-Klassen aus `reference/design-tokens.md` nutzen
 - Neue Seiten: `reference/page-template.html` als Basis verwenden
+- Texte schreiben: `reference/copywriting-guide.md` immer lesen bevor Texte verfasst werden
 - Nach Änderungen: `context/current-data.md` aktualisieren wenn sich Status ändert
 
 **Nie:**
