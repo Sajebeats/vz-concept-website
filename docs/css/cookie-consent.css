@@ -390,9 +390,9 @@
 /* ── Mobile-Anpassung ─────────────────────────────────── */
 @media (max-width: 480px) {
   .vz-cc {
-    left: 0.75rem;
-    right: 0.75rem;
-    bottom: 0.75rem;
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
     width: auto;
     transform: translateY(120%);
   }
@@ -401,8 +401,38 @@
     transform: translateY(0);
   }
 
+  .vz-cc__panel {
+    padding: 1rem 1.05rem 0.85rem;
+  }
+
+  .vz-cc__title {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .vz-cc__text {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin-bottom: 0.85rem;
+  }
+
   .vz-cc__actions {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.45rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .vz-cc__btn {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.78rem;
+  }
+
+  .vz-cc__btn--primary {
+    grid-column: 1 / -1;
+  }
+
+  .vz-cc__legal {
+    font-size: 0.7rem;
   }
 
   .vz-cc-modal__panel {

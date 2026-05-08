@@ -1247,6 +1247,12 @@
     --hero-visual-base: 0.4rem;
   }
 
+  /* Google-Pille auf Mobile ausblenden (wird vom Cookie-Banner verdeckt;
+     prominentere Google-Karte ist eh in der Why-Sektion sichtbar) */
+  .v4-hero__google {
+    display: none;
+  }
+
   .v4-hero__visual::before {
     right: -9rem;
     top: -1rem;
