@@ -172,7 +172,7 @@
       el.classList.add('reveal-item');
     });
 
-    document.querySelectorAll('.v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-why__stats, .v4-process, .v4-testimonials').forEach(function (group) {
+    document.querySelectorAll('.v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-why__stats, .v4-process, .v4-testimonials, .about-proof__grid').forEach(function (group) {
       setMotionDelay(Array.from(group.children), 70, 0);
     });
 
@@ -197,7 +197,7 @@
   }
 
   function initCountUp() {
-    const values = document.querySelectorAll('.v4-stats__value[data-count]');
+    const values = document.querySelectorAll('.v4-stats__value[data-count], .about-proof__value[data-count]');
     if (!values.length) return;
 
     const formatValue = function (value, decimals) {
@@ -211,7 +211,7 @@
 
       const target = Number(el.dataset.count);
       const decimals = Number(el.dataset.decimals || 0);
-      const plus = el.querySelector('.v4-stats__plus');
+      const plus = el.querySelector('.v4-stats__plus, .about-proof__suffix');
       const duration = reduceMotion ? 400 : 1400;
       const startTime = performance.now();
 
