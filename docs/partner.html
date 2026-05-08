@@ -6,10 +6,8 @@
   <meta name="description" content="Partner & Netzwerk von VZ Concept – Kooperationen mit Rechtsanwalt, Trägern, Akademien, Transfergesellschaften und Gründerinnenzentren für eine vollständige Beratung.">
   <title>Partner & Netzwerk – VZ Concept | Vanessa Zimmer</title>
   <link rel="canonical" href="https://www.vz-concept.de/partner.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cookie-consent.css">
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
   <style>
@@ -217,8 +215,7 @@
       max-width: 180px;
       width: auto;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: 0.75;
+      opacity: 0.88;
       transition: opacity var(--transition);
     }
 
@@ -230,6 +227,10 @@
     .logo-strip__item--badge img {
       max-height: 72px;
       max-width: 220px;
+    }
+
+    .logo-strip__item--wide img {
+      max-width: 260px;
     }
 
     @media (max-width: 600px) {
@@ -279,8 +280,8 @@
                 <span>Es läuft – aber intern funktioniert es nicht sauber</span>
               </a></li>
               <li><a href="leistungen.html#b2b" class="nav__dropdown-link">
-                <strong>B2B &amp; Unternehmerkompetenz</strong>
-                <span>Ich will wachsen, habe aber kein Vertriebssystem</span>
+                <strong>Träger &amp; Institutionen</strong>
+                <span>Ich brauche eine realistische Einschätzung im institutionellen Kontext</span>
               </a></li>
               <li><a href="leistungen.html#businessplan" class="nav__dropdown-link">
                 <strong>Businessplan-Service</strong>
@@ -347,11 +348,11 @@
             </div>
             <div>
               <p class="partner-card__category">Recht</p>
-              <h3 class="partner-card__title">Rechtliche Begleitung</h3>
+              <h3 class="partner-card__title">Fachanwaltskanzlei Torsten G&uuml;nther</h3>
             </div>
           </div>
           <p class="partner-card__desc">
-            Wenn wirtschaftliche Entscheidungen rechtliche Fragen berühren, arbeite ich mit einem erfahrenen Rechtsanwalt zusammen. So bekommst du wirtschaftliche und rechtliche Einschätzungen aus einer Hand – ohne selbst mehrere Stellen koordinieren zu müssen.
+            Wenn wirtschaftliche Entscheidungen rechtliche Fragen ber&uuml;hren, kann eine spezialisierte rechtliche Einordnung sinnvoll werden. Mit der Fachanwaltskanzlei Torsten G&uuml;nther besteht daf&uuml;r eine verl&auml;ssliche Schnittstelle im Netzwerk.
           </p>
           <ul class="partner-card__benefits">
             <li>
@@ -369,6 +370,35 @@
           </ul>
         </article>
 
+        <!-- Versicherung -->
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <div class="partner-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3v8z"/><path d="M9 12l2 2 4-5"/></svg>
+            </div>
+            <div>
+              <p class="partner-card__category">Versicherung</p>
+              <h3 class="partner-card__title">VMK Berlin GmbH</h3>
+            </div>
+          </div>
+          <p class="partner-card__desc">
+            F&uuml;r Gr&uuml;nder:innen und Unternehmen geh&ouml;rt Absicherung zur wirtschaftlichen Realit&auml;t. Die VMK Berlin GmbH erg&auml;nzt das Netzwerk als Ansprechpartner f&uuml;r Versicherungsthemen und Risikoeinordnung.
+          </p>
+          <ul class="partner-card__benefits">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Versicherungsfragen im Gr&uuml;ndungs- und Unternehmenskontext
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Erg&auml;nzende Risiko- und Absicherungspr&uuml;fung nach Bedarf
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Schnittstelle zwischen Beratung und Versicherung
+            </li>
+          </ul>
+        </article>
         <!-- Träger & Fördereinrichtungen -->
         <article class="partner-card">
           <div class="partner-card__header">
@@ -436,12 +466,12 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
             </div>
             <div>
-              <p class="partner-card__category">B2B &amp; Institutionen</p>
+              <p class="partner-card__category">Träger &amp; Institutionen</p>
               <h3 class="partner-card__title">Transfergesellschaften &amp; Akademien</h3>
             </div>
           </div>
           <p class="partner-card__desc">
-            Als B2B-Partnerin arbeite ich mit Transfergesellschaften, Bildungsträgern und Akademien zusammen. Ich bringe unternehmerische Einschätzung in Kontexte ein, in denen Menschen auf dem Weg in die Selbstständigkeit realistisch begleitet werden müssen – mit Assessment, Einzel- und Gruppenformaten.
+            Als Partnerin für Träger, Transfergesellschaften und Akademien bringe ich unternehmerische Einschätzung in Kontexte ein, in denen Menschen auf dem Weg in die Selbstständigkeit realistisch begleitet werden müssen – mit Assessment, Einzel- und Gruppenformaten.
           </p>
           <ul class="partner-card__benefits">
             <li>
@@ -497,6 +527,20 @@
           <img
             src="assets/images/partner-logos/gruenderplattform-weiss.png"
             alt="Gründerplattform"
+          >
+        </div>
+
+        <div class="logo-strip__item logo-strip__item--wide">
+          <img
+            src="assets/images/partner-logos/torsten-guenther-kanzlei.png"
+            alt="Fachanwaltskanzlei Torsten G&uuml;nther"
+          >
+        </div>
+
+        <div class="logo-strip__item logo-strip__item--wide">
+          <img
+            src="assets/images/partner-logos/vmk-berlin-gmbh.png"
+            alt="Versicherungsmakler VMK Berlin GmbH"
           >
         </div>
 
@@ -607,7 +651,7 @@
             <li><a href="partner.html#kooperation">Träger &amp; Förderung</a></li>
             <li><a href="partner.html#kooperation">Gründerinnennetzwerke</a></li>
             <li><a href="partner.html#kooperation">Transfergesellschaften</a></li>
-            <li><a href="leistungen.html#b2b">B2B &amp; Assessment</a></li>
+            <li><a href="leistungen.html#b2b">Träger &amp; Institutionen</a></li>
           </ul>
         </div>
 
@@ -624,17 +668,19 @@
 
       <div class="footer__bottom">
         <p class="footer__copy">
-          &copy; 2026 VZ Concept – Coaching &amp; Consulting UG · Alle Rechte vorbehalten
+          &copy; 2026 VZ Concept &amp; Consulting UG · Alle Rechte vorbehalten
         </p>
         <nav class="footer__legal" aria-label="Rechtliche Links">
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
+          <a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a>
         </nav>
       </div>
 
     </div>
   </footer>
 
+    <script src="js/cookie-consent.js" defer></script>
   <script src="js/main.js" defer></script>
 
 </body>

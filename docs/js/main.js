@@ -126,30 +126,153 @@
     });
   });
 
-  if ('IntersectionObserver' in window) {
-    const animEls = document.querySelectorAll(
-      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .fact, .stat-item, .v4-situation-list a, .v4-offer-card, .v4-process article, .v4-testimonials article, .v4-proof-points div'
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setMotionDelay(elements, step, start) {
+    elements.forEach(function (el, index) {
+      el.style.setProperty('--motion-delay', (start + index * step) + 'ms');
+    });
+  }
+
+  function initHomeMotion() {
+    const hero = document.querySelector('.v4-hero');
+    const revealEls = document.querySelectorAll(
+      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .fact, .stat-item, .about-hero__inner, .about-proof__item, .about-section__head, .about-story__media, .about-chapter, .about-pullquote, .about-principle, .about-cv-item, .about-focus-item, .about-cta__inner, .v4-partners__top, .partner-marquee, .v4-section-head, .v4-split > *, .v4-compare__side, .v4-offer-card, .v4-center-cta, .v4-proof-image, .v4-why__bio, .v4-proof-points div, .v4-stats__card, .v4-process article, .v4-testimonials article, .v4-faq-panel, .v4-final-cta .v4-hero__actions'
     );
 
-    animEls.forEach(function (el) {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
+    if (reduceMotion) {
+      document.documentElement.classList.add('motion-reduced');
+      revealEls.forEach(function (el) {
+        el.classList.add('is-visible');
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      if (hero) hero.classList.add('is-visible');
+      return;
+    }
 
-    animEls.forEach(function (el) {
-      observer.observe(el);
+    document.documentElement.classList.add('motion-ready');
+
+    if (hero) {
+      const heroParts = hero.querySelectorAll('.v4-eyebrow, .v4-hero__title, .v4-hero__text, .v4-hero__actions, .v4-hero__note, .v4-hero__visual');
+      setMotionDelay(Array.from(heroParts), 90, 80);
+      setMotionDelay(Array.from(hero.querySelectorAll('.v4-hero__title span')), 110, 220);
+      window.requestAnimationFrame(function () {
+        hero.classList.add('is-visible');
+      });
+    }
+
+    revealEls.forEach(function (el) {
+      el.classList.add('reveal-item');
     });
+
+    document.querySelectorAll('.v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-why__stats, .v4-process, .v4-testimonials').forEach(function (group) {
+      setMotionDelay(Array.from(group.children), 70, 0);
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+      revealEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      revealEls.forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+    }
+  }
+
+  function initCountUp() {
+    const values = document.querySelectorAll('.v4-stats__value[data-count]');
+    if (!values.length || reduceMotion) return;
+
+    const formatValue = function (value, decimals) {
+      const fixed = value.toFixed(decimals);
+      return decimals > 0 ? fixed.replace('.', ',') : fixed;
+    };
+
+    const animateValue = function (el) {
+      if (el.dataset.counted === 'true') return;
+      el.dataset.counted = 'true';
+
+      const target = Number(el.dataset.count);
+      const decimals = Number(el.dataset.decimals || 0);
+      const plus = el.querySelector('.v4-stats__plus');
+      const duration = 1100;
+      const startTime = performance.now();
+
+      const tick = function (now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        const text = formatValue(current, decimals);
+
+        if (plus) {
+          el.firstChild.nodeValue = text;
+        } else {
+          el.textContent = text;
+        }
+
+        if (progress < 1) {
+          window.requestAnimationFrame(tick);
+        } else if (plus) {
+          el.firstChild.nodeValue = formatValue(target, decimals);
+        } else {
+          el.textContent = formatValue(target, decimals);
+        }
+      };
+
+      window.requestAnimationFrame(tick);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const countObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateValue(entry.target);
+            countObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      values.forEach(function (el) {
+        countObserver.observe(el);
+      });
+    } else {
+      values.forEach(animateValue);
+    }
+  }
+
+  function initHeroDepth() {
+    const hero = document.querySelector('.v4-hero');
+    if (!hero || reduceMotion) return;
+
+    let ticking = false;
+
+    const update = function () {
+      const rect = hero.getBoundingClientRect();
+      const progress = Math.min(Math.max(-rect.top / Math.max(rect.height, 1), 0), 1);
+      hero.style.setProperty('--hero-content-shift', (-progress * 18).toFixed(2) + 'px');
+      hero.style.setProperty('--hero-visual-shift', (progress * 26).toFixed(2) + 'px');
+      hero.style.setProperty('--hero-glow-shift', (progress * 38).toFixed(2) + 'px');
+      ticking = false;
+    };
+
+    const requestUpdate = function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    requestUpdate();
   }
 
   document.querySelectorAll('.grid-2, .grid-3, .grid-4').forEach(function (grid) {
@@ -157,4 +280,8 @@
       child.style.transitionDelay = (i * 0.08) + 's';
     });
   });
+
+  initHomeMotion();
+  initCountUp();
+  initHeroDepth();
 })();

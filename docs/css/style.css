@@ -315,6 +315,29 @@ blockquote {
   margin-block: var(--space-lg);
 }
 
+.motion-ready .reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition:
+    opacity 0.82s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.82s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.motion-ready .reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 
 /* ─── 5. BUTTONS ───────────────────────────────────── */
 .btn {
@@ -430,8 +453,11 @@ blockquote {
 }
 
 .nav.scrolled {
-  background: rgba(255,255,255,0.97);
-  box-shadow: var(--shadow-sm);
+  background: rgba(247, 252, 250, 0.94);
+  border-bottom: 1px solid rgba(12, 53, 48, 0.08);
+  box-shadow: 0 12px 34px rgba(12, 53, 48, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .nav__inner {
@@ -456,8 +482,8 @@ blockquote {
 .nav__logo-white { display: block; }
 .nav__logo-color { display: none; }
 
-.nav.scrolled .nav__logo-white { display: none; }
-.nav.scrolled .nav__logo-color { display: block; }
+.nav.scrolled .nav__logo-white { display: block; }
+.nav.scrolled .nav__logo-color { display: none; }
 
 .nav__menu {
   display: flex;
@@ -990,7 +1016,9 @@ a.hero__proof-item:hover {
   align-items: stretch;
   gap: 0.9rem;
   width: max-content;
-  animation: partnerMarquee 28s linear infinite;
+  animation: partnerMarquee 36s linear infinite;
+  animation-play-state: running;
+  will-change: transform;
 }
 
 .partner-marquee:hover .partner-marquee__track {
