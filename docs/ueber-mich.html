@@ -288,56 +288,167 @@
     }
 
     .about-story__copy {
-      display: grid;
-      gap: clamp(1.5rem, 3vw, 2.2rem);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(2rem, 3.5vw, 3rem);
     }
 
+    /* ── Timeline-Wrapper ── */
+    .about-timeline {
+      position: relative;
+      padding-left: 2.75rem;
+    }
+
+    .about-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 1.8rem;
+      bottom: 1.8rem;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--color-accent) 5%,
+        rgba(0,200,168,0.22) 88%,
+        transparent 100%
+      );
+    }
+
+    /* ── Chapter Card ── */
     .about-chapter {
-      display: grid;
-      grid-template-columns: 92px minmax(0, 1fr);
-      gap: clamp(1rem, 2vw, 1.5rem);
-      padding-bottom: clamp(1.5rem, 3vw, 2.2rem);
-      border-bottom: 1px solid var(--color-border);
+      position: relative;
+      display: block;
+      padding: clamp(1.75rem, 3.2vw, 2.6rem) clamp(1.25rem, 2.5vw, 2.25rem);
+      border-bottom: 1px solid rgba(12,53,48,0.09);
+      background: transparent;
+      transition: background 0.32s ease;
+      overflow: visible;
     }
 
     .about-chapter:last-child {
       border-bottom: none;
     }
 
-    .about-chapter__num {
-      color: var(--color-accent);
-      font-size: var(--fs-xs);
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      padding-top: 0.35rem;
+    /* Timeline-Punkt */
+    .about-chapter::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: clamp(1.9rem, 3.4vw, 2.75rem);
+      width: 10px;
+      height: 10px;
+      background: white;
+      border: 2.5px solid var(--color-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(0,200,168,0.1);
+      z-index: 1;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .about-chapter h2,
+    .about-chapter:hover {
+      background: rgba(0,200,168,0.028);
+      border-radius: 10px;
+    }
+
+    .about-chapter:hover::before {
+      background: var(--color-accent);
+      transform: scale(1.3);
+      box-shadow: 0 0 0 7px rgba(0,200,168,0.14);
+    }
+
+    /* Große dekorative Kapitel-Zahl im Hintergrund */
+    .about-chapter__num {
+      position: absolute;
+      right: clamp(0.75rem, 2vw, 1.75rem);
+      top: -0.1em;
+      font-family: var(--font-heading);
+      font-size: clamp(5.5rem, 10vw, 9rem);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--color-primary);
+      opacity: 0.055;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+      z-index: 0;
+    }
+
+    .about-chapter__body {
+      position: relative;
+      z-index: 1;
+    }
+
     .about-chapter h3 {
       color: var(--color-primary);
-      font-size: clamp(1.55rem, 2.7vw, 2.45rem);
+      font-size: clamp(1.45rem, 2.5vw, 2.1rem);
       line-height: 1.1;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
     }
 
     .about-chapter p {
       color: var(--color-text-muted);
       font-size: var(--fs-md);
-      line-height: 1.78;
-      margin-bottom: 1rem;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
     }
 
+    .about-chapter p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Hervorgehobene Schlüsselformulierung */
+    .story-em {
+      font-style: normal;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* ── Pullquote — dunkles Panel ── */
     .about-pullquote {
       margin: 0;
-      padding: clamp(1.5rem, 3vw, 2.3rem) 0 0;
-      border-top: 2px solid var(--color-accent);
-      color: var(--color-primary);
+      padding: clamp(2.25rem, 4.5vw, 3.75rem) clamp(2rem, 4vw, 3.5rem);
+      background:
+        radial-gradient(circle at 10% 50%, rgba(0,200,168,0.09), transparent 55%),
+        var(--color-primary);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      color: white;
       font-family: var(--font-heading);
-      font-size: clamp(1.65rem, 3.1vw, 3rem);
-      font-style: normal;
-      line-height: 1.15;
+      font-size: clamp(1.45rem, 2.6vw, 2.3rem);
+      font-style: italic;
+      line-height: 1.28;
       letter-spacing: -0.025em;
+      border-top: none;
+    }
+
+    /* Dekoratives Anführungszeichen */
+    .about-pullquote::before {
+      content: '\201C';
+      position: absolute;
+      left: clamp(1rem, 2vw, 1.75rem);
+      top: -0.15em;
+      font-family: var(--font-heading);
+      font-size: clamp(7rem, 14vw, 12rem);
+      color: var(--color-accent);
+      opacity: 0.16;
+      line-height: 1;
+      pointer-events: none;
+      font-style: normal;
+    }
+
+    /* Teal Akzentlinie links am Pullquote */
+    .about-pullquote::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--color-accent), rgba(0,200,168,0.3));
+      border-radius: 0 0 0 12px;
     }
 
     .about-principles {
@@ -536,8 +647,17 @@
         border-bottom: none;
       }
 
-      .about-chapter {
-        grid-template-columns: 1fr;
+      .about-timeline {
+        padding-left: 2rem;
+      }
+
+      .about-chapter__num {
+        font-size: clamp(4rem, 18vw, 6.5rem);
+        opacity: 0.04;
+      }
+
+      .about-pullquote {
+        font-size: clamp(1.2rem, 5vw, 1.75rem);
       }
 
       .about-section {
@@ -668,43 +788,47 @@
             </div>
           </div>
 
-          <div class="about-story__copy">
-            <div class="about-section__head">
-              <p class="about-kicker">Meine Geschichte</p>
-              <h2 class="about-title" id="story-title">Ich kenne den Unterschied zwischen Plan und Realität.</h2>
-              <p class="about-lead">Viele Entscheidungen sehen auf Papier gut aus. Entscheidend ist, ob sie im Betrieb, im Markt und unter Druck tragen.</p>
+          <div class=”about-story__copy”>
+            <div class=”about-section__head”>
+              <p class=”about-kicker”>Meine Geschichte</p>
+              <h2 class=”about-title” id=”story-title”>Ich kenne den Unterschied zwischen Plan und Realität.</h2>
+              <p class=”about-lead”>Viele Entscheidungen sehen auf Papier gut aus. Entscheidend ist, ob sie im Betrieb, im Markt und unter Druck tragen.</p>
             </div>
 
-            <article class="about-chapter">
-              <span class="about-chapter__num">01</span>
-              <div>
-                <h3>Aufgebaut statt nur beobachtet.</h3>
-                <p>Meine unternehmerische Laufbahn begann nicht im Seminarraum, sondern mit echter Verantwortung: Räume, Personal, Kalkulation, Auslastung, Investitionen und die Frage, ob ein Betrieb wirtschaftlich trägt.</p>
-                <p>Ich habe einen 600-Quadratmeter-Betrieb aufgebaut und über Jahre geführt. Das prägt meinen Blick bis heute.</p>
-              </div>
-            </article>
+            <div class=”about-timeline”>
 
-            <article class="about-chapter">
-              <span class="about-chapter__num">02</span>
-              <div>
-                <h3>Klarheit, bevor es teuer wird.</h3>
-                <p>Gründer:innen und Selbstständige scheitern selten an Einsatz. Häufig fehlen ehrliche Zahlen, ein tragfähiger Marktbezug oder eine Entscheidung, die nicht länger verschoben werden darf.</p>
-                <p>Genau dort setze ich an: Ich prüfe, ordne ein und sage klar, was ich sehe.</p>
-              </div>
-            </article>
+              <article class=”about-chapter”>
+                <span class=”about-chapter__num” aria-hidden=”true”>01</span>
+                <div class=”about-chapter__body”>
+                  <h3>Aufgebaut statt nur beobachtet.</h3>
+                  <p>Meine unternehmerische Laufbahn begann nicht im Seminarraum, sondern mit echter Verantwortung: Räume, Personal, Kalkulation, Auslastung, Investitionen — und der Frage, <em class=”story-em”>ob ein Betrieb wirtschaftlich trägt.</em></p>
+                  <p>Ich habe einen <em class=”story-em”>600-Quadratmeter-Betrieb</em> aufgebaut und über Jahre geführt. Das prägt meinen Blick bis heute.</p>
+                </div>
+              </article>
 
-            <blockquote class="about-pullquote">
-              „Ich sage dir auch, wenn die Zahlen nicht aufgehen. Lieber jetzt als nach dem Start.“
-            </blockquote>
+              <article class=”about-chapter”>
+                <span class=”about-chapter__num” aria-hidden=”true”>02</span>
+                <div class=”about-chapter__body”>
+                  <h3>Klarheit, bevor es teuer wird.</h3>
+                  <p>Gründer:innen und Selbstständige scheitern selten an Einsatz. Häufig fehlen <em class=”story-em”>ehrliche Zahlen, ein tragfähiger Marktbezug</em> oder eine Entscheidung, die nicht länger verschoben werden darf.</p>
+                  <p>Genau dort setze ich an: Ich prüfe, ordne ein und sage klar, was ich sehe.</p>
+                </div>
+              </article>
 
-            <article class="about-chapter">
-              <span class="about-chapter__num">03</span>
-              <div>
-                <h3>Besonders stark in personenbezogenen Branchen.</h3>
-                <p>Beauty, Wellness, Gesundheit, Pflege und personenbezogene Dienstleistungen haben eigene wirtschaftliche Regeln. Fachliche Stärke allein reicht dort nicht aus.</p>
-                <p>Ich kenne diese Branchen aus operativer Verantwortung: Auslastung, Preise, Personal, Prozesse und die Realität hinter dem Kalender.</p>
-              </div>
-            </article>
+              <blockquote class=”about-pullquote”>
+                „Ich sage dir auch, wenn die Zahlen nicht aufgehen. Lieber jetzt als nach dem Start.”
+              </blockquote>
+
+              <article class=”about-chapter”>
+                <span class=”about-chapter__num” aria-hidden=”true”>03</span>
+                <div class=”about-chapter__body”>
+                  <h3>Besonders stark in personenbezogenen Branchen.</h3>
+                  <p>Beauty, Wellness, Gesundheit, Pflege und personenbezogene Dienstleistungen haben eigene wirtschaftliche Regeln. <em class=”story-em”>Fachliche Stärke allein reicht dort nicht aus.</em></p>
+                  <p>Ich kenne diese Branchen aus operativer Verantwortung: Auslastung, Preise, Personal, Prozesse — und die Realität hinter dem Kalender.</p>
+                </div>
+              </article>
+
+            </div>
           </div>
         </div>
       </div>
