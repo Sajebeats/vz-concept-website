@@ -296,17 +296,44 @@
     .about-timeline {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: clamp(0.85rem, 1.4vw, 1.1rem);
     }
 
-    /* ── Kompakte Story-Card ── */
+    /* ── Verbundene Kapitel-Gruppe (01 + 02) ── */
+    .about-chapter-group {
+      border: 1px solid rgba(12,53,48,0.1);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(12,53,48,0.07);
+    }
+
+    .about-chapter-group .about-chapter {
+      border: none;
+      border-bottom: 1px solid rgba(12,53,48,0.08);
+      border-radius: 0;
+      box-shadow: none;
+      transition: background 0.25s ease;
+    }
+
+    .about-chapter-group .about-chapter:last-child {
+      border-bottom: none;
+    }
+
+    .about-chapter-group .about-chapter:hover {
+      background: rgba(0,200,168,0.028);
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── Einzelne Chapter-Card ── */
     .about-chapter {
       background: white;
       border: 1px solid rgba(12,53,48,0.1);
       border-left: 3px solid var(--color-accent);
       border-radius: 12px;
-      padding: clamp(1.1rem, 1.8vw, 1.6rem) clamp(1.25rem, 2vw, 1.75rem);
-      box-shadow: 0 2px 18px rgba(12,53,48,0.06);
+      padding: clamp(1.1rem, 1.8vw, 1.55rem) clamp(1.25rem, 2vw, 1.75rem);
+      box-shadow: 0 2px 20px rgba(12,53,48,0.07);
       transition: box-shadow 0.28s ease, transform 0.28s ease;
     }
 
@@ -315,37 +342,12 @@
       transform: translateY(-2px);
     }
 
-    .about-chapter__head {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .about-chapter__num {
-      flex-shrink: 0;
-      color: var(--color-accent);
-      background: rgba(0,200,168,0.1);
-      font-family: var(--font-body);
-      font-size: 0.62rem;
-      font-weight: 900;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.22em 0.7em;
-      border-radius: 4px;
-      line-height: 1.4;
-    }
-
     .about-chapter h3 {
       color: var(--color-primary);
-      font-size: clamp(1.05rem, 1.75vw, 1.4rem);
+      font-size: clamp(1rem, 1.65vw, 1.35rem);
       line-height: 1.2;
       font-weight: 700;
-      margin: 0;
-    }
-
-    .about-chapter__body {
-      padding-left: calc(0.62rem * 2.2 + 0.7em + 0.65rem);
+      margin: 0 0 0.45rem;
     }
 
     .about-chapter p {
@@ -363,15 +365,6 @@
       font-style: normal;
       color: var(--color-primary);
       font-weight: 600;
-    }
-
-    /* ── Pfeil-Connector zwischen den Cards ── */
-    .about-connector {
-      display: flex;
-      align-items: center;
-      padding-left: 1.5rem;
-      height: 2.5rem;
-      color: var(--color-accent);
     }
 
     /* ── Pullquote — dunkles Panel ── */
@@ -614,10 +607,6 @@
         border-bottom: none;
       }
 
-      .about-chapter__body {
-        padding-left: 0;
-      }
-
       .about-pullquote {
         font-size: clamp(1.1rem, 4.5vw, 1.5rem);
       }
@@ -759,59 +748,25 @@
 
             <div class=”about-timeline”>
 
-              <article class=”about-chapter”>
-                <div class=”about-chapter__head”>
-                  <span class=”about-chapter__num”>01</span>
+              <div class=”about-chapter-group”>
+                <article class=”about-chapter”>
                   <h3>Aufgebaut statt nur beobachtet.</h3>
-                </div>
-                <div class=”about-chapter__body”>
                   <p>Nicht im Seminarraum, sondern mit echter Verantwortung: Räume, Personal, Kalkulation, Auslastung, Investitionen — und der Frage, <em class=”story-em”>ob ein Betrieb wirtschaftlich trägt.</em></p>
-                </div>
-              </article>
+                </article>
 
-              <div class=”about-connector” aria-hidden=”true”>
-                <svg width=”28” height=”42” viewBox=”0 0 28 42” fill=”none”>
-                  <path d=”M14 0 C18 10 8 22 14 34” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-dasharray=”3 3” opacity=”0.5”/>
-                  <path d=”M8 29 L14 38 L20 29” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”/>
-                </svg>
-              </div>
-
-              <article class=”about-chapter”>
-                <div class=”about-chapter__head”>
-                  <span class=”about-chapter__num”>02</span>
+                <article class=”about-chapter”>
                   <h3>Klarheit, bevor es teuer wird.</h3>
-                </div>
-                <div class=”about-chapter__body”>
                   <p>Gründer:innen scheitern selten an Einsatz. Häufig fehlen <em class=”story-em”>ehrliche Zahlen und ein tragfähiger Marktbezug.</em> Genau dort setze ich an.</p>
-                </div>
-              </article>
-
-              <div class=”about-connector” aria-hidden=”true”>
-                <svg width=”28” height=”42” viewBox=”0 0 28 42” fill=”none”>
-                  <path d=”M14 0 C18 10 8 22 14 34” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-dasharray=”3 3” opacity=”0.5”/>
-                  <path d=”M8 29 L14 38 L20 29” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”/>
-                </svg>
+                </article>
               </div>
 
               <blockquote class=”about-pullquote”>
                 „Ich sage dir auch, wenn die Zahlen nicht aufgehen. Lieber jetzt als nach dem Start.”
               </blockquote>
 
-              <div class=”about-connector” aria-hidden=”true”>
-                <svg width=”28” height=”42” viewBox=”0 0 28 42” fill=”none”>
-                  <path d=”M14 0 C18 10 8 22 14 34” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-dasharray=”3 3” opacity=”0.5”/>
-                  <path d=”M8 29 L14 38 L20 29” stroke=”currentColor” stroke-width=”1.5” stroke-linecap=”round” stroke-linejoin=”round”/>
-                </svg>
-              </div>
-
               <article class=”about-chapter”>
-                <div class=”about-chapter__head”>
-                  <span class=”about-chapter__num”>03</span>
-                  <h3>Stark in personenbezogenen Branchen.</h3>
-                </div>
-                <div class=”about-chapter__body”>
-                  <p>Beauty, Wellness, Gesundheit, Pflege — diese Branchen haben eigene wirtschaftliche Regeln. Ich kenne sie aus operativer Verantwortung: <em class=”story-em”>Auslastung, Preise, Personal, Prozesse.</em></p>
-                </div>
+                <h3>Stark in personenbezogenen Branchen.</h3>
+                <p>Beauty, Wellness, Gesundheit, Pflege — diese Branchen haben eigene wirtschaftliche Regeln. Ich kenne sie aus operativer Verantwortung: <em class=”story-em”>Auslastung, Preise, Personal, Prozesse.</em></p>
               </article>
 
             </div>
