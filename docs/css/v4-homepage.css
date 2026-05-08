@@ -1249,36 +1249,8 @@
     z-index: 2;
   }
 
-  /* Foto als Hintergrund-Portrait rechts — aus dem Grid-Flow heraus */
   .v4-hero__visual {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 62vw;
-    max-width: 270px;
-    height: auto;
-    aspect-ratio: auto;
-    justify-self: auto;
-    z-index: 1;
-    transform: none;
-    --hero-visual-base: 0;
-    opacity: 0.55;
-    pointer-events: none;
-  }
-
-  .v4-hero__visual picture {
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .v4-hero__visual img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    object-position: top right;
-    filter: drop-shadow(0 0 24px rgba(0,0,0,0.25));
+    display: none;
   }
 
   /* Google-Pille auf Mobile ausblenden (wird vom Cookie-Banner verdeckt;
