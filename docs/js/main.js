@@ -116,7 +116,15 @@
 
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
+      const href = this.getAttribute('href');
+      // Skip empty/single-hash hrefs (z.B. JS-Trigger wie Cookie-Einstellungen)
+      if (!href || href === '#' || href.length <= 1) return;
+      let target = null;
+      try {
+        target = document.querySelector(href);
+      } catch (err) {
+        return;
+      }
       if (target) {
         e.preventDefault();
         const offset = 88;
@@ -190,7 +198,7 @@
 
   function initCountUp() {
     const values = document.querySelectorAll('.v4-stats__value[data-count]');
-    if (!values.length || reduceMotion) return;
+    if (!values.length) return;
 
     const formatValue = function (value, decimals) {
       const fixed = value.toFixed(decimals);
@@ -204,7 +212,7 @@
       const target = Number(el.dataset.count);
       const decimals = Number(el.dataset.decimals || 0);
       const plus = el.querySelector('.v4-stats__plus');
-      const duration = 1100;
+      const duration = reduceMotion ? 400 : 1400;
       const startTime = performance.now();
 
       const tick = function (now) {
