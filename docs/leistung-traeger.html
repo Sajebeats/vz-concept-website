@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kooperation mit Trägern und Institutionen: AVGS-zugelassenes Gründercoaching durch VZ Concept. Zertifizierte Beratungsleistungen für Bildungsträger, Jobcenter und Arbeitsagenturen.">
+  <link rel="canonical" href="https://www.vz-concept.de/leistung-traeger.html">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cookie-consent.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <title>Träger &amp; Institutionen – VZ Concept</title>
+  <style>
+
+    /* ══ HERO — Hell, offiziell, dokumentenartig ════════════════ */
+    .inst-hero{background:linear-gradient(160deg,#f0f7f6 0%,#e6f2f0 50%,#f7fafa 100%);padding:clamp(5rem,11vw,8.5rem) 0 clamp(4rem,8vw,7rem);position:relative;overflow:hidden;border-bottom:1px solid rgba(12,53,48,.1)}
+    .inst-hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse 60% 80% at 0% 50%,rgba(0,200,168,.07) 0%,transparent 60%);pointer-events:none}
+    .inst-hero__inner{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+    .inst-hero__badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,168,.12);border:1px solid rgba(0,200,168,.3);color:var(--color-primary);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.4rem 1rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md)}
+    .inst-hero__badge svg{width:13px;height:13px;color:var(--color-accent)}
+    .inst-hero__h1{font-size:clamp(1.9rem,4vw,2.9rem);color:var(--color-primary);line-height:1.15;margin-bottom:var(--space-md)}
+    .inst-hero__h1 em{color:var(--color-accent);font-style:normal}
+    .inst-hero__sub{color:var(--color-text-muted);line-height:1.8;font-size:clamp(.95rem,1.8vw,1.08rem);margin-bottom:var(--space-xl)}
+    .inst-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center}
+    .inst-hero__trust{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin-top:var(--space-lg)}
+    .inst-hero__trust-item{display:flex;align-items:center;gap:.45rem;color:var(--color-text-muted);font-size:var(--fs-xs)}
+    .inst-hero__trust-item svg{width:13px;height:13px;color:var(--color-accent);flex-shrink:0}
+
+    /* Zulassungs-Dokument rechts */
+    .zulassung-card{background:var(--color-white);border:1px solid rgba(12,53,48,.14);border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(12,53,48,.12),0 4px 16px rgba(0,0,0,.06)}
+    .zulassung-card__header{background:linear-gradient(135deg,var(--color-primary) 0%,#0a2f2b 100%);padding:clamp(1.5rem,3vw,2rem);display:flex;align-items:center;gap:1rem}
+    .zulassung-card__seal{width:56px;height:56px;border-radius:50%;background:rgba(0,200,168,.2);border:2px solid rgba(0,200,168,.35);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .zulassung-card__seal svg{width:26px;height:26px}
+    .zulassung-card__header-text{flex:1}
+    .zulassung-card__overtitle{color:rgba(255,255,255,.5);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
+    .zulassung-card__title{color:var(--color-white);font-size:clamp(1rem,1.8vw,1.15rem);font-weight:700;line-height:1.3}
+    .zulassung-card__body{padding:clamp(1.25rem,2.5vw,1.75rem)}
+    .zulassung-row{display:flex;align-items:flex-start;gap:.875rem;padding-block:.875rem;border-bottom:1px solid var(--color-border)}
+    .zulassung-row:last-child{border-bottom:none}
+    .zulassung-row__dot{width:8px;height:8px;border-radius:50%;background:var(--color-accent);flex-shrink:0;margin-top:.45rem}
+    .zulassung-row__label{font-size:var(--fs-xs);color:var(--color-text-muted);margin-bottom:.2rem;font-weight:500}
+    .zulassung-row__value{font-size:var(--fs-sm);color:var(--color-primary);font-weight:700;line-height:1.4}
+    .zulassung-card__footer{background:rgba(0,200,168,.06);border-top:1px solid rgba(0,200,168,.15);padding:var(--space-md) clamp(1.25rem,2.5vw,1.75rem);display:flex;align-items:center;gap:.75rem}
+    .zulassung-card__footer svg{width:16px;height:16px;color:var(--color-accent);flex-shrink:0}
+    .zulassung-card__footer-text{font-size:var(--fs-xs);color:var(--color-text-muted);line-height:1.5}
+    .zulassung-card__footer-text strong{color:var(--color-primary)}
+
+    /* ══ VERTRAUENS-BAND — dunkel, credential-fokussiert ════════ */
+    .cred-band{background:linear-gradient(135deg,#081F1C 0%,var(--color-primary) 100%);padding-block:clamp(2.5rem,5vw,3.5rem)}
+    .cred-band__inner{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:var(--radius-lg);overflow:hidden}
+    .cred-pill{background:rgba(255,255,255,.04);padding:clamp(1.5rem,3vw,2.25rem);display:flex;align-items:flex-start;gap:1.125rem;position:relative}
+    .cred-pill::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.2))}
+    .cred-pill__icon{width:48px;height:48px;border-radius:var(--radius-md);background:rgba(0,200,168,.12);border:1px solid rgba(0,200,168,.2);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .cred-pill__icon svg{width:22px;height:22px}
+    .cred-pill__label{color:rgba(255,255,255,.4);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.35rem}
+    .cred-pill__title{color:var(--color-white);font-size:var(--fs-md);font-weight:700;line-height:1.3;margin-bottom:.25rem}
+    .cred-pill__sub{color:rgba(255,255,255,.55);font-size:var(--fs-sm);line-height:1.6}
+
+    /* ══ LEISTUNGSANGEBOT — 3 Kacheln ══════════════════════════ */
+    .angebot-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
+    .angebot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin-top:clamp(2rem,4vw,3rem)}
+    .angebot-card{background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.5rem,3vw,2.25rem);display:flex;flex-direction:column;position:relative;transition:box-shadow .25s ease,border-color .25s ease,transform .25s ease}
+    .angebot-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.25));border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+    .angebot-card:hover{border-color:rgba(0,200,168,.3);box-shadow:var(--shadow-md),0 0 0 1px rgba(0,200,168,.15);transform:translateY(-4px)}
+    .angebot-card__num{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--space-md)}
+    .angebot-card__icon{width:50px;height:50px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-primary),#0e4a3f);display:flex;align-items:center;justify-content:center;color:var(--color-accent);margin-bottom:var(--space-md)}
+    .angebot-card__icon svg{width:24px;height:24px}
+    .angebot-card__title{font-size:clamp(1.05rem,1.9vw,1.25rem);color:var(--color-primary);font-weight:700;margin-bottom:.625rem;line-height:1.3}
+    .angebot-card__text{color:var(--color-text-muted);font-size:var(--fs-sm);line-height:1.75;flex:1}
+    .angebot-card__divider{width:100%;height:1px;background:var(--color-border);margin-block:var(--space-md)}
+    .angebot-card__detail{font-size:var(--fs-xs);color:var(--color-text-muted);font-weight:600;display:flex;align-items:center;gap:.375rem}
+    .angebot-card__detail svg{width:14px;height:14px;color:var(--color-accent)}
+
+    /* ══ KOOPERATIONSMODELLE — asymmetrisch ████████ ════════════ */
+    .koop-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
+    .koop-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--space-md);margin-top:clamp(2rem,4vw,3rem);align-items:start}
+    .koop-featured{background:linear-gradient(160deg,var(--color-primary) 0%,#0a2f2b 100%);border-radius:20px;padding:clamp(2rem,4vw,3rem);position:relative;overflow:hidden;box-shadow:0 28px 70px rgba(12,53,48,.22)}
+    .koop-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.35))}
+    .koop-featured__badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,200,168,.15);border:1px solid rgba(0,200,168,.3);border-radius:var(--radius-pill);padding:.3rem .85rem;color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--space-lg)}
+    .koop-featured__title{color:var(--color-white);font-size:clamp(1.2rem,2.2vw,1.55rem);font-weight:700;line-height:1.3;margin-bottom:var(--space-md)}
+    .koop-featured__text{color:rgba(255,255,255,.7);font-size:var(--fs-sm);line-height:1.8;margin-bottom:var(--space-xl)}
+    .koop-list{display:flex;flex-direction:column;gap:.625rem;margin-bottom:var(--space-xl)}
+    .koop-list__item{display:flex;align-items:flex-start;gap:.75rem;color:rgba(255,255,255,.8);font-size:var(--fs-sm);line-height:1.6}
+    .koop-list__check{width:20px;height:20px;border-radius:50%;background:rgba(0,200,168,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem}
+    .koop-list__check svg{width:11px;height:11px;color:var(--color-accent)}
+    .koop-ghost{position:absolute;bottom:-20px;right:-10px;font-size:clamp(100px,14vw,150px);font-family:var(--font-heading);font-weight:700;color:rgba(255,255,255,.03);line-height:1;user-select:none;pointer-events:none}
+
+    .koop-secondary{display:flex;flex-direction:column;gap:var(--space-md)}
+    .koop-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);transition:border-color .25s ease,box-shadow .25s ease}
+    .koop-card:hover{border-color:rgba(0,200,168,.25);box-shadow:var(--shadow-sm)}
+    .koop-card__tag{display:inline-flex;align-items:center;gap:.35rem;font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--space-sm)}
+    .koop-card--b .koop-card__tag{color:#7b5c00;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.25);border-radius:var(--radius-pill);padding:.25rem .75rem}
+    .koop-card--c .koop-card__tag{color:#1a5c8a;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:var(--radius-pill);padding:.25rem .75rem}
+    .koop-card__title{font-size:var(--fs-md);color:var(--color-primary);font-weight:700;margin-bottom:.5rem}
+    .koop-card__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.7}
+
+    /* ══ QUALITÄTSSICHERUNG — dunkel, datenorientiert ═══════════ */
+    .quality-section{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(135deg,#081F1C 0%,var(--color-primary) 100%)}
+    .quality-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:start;margin-top:clamp(2rem,4vw,3rem)}
+    .quality-list{display:flex;flex-direction:column;gap:1.25rem}
+    .quality-item{display:flex;align-items:flex-start;gap:1.125rem;padding:clamp(1.1rem,2.5vw,1.5rem);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg)}
+    .quality-item__icon{width:44px;height:44px;border-radius:var(--radius-md);background:rgba(0,200,168,.12);border:1px solid rgba(0,200,168,.2);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .quality-item__icon svg{width:20px;height:20px}
+    .quality-item__title{color:var(--color-white);font-size:var(--fs-sm);font-weight:700;margin-bottom:.3rem}
+    .quality-item__text{color:rgba(255,255,255,.55);font-size:var(--fs-sm);line-height:1.65}
+    .quality-stats{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);align-content:start}
+    .quality-stat{padding:clamp(1.5rem,3vw,2rem);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);text-align:center;position:relative;overflow:hidden}
+    .quality-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.2))}
+    .quality-stat__num{font-family:var(--font-heading);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--color-accent);line-height:1;margin-bottom:.375rem}
+    .quality-stat__label{color:rgba(255,255,255,.55);font-size:var(--fs-xs);line-height:1.5;font-weight:500}
+
+    /* ══ PROZESS-ABLAUF — vertikale Timeline ════════════════════ */
+    .process-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
+    .process-timeline{display:flex;flex-direction:column;gap:0;margin-top:clamp(2rem,4vw,3.5rem);max-width:780px;margin-inline:auto}
+    .process-timeline-item{display:grid;grid-template-columns:56px 1fr;gap:clamp(1.5rem,3vw,2.5rem);position:relative;padding-bottom:clamp(1.5rem,3vw,2.5rem)}
+    .process-timeline-item:last-child{padding-bottom:0}
+    .process-timeline-item::after{content:'';position:absolute;top:56px;left:27px;width:2px;height:calc(100% - 28px);background:linear-gradient(180deg,rgba(0,200,168,.3),rgba(0,200,168,.05));display:none}
+    .process-timeline-item:not(:last-child)::after{display:block}
+    .process-timeline__step{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);font-family:var(--font-heading);font-size:1.2rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 24px rgba(12,53,48,.25);position:relative;z-index:1}
+    .process-timeline__content{background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);transition:border-color .25s ease,box-shadow .25s ease}
+    .process-timeline__content:hover{border-color:rgba(0,200,168,.25);box-shadow:var(--shadow-sm)}
+    .process-timeline__tag{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+    .process-timeline__title{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--color-primary);font-weight:700;margin-bottom:.5rem;line-height:1.3}
+    .process-timeline__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.75}
+
+    /* ══ FAQ ═══════════════════════════════════════════════════ */
+    .faq-section{padding-block:clamp(4rem,8vw,6rem);background:var(--color-off-white)}
+    .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
+    .faq-item{border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden;background:var(--color-white)}
+    .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1rem,2.5vw,1.4rem) clamp(1rem,2.5vw,1.5rem);font-weight:600;color:var(--color-primary);cursor:pointer;list-style:none;font-size:var(--fs-sm)}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary svg{width:18px;height:18px;flex-shrink:0;transition:transform .25s ease;color:var(--color-accent)}
+    .faq-item[open] summary svg{transform:rotate(45deg)}
+    .faq-item[open] summary{background:var(--color-accent-light)}
+    .faq-item__body{padding:clamp(1rem,2.5vw,1.25rem) clamp(1rem,2.5vw,1.5rem);color:var(--color-text-muted);line-height:1.75;font-size:var(--fs-sm);border-top:1px solid var(--color-border)}
+
+    /* ══ CTA-BANNER ═════════════════════════════════════════════ */
+    .cta-banner{background:linear-gradient(160deg,#f0f7f6 0%,#e6f2f0 100%);border-top:1px solid rgba(12,53,48,.08);padding-block:clamp(4rem,8vw,6rem)}
+    .cta-banner__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,5rem);align-items:center}
+    .cta-banner__eyebrow{color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem}
+    .cta-banner__headline{font-size:clamp(1.5rem,3vw,2.1rem);color:var(--color-primary);line-height:1.25;font-family:var(--font-heading);font-weight:700}
+    .cta-banner__sub{color:var(--color-text-muted);margin-top:.875rem;font-size:var(--fs-sm);line-height:1.7;max-width:520px}
+    .cta-banner__actions{display:flex;flex-direction:column;gap:var(--space-sm);align-items:flex-end;flex-shrink:0}
+
+    /* ══ RESPONSIVE ════════════════════════════════════════════ */
+    @media(max-width:1024px){
+      .inst-hero__inner{grid-template-columns:1fr}.zulassung-card{display:none}
+      .koop-inner{grid-template-columns:1fr}
+      .quality-inner{grid-template-columns:1fr}
+      .quality-stats{grid-template-columns:repeat(4,1fr)}
+      .cta-banner__inner{grid-template-columns:1fr}.cta-banner__actions{align-items:flex-start}
+    }
+    @media(max-width:768px){
+      .cred-band__inner{grid-template-columns:1fr}
+      .angebot-grid{grid-template-columns:1fr}
+      .quality-stats{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:540px){
+      .process-timeline-item{grid-template-columns:44px 1fr;gap:1rem}
+      .process-timeline__step{width:44px;height:44px;font-size:1rem}
+      .process-timeline-item::after{left:21px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container"><div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white"><img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color"></a>
+      <ul class="nav__menu" role="list">
+        <li><a href="ueber-mich.html" class="nav__link">&Uuml;ber mich</a></li>
+        <li class="nav__item--dropdown">
+          <button type="button" class="nav__link nav__dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Leistungen<svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+            <li><a href="leistung-gruendung.html" class="nav__dropdown-link"><strong>Gr&uuml;ndungs- &amp; Entscheidungsbegleitung</strong><span>Ich will gr&uuml;nden &ndash; aber nicht blind starten</span></a></li>
+            <li><a href="leistung-avgs.html" class="nav__dropdown-link"><strong>AVGS-Gr&uuml;ndercoaching</strong><span>Gef&ouml;rderte Gr&uuml;ndung realistisch vorbereiten</span></a></li>
+            <li><a href="leistung-krise.html" class="nav__dropdown-link"><strong>Krisen- &amp; Neuaufstellung</strong><span>Mein Unternehmen steht unter Druck</span></a></li>
+            <li><a href="leistung-struktur.html" class="nav__dropdown-link"><strong>Struktur &amp; Unternehmensentwicklung</strong><span>Es l&auml;uft &ndash; aber intern funktioniert es nicht sauber</span></a></li>
+            <li><a href="leistung-traeger.html" class="nav__dropdown-link"><strong>Tr&auml;ger &amp; Institutionen</strong><span>Ich brauche eine realistische Einsch&auml;tzung</span></a></li>
+            <li><a href="leistung-businessplan.html" class="nav__dropdown-link"><strong>Businessplan-Service</strong><span>F&uuml;r Bank, Investor oder eigene Orientierung</span></a></li>
+            <li><a href="leistung-aufenthaltsrecht.html" class="nav__dropdown-link"><strong>Businessplan f&uuml;r Aufenthaltsrecht</strong><span>Selbst&auml;ndigkeit im aufenthaltsrechtlichen Kontext</span></a></li>
+            <li class="nav__dropdown-divider"></li>
+            <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen &rarr;</a></li>
+          </ul>
+        </li>
+        <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+        <li><a href="partner.html" class="nav__link">Partner</a></li>
+      </ul>
+      <div class="nav__cta"><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a></div>
+      <button class="nav__toggle" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div></div>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════════════════ -->
+  <header class="inst-hero" aria-labelledby="inst-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Brotkrumen" style="margin-bottom:var(--space-xl)">
+        <a href="index.html" style="color:var(--color-text-muted)">Startseite</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:var(--color-border)"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="leistungen.html" style="color:var(--color-text-muted)">Leistungen</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:var(--color-border)"><polyline points="9 18 15 12 9 6"/></svg>
+        <span style="color:var(--color-primary);font-weight:600">Tr&auml;ger &amp; Institutionen</span>
+      </nav>
+      <div class="inst-hero__inner">
+        <div>
+          <p class="inst-hero__badge">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            AVGS-zugelassene Beratungsleistungen
+          </p>
+          <h1 class="inst-hero__h1" id="inst-title">Qualifiziertes Coaching<br><em>f&uuml;r Ihre Teilnehmer.</em></h1>
+          <p class="inst-hero__sub">VZ Concept bietet AVGS-zugelassenes Gr&uuml;ndercoaching f&uuml;r Bildungstr&auml;ger, Jobcenter und Arbeitsagenturen. Zertifizierte Beratung, dokumentierte Ergebnisse, verl&auml;ssliche Kooperation &mdash; damit Ihre Teilnehmer eine realistische Gr&uuml;ndungsgrundlage erhalten.</p>
+          <div class="inst-hero__actions">
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Kooperationsgespr&auml;ch anfragen
+            </a>
+            <a href="#angebot" class="btn btn--outline">Leistungs&uuml;bersicht</a>
+          </div>
+          <div class="inst-hero__trust">
+            <span class="inst-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>AVGS-zugelassen</span>
+            <span class="inst-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>IHK-zertifiziert &amp; AEVO</span>
+            <span class="inst-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>16 Jahre Unternehmensverantwortung</span>
+          </div>
+        </div>
+        <div class="zulassung-card" aria-hidden="true">
+          <div class="zulassung-card__header">
+            <div class="zulassung-card__seal">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <div class="zulassung-card__header-text">
+              <p class="zulassung-card__overtitle">Zulassung &amp; Qualifikation</p>
+              <p class="zulassung-card__title">VZ Concept &mdash; Vanessa Zimmer</p>
+            </div>
+          </div>
+          <div class="zulassung-card__body">
+            <div class="zulassung-row">
+              <div class="zulassung-row__dot"></div>
+              <div>
+                <p class="zulassung-row__label">F&ouml;rderrahmen</p>
+                <p class="zulassung-row__value">AVGS &ndash; Aktivierungs- und Vermittlungsgutschein</p>
+              </div>
+            </div>
+            <div class="zulassung-row">
+              <div class="zulassung-row__dot"></div>
+              <div>
+                <p class="zulassung-row__label">Qualifikation</p>
+                <p class="zulassung-row__value">IHK-zertifiziert, AEVO, Gr&uuml;ndungsberatung</p>
+              </div>
+            </div>
+            <div class="zulassung-row">
+              <div class="zulassung-row__dot"></div>
+              <div>
+                <p class="zulassung-row__label">Leistungsbereich</p>
+                <p class="zulassung-row__value">AVGS-Gr&uuml;ndercoaching, Beratung &amp; Begleitung</p>
+              </div>
+            </div>
+            <div class="zulassung-row">
+              <div class="zulassung-row__dot"></div>
+              <div>
+                <p class="zulassung-row__label">Erfahrung</p>
+                <p class="zulassung-row__value">16 Jahre Unternehmensf&uuml;hrung, eigene Gr&uuml;ndungen</p>
+              </div>
+            </div>
+            <div class="zulassung-row">
+              <div class="zulassung-row__dot"></div>
+              <div>
+                <p class="zulassung-row__label">Standort &amp; Region</p>
+                <p class="zulassung-row__value">Berlin &amp; bundesweit (online verf&uuml;gbar)</p>
+              </div>
+            </div>
+          </div>
+          <div class="zulassung-card__footer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p class="zulassung-card__footer-text"><strong>Unterlagen auf Anfrage:</strong> Zulassungsnachweise, Referenzen und Leistungsbeschreibung auf Anfrage verf&uuml;gbar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ══ VERTRAUENS-BAND ══════════════════════════════════════ -->
+    <section class="cred-band" aria-label="Qualifikationen und Zulassungen">
+      <div class="container">
+        <div class="cred-band__inner">
+          <div class="cred-pill">
+            <div class="cred-pill__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <p class="cred-pill__label">F&ouml;rderung</p>
+              <p class="cred-pill__title">AVGS-zugelassen</p>
+              <p class="cred-pill__sub">Coaching &uuml;ber den Aktivierungs- und Vermittlungsgutschein abrechenbar &mdash; f&uuml;r Arbeitsagentur und Jobcenter.</p>
+            </div>
+          </div>
+          <div class="cred-pill">
+            <div class="cred-pill__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="13"/></svg>
+            </div>
+            <div>
+              <p class="cred-pill__label">Qualifikation</p>
+              <p class="cred-pill__title">IHK &amp; AEVO</p>
+              <p class="cred-pill__sub">Gepr&uuml;fte Ausbildereignung (AEVO) und IHK-zertifizierte Kompetenz in Gr&uuml;ndungsberatung und Unternehmensf&uuml;hrung.</p>
+            </div>
+          </div>
+          <div class="cred-pill">
+            <div class="cred-pill__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div>
+              <p class="cred-pill__label">Praxis</p>
+              <p class="cred-pill__title">16 Jahre Unternehmensverantwortung</p>
+              <p class="cred-pill__sub">Eigene Gr&uuml;ndungen, Betriebsf&uuml;hrung und Krisenmanagement &mdash; keine rein akademische Beratung.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ LEISTUNGSANGEBOT ═════════════════════════════════════ -->
+    <section class="angebot-section" id="angebot" aria-labelledby="angebot-title">
+      <div class="container">
+        <p class="section-label text-center">Was biete ich Tr&auml;gern an</p>
+        <h2 class="section-title text-center" id="angebot-title">Drei Leistungsbereiche f&uuml;r Ihre Institution.</h2>
+        <p class="section-subtitle text-center" style="max-width:580px;margin-inline:auto">Ob Einzelcoaching, Maßnahmenbeteiligung oder Kooperation &mdash; die Zusammenarbeit l&auml;sst sich flexibel auf Ihren Bedarf zuschneiden.</p>
+        <div class="angebot-grid">
+
+          <div class="angebot-card">
+            <p class="angebot-card__num">Leistung 01</p>
+            <div class="angebot-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="angebot-card__title">AVGS-Gr&uuml;ndercoaching f&uuml;r Ihre Teilnehmer</h3>
+            <p class="angebot-card__text">Ich begleite Ihre Teilnehmer beim AVGS-Gr&uuml;ndercoaching: Gesch&auml;ftsideen-Pr&uuml;fung, Markteinsch&auml;tzung, Finanzplanung und realistische Gr&uuml;ndungsvorbereitung. Kein Schönreden &mdash; ehrliche Einsch&auml;tzung des Vorhabens.</p>
+            <div class="angebot-card__divider"></div>
+            <p class="angebot-card__detail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Einzel- und Gruppenformate m&ouml;glich</p>
+          </div>
+
+          <div class="angebot-card">
+            <p class="angebot-card__num">Leistung 02</p>
+            <div class="angebot-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="angebot-card__title">Maßnahmenbegleitung &amp; Beratung</h3>
+            <p class="angebot-card__text">Beteiligung an Tr&auml;germa&szlig;nahmen als externe Fachreferentin oder Coachin: Workshops zu Gr&uuml;ndungsplanung, Unternehmensf&uuml;hrung und wirtschaftlicher Realit&auml;t f&uuml;r Gr&uuml;ndungsinteressierte.</p>
+            <div class="angebot-card__divider"></div>
+            <p class="angebot-card__detail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vor Ort in Berlin oder online</p>
+          </div>
+
+          <div class="angebot-card">
+            <p class="angebot-card__num">Leistung 03</p>
+            <div class="angebot-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3 class="angebot-card__title">Businessplan &amp; Dokumentation</h3>
+            <p class="angebot-card__text">Professionelle Businesspl&auml;ne f&uuml;r Gr&uuml;ndungsf&ouml;rderung, Bank- und Investorengespr&auml;che. Alle f&uuml;r AVGS-Abrechnung relevanten Nachweise und Berichte werden sauber dokumentiert.</p>
+            <div class="angebot-card__divider"></div>
+            <p class="angebot-card__detail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>F&ouml;rderkonform &amp; tr&auml;gertauglich</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ KOOPERATIONSMODELLE ══════════════════════════════════ -->
+    <section class="koop-section" aria-labelledby="koop-title">
+      <div class="container">
+        <p class="section-label text-center">Wie wir zusammenarbeiten k&ouml;nnen</p>
+        <h2 class="section-title text-center" id="koop-title">Drei Kooperationsmodelle.</h2>
+        <p class="section-subtitle text-center" style="max-width:560px;margin-inline:auto">Je nach Bedarf Ihrer Institution &mdash; von der Einzelfallvermittlung bis zur strukturierten Rahmenkooperation.</p>
+        <div class="koop-inner">
+          <div class="koop-featured">
+            <span class="koop-ghost" aria-hidden="true">A</span>
+            <p class="koop-featured__badge">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Empfohlen f&uuml;r Tr&auml;ger mit regelm&auml;&szlig;igem Bedarf
+            </p>
+            <h3 class="koop-featured__title">Rahmenkooperation mit festem Ablauf</h3>
+            <p class="koop-featured__text">Wir definieren gemeinsam, welche Teilnehmer vermittelt werden, in welchem Format das Coaching stattfindet und wie die Dokumentation erfolgt. So entsteht ein verl&auml;sslicher Prozess &mdash; ohne Mehraufwand bei jedem Fall.</p>
+            <ul class="koop-list" aria-label="Leistungsbestandteile">
+              <li class="koop-list__item">
+                <div class="koop-list__check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Klar definierter Ablauf &mdash; von Zuweisung bis Abschlussnachweis
+              </li>
+              <li class="koop-list__item">
+                <div class="koop-list__check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                F&ouml;rderkonform dokumentierte Beratungseinheiten
+              </li>
+              <li class="koop-list__item">
+                <div class="koop-list__check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Regul&auml;re R&uuml;ckmeldung &uuml;ber Gr&uuml;ndungseignung der Teilnehmer
+              </li>
+              <li class="koop-list__item">
+                <div class="koop-list__check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Feste Ansprechperson, direkte Kommunikation
+              </li>
+            </ul>
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--outline-white">Kooperationsgespr&auml;ch anfragen &rarr;</a>
+          </div>
+          <div class="koop-secondary">
+            <div class="koop-card koop-card--b">
+              <p class="koop-card__tag">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:12px;height:12px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                Einzelvermittlung
+              </p>
+              <h3 class="koop-card__title">Fall-zu-Fall-Kooperation</h3>
+              <p class="koop-card__text">Sie vermitteln einzelne Teilnehmer mit konkretem Gr&uuml;ndungsvorhaben direkt an VZ Concept. Kein Rahmenvertrag notwendig &mdash; Kontakt, kurze Absprache, Coaching beginnt.</p>
+            </div>
+            <div class="koop-card koop-card--c">
+              <p class="koop-card__tag">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:12px;height:12px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Veranstaltung
+              </p>
+              <h3 class="koop-card__title">Workshop &amp; Infoveranstaltung</h3>
+              <p class="koop-card__text">Ich komme als Fachreferentin in Ihre Einrichtung &mdash; zu Themen wie Gr&uuml;ndungsvorbereitung, AVGS-Nutzung oder wirtschaftlicher Realit&auml;t in der Selbst&auml;ndigkeit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ QUALITÄTSSICHERUNG ═══════════════════════════════════ -->
+    <section class="quality-section" aria-labelledby="quality-title">
+      <div class="container">
+        <p class="section-label section-label--light text-center">Qualit&auml;t &amp; Verantwortung</p>
+        <h2 class="section-title section-title--white text-center" id="quality-title">Was Sie von mir erwarten k&ouml;nnen.</h2>
+        <p class="section-subtitle text-center" style="max-width:560px;margin-inline:auto;color:rgba(255,255,255,.6)">Verl&auml;sslichkeit, Transparenz und belastbare Ergebnisse &mdash; keine Floskeln, keine vagen Versprechen.</p>
+        <div class="quality-inner">
+          <div class="quality-list">
+            <div class="quality-item">
+              <div class="quality-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div>
+                <p class="quality-item__title">Vollst&auml;ndige Dokumentation</p>
+                <p class="quality-item__text">Jede Beratungseinheit wird nachvollziehbar dokumentiert &mdash; Themen, Ergebnisse, n&auml;chste Schritte. F&uuml;r Ihre Qualit&auml;tssicherung und AVGS-Abrechnung.</p>
+              </div>
+            </div>
+            <div class="quality-item">
+              <div class="quality-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <p class="quality-item__title">Klare R&uuml;ckmeldung zur Gr&uuml;ndungseignung</p>
+                <p class="quality-item__text">Ich sage Ihnen und Ihren Teilnehmern ehrlich, ob ein Vorhaben wirtschaftlich tragf&auml;hig ist. Keine falsche Ermutigung, keine zu pessimistische Einsch&auml;tzung &mdash; realistische Einordnung.</p>
+              </div>
+            </div>
+            <div class="quality-item">
+              <div class="quality-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07C9.36 17.43 7.82 15.9 6.85 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 5.78 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.91 10.91c1.35 2.38 2.71 3.74 5.09 5.09l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 23 17z"/></svg>
+              </div>
+              <div>
+                <p class="quality-item__title">Direkte Erreichbarkeit</p>
+                <p class="quality-item__text">Sie arbeiten mit mir direkt zusammen &mdash; kein Zwischenh&auml;ndler, keine wechselnden Ansprechpartner. Kurze Wege, schnelle Abstimmung.</p>
+              </div>
+            </div>
+            <div class="quality-item">
+              <div class="quality-item__icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <p class="quality-item__title">Nachweise auf Anfrage</p>
+                <p class="quality-item__text">Zulassungsnachweise, Qualifikationsbelege und Leistungsbeschreibung f&uuml;r Ihre Vergabeunterlagen werden bereitgestellt.</p>
+              </div>
+            </div>
+          </div>
+          <div class="quality-stats">
+            <div class="quality-stat">
+              <p class="quality-stat__num">16+</p>
+              <p class="quality-stat__label">Jahre eigene Unternehmensf&uuml;hrung</p>
+            </div>
+            <div class="quality-stat">
+              <p class="quality-stat__num">100%</p>
+              <p class="quality-stat__label">AVGS-F&ouml;rderung m&ouml;glich f&uuml;r Berechtigte</p>
+            </div>
+            <div class="quality-stat">
+              <p class="quality-stat__num">IHK</p>
+              <p class="quality-stat__label">Zertifiziert &amp; AEVO-gepr&uuml;ft</p>
+            </div>
+            <div class="quality-stat">
+              <p class="quality-stat__num">Berlin<br><span style="font-size:.6em;font-family:var(--font-body)">+ Online</span></p>
+              <p class="quality-stat__label">Verf&uuml;gbarkeit</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ABLAUF KOOPERATION ═══════════════════════════════════ -->
+    <section class="process-section" aria-labelledby="proc-title">
+      <div class="container">
+        <p class="section-label text-center">Wie es konkret l&auml;uft</p>
+        <h2 class="section-title text-center" id="proc-title">Vom ersten Kontakt bis zum Abschlussnachweis.</h2>
+        <p class="section-subtitle text-center" style="max-width:560px;margin-inline:auto">Der Ablauf ist so gestaltet, dass er f&uuml;r Ihre Institution keinen Mehraufwand bedeutet.</p>
+        <div class="process-timeline">
+
+          <div class="process-timeline-item">
+            <div class="process-timeline__step" aria-hidden="true">1</div>
+            <div class="process-timeline__content">
+              <p class="process-timeline__tag">Erster Kontakt</p>
+              <h3 class="process-timeline__title">Kooperationsgespr&auml;ch &mdash; 30 Minuten</h3>
+              <p class="process-timeline__text">Wir besprechen Ihren Bedarf: Wie viele Teilnehmer? Welche Zielgruppe? Welches Format? Ich erkl&auml;re, was ich leiste und was nicht. Kein Verkaufsgespr&auml;ch &mdash; eine n&uuml;chterne Einsch&auml;tzung ob die Zusammenarbeit sinnvoll ist.</p>
+            </div>
+          </div>
+
+          <div class="process-timeline-item">
+            <div class="process-timeline__step" aria-hidden="true">2</div>
+            <div class="process-timeline__content">
+              <p class="process-timeline__tag">Abstimmung</p>
+              <h3 class="process-timeline__title">Format &amp; Ablauf definieren</h3>
+              <p class="process-timeline__text">Wir legen gemeinsam fest, wie Zuweisung, Coaching-Ablauf und Dokumentation funktionieren. Einzel- oder Gruppencoaching, Pr&auml;senz oder online &mdash; je nachdem was f&uuml;r Ihre Teilnehmer sinnvoll ist.</p>
+            </div>
+          </div>
+
+          <div class="process-timeline-item">
+            <div class="process-timeline__step" aria-hidden="true">3</div>
+            <div class="process-timeline__content">
+              <p class="process-timeline__tag">Coaching-Phase</p>
+              <h3 class="process-timeline__title">Begleitung der Teilnehmer</h3>
+              <p class="process-timeline__text">Das Coaching beginnt. Ich arbeite direkt mit Ihren Teilnehmern &mdash; Gesch&auml;ftsideen pr&uuml;fen, Markt einsch&auml;tzen, Businessplan entwickeln, F&ouml;rderwege kl&auml;ren. Jede Einheit wird dokumentiert.</p>
+            </div>
+          </div>
+
+          <div class="process-timeline-item">
+            <div class="process-timeline__step" aria-hidden="true">4</div>
+            <div class="process-timeline__content">
+              <p class="process-timeline__tag">Abschluss</p>
+              <h3 class="process-timeline__title">Nachweis &amp; R&uuml;ckmeldung</h3>
+              <p class="process-timeline__text">Am Ende erhalten Sie alle n&ouml;tigen Nachweise f&uuml;r die AVGS-Abrechnung sowie eine R&uuml;ckmeldung zur Gr&uuml;ndungseignung des Teilnehmers. Klar, vollst&auml;ndig, tr&auml;gertauglich.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══════════════════════════════════════════════════ -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="section-label text-center">H&auml;ufige Fragen</p>
+        <h2 class="section-title text-center" id="faq-title">Was Tr&auml;ger und Institutionen fragen.</h2>
+        <div class="faq-list">
+
+          <details class="faq-item">
+            <summary>Ist VZ Concept f&uuml;r AVGS-Coaching zugelassen?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Ja. VZ Concept ist f&uuml;r AVGS-Gr&uuml;ndercoaching zugelassen. Zulassungsnachweise und alle relevanten Unterlagen werden auf Anfrage bereitgestellt &mdash; vollst&auml;ndig und f&uuml;r Ihre Vergabeunterlagen geeignet.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Welche Formate bieten Sie an &mdash; Einzel- oder Gruppencoaching?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Beide Formate sind m&ouml;glich. Einzelcoaching erm&ouml;glicht eine individuelle Pr&uuml;fung des Gr&uuml;ndungsvorhabens; Gruppenformate eignen sich f&uuml;r Informationsveranstaltungen und Maßnahmen mit mehreren Teilnehmern. Das genaue Format legen wir im Kooperationsgespr&auml;ch gemeinsam fest.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Wie l&auml;uft die Dokumentation f&uuml;r die AVGS-Abrechnung ab?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Jede Coaching-Einheit wird vollst&auml;ndig dokumentiert: Themen, Ergebnisse, Teilnahmenachweise. Sie erhalten alle Unterlagen, die f&uuml;r die Abrechnung gegen&uuml;ber der Agentur f&uuml;r Arbeit oder dem Jobcenter ben&ouml;tigt werden. Der Dokumentationsprozess wird im Vorfeld mit Ihnen abgestimmt.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Arbeiten Sie auch mit Jobcentern direkt zusammen?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Ja. Jobcenter k&ouml;nnen &uuml;ber den AVGS direkt Teilnehmer zu VZ Concept vermitteln. Ich bin direkt erreichbar und arbeite ohne Zwischenh&auml;ndler &mdash; das macht die Abstimmung einfacher und schneller.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Sind Sie auch online verf&uuml;gbar oder nur in Berlin?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Beides ist m&ouml;glich. In Berlin stehe ich f&uuml;r Pr&auml;senztermine zur Verf&uuml;gung. Online-Coaching ist bundesweit m&ouml;glich und in der Praxis ebenso wirksam. Viele Kooperationspartner nutzen den Online-Weg als Standard.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Gibt es einen Mindestumfang f&uuml;r eine Kooperation?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Nein. Es ist m&ouml;glich, einzelne F&auml;lle zu vermitteln ohne Rahmenvertrag. Bei regelm&auml;&szlig;igem Bedarf empfiehlt sich ein kurzes Kooperationsgespr&auml;ch, um den Ablauf einmal gemeinsam zu definieren &mdash; das spart sp&auml;ter Zeit.</div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA-BANNER ═══════════════════════════════════════════ -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-banner__inner">
+          <div>
+            <p class="cta-banner__eyebrow">Kooperation anfragen</p>
+            <h2 class="cta-banner__headline" id="cta-title">30 Minuten &mdash; und wir wissen, ob es passt.</h2>
+            <p class="cta-banner__sub">Kein aufwendiger Bewerbungsprozess. Ein kurzes Gespr&auml;ch &uuml;ber Ihren Bedarf und meine Leistungen &mdash; dann entscheiden Sie, ob und wie wir zusammenarbeiten.</p>
+          </div>
+          <div class="cta-banner__actions">
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Kooperationsgespr&auml;ch buchen
+            </a>
+            <p style="font-size:var(--fs-xs);color:var(--color-text-muted);text-align:center">Unterlagen auf Anfrage verf&uuml;gbar</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="VZ Concept Startseite"><img src="assets/images/logo-white.png" alt="VZ Concept" class="footer__logo"></a>
+          <p class="footer__tagline">Gr&uuml;ndungs- &amp; Unternehmensberatung &mdash; Berlin, bundesweit t&auml;tig</p>
+        </div>
+        <div>
+          <p class="footer__nav-title">Leistungen</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="leistung-gruendung.html">Gr&uuml;ndungsbegleitung</a></li>
+            <li><a href="leistung-avgs.html">AVGS-Coaching</a></li>
+            <li><a href="leistung-krise.html">Krisenberatung</a></li>
+            <li><a href="leistung-struktur.html">Strukturentwicklung</a></li>
+            <li><a href="leistung-traeger.html">Tr&auml;ger &amp; Institutionen</a></li>
+            <li><a href="leistung-businessplan.html">Businessplan-Service</a></li>
+            <li><a href="leistung-aufenthaltsrecht.html">Businessplan Aufenthaltsrecht</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__nav-title">Informationen</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="ueber-mich.html">&Uuml;ber mich</a></li>
+            <li><a href="ablauf.html">Ablauf</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="referenzen.html">Stimmen</a></li>
+            <li><a href="partner.html">Partner</a></li>
+            <li><a href="erstgespraech.html">Erstgespr&auml;ch</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__nav-title">Rechtliches</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 VZ Concept &mdash; Vanessa Zimmer. Alle Rechte vorbehalten.</p>
+        <p class="footer__copy">Gr&uuml;ndungs- &amp; Unternehmensberatung &middot; Berlin</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cookie-consent.js"></script>
+</body>
+</html>

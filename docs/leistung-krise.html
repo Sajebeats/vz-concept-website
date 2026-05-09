@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Krisen- und Neuaufstellungsberatung mit Vanessa Zimmer: Wenn dein Unternehmen unter Druck steht, brauchst du keine Durchhalteparolen. Sondern Klarheit über deine echten Optionen.">
+  <link rel="canonical" href="https://www.vz-concept.de/leistung-krise.html">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cookie-consent.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <title>Krisen- & Neuaufstellungsberatung – VZ Concept</title>
+  <style>
+
+    /* ══ HERO — 60/40 Split mit Situations-Panel ═══════════════ */
+    .crisis-hero{background:linear-gradient(155deg,#060f0e 0%,#0C3530 50%,#0d3f34 100%);padding:clamp(5rem,11vw,8.5rem) 0 clamp(4rem,8vw,7rem);position:relative;overflow:hidden}
+    .crisis-hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse 80% 70% at 80% 50%,rgba(0,200,168,.08) 0%,transparent 70%);pointer-events:none}
+    .crisis-hero__inner{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
+    .crisis-hero__label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,168,.12);border:1px solid rgba(0,200,168,.25);color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.4rem 1rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md)}
+    .crisis-hero__label svg{width:13px;height:13px}
+    .crisis-hero__h1{font-size:clamp(2rem,4.5vw,3rem);color:var(--color-white);line-height:1.15;margin-bottom:var(--space-md)}
+    .crisis-hero__h1 em{color:var(--color-accent);font-style:normal}
+    .crisis-hero__sub{color:rgba(255,255,255,.75);line-height:1.8;font-size:clamp(.95rem,1.8vw,1.08rem);margin-bottom:var(--space-xl)}
+    .crisis-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center}
+    .crisis-hero__trust{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin-top:var(--space-lg)}
+    .crisis-hero__trust-item{display:flex;align-items:center;gap:.45rem;color:rgba(255,255,255,.55);font-size:var(--fs-xs)}
+    .crisis-hero__trust-item svg{width:13px;height:13px;color:var(--color-accent);flex-shrink:0}
+
+    /* Situations-Panel rechts */
+    .situations-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:calc(var(--radius-lg) + 4px);padding:clamp(1.5rem,3vw,2rem);backdrop-filter:blur(10px)}
+    .situations-panel__label{color:rgba(255,255,255,.45);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--space-md)}
+    .situation-item{display:flex;align-items:flex-start;gap:.875rem;padding-block:.875rem;border-bottom:1px solid rgba(255,255,255,.08)}
+    .situation-item:last-child{border-bottom:none}
+    .situation-item__dot{width:8px;height:8px;border-radius:50%;background:var(--color-accent);flex-shrink:0;margin-top:.4rem}
+    .situation-item__text{color:rgba(255,255,255,.75);font-size:var(--fs-sm);line-height:1.6;font-style:italic}
+
+    /* ══ SITUATIONS-BAND — dunkel, früh ════════════════════════ */
+    .situations-band{background:linear-gradient(135deg,#060f0e 0%,#0C3530 100%);padding-block:clamp(3.5rem,7vw,5.5rem)}
+    .situations-band__inner{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:var(--radius-lg);overflow:hidden}
+    .situation-col{padding:clamp(1.75rem,3.5vw,2.5rem);background:rgba(255,255,255,.04);position:relative}
+    .situation-col::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+    .situation-col:nth-child(1)::before{background:linear-gradient(90deg,#e53e3e,rgba(229,62,62,.3))}
+    .situation-col:nth-child(2)::before{background:linear-gradient(90deg,#dd6b20,rgba(221,107,32,.3))}
+    .situation-col:nth-child(3)::before{background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.3))}
+    .situation-col__icon{width:46px;height:46px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-md)}
+    .situation-col:nth-child(1) .situation-col__icon{background:rgba(229,62,62,.15);color:#fc8181}
+    .situation-col:nth-child(2) .situation-col__icon{background:rgba(221,107,32,.15);color:#f6ad55}
+    .situation-col:nth-child(3) .situation-col__icon{background:rgba(0,200,168,.15);color:var(--color-accent)}
+    .situation-col__icon svg{width:22px;height:22px}
+    .situation-col__title{color:var(--color-white);font-size:var(--fs-md);font-weight:700;margin-bottom:.6rem;line-height:1.3}
+    .situation-col__text{color:rgba(255,255,255,.6);font-size:var(--fs-sm);line-height:1.7}
+
+    /* ══ 3 FALLEN UNTER DRUCK ═══════════════════════════════════ */
+    .traps-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
+    .traps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin-top:clamp(2rem,4vw,3rem)}
+    .trap-card{background:var(--color-white);border:1px solid #fecaca;border-top:3px solid #e53e3e;border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem)}
+    .trap-card__icon{width:42px;height:42px;border-radius:50%;background:#fef2f2;display:flex;align-items:center;justify-content:center;color:#e53e3e;margin-bottom:var(--space-md)}
+    .trap-card__icon svg{width:20px;height:20px}
+    .trap-card__title{font-size:var(--fs-md);font-weight:700;color:#c53030;margin-bottom:.5rem}
+    .trap-card__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.7}
+    .traps-pivot{display:flex;align-items:center;gap:var(--space-lg);margin-top:clamp(2rem,4vw,3rem);padding:clamp(1.5rem,3vw,2.25rem);background:linear-gradient(135deg,var(--color-primary),#0e4a3f);border-radius:var(--radius-lg);color:var(--color-white)}
+    .traps-pivot__icon{width:56px;height:56px;border-radius:var(--radius-md);background:rgba(0,200,168,.2);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .traps-pivot__icon svg{width:26px;height:26px}
+    .traps-pivot__label{color:rgba(255,255,255,.55);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+    .traps-pivot__title{color:var(--color-white);font-size:clamp(1rem,2vw,1.25rem);font-weight:700;line-height:1.35}
+
+    /* ══ VORHER / NACHHER ═══════════════════════════════════════ */
+    .beforeafter{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
+    .beforeafter__grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:clamp(2rem,4vw,3rem);align-items:stretch;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);box-shadow:var(--shadow-sm)}
+    .ba-col{padding:clamp(1.75rem,3.5vw,2.5rem)}
+    .ba-col--before{background:var(--color-off-white)}
+    .ba-col--after{background:linear-gradient(165deg,rgba(0,200,168,.06) 0%,rgba(0,200,168,.02) 100%)}
+    .ba-col__label{font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--space-lg)}
+    .ba-col--before .ba-col__label{color:#c53030}
+    .ba-col--after .ba-col__label{color:var(--color-accent)}
+    .ba-col__list{display:flex;flex-direction:column;gap:var(--space-md)}
+    .ba-item{display:flex;align-items:flex-start;gap:.875rem;font-size:var(--fs-sm);line-height:1.6}
+    .ba-item__icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+    .ba-col--before .ba-item__icon{background:#fef2f2;color:#e53e3e}
+    .ba-col--after .ba-item__icon{background:var(--color-accent-light);color:var(--color-accent)}
+    .ba-col--before .ba-item__icon svg,.ba-col--after .ba-item__icon svg{width:13px;height:13px}
+    .ba-col--before .ba-item{color:var(--color-text-muted)}
+    .ba-col--after .ba-item{color:var(--color-text);font-weight:500}
+    .ba-divider{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 1.25rem;background:var(--color-white);border-inline:1px solid var(--color-border)}
+    .ba-divider__arrow{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);display:flex;align-items:center;justify-content:center;color:var(--color-accent)}
+    .ba-divider__arrow svg{width:18px;height:18px}
+
+    /* ══ ALTERNIERENDER PROZESS ════════════════════════════════ */
+    .alt-process{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(180deg,var(--color-off-white) 0%,#f9fcfb 100%)}
+    .alt-steps{display:flex;flex-direction:column;gap:clamp(2rem,4vw,3rem);margin-top:clamp(2rem,4vw,3.5rem)}
+    .alt-step{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+    .alt-step--flip{direction:rtl}
+    .alt-step--flip>*{direction:ltr}
+    .alt-step__content{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.5rem,3vw,2.25rem);box-shadow:var(--shadow-sm)}
+    .alt-step__label{color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
+    .alt-step__title{font-size:clamp(1.1rem,2vw,1.35rem);color:var(--color-primary);font-weight:700;margin-bottom:.75rem;line-height:1.3}
+    .alt-step__text{color:var(--color-text-muted);font-size:var(--fs-sm);line-height:1.75}
+    .alt-step__center{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+    .alt-step__num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);font-family:var(--font-heading);font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(12,53,48,.25);flex-shrink:0}
+    .alt-step__vline{width:2px;height:clamp(1rem,2vw,1.5rem);background:linear-gradient(180deg,rgba(0,200,168,.4),transparent)}
+    .alt-step__empty{background:transparent;border:none;box-shadow:none}
+
+    /* ══ DRINGLICHKEITS-STREIFEN ════════════════════════════════ */
+    .urgency{background:linear-gradient(135deg,#1a0808 0%,#2d1111 100%);padding-block:clamp(3rem,6vw,4.5rem);border-top:1px solid rgba(229,62,62,.2)}
+    .urgency__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,5rem);align-items:center}
+    .urgency__eyebrow{color:rgba(229,62,62,.8);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem}
+    .urgency__headline{font-size:clamp(1.4rem,3vw,2rem);color:var(--color-white);line-height:1.3;font-family:var(--font-heading)}
+    .urgency__headline em{color:#fc8181;font-style:normal}
+    .urgency__sub{color:rgba(255,255,255,.6);margin-top:.875rem;font-size:var(--fs-sm);line-height:1.7;max-width:500px}
+
+    /* ══ WARUM VANESSA ══════════════════════════════════════════ */
+    .why-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
+    .why-section__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+    .why-quote{font-family:var(--font-heading);font-style:italic;font-size:clamp(1.2rem,2.2vw,1.55rem);color:var(--color-primary);line-height:1.55;border-left:4px solid var(--color-accent);padding-left:var(--space-lg);margin-bottom:var(--space-xl)}
+    .why-sub{color:var(--color-text-muted);line-height:1.75;margin-bottom:var(--space-lg)}
+    .cred-list{display:flex;flex-direction:column;gap:.75rem}
+    .cred-item{display:flex;align-items:flex-start;gap:.875rem;padding:var(--space-md);background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-md)}
+    .cred-item__icon{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .cred-item__icon svg{width:15px;height:15px}
+    .cred-item__text{font-size:var(--fs-sm);color:var(--color-primary);font-weight:600;line-height:1.45}
+    .cred-item__sub{font-size:var(--fs-xs);color:var(--color-text-muted);font-weight:400}
+
+    /* ══ LEISTUNGSINHALT ════════════════════════════════════════ */
+    .content-block{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
+    .content-block__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+    .content-block__heading{font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-md)}
+    .content-block__sub{color:var(--color-text-muted);margin-bottom:var(--space-lg);line-height:1.75}
+    .info-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+    .info-card__header{background:linear-gradient(135deg,var(--color-primary),#0e4a3f);padding:var(--space-lg)}
+    .info-card__label{color:rgba(255,255,255,.6);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+    .info-card__title{color:var(--color-white);font-size:var(--fs-lg);font-weight:700;line-height:1.3}
+    .info-card__body{padding:var(--space-lg)}
+    .info-row{display:flex;align-items:flex-start;gap:.875rem;padding-block:.875rem;border-bottom:1px solid var(--color-border);font-size:var(--fs-sm)}
+    .info-row:last-child{border-bottom:none}
+    .info-row__icon{width:34px;height:34px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .info-row__icon svg{width:15px;height:15px}
+    .info-row__label{color:var(--color-text-muted);font-size:var(--fs-xs);margin-bottom:2px}
+    .info-row__value{color:var(--color-primary);font-weight:600}
+    .crisis-note{margin-top:var(--space-md);padding:var(--space-md);background:rgba(229,62,62,.06);border:1px solid rgba(229,62,62,.18);border-radius:var(--radius-md);color:#742a2a;font-size:var(--fs-sm);line-height:1.7}
+    .crisis-note strong{display:block;margin-bottom:.3rem;font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:#e53e3e}
+
+    /* ══ FAQ ════════════════════════════════════════════════════ */
+    .faq-section{padding-block:clamp(4rem,8vw,6rem);background:var(--color-white)}
+    .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
+    .faq-item{border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden}
+    .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1rem,2.5vw,1.4rem) clamp(1rem,2.5vw,1.5rem);font-weight:600;color:var(--color-primary);cursor:pointer;list-style:none;font-size:var(--fs-sm)}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary svg{width:18px;height:18px;flex-shrink:0;transition:transform .25s ease;color:var(--color-accent)}
+    .faq-item[open] summary svg{transform:rotate(45deg)}
+    .faq-item[open] summary{background:var(--color-accent-light)}
+    .faq-item__body{padding:clamp(1rem,2.5vw,1.25rem) clamp(1rem,2.5vw,1.5rem);color:var(--color-text-muted);line-height:1.75;font-size:var(--fs-sm);border-top:1px solid var(--color-border)}
+
+    /* ══ RESPONSIVE ════════════════════════════════════════════ */
+    @media(max-width:960px){
+      .crisis-hero__inner{grid-template-columns:1fr}.situations-panel{display:none}
+      .situations-band__inner{grid-template-columns:1fr}
+      .traps-grid{grid-template-columns:1fr}
+      .beforeafter__grid{grid-template-columns:1fr}.ba-divider{display:none}.ba-col--before{border-bottom:1px solid var(--color-border)}
+      .alt-step{grid-template-columns:auto 1fr}.alt-step--flip{direction:ltr}.alt-step__empty{display:none}
+      .urgency__inner{grid-template-columns:1fr}
+      .why-section__inner{grid-template-columns:1fr}
+      .content-block__inner{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){.alt-step{grid-template-columns:44px 1fr;gap:1rem}.alt-step__num{width:44px;height:44px;font-size:1rem}.alt-step__vline{display:none}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container"><div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white"><img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color"></a>
+      <ul class="nav__menu" role="list">
+        <li><a href="ueber-mich.html" class="nav__link">&Uuml;ber mich</a></li>
+        <li class="nav__item--dropdown">
+          <button type="button" class="nav__link nav__dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Leistungen<svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+            <li><a href="leistung-gruendung.html" class="nav__dropdown-link"><strong>Gr&uuml;ndungs- &amp; Entscheidungsbegleitung</strong><span>Ich will gr&uuml;nden &ndash; aber nicht blind starten</span></a></li>
+            <li><a href="leistung-avgs.html" class="nav__dropdown-link"><strong>AVGS-Gr&uuml;ndercoaching</strong><span>Gef&ouml;rderte Gr&uuml;ndung realistisch vorbereiten</span></a></li>
+            <li><a href="leistung-krise.html" class="nav__dropdown-link"><strong>Krisen- &amp; Neuaufstellung</strong><span>Mein Unternehmen steht unter Druck</span></a></li>
+            <li><a href="leistung-struktur.html" class="nav__dropdown-link"><strong>Struktur &amp; Unternehmensentwicklung</strong><span>Es l&auml;uft &ndash; aber intern funktioniert es nicht sauber</span></a></li>
+            <li><a href="leistung-traeger.html" class="nav__dropdown-link"><strong>Tr&auml;ger &amp; Institutionen</strong><span>Ich brauche eine realistische Einsch&auml;tzung</span></a></li>
+            <li><a href="leistung-businessplan.html" class="nav__dropdown-link"><strong>Businessplan-Service</strong><span>F&uuml;r Bank, Investor oder eigene Orientierung</span></a></li>
+            <li><a href="leistung-aufenthaltsrecht.html" class="nav__dropdown-link"><strong>Businessplan f&uuml;r Aufenthaltsrecht</strong><span>Selbst&auml;ndigkeit im aufenthaltsrechtlichen Kontext</span></a></li>
+            <li class="nav__dropdown-divider"></li>
+            <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen &rarr;</a></li>
+          </ul>
+        </li>
+        <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+        <li><a href="partner.html" class="nav__link">Partner</a></li>
+      </ul>
+      <div class="nav__cta"><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a></div>
+      <button class="nav__toggle" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div></div>
+  </nav>
+
+  <!-- ══ HERO ═══════════════════════════════════════════════════ -->
+  <header class="crisis-hero" aria-labelledby="crisis-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Brotkrumen" style="margin-bottom:var(--space-xl)">
+        <a href="index.html" style="color:rgba(255,255,255,.5)">Startseite</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:rgba(255,255,255,.3)"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="leistungen.html" style="color:rgba(255,255,255,.5)">Leistungen</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:rgba(255,255,255,.3)"><polyline points="9 18 15 12 9 6"/></svg>
+        <span style="color:rgba(255,255,255,.35)">Krisen- &amp; Neuaufstellung</span>
+      </nav>
+      <div class="crisis-hero__inner">
+        <div>
+          <p class="crisis-hero__label">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Krisen- &amp; Neuaufstellungsberatung
+          </p>
+          <h1 class="crisis-hero__h1" id="crisis-title">Dein Unternehmen steht unter Druck.<br><em>Jetzt brauchst du Klarheit, nicht Durchhalteparolen.</em></h1>
+          <p class="crisis-hero__sub">Schwierige Phasen betreffen nie nur Zahlen. Sie ber&uuml;hren Verantwortung, Existenz und die Frage, wie lange das noch tragbar ist. Ich helfe dir, deine Optionen klar zu sehen &mdash; und eine Entscheidung zu treffen, die tr&auml;gt.</p>
+          <div class="crisis-hero__actions">
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Situation einordnen
+            </a>
+            <a href="#was-enthalten" class="btn btn--outline-white">Was ist enthalten?</a>
+          </div>
+          <div class="crisis-hero__trust">
+            <span class="crisis-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Keine Durchhalteparolen</span>
+            <span class="crisis-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>16 Jahre Unternehmensverantwortung</span>
+            <span class="crisis-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Alle Optionen auf dem Tisch</span>
+          </div>
+        </div>
+        <div class="situations-panel" aria-hidden="true">
+          <p class="situations-panel__label">Diese Situationen kenne ich</p>
+          <div class="situation-item">
+            <div class="situation-item__dot"></div>
+            <p class="situation-item__text">&bdquo;Ich wei&szlig; nicht, ob ich mein Unternehmen noch retten kann &mdash; oder ob ich loslassen muss.&ldquo;</p>
+          </div>
+          <div class="situation-item">
+            <div class="situation-item__dot"></div>
+            <p class="situation-item__text">&bdquo;Die Zahlen stimmen nicht mehr. Ich wei&szlig; nicht wo ich anfangen soll.&ldquo;</p>
+          </div>
+          <div class="situation-item">
+            <div class="situation-item__dot"></div>
+            <p class="situation-item__text">&bdquo;Ich habe alles gegeben. Jetzt brauche ich jemanden der mir sagt wo ich wirklich stehe.&ldquo;</p>
+          </div>
+          <div class="situation-item">
+            <div class="situation-item__dot"></div>
+            <p class="situation-item__text">&bdquo;Ich muss eine Entscheidung treffen &mdash; aber mir fehlt der klare Blick von au&szlig;en.&ldquo;</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ══ SITUATIONS-BAND ════════════════════════════════════════ -->
+    <section class="situations-band" aria-labelledby="sit-title">
+      <div class="container">
+        <p class="section-label section-label--light text-center">Wo stehst du gerade?</p>
+        <h2 class="section-title section-title--white text-center" id="sit-title" style="margin-bottom:clamp(2rem,4vw,3rem)">Drei Situationen &mdash; eine macht dich hierher gef&uuml;hrt.</h2>
+        <div class="situations-band__inner">
+          <div class="situation-col">
+            <div class="situation-col__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <h3 class="situation-col__title">Die Zahlen passen nicht mehr</h3>
+            <p class="situation-col__text">Umsatz sinkt, Kosten bleiben. Du wei&szlig;t, dass etwas nicht stimmt &mdash; aber du wei&szlig;t nicht genau wo der echte Engpass liegt und welche Zahl die entscheidende ist.</p>
+          </div>
+          <div class="situation-col">
+            <div class="situation-col__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <h3 class="situation-col__title">Du tr&auml;gst alles allein</h3>
+            <p class="situation-col__text">Verantwortung, Druck, Entscheidungen &mdash; alles h&auml;ngt an dir. Das zermürbt. Du brauchst keinen Motivationsredner, sondern jemanden der dir hilft klar zu denken.</p>
+          </div>
+          <div class="situation-col">
+            <div class="situation-col__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <h3 class="situation-col__title">Du weißt nicht ob Weitermachen Sinn macht</h3>
+            <p class="situation-col__text">Aufgeben oder weiterk&auml;mpfen? Das ist keine Frage der Motivation. Das ist eine Frage der Zahlen, der Optionen und einer n&uuml;chternen Einsch&auml;tzung &mdash; die du von jemandem brauchst der nicht drin steckt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 3 FALLEN UNTER DRUCK ══════════════════════════════════ -->
+    <section class="traps-section" aria-labelledby="trap-title">
+      <div class="container">
+        <p class="section-label text-center">Was viele tun &mdash; und was das kostet</p>
+        <h2 class="section-title text-center" id="trap-title">Die drei h&auml;ufigsten Reaktionen unter Druck.</h2>
+        <p class="section-subtitle text-center" style="max-width:560px;margin-inline:auto">Keine Kritik &mdash; das sind menschliche Reaktionen. Aber sie kosten Zeit und Substanz, die in einer Krise knapp sind.</p>
+        <div class="traps-grid">
+          <div class="trap-card">
+            <div class="trap-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 class="trap-card__title">Ignorieren und hoffen</h3>
+            <p class="trap-card__text">&bdquo;Es wird schon besser.&ldquo; &mdash; Manchmal wird es das. Meistens nicht. Jeder Monat Warten verschlechtert die Ausgangslage und verkleinert den Handlungsspielraum.</p>
+          </div>
+          <div class="trap-card">
+            <div class="trap-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <h3 class="trap-card__title">Hektisch reagieren</h3>
+            <p class="trap-card__text">Neue Angebote, Preissenkungen, schnelle Entscheidungen ohne Grundlage. Aktionismus f&uuml;hlt sich nach Kontrolle an &mdash; l&ouml;st aber selten das eigentliche Problem.</p>
+          </div>
+          <div class="trap-card">
+            <div class="trap-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+            <h3 class="trap-card__title">Auf Ratschl&auml;ge h&ouml;ren</h3>
+            <p class="trap-card__text">Familie, Freunde, Berater mit allgemeinen Konzepten. Gut gemeint &mdash; aber ohne deine Zahlen, deine Situation und deinen Markt oft nicht mehr als gut klingende Meinungen.</p>
+          </div>
+        </div>
+        <div class="traps-pivot">
+          <div class="traps-pivot__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div>
+            <p class="traps-pivot__label">Was Vanessa stattdessen macht</p>
+            <p class="traps-pivot__title">Einordnen. Klar sehen. Optionen benennen. &mdash; Damit du eine Entscheidung treffen kannst, die auf echten Daten basiert, nicht auf Hoffnung oder Druck.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VORHER / NACHHER ══════════════════════════════════════ -->
+    <section class="beforeafter" aria-labelledby="ba-title">
+      <div class="container">
+        <p class="section-label text-center">Was sich &auml;ndert</p>
+        <h2 class="section-title text-center" id="ba-title">Vor und nach der Einordnung.</h2>
+        <p class="section-subtitle text-center" style="max-width:520px;margin-inline:auto">Nicht als Versprechen &mdash; als realistische Beschreibung dessen, was Klarheit &uuml;ber die eigene Lage konkret ver&auml;ndert.</p>
+        <div class="beforeafter__grid">
+          <div class="ba-col ba-col--before">
+            <p class="ba-col__label">Ohne Einordnung</p>
+            <div class="ba-col__list">
+              <div class="ba-item">
+                <div class="ba-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                Du wei&szlig;t nicht, ob das Problem l&ouml;sbar ist &mdash; oder ob du nur Zeit verlierst
+              </div>
+              <div class="ba-item">
+                <div class="ba-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                Jede Entscheidung f&uuml;hlt sich falsch an, weil du den &Uuml;berblick verloren hast
+              </div>
+              <div class="ba-item">
+                <div class="ba-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                Der Worst Case ist eine Ahnung &mdash; keine berechnete Gr&ouml;&szlig;e
+              </div>
+            </div>
+          </div>
+          <div class="ba-divider" aria-hidden="true">
+            <div class="ba-divider__arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+          </div>
+          <div class="ba-col ba-col--after">
+            <p class="ba-col__label">Nach unserer Arbeit</p>
+            <div class="ba-col__list">
+              <div class="ba-item">
+                <div class="ba-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Du wei&szlig;t konkret, welche Optionen du hast &mdash; Stabilisierung, Neuaufstellung oder Ausstieg
+              </div>
+              <div class="ba-item">
+                <div class="ba-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Der Worst Case ist eine Zahl &mdash; und damit planbar, nicht mehr nur bedrohlich
+              </div>
+              <div class="ba-item">
+                <div class="ba-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Du kannst wieder entscheiden &mdash; weil du weißt, worauf deine Entscheidung basiert
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ALTERNIERENDER PROZESS ════════════════════════════════ -->
+    <section class="alt-process" aria-labelledby="proc-title">
+      <div class="container">
+        <p class="section-label text-center">Wie wir vorgehen</p>
+        <h2 class="section-title text-center" id="proc-title">Von der Unklarheit zur belastbaren Entscheidung.</h2>
+        <div class="alt-steps">
+          <div class="alt-step">
+            <div class="alt-step__content">
+              <p class="alt-step__label">Schritt 1</p>
+              <h3 class="alt-step__title">Die echte Lage einordnen</h3>
+              <p class="alt-step__text">Wir schauen uns gemeinsam an, wo das Unternehmen wirklich steht &mdash; nicht wie es nach au&szlig;en aussieht. Zahlen, Strukturen, Engp&auml;sse, offene Baustellen. Ohne Schönreden, ohne Panik.</p>
+            </div>
+            <div class="alt-step__center" aria-hidden="true">
+              <div class="alt-step__num">1</div>
+              <div class="alt-step__vline"></div>
+            </div>
+            <div class="alt-step__content alt-step__empty" aria-hidden="true"></div>
+          </div>
+          <div class="alt-step alt-step--flip">
+            <div class="alt-step__content">
+              <p class="alt-step__label">Schritt 2</p>
+              <h3 class="alt-step__title">Optionen sichtbar machen</h3>
+              <p class="alt-step__text">Fortf&uuml;hrung, Neuaufstellung oder geordneter Ausstieg &mdash; alle drei Optionen werden realistisch durchgedacht. Mit ihren Konsequenzen, Zeitrahmen und dem, was sie wirklich bedeuten.</p>
+            </div>
+            <div class="alt-step__center" aria-hidden="true">
+              <div class="alt-step__num">2</div>
+              <div class="alt-step__vline"></div>
+            </div>
+            <div class="alt-step__content alt-step__empty" aria-hidden="true"></div>
+          </div>
+          <div class="alt-step">
+            <div class="alt-step__content">
+              <p class="alt-step__label">Schritt 3</p>
+              <h3 class="alt-step__title">Worst Case berechnen, nicht f&uuml;rchten</h3>
+              <p class="alt-step__text">Das Schlimmste, das passieren kann, ist als Zahl weniger bedrohlich als als Ahnung. Wenn du den Worst Case kennst, kannst du entscheiden ob und wie du ihn abwenden willst.</p>
+            </div>
+            <div class="alt-step__center" aria-hidden="true">
+              <div class="alt-step__num">3</div>
+              <div class="alt-step__vline"></div>
+            </div>
+            <div class="alt-step__content alt-step__empty" aria-hidden="true"></div>
+          </div>
+          <div class="alt-step alt-step--flip">
+            <div class="alt-step__content">
+              <p class="alt-step__label">Schritt 4</p>
+              <h3 class="alt-step__title">Entscheidung und n&auml;chster Schritt</h3>
+              <p class="alt-step__text">Du verl&auml;sst unsere Arbeit nicht mit einem guten Gef&uuml;hl, sondern mit einer konkreten Einsch&auml;tzung und einem klaren n&auml;chsten Schritt &mdash; den du auch unter Druck umsetzen kannst.</p>
+            </div>
+            <div class="alt-step__center" aria-hidden="true">
+              <div class="alt-step__num">4</div>
+              <div class="alt-step__vline"></div>
+            </div>
+            <div class="alt-step__content alt-step__empty" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DRINGLICHKEIT ══════════════════════════════════════════ -->
+    <section class="urgency" aria-labelledby="urg-title">
+      <div class="container">
+        <div class="urgency__inner">
+          <div>
+            <p class="urgency__eyebrow">Warum jetzt</p>
+            <h2 class="urgency__headline" id="urg-title">Jeder Monat unter Druck kostet.<br><em>Nicht nur Geld.</em></h2>
+            <p class="urgency__sub">Krisen werden nicht besser wenn man wartet. Die Liquidit&auml;t wird knapper. Die Optionen werden weniger. Und die Energie auch. Das ist keine Dramatik &mdash; das sind die realen Konsequenzen von Nichthandeln in schwierigen Phasen.</p>
+          </div>
+          <div style="flex-shrink:0">
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Jetzt Situation einordnen
+            </a>
+            <p style="color:rgba(255,255,255,.4);font-size:var(--fs-xs);margin-top:.875rem;text-align:center">Unverbindlich &middot; 30 Minuten</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WARUM VANESSA ═════════════════════════════════════════ -->
+    <section class="why-section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why-section__inner">
+          <div>
+            <p class="section-label">Warum mit Vanessa</p>
+            <h2 id="why-title" style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-lg)">Ich arbeite nicht mit Durchhalteparolen.<br>Ich arbeite mit der Gesamtsituation.</h2>
+            <blockquote class="why-quote">&bdquo;Ich habe selbst Situationen erlebt, in denen Entscheidungen unter Druck getroffen werden mussten. Ich wei&szlig;, was das bedeutet &mdash; emotional und wirtschaftlich. Deshalb bringe ich beides mit: Klarheit und Verst&auml;ndnis f&uuml;r die Schwere dieser Phase.&ldquo;</blockquote>
+            <p class="why-sub">Vanessa berät keine abstrakten Unternehmen. Sie berät Menschen, die f&uuml;r ihr Unternehmen Verantwortung tragen. Mit dem Wissen, dass hinter jedem Engpass eine echte Geschichte steckt &mdash; und dass die beste Entscheidung die ist, die du danach auch umsetzen kannst.</p>
+            <a href="ueber-mich.html" class="btn btn--ghost">Mehr &uuml;ber Vanessa &rarr;</a>
+          </div>
+          <div class="cred-list">
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">Eigene unternehmerische Krisenverantwortung<span class="cred-item__sub"> &mdash; Nicht nur Theorie, sondern gelebte Praxis</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">IHK-gepr&uuml;fte Unternehmensberaterin<span class="cred-item__sub"> &mdash; Methodische Grundlage f&uuml;r belastbare Einsch&auml;tzungen</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">Alle Optionen werden benannt &mdash; auch schwierige<span class="cred-item__sub"> &mdash; Keine Beschönigung, kein Aktionismus</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">Fokus: Gesundheit, Beauty, Pflege, soziale Berufe<span class="cred-item__sub"> &mdash; Branchenkenntnis statt allgemeine Beratungskonzepte</span></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WAS ENTHALTEN ════════════════════════════════════════ -->
+    <section class="content-block" id="was-enthalten" aria-labelledby="content-title">
+      <div class="container">
+        <div class="content-block__inner">
+          <div>
+            <p class="section-label">Das Angebot im Detail</p>
+            <h2 class="content-block__heading" id="content-title">Das ist in der Krisenbegleitung enthalten.</h2>
+            <p class="content-block__sub">Keine Checkliste die f&uuml;r alle gilt. Die Begleitung richtet sich nach dem, was deine Situation konkret braucht &mdash; und l&auml;sst nichts weg, was du wissen musst.</p>
+            <ul class="check-list">
+              <li>Einordnung der aktuellen Lage und der eigentlichen Engp&auml;sse</li>
+              <li>Sichtbarmachen von Fehlentwicklungen, Risiken und offenen Baustellen</li>
+              <li>Worst-Case-Planung und Szenarioanalyse</li>
+              <li>Abw&auml;gen von Fortf&uuml;hrung, Neuaufstellung oder Ausstieg</li>
+              <li>Planung sinnvoller Stabilisierungs- und Neuordnungsschritte</li>
+              <li>Strukturelle Ma&szlig;nahmen, damit Entscheidungen im Alltag tragen</li>
+            </ul>
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top:var(--space-xl)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Situation einordnen
+            </a>
+          </div>
+          <div>
+            <div class="info-card">
+              <div class="info-card__header">
+                <p class="info-card__label">Auf einen Blick</p>
+                <p class="info-card__title">Neu sortieren, wenn der Druck zu gro&szlig; wird</p>
+              </div>
+              <div class="info-card__body">
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                  <div><p class="info-row__label">F&uuml;r wen</p><p class="info-row__value">Selbst&auml;ndige und Unternehmen unter wirtschaftlichem Druck</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div><p class="info-row__label">Ergebnis</p><p class="info-row__value">Klare Optionen, belastbare Entscheidungsgrundlage, Entlastung</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                  <div><p class="info-row__label">St&auml;rke</p><p class="info-row__value">Erfahrung mit Verantwortung &mdash; nicht nur Theorie</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+                  <div><p class="info-row__label">Hinweis</p><p class="info-row__value">F&ouml;rderoptionen werden nur einbezogen wenn sie zur Lage passen</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="crisis-note" style="margin-top:var(--space-md)">
+              <strong>Wichtig</strong>
+              Ich ersetze keine Rechts- oder Steuerberatung. Was ich tue: Ich gebe dir einen klaren wirtschaftlichen Blick von au&szlig;en &mdash; der dir hilft, die richtigen Fragen an die richtigen Stellen zu stellen.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══════════════════════════════════════════════════ -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="section-label text-center">H&auml;ufige Fragen</p>
+        <h2 class="section-title text-center" id="faq-title">Was in dieser Situation am h&auml;ufigsten gefragt wird.</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Ist es schon zu sp&auml;t f&uuml;r Beratung?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Das l&auml;sst sich nur sagen, wenn wir die Situation angeschaut haben. Was ich sagen kann: Ein klarer Blick von au&szlig;en ist selten zu sp&auml;t &mdash; und in vielen F&auml;llen werden Optionen sichtbar, die man allein nicht mehr sieht. Das Erstgespr&auml;ch kostet nichts und gibt dir zumindest eine Einsch&auml;tzung.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Was wenn du mir sagst, dass ich aufgeben soll?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Ich sage dir was ich einsch&auml;tze &mdash; nicht was du tun musst. Die Entscheidung liegt immer bei dir. Aber wenn ein geordneter Ausstieg die bessere Option ist als weiterer Substanzverlust, dann ist das eine Information die du verdienst, ehrlich zu h&ouml;ren. Auch das ist Unterst&uuml;tzung.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Ich sch&auml;me mich f&uuml;r meine Situation &mdash; ist das normal?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Ja &mdash; und es ist einer der Hauptgr&uuml;nde, warum Menschen zu sp&auml;t Hilfe holen. Niemand scheitert absichtlich. Unternehmertum bedeutet Risiko &mdash; und nicht jede schwierige Phase ist selbstverschuldet. Im Erstgespr&auml;ch werde ich keine Schuld verteilen, sondern schauen was jetzt m&ouml;glich ist.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Muss ich alle Zahlen dabeihaben?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Nein. Im Erstgespr&auml;ch reicht, dass du mir deine Situation beschreibst. Konkrete Zahlen helfen sp&auml;ter &mdash; f&uuml;r den Anfang gen&uuml;gt ein offenes Gespr&auml;ch. Ich frage was ich brauche, und du gibst mir was du hast.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══════════════════════════════════════════════════ -->
+    <section class="section section--dark" aria-labelledby="cta-title">
+      <div class="container text-center">
+        <p class="section-label section-label--light">N&auml;chster Schritt</p>
+        <h2 class="section-title section-title--white" id="cta-title">Du musst noch keine L&ouml;sung mitbringen.<br>Nur deine Situation.</h2>
+        <p class="section-subtitle section-subtitle--white" style="max-width:500px;margin-inline:auto">30 Minuten. Kein Verkaufsgespr&auml;ch. Du erkl&auml;rst mir wo du stehst &mdash; ich sage dir, was ich davon halte. Klar und ehrlich.</p>
+        <div class="btn-group" style="justify-content:center;margin-top:var(--space-xl)">
+          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespr&auml;ch buchen
+          </a>
+          <a href="leistungen.html" class="btn btn--outline-white">Alle Leistungen ansehen</a>
+        </div>
+        <p style="margin-top:var(--space-lg);color:rgba(255,255,255,.5);font-size:var(--fs-xs)">Unverbindlich &middot; Klar &middot; Ohne Verkaufsdruck</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo"><div class="container"><div class="footer__inner">
+    <div class="footer__brand"><div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo"></div><p class="footer__tagline">Beratung f&uuml;r Gr&uuml;ndung, Neuaufstellung und unternehmerische Entscheidungen unter realen Bedingungen.</p><div class="footer__social" aria-label="Social Media"><a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    <div><p class="footer__nav-title">Navigation</p><ul class="footer__nav-list" role="list"><li><a href="index.html">Startseite</a></li><li><a href="ueber-mich.html">&Uuml;ber mich</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ablauf.html">Ablauf</a></li><li><a href="referenzen.html">Stimmen</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div><p class="footer__nav-title">Leistungen</p><ul class="footer__nav-list" role="list"><li><a href="leistung-gruendung.html">Gr&uuml;ndungsbegleitung</a></li><li><a href="leistung-avgs.html">AVGS-Gr&uuml;ndercoaching</a></li><li><a href="leistung-krise.html">Krisenberatung</a></li><li><a href="leistung-struktur.html">Struktur &amp; Entwicklung</a></li><li><a href="leistung-traeger.html">Tr&auml;ger &amp; Institutionen</a></li><li><a href="leistung-businessplan.html">Businessplan-Service</a></li><li><a href="leistung-aufenthaltsrecht.html">Businessplan f&uuml;r Aufenthaltsrecht</a></li></ul></div>
+    <div><p class="footer__nav-title">Kontakt</p><ul class="footer__nav-list" role="list"><li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespr&auml;ch buchen</a></li><li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li><li><a href="tel:+4915254596585">+49 152 54596585</a></li></ul></div>
+  </div><div class="footer__bottom"><p class="footer__copy">&copy; 2026 VZ Concept &ndash; Consulting UG &middot; Alle Rechte vorbehalten</p><nav class="footer__legal" aria-label="Rechtliche Links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a></nav></div></div></footer>
+
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

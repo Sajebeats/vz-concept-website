@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AVGS-Gründercoaching mit Vanessa Zimmer: Geförderte Gründungsbegleitung, die wirtschaftlich prüft statt standardisiert abzuhaken. Bis zu 100 % über zugelassene Träger.">
+  <link rel="canonical" href="https://www.vz-concept.de/leistung-avgs.html">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cookie-consent.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <title>AVGS-Gründercoaching – VZ Concept</title>
+  <style>
+
+    /* ══ HERO — zentriert, kein rechtes Panel ══════════════════ */
+    .avgs-hero{background:linear-gradient(175deg,#081F1C 0%,#0C3530 60%,#0f5044 100%);padding:clamp(5rem,11vw,8.5rem) 0 0;position:relative;overflow:hidden}
+    .avgs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 80% at 50% 20%,rgba(0,200,168,.1) 0%,transparent 65%);pointer-events:none}
+    .avgs-hero__inner{max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:1;padding-bottom:clamp(3rem,6vw,5rem)}
+    .avgs-hero__badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,168,.15);border:1px solid rgba(0,200,168,.35);border-radius:var(--radius-pill);padding:.45rem 1.1rem;color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--space-lg)}
+    .avgs-hero__badge svg{width:13px;height:13px}
+    .avgs-hero__h1{font-size:clamp(2rem,4.8vw,3.2rem);color:var(--color-white);line-height:1.15;margin-bottom:var(--space-md)}
+    .avgs-hero__h1 em{color:var(--color-accent);font-style:normal;display:block}
+    .avgs-hero__sub{color:rgba(255,255,255,.75);line-height:1.8;font-size:clamp(.95rem,1.8vw,1.1rem);margin-bottom:var(--space-xl);max-width:580px;margin-inline:auto}
+    .avgs-hero__cta{display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center}
+
+    /* Journey-Leiste unter Hero */
+    .avgs-journey{background:rgba(255,255,255,.06);border-top:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:clamp(1.25rem,3vw,1.75rem) 0}
+    .avgs-journey__inner{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:nowrap}
+    .journey-step{display:flex;align-items:center;gap:.75rem;padding:.5rem 1.25rem;flex-shrink:0}
+    .journey-step__icon{width:38px;height:38px;border-radius:50%;background:rgba(0,200,168,.18);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .journey-step__icon svg{width:17px;height:17px}
+    .journey-step__label{font-size:var(--fs-xs);font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap}
+    .journey-step__sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:1px}
+    .journey-arrow{color:rgba(255,255,255,.25);padding:0 .25rem;font-size:1.1rem;flex-shrink:0}
+
+    /* ══ AVGS-ERKLÄRER ══════════════════════════════════════════ */
+    .avgs-explainer{padding-block:clamp(4rem,8vw,6rem);background:var(--color-white)}
+    .explainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);margin-top:clamp(2rem,4vw,3rem)}
+    .explainer-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border)}
+    .explainer-card__head{background:linear-gradient(135deg,var(--color-primary),#0e4a3f);padding:1.5rem;display:flex;align-items:center;gap:.875rem}
+    .explainer-card__head-icon{width:42px;height:42px;border-radius:var(--radius-md);background:rgba(0,200,168,.2);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .explainer-card__head-icon svg{width:20px;height:20px}
+    .explainer-card__head-title{color:var(--color-white);font-size:var(--fs-md);font-weight:700;line-height:1.25}
+    .explainer-card__body{padding:1.5rem;background:var(--color-off-white)}
+    .explainer-card__text{color:var(--color-text-muted);font-size:var(--fs-sm);line-height:1.75}
+    .explainer-card__highlight{display:inline-block;margin-top:.875rem;background:linear-gradient(90deg,rgba(0,200,168,.15),rgba(0,200,168,.05));border:1px solid rgba(0,200,168,.25);border-radius:var(--radius-md);padding:.5rem .875rem;color:var(--color-primary);font-size:var(--fs-xs);font-weight:700}
+
+    /* ══ PASST DAS FÜR MICH — Eligibility ═════════════════════ */
+    .eligibility{padding-block:clamp(3.5rem,7vw,5.5rem);background:#f4faf9}
+    .eligibility__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+    .eligibility__heading{font-size:clamp(1.5rem,3vw,2rem);color:var(--color-primary);line-height:1.25;margin-bottom:var(--space-md)}
+    .eligibility__sub{color:var(--color-text-muted);line-height:1.75;margin-bottom:var(--space-lg)}
+    .eligibility__note{padding:var(--space-md);background:rgba(0,200,168,.08);border:1px solid rgba(0,200,168,.2);border-radius:var(--radius-md);color:var(--color-primary);font-size:var(--fs-sm);line-height:1.7}
+    .check-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.5rem,3vw,2rem);box-shadow:var(--shadow-sm)}
+    .check-card__title{font-size:var(--fs-sm);font-weight:700;color:var(--color-primary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--space-md)}
+    .check-card__list{display:flex;flex-direction:column;gap:.75rem}
+    .check-card__item{display:flex;align-items:flex-start;gap:.875rem;font-size:var(--fs-sm);color:var(--color-text);line-height:1.55}
+    .check-card__item-icon{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+    .check-card__item-icon--yes{background:var(--color-accent-light);color:var(--color-accent)}
+    .check-card__item-icon--no{background:#fef2f2;color:#dc2626}
+    .check-card__item-icon svg{width:12px;height:12px}
+    .check-card__divider{height:1px;background:var(--color-border);margin-block:var(--space-md)}
+
+    /* ══ BENEFITS — asymmetrisch ═══════════════════════════════ */
+    .benefits-asym{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
+    .benefits-asym__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--space-lg);margin-top:clamp(2rem,4vw,3rem);align-items:stretch}
+    .benefit-main{background:linear-gradient(165deg,var(--color-primary) 0%,#0e4a3f 100%);border-radius:var(--radius-lg);padding:clamp(2rem,4vw,2.75rem);color:var(--color-white);position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .benefit-main::before{content:'€';position:absolute;bottom:-20px;right:-10px;font-size:150px;font-family:var(--font-heading);font-weight:700;color:rgba(0,200,168,.07);line-height:1;pointer-events:none}
+    .benefit-main__icon{width:54px;height:54px;border-radius:var(--radius-md);background:rgba(0,200,168,.2);display:flex;align-items:center;justify-content:center;color:var(--color-accent);margin-bottom:var(--space-lg);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+    .benefit-main__icon svg{width:26px;height:26px}
+    .benefit-main__label{color:rgba(255,255,255,.55);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+    .benefit-main__title{font-size:clamp(1.4rem,2.5vw,1.75rem);color:var(--color-white);margin-bottom:var(--space-md);line-height:1.25}
+    .benefit-main__text{color:rgba(255,255,255,.75);line-height:1.8;font-size:var(--fs-sm);flex:1}
+    .benefit-main__highlight{margin-top:var(--space-xl);padding:var(--space-md);background:rgba(0,200,168,.15);border:1px solid rgba(0,200,168,.3);border-radius:var(--radius-md);color:var(--color-accent);font-size:var(--fs-sm);font-weight:600}
+    .benefits-stack{display:flex;flex-direction:column;gap:var(--space-md)}
+    .benefit-small{background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);flex:1;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .benefit-small:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(0,200,168,.3)}
+    .benefit-small__icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;color:var(--color-accent);margin-bottom:var(--space-md)}
+    .benefit-small__icon svg{width:20px;height:20px}
+    .benefit-small__title{font-size:var(--fs-md);font-weight:700;color:var(--color-primary);margin-bottom:.5rem}
+    .benefit-small__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.7}
+
+    /* ══ TIMELINE — vertikal ════════════════════════════════════ */
+    .timeline-section{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(180deg,var(--color-off-white) 0%,#f9fcfb 100%)}
+    .timeline{display:flex;flex-direction:column;gap:0;margin-top:clamp(2rem,4vw,3.5rem);max-width:720px;margin-inline:auto}
+    .timeline__item{display:grid;grid-template-columns:60px 1fr;gap:0;position:relative}
+    .timeline__left{display:flex;flex-direction:column;align-items:center}
+    .timeline__marker{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);font-family:var(--font-heading);font-size:1.05rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(12,53,48,.22);position:relative;z-index:1}
+    .timeline__line{flex:1;width:2px;background:linear-gradient(180deg,var(--color-accent) 0%,rgba(0,200,168,.2) 100%);margin-block:.25rem}
+    .timeline__item:last-child .timeline__line{display:none}
+    .timeline__content{padding:0 0 clamp(2rem,4vw,3rem) 1.75rem}
+    .timeline__label{color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;padding-top:.6rem}
+    .timeline__title{font-size:clamp(1.1rem,2vw,1.35rem);color:var(--color-primary);font-weight:700;margin-bottom:.625rem;line-height:1.3}
+    .timeline__text{color:var(--color-text-muted);font-size:var(--fs-sm);line-height:1.75}
+    .timeline__tag{display:inline-flex;align-items:center;gap:.35rem;margin-top:.875rem;background:var(--color-accent-light);border:1px solid rgba(0,200,168,.2);border-radius:var(--radius-pill);padding:.3rem .8rem;color:var(--color-primary);font-size:var(--fs-xs);font-weight:600}
+    .timeline__tag svg{width:12px;height:12px;color:var(--color-accent)}
+
+    /* ══ WARUM VANESSA ══════════════════════════════════════════ */
+    .why-section{padding-block:clamp(4rem,8vw,6rem);background:var(--color-white)}
+    .why-section__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+    .why-quote{font-family:var(--font-heading);font-style:italic;font-size:clamp(1.2rem,2.2vw,1.55rem);color:var(--color-primary);line-height:1.55;border-left:4px solid var(--color-accent);padding-left:var(--space-lg);margin-bottom:var(--space-xl)}
+    .why-sub{color:var(--color-text-muted);line-height:1.75;margin-bottom:var(--space-lg)}
+    .cred-list{display:flex;flex-direction:column;gap:.75rem}
+    .cred-item{display:flex;align-items:flex-start;gap:.875rem;padding:var(--space-md);background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-md)}
+    .cred-item__icon{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .cred-item__icon svg{width:15px;height:15px}
+    .cred-item__text{font-size:var(--fs-sm);color:var(--color-primary);font-weight:600;line-height:1.45}
+    .cred-item__sub{font-size:var(--fs-xs);color:var(--color-text-muted);font-weight:400}
+
+    /* ══ LEISTUNGSINHALT ════════════════════════════════════════ */
+    .content-block{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
+    .content-block__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+    .content-block__heading{font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-md)}
+    .content-block__sub{color:var(--color-text-muted);margin-bottom:var(--space-lg);line-height:1.75}
+    .info-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+    .info-card__header{background:linear-gradient(135deg,var(--color-primary),#0e4a3f);padding:var(--space-lg)}
+    .info-card__label{color:rgba(255,255,255,.6);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+    .info-card__title{color:var(--color-white);font-size:var(--fs-lg);font-weight:700;line-height:1.3}
+    .info-card__body{padding:var(--space-lg)}
+    .info-row{display:flex;align-items:flex-start;gap:.875rem;padding-block:.875rem;border-bottom:1px solid var(--color-border);font-size:var(--fs-sm)}
+    .info-row:last-child{border-bottom:none}
+    .info-row__icon{width:34px;height:34px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .info-row__icon svg{width:15px;height:15px}
+    .info-row__label{color:var(--color-text-muted);font-size:var(--fs-xs);margin-bottom:2px}
+    .info-row__value{color:var(--color-primary);font-weight:600}
+    .avgs-note{margin-top:var(--space-md);padding:var(--space-md);background:linear-gradient(180deg,rgba(0,200,168,.12) 0%,rgba(0,200,168,.05) 100%);border:1px solid rgba(0,200,168,.24);border-radius:var(--radius-md);color:var(--color-primary);font-size:var(--fs-sm);line-height:1.7}
+    .avgs-note strong{color:var(--color-accent);display:block;margin-bottom:.3rem;font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em}
+
+    /* ══ FAQ ════════════════════════════════════════════════════ */
+    .faq-section{padding-block:clamp(4rem,8vw,6rem);background:var(--color-white)}
+    .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
+    .faq-item{border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden}
+    .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1rem,2.5vw,1.4rem) clamp(1rem,2.5vw,1.5rem);font-weight:600;color:var(--color-primary);cursor:pointer;list-style:none;font-size:var(--fs-sm)}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary svg{width:18px;height:18px;flex-shrink:0;transition:transform .25s ease;color:var(--color-accent)}
+    .faq-item[open] summary svg{transform:rotate(45deg)}
+    .faq-item[open] summary{background:var(--color-accent-light)}
+    .faq-item__body{padding:clamp(1rem,2.5vw,1.25rem) clamp(1rem,2.5vw,1.5rem);color:var(--color-text-muted);line-height:1.75;font-size:var(--fs-sm);border-top:1px solid var(--color-border)}
+
+    /* ══ RESPONSIVE ════════════════════════════════════════════ */
+    @media(max-width:900px){
+      .explainer-grid{grid-template-columns:1fr}
+      .eligibility__inner{grid-template-columns:1fr}
+      .benefits-asym__grid{grid-template-columns:1fr}
+      .why-section__inner{grid-template-columns:1fr}
+      .content-block__inner{grid-template-columns:1fr}
+    }
+    @media(max-width:768px){
+      .avgs-journey__inner{flex-wrap:wrap;gap:.5rem}
+      .journey-arrow{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container"><div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white"><img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color"></a>
+      <ul class="nav__menu" role="list">
+        <li><a href="ueber-mich.html" class="nav__link">&Uuml;ber mich</a></li>
+        <li class="nav__item--dropdown">
+          <button type="button" class="nav__link nav__dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Leistungen<svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+            <li><a href="leistung-gruendung.html" class="nav__dropdown-link"><strong>Gr&uuml;ndungs- &amp; Entscheidungsbegleitung</strong><span>Ich will gr&uuml;nden &ndash; aber nicht blind starten</span></a></li>
+            <li><a href="leistung-avgs.html" class="nav__dropdown-link"><strong>AVGS-Gr&uuml;ndercoaching</strong><span>Gef&ouml;rderte Gr&uuml;ndung realistisch vorbereiten</span></a></li>
+            <li><a href="leistung-krise.html" class="nav__dropdown-link"><strong>Krisen- &amp; Neuaufstellung</strong><span>Mein Unternehmen steht unter Druck</span></a></li>
+            <li><a href="leistung-struktur.html" class="nav__dropdown-link"><strong>Struktur &amp; Unternehmensentwicklung</strong><span>Es l&auml;uft &ndash; aber intern funktioniert es nicht sauber</span></a></li>
+            <li><a href="leistung-traeger.html" class="nav__dropdown-link"><strong>Tr&auml;ger &amp; Institutionen</strong><span>Ich brauche eine realistische Einsch&auml;tzung</span></a></li>
+            <li><a href="leistung-businessplan.html" class="nav__dropdown-link"><strong>Businessplan-Service</strong><span>F&uuml;r Bank, Investor oder eigene Orientierung</span></a></li>
+            <li><a href="leistung-aufenthaltsrecht.html" class="nav__dropdown-link"><strong>Businessplan f&uuml;r Aufenthaltsrecht</strong><span>Selbst&auml;ndigkeit im aufenthaltsrechtlichen Kontext</span></a></li>
+            <li class="nav__dropdown-divider"></li>
+            <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen &rarr;</a></li>
+          </ul>
+        </li>
+        <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+        <li><a href="partner.html" class="nav__link">Partner</a></li>
+      </ul>
+      <div class="nav__cta"><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a></div>
+      <button class="nav__toggle" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div></div>
+  </nav>
+
+  <!-- ══ HERO — zentriert ═══════════════════════════════════════ -->
+  <header class="avgs-hero" aria-labelledby="avgs-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Brotkrumen" style="margin-bottom:var(--space-xl);justify-content:center">
+        <a href="index.html" style="color:rgba(255,255,255,.5)">Startseite</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:rgba(255,255,255,.3)"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="leistungen.html" style="color:rgba(255,255,255,.5)">Leistungen</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:rgba(255,255,255,.3)"><polyline points="9 18 15 12 9 6"/></svg>
+        <span style="color:rgba(255,255,255,.38)">AVGS-Gr&uuml;ndercoaching</span>
+      </nav>
+      <div class="avgs-hero__inner">
+        <div class="avgs-hero__badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><path d="M7 15h.01"/><path d="M11 15h6"/></svg>
+          AVGS-Gr&uuml;ndercoaching &mdash; bis zu 100&thinsp;% gef&ouml;rdert
+        </div>
+        <h1 class="avgs-hero__h1" id="avgs-title">Du hast einen F&ouml;rdergutschein.<br><em>Jetzt nutz ihn sinnvoll.</em></h1>
+        <p class="avgs-hero__sub">Ein AVGS kann deine Gr&uuml;ndungsbegleitung vollst&auml;ndig abdecken &mdash; aber nur dann, wenn das Vorhaben dahinter wirklich tr&auml;gt. Ich pr&uuml;fe das mit dir. Ehrlich, konkret, ohne Standardprogramm.</p>
+        <div class="avgs-hero__cta">
+          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            AVGS-Situation kl&auml;ren
+          </a>
+          <a href="#was-enthalten" class="btn btn--outline-white">Was ist enthalten?</a>
+        </div>
+      </div>
+    </div>
+    <!-- Journey-Leiste -->
+    <div class="avgs-journey">
+      <div class="container">
+        <div class="avgs-journey__inner">
+          <div class="journey-step">
+            <div class="journey-step__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div><p class="journey-step__label">Agentur f&uuml;r Arbeit</p><p class="journey-step__sub">oder Jobcenter</p></div>
+          </div>
+          <div class="journey-arrow" aria-hidden="true">›</div>
+          <div class="journey-step">
+            <div class="journey-step__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+            <div><p class="journey-step__label">AVGS erhalten</p><p class="journey-step__sub">Gutschein ausgestellt</p></div>
+          </div>
+          <div class="journey-arrow" aria-hidden="true">›</div>
+          <div class="journey-step">
+            <div class="journey-step__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div><p class="journey-step__label">Beratung bei Vanessa</p><p class="journey-step__sub">Wirtschaftliche Pr&uuml;fung</p></div>
+          </div>
+          <div class="journey-arrow" aria-hidden="true">›</div>
+          <div class="journey-step">
+            <div class="journey-step__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg></div>
+            <div><p class="journey-step__label">Gef&ouml;rdert gr&uuml;nden</p><p class="journey-step__sub">Realistisch &amp; vorbereitet</p></div>
+          </div>
+          <div class="journey-arrow" aria-hidden="true">›</div>
+          <div class="journey-step">
+            <div class="journey-step__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div><p class="journey-step__label">Kosten abgedeckt</p><p class="journey-step__sub">Bis zu 100&thinsp;%</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ══ AVGS-ERKLÄRER ════════════════════════════════════════ -->
+    <section class="avgs-explainer" aria-labelledby="exp-title">
+      <div class="container">
+        <p class="section-label text-center">Das Wichtigste vorab</p>
+        <h2 class="section-title text-center" id="exp-title">Was du &uuml;ber den AVGS wissen musst.</h2>
+        <p class="section-subtitle text-center" style="max-width:560px;margin-inline:auto">Bevor wir &uuml;ber dein Vorhaben sprechen: Hier sind die drei Fragen, die fast alle stellen.</p>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <div class="explainer-card__head">
+              <div class="explainer-card__head-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <p class="explainer-card__head-title">Was ist ein AVGS?</p>
+            </div>
+            <div class="explainer-card__body">
+              <p class="explainer-card__text">AVGS steht f&uuml;r Aktivierungs- und Vermittlungsgutschein. Er wird von der Agentur f&uuml;r Arbeit oder dem Jobcenter ausgestellt und erm&ouml;glicht eine gef&ouml;rderte Gr&uuml;ndungsbegleitung &uuml;ber zugelassene Tr&auml;ger.</p>
+              <span class="explainer-card__highlight">Kostenfreie Beratung m&ouml;glich</span>
+            </div>
+          </div>
+          <div class="explainer-card">
+            <div class="explainer-card__head">
+              <div class="explainer-card__head-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+              <p class="explainer-card__head-title">Wer bekommt ihn?</p>
+            </div>
+            <div class="explainer-card__body">
+              <p class="explainer-card__text">Arbeitslose oder von Arbeitslosigkeit bedrohte Personen k&ouml;nnen einen AVGS beantragen. Die Voraussetzungen variieren &mdash; im Erstgespr&auml;ch kl&auml;ren wir, ob er f&uuml;r deine Situation infrage kommt.</p>
+              <span class="explainer-card__highlight">Muss aktiv beantragt werden</span>
+            </div>
+          </div>
+          <div class="explainer-card">
+            <div class="explainer-card__head">
+              <div class="explainer-card__head-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+              <p class="explainer-card__head-title">Was deckt er ab?</p>
+            </div>
+            <div class="explainer-card__body">
+              <p class="explainer-card__text">Der AVGS kann Beratungskosten bis zu 100&thinsp;% &uuml;bernehmen. Die Abrechnung l&auml;uft &uuml;ber zugelassene Tr&auml;ger &mdash; Vanessa kooperiert mit entsprechenden Stellen, wenn die Voraussetzungen passen.</p>
+              <span class="explainer-card__highlight">Bis zu 100&thinsp;% der Kosten</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PASST DAS FÜR MICH ════════════════════════════════════ -->
+    <section class="eligibility" aria-labelledby="elig-title">
+      <div class="container">
+        <div class="eligibility__inner">
+          <div>
+            <p class="section-label">Passt das f&uuml;r mich?</p>
+            <h2 class="eligibility__heading" id="elig-title">Wann eine AVGS-Begleitung bei Vanessa Sinn macht.</h2>
+            <p class="eligibility__sub">Nicht jede Situation passt zu einer AVGS-gef&ouml;rderten Begleitung. Hier siehst du, wann es sinnvoll ist &mdash; und wann nicht. Im Zweifel kl&auml;ren wir das im Erstgespr&auml;ch.</p>
+            <div class="eligibility__note">
+              Noch keinen AVGS? Das ist kein Problem. Im Erstgespr&auml;ch kl&auml;re ich mit dir, ob du die Voraussetzungen erf&uuml;llst und wie du vorgehst, um ihn zu beantragen.
+            </div>
+          </div>
+          <div class="check-card">
+            <p class="check-card__title">Passt gut</p>
+            <div class="check-card__list">
+              <div class="check-card__item">
+                <div class="check-card__item-icon check-card__item-icon--yes" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Du bist arbeitslos oder von Arbeitslosigkeit bedroht
+              </div>
+              <div class="check-card__item">
+                <div class="check-card__item-icon check-card__item-icon--yes" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Du hast eine konkrete Gesch&auml;ftsidee oder willst eine entwickeln
+              </div>
+              <div class="check-card__item">
+                <div class="check-card__item-icon check-card__item-icon--yes" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Du willst wissen ob deine Idee wirtschaftlich funktioniert
+              </div>
+              <div class="check-card__item">
+                <div class="check-card__item-icon check-card__item-icon--yes" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                Du hast bereits einen AVGS oder willst einen beantragen
+              </div>
+            </div>
+            <div class="check-card__divider"></div>
+            <p class="check-card__title" style="color:#dc2626">Passt weniger</p>
+            <div class="check-card__list">
+              <div class="check-card__item">
+                <div class="check-card__item-icon check-card__item-icon--no" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                Du bist bereits l&auml;nger selbst&auml;ndig und brauchst keine Gr&uuml;ndungsbegleitung
+              </div>
+              <div class="check-card__item">
+                <div class="check-card__item-icon check-card__item-icon--no" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+                Du suchst nur jemanden der deine Idee best&auml;tigt
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BENEFITS — asymmetrisch ══════════════════════════════ -->
+    <section class="benefits-asym" aria-labelledby="ben-title">
+      <div class="container">
+        <p class="section-label text-center">Was du davon hast</p>
+        <h2 class="section-title text-center" id="ben-title">Gef&ouml;rdert. Aber nicht beliebig.</h2>
+        <p class="section-subtitle text-center" style="max-width:560px;margin-inline:auto">Ein AVGS l&auml;sst sich irgendwo einl&ouml;sen. Die Frage ist, ob du danach mehr Klarheit hast als vorher.</p>
+        <div class="benefits-asym__grid">
+          <div class="benefit-main">
+            <div class="benefit-main__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><path d="M7 15h.01"/><path d="M11 15h6"/></svg></div>
+            <p class="benefit-main__label">Hauptvorteil</p>
+            <h3 class="benefit-main__title">Deine F&ouml;rderung flie&szlig;t in echte Klarheit.</h3>
+            <p class="benefit-main__text">Viele AVGS-Begleitungen sind darauf ausgelegt, Stunden zu f&uuml;llen. Vanessa nutzt die Zeit anders: Sie pr&uuml;ft, ob dein Vorhaben unter realen Bedingungen funktioniert &mdash; Markt, Zahlen, Positionierung. Was du am Ende hast, ist keine sch&ouml;ne Pr&auml;sentation, sondern eine Einsch&auml;tzung, auf die du dich verlassen kannst.</p>
+            <div class="benefit-main__highlight">Bis zu 100&thinsp;% der Beratungskosten &uuml;ber zugelassene Tr&auml;ger gedeckt</div>
+          </div>
+          <div class="benefits-stack">
+            <div class="benefit-small">
+              <div class="benefit-small__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <h3 class="benefit-small__title">Gr&uuml;ndung nur wenn sie Sinn ergibt</h3>
+              <p class="benefit-small__text">Ich sage dir auch, wenn der Zeitpunkt oder der Ansatz nicht stimmt. Das ist keine schlechte Nachricht &mdash; das ist die Klarheit, die du brauchst, um die richtige Entscheidung zu treffen.</p>
+            </div>
+            <div class="benefit-small">
+              <div class="benefit-small__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+              <h3 class="benefit-small__title">Alles aus einer Hand</h3>
+              <p class="benefit-small__text">AVGS-Kl&auml;rung, Gr&uuml;ndungspr&uuml;fung, Businessplan und Tr&auml;gerabstimmung. Ein Ansprechpartner &mdash; kein Pendeln zwischen Stellen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VERTIKALE TIMELINE ════════════════════════════════════ -->
+    <section class="timeline-section" aria-labelledby="tl-title">
+      <div class="container">
+        <p class="section-label text-center">Wie es abl&auml;uft</p>
+        <h2 class="section-title text-center" id="tl-title">Vom Gutschein zur belastbaren Gr&uuml;ndung.</h2>
+        <p class="section-subtitle text-center" style="max-width:520px;margin-inline:auto">Vier Schritte, die zusammen einen klaren Weg ergeben &mdash; von der ersten Kl&auml;rung bis zu den Unterlagen f&uuml;r deinen Start.</p>
+        <div class="timeline" role="list">
+          <div class="timeline__item" role="listitem">
+            <div class="timeline__left" aria-hidden="true">
+              <div class="timeline__marker">1</div>
+              <div class="timeline__line"></div>
+            </div>
+            <div class="timeline__content">
+              <p class="timeline__label">Schritt 1</p>
+              <h3 class="timeline__title">AVGS-Situation einordnen</h3>
+              <p class="timeline__text">Wir kl&auml;ren gemeinsam, ob du bereits einen AVGS hast oder beantragen kannst, welche Voraussetzungen gelten und was er in deiner Situation abdecken kann. Wer noch keinen Gutschein hat, bekommt eine konkrete Einsch&auml;tzung wie er vorgeht.</p>
+              <span class="timeline__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>30 Min. im Erstgespr&auml;ch</span>
+            </div>
+          </div>
+          <div class="timeline__item" role="listitem">
+            <div class="timeline__left" aria-hidden="true">
+              <div class="timeline__marker">2</div>
+              <div class="timeline__line"></div>
+            </div>
+            <div class="timeline__content">
+              <p class="timeline__label">Schritt 2</p>
+              <h3 class="timeline__title">Vorhaben wirtschaftlich pr&uuml;fen</h3>
+              <p class="timeline__text">Deine Idee wird auf wirtschaftliche Plausibilit&auml;t gepr&uuml;ft: Markt, Zielgruppe, Positionierung, Kalkulation und Preisgestaltung. Nicht als Motivationsseminar &mdash; sondern als ehrliche Analyse unter realen Bedingungen.</p>
+              <span class="timeline__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Konkrete Zahlen, kein Bauchgef&uuml;hl</span>
+            </div>
+          </div>
+          <div class="timeline__item" role="listitem">
+            <div class="timeline__left" aria-hidden="true">
+              <div class="timeline__marker">3</div>
+              <div class="timeline__line"></div>
+            </div>
+            <div class="timeline__content">
+              <p class="timeline__label">Schritt 3</p>
+              <h3 class="timeline__title">Einordnung &amp; klare Entscheidung</h3>
+              <p class="timeline__text">Du bekommst meine ehrliche Einsch&auml;tzung: Gr&uuml;nden, anpassen oder den Zeitpunkt verschieben? Mit Begr&uuml;ndung und konkreten Optionen &mdash; nicht als allgemeine Empfehlung, sondern bezogen auf deine spezifische Situation.</p>
+              <span class="timeline__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Ehrlich, auch wenn es unbequem ist</span>
+            </div>
+          </div>
+          <div class="timeline__item" role="listitem">
+            <div class="timeline__left" aria-hidden="true">
+              <div class="timeline__marker">4</div>
+              <div class="timeline__line"></div>
+            </div>
+            <div class="timeline__content">
+              <p class="timeline__label">Schritt 4</p>
+              <h3 class="timeline__title">Unterlagen &amp; n&auml;chste Schritte</h3>
+              <p class="timeline__text">Businessplan, Tr&auml;gerabstimmung, Vorbereitung auf Beh&ouml;rden und Finanzierungsgespr&auml;che &mdash; alles was du f&uuml;r den weiteren Weg brauchst. Vollst&auml;ndig, nutzbar und nicht f&uuml;r die Schublade.</p>
+              <span class="timeline__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Alles aus einer Hand</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WARUM VANESSA ═════════════════════════════════════════ -->
+    <section class="why-section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why-section__inner">
+          <div>
+            <p class="section-label">Warum mit Vanessa</p>
+            <h2 id="why-title" style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-lg)">Ein AVGS ist kein Selbstzweck.<br>Entscheidend ist, was draus wird.</h2>
+            <blockquote class="why-quote">&bdquo;Ich begleite keine F&ouml;rderprogramme &mdash; ich begleite Gr&uuml;ndungen. Der Unterschied ist, dass ich dir sage, was ich wirklich von deinem Vorhaben halte. Auch wenn das unbequem ist.&ldquo;</blockquote>
+            <p class="why-sub">Viele AVGS-Begleitungen sind darauf ausgelegt, Stunden zu verbrauchen. Vanessa geht anders vor: Sie pr&uuml;ft mit dir, ob dein Vorhaben unter realen Bedingungen funktioniert &mdash; und begleitet dich mit dem, was du wirklich brauchst, nicht mit dem was das Programm vorschreibt.</p>
+            <a href="ueber-mich.html" class="btn btn--ghost">Mehr &uuml;ber Vanessa &rarr;</a>
+          </div>
+          <div class="cred-list">
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">Kooperation mit zugelassenen AVGS-Tr&auml;gern<span class="cred-item__sub"> &mdash; Bis zu 100&thinsp;% der Kosten gef&ouml;rdert m&ouml;glich</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">IHK-gepr&uuml;fte Gr&uuml;ndungs- &amp; Unternehmensberaterin<span class="cred-item__sub"> &mdash; Fachliche Basis, keine Selbstbezeichnung</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">16 Jahre Unternehmensverantwortung<span class="cred-item__sub"> &mdash; Ich wei&szlig;, was im Markt funktioniert und was nicht</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">Keine Standardbegleitung<span class="cred-item__sub"> &mdash; Jede Situation wird individuell eingeordnet</span></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WAS ENTHALTEN ════════════════════════════════════════ -->
+    <section class="content-block" id="was-enthalten" aria-labelledby="content-title">
+      <div class="container">
+        <div class="content-block__inner">
+          <div>
+            <p class="section-label">Das Angebot im Detail</p>
+            <h2 class="content-block__heading" id="content-title">Das ist in der AVGS-Begleitung enthalten.</h2>
+            <p class="content-block__sub">Die Begleitung ist kein Standardprogramm. Sie passt sich deiner Ausgangslage an &mdash; von der ersten AVGS-Kl&auml;rung bis zu den Unterlagen f&uuml;r deinen n&auml;chsten Schritt.</p>
+            <ul class="check-list">
+              <li>Einordnung deiner Ausgangslage und deines AVGS-Kontexts</li>
+              <li>Pr&uuml;fung von Idee, Zielgruppe, Markt und Positionierung</li>
+              <li>Kalkulation, Preisgestaltung und erste Finanzplanung</li>
+              <li>Kl&auml;rung: Gr&uuml;nden, anpassen oder einen anderen Schritt w&auml;hlen?</li>
+              <li>Vorbereitung auf Businessplan, Unterlagen und Gespr&auml;che</li>
+              <li>Abstimmung mit zugelassenen Tr&auml;gern, wenn die Voraussetzungen passen</li>
+            </ul>
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top:var(--space-xl)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              AVGS-Situation im Erstgespr&auml;ch kl&auml;ren
+            </a>
+          </div>
+          <div>
+            <div class="info-card">
+              <div class="info-card__header">
+                <p class="info-card__label">Auf einen Blick</p>
+                <p class="info-card__title">Gef&ouml;rdert gr&uuml;nden &mdash; realistisch entscheiden</p>
+              </div>
+              <div class="info-card__body">
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                  <div><p class="info-row__label">F&uuml;r wen</p><p class="info-row__value">Gr&uuml;nder:innen mit AVGS oder laufender Kl&auml;rung</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+                  <div><p class="info-row__label">F&ouml;rderung</p><p class="info-row__value">Bis zu 100&thinsp;% &uuml;ber zugelassene Tr&auml;ger m&ouml;glich</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                  <div><p class="info-row__label">Fokus</p><p class="info-row__value">Wirtschaftliche Pr&uuml;fung &mdash; kein Standardprogramm</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div><p class="info-row__label">Ergebnis</p><p class="info-row__value">Klarheit &uuml;ber Vorhaben, Markt, Zahlen &amp; n&auml;chste Schritte</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="avgs-note" style="margin-top:var(--space-md)">
+              <strong>Noch keinen AVGS?</strong>
+              Du kannst einen &uuml;ber die Agentur f&uuml;r Arbeit oder das Jobcenter beantragen. Im Erstgespr&auml;ch kl&auml;re ich mit dir ob das infrage kommt und wie du konkret vorgehst.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══════════════════════════════════════════════════ -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="section-label text-center">H&auml;ufige Fragen</p>
+        <h2 class="section-title text-center" id="faq-title">Was rund um den AVGS am h&auml;ufigsten gefragt wird.</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Ich habe noch keinen AVGS &mdash; kann ich trotzdem zum Erstgespr&auml;ch?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Ja &mdash; unbedingt. Das Erstgespr&auml;ch kl&auml;rt genau das: ob du die Voraussetzungen erf&uuml;llst, wie du vorgehst und ob eine AVGS-Begleitung f&uuml;r deine Situation Sinn ergibt. Du musst nicht mit einem fertigen Gutschein ankommen.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Was passiert wenn meine Idee nicht gr&uuml;ndungsreif ist?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Dann hast du das rechtzeitig erfahren. Das ist kein Scheitern &mdash; das ist die Klarheit, die eine gute Beratung geben soll. Manchmal bedeutet das: den Ansatz anpassen, den Zeitpunkt verschieben oder eine andere Richtung pr&uuml;fen. Besser jetzt als nach dem Start, wenn das Geld weg ist.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Muss ich bei meiner Agentur f&uuml;r Arbeit einen bestimmten Tr&auml;ger angeben?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Die Abrechnung l&auml;uft &uuml;ber zugelassene Tr&auml;ger. Vanessa kooperiert mit entsprechenden Stellen und kl&auml;rt im Erstgespr&auml;ch, wie das in deiner konkreten Situation funktioniert. Du musst das nicht alleine herausfinden.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Bin ich nach dem Erstgespr&auml;ch zu irgendetwas verpflichtet?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Nein. Das Erstgespr&auml;ch ist unverbindlich &mdash; kein Verkaufsgespr&auml;ch, kein Druck, keine Verpflichtung. Du bekommst eine ehrliche Einsch&auml;tzung deiner Situation. Ob danach eine Zusammenarbeit entsteht, entscheidest du.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══════════════════════════════════════════════════ -->
+    <section class="section section--dark" aria-labelledby="cta-title">
+      <div class="container text-center">
+        <p class="section-label section-label--light">N&auml;chster Schritt</p>
+        <h2 class="section-title section-title--white" id="cta-title">30 Minuten &mdash; und du wei&szlig;t,<br>was dein AVGS f&uuml;r dich bedeutet.</h2>
+        <p class="section-subtitle section-subtitle--white" style="max-width:500px;margin-inline:auto">Kein Aufwand vorab. Du beschreibst deine Situation &mdash; ich erkl&auml;re was m&ouml;glich ist und ob das f&uuml;r dich Sinn macht.</p>
+        <div class="btn-group" style="justify-content:center;margin-top:var(--space-xl)">
+          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespr&auml;ch buchen
+          </a>
+          <a href="leistungen.html" class="btn btn--outline-white">Alle Leistungen ansehen</a>
+        </div>
+        <p style="margin-top:var(--space-lg);color:rgba(255,255,255,.5);font-size:var(--fs-xs)">Unverbindlich &middot; Klar &middot; Ohne Verkaufsdruck</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo"><div class="container"><div class="footer__inner">
+    <div class="footer__brand"><div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo"></div><p class="footer__tagline">Beratung f&uuml;r Gr&uuml;ndung, Neuaufstellung und unternehmerische Entscheidungen unter realen Bedingungen.</p><div class="footer__social" aria-label="Social Media"><a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    <div><p class="footer__nav-title">Navigation</p><ul class="footer__nav-list" role="list"><li><a href="index.html">Startseite</a></li><li><a href="ueber-mich.html">&Uuml;ber mich</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ablauf.html">Ablauf</a></li><li><a href="referenzen.html">Stimmen</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div><p class="footer__nav-title">Leistungen</p><ul class="footer__nav-list" role="list"><li><a href="leistung-gruendung.html">Gr&uuml;ndungsbegleitung</a></li><li><a href="leistung-avgs.html">AVGS-Gr&uuml;ndercoaching</a></li><li><a href="leistung-krise.html">Krisenberatung</a></li><li><a href="leistung-struktur.html">Struktur &amp; Entwicklung</a></li><li><a href="leistung-traeger.html">Tr&auml;ger &amp; Institutionen</a></li><li><a href="leistung-businessplan.html">Businessplan-Service</a></li><li><a href="leistung-aufenthaltsrecht.html">Businessplan f&uuml;r Aufenthaltsrecht</a></li></ul></div>
+    <div><p class="footer__nav-title">Kontakt</p><ul class="footer__nav-list" role="list"><li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespr&auml;ch buchen</a></li><li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li><li><a href="tel:+4915254596585">+49 152 54596585</a></li></ul></div>
+  </div><div class="footer__bottom"><p class="footer__copy">&copy; 2026 VZ Concept &ndash; Consulting UG &middot; Alle Rechte vorbehalten</p><nav class="footer__legal" aria-label="Rechtliche Links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a></nav></div></div></footer>
+
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Struktur & Unternehmensentwicklung mit Vanessa Zimmer: Für Betriebe die nach außen laufen, intern aber zu viel an einer Person hängt. Klare Strukturen, saubere Abläufe.">
+  <link rel="canonical" href="https://www.vz-concept.de/leistung-struktur.html">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cookie-consent.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <title>Struktur & Unternehmensentwicklung – VZ Concept</title>
+  <style>
+
+    /* ══ HERO — mit Diagnose-Panel rechts ══════════════════════ */
+    .struct-hero{background:linear-gradient(150deg,#0C3530 0%,#0e4a3f 50%,#0C3530 100%);padding:clamp(5rem,11vw,8.5rem) 0 clamp(4rem,8vw,7rem);position:relative;overflow:hidden}
+    .struct-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 15% 60%,rgba(0,200,168,.1) 0%,transparent 65%);pointer-events:none}
+    .struct-hero__inner{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
+    .struct-hero__label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,168,.12);border:1px solid rgba(0,200,168,.25);color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.4rem 1rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md)}
+    .struct-hero__label svg{width:13px;height:13px}
+    .struct-hero__h1{font-size:clamp(2rem,4.5vw,3rem);color:var(--color-white);line-height:1.15;margin-bottom:var(--space-md)}
+    .struct-hero__h1 em{color:var(--color-accent);font-style:normal}
+    .struct-hero__sub{color:rgba(255,255,255,.75);line-height:1.8;font-size:clamp(.95rem,1.8vw,1.08rem);margin-bottom:var(--space-xl)}
+    .struct-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center}
+    .struct-hero__trust{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin-top:var(--space-lg)}
+    .struct-hero__trust-item{display:flex;align-items:center;gap:.45rem;color:rgba(255,255,255,.55);font-size:var(--fs-xs)}
+    .struct-hero__trust-item svg{width:13px;height:13px;color:var(--color-accent);flex-shrink:0}
+
+    /* Diagnose-Panel rechts */
+    .diag-panel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:calc(var(--radius-lg) + 4px);padding:clamp(1.5rem,3vw,2rem);backdrop-filter:blur(10px)}
+    .diag-panel__label{color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--space-md)}
+    .diag-panel__question{color:rgba(255,255,255,.85);font-size:var(--fs-sm);font-weight:600;margin-bottom:var(--space-md);font-family:var(--font-heading);font-style:italic;font-size:1rem}
+    .diag-item{display:flex;align-items:flex-start;gap:.875rem;padding:.6rem .5rem;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;border-radius:var(--radius-sm);transition:background .15s}
+    .diag-item:last-child{border-bottom:none}
+    .diag-item:hover{background:rgba(255,255,255,.06)}
+    .diag-item__check{width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-radius:4px;flex-shrink:0;margin-top:.2rem;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s}
+    .diag-item__check svg{width:11px;height:11px;color:var(--color-accent);opacity:0;transition:opacity .15s}
+    .diag-item__text{color:rgba(255,255,255,.65);font-size:var(--fs-sm);line-height:1.5;transition:color .15s}
+    .diag-item.is-checked .diag-item__check{background:rgba(0,200,168,.25);border-color:rgba(0,200,168,.9)}
+    .diag-item.is-checked .diag-item__check svg{opacity:1}
+    .diag-item.is-checked .diag-item__text{color:rgba(255,255,255,.92);font-weight:500}
+    .diag-result{margin-top:var(--space-md);padding:.625rem 1rem;border-radius:var(--radius-md);background:rgba(0,200,168,.08);border:1px solid rgba(0,200,168,.2);color:rgba(255,255,255,.55);font-size:var(--fs-xs);font-weight:500;text-align:center;transition:color .3s,background .3s,border-color .3s;min-height:2.25rem;display:flex;align-items:center;justify-content:center}
+    .diag-result.has-hits{background:rgba(0,200,168,.18);border-color:rgba(0,200,168,.45);color:var(--color-accent)}
+
+    /* ══ SYMPTOM-CHECKER ════════════════════════════════════════ */
+    .symptoms{padding-block:clamp(4rem,8vw,6.5rem);background:#f4faf9}
+    .symptom-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:end;margin-bottom:clamp(2rem,4vw,3rem)}
+    .symptom-intro__heading{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--color-primary);line-height:1.25}
+    .symptom-intro__sub{color:var(--color-text-muted);line-height:1.75}
+    .symptom-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md)}
+    .symptom-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);transition:border-color .25s,box-shadow .25s;cursor:default}
+    .symptom-card:hover{border-color:var(--color-accent);box-shadow:var(--shadow-md)}
+    .symptom-card__icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;color:var(--color-accent);margin-bottom:var(--space-md)}
+    .symptom-card__icon svg{width:20px;height:20px}
+    .symptom-card__title{font-size:var(--fs-md);font-weight:700;color:var(--color-primary);margin-bottom:.5rem;line-height:1.3}
+    .symptom-card__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.7}
+    .symptom-cta{margin-top:clamp(2rem,4vw,3rem);padding:clamp(1.5rem,3vw,2rem);background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:space-between;gap:var(--space-lg);box-shadow:var(--shadow-sm)}
+    .symptom-cta__text{font-size:var(--fs-md);color:var(--color-primary);font-weight:600}
+    .symptom-cta__sub{font-size:var(--fs-sm);color:var(--color-text-muted);margin-top:.3rem}
+
+    /* ══ DREI SÄULEN — Premium Dark Cards ═══════════════════════ */
+    .pillars{padding-block:clamp(5rem,10vw,8rem);background:linear-gradient(135deg,#071a18 0%,#0C3530 100%)}
+    .pillars__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:clamp(2.5rem,5vw,4rem);align-items:stretch}
+    .pillar{display:flex;flex-direction:column;background:linear-gradient(160deg,#0C3530 0%,#0a2b27 100%);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;position:relative;box-shadow:0 20px 60px rgba(12,53,48,.28),0 4px 16px rgba(0,0,0,.12);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+    .pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--color-accent) 0%,rgba(0,200,168,.35) 100%);z-index:1}
+    .pillar:hover{transform:translateY(-7px);box-shadow:0 36px 80px rgba(12,53,48,.38),0 0 0 1px rgba(0,200,168,.28);border-color:rgba(0,200,168,.2)}
+    .pillar__content{padding:clamp(2rem,4vw,2.75rem);display:flex;flex-direction:column;flex:1;position:relative;z-index:1}
+    .pillar__ghost{position:absolute;bottom:-16px;right:-6px;font-size:clamp(100px,12vw,140px);font-family:var(--font-heading);font-weight:700;color:rgba(255,255,255,.04);line-height:1;user-select:none;pointer-events:none;z-index:0}
+    .pillar__num{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--color-accent);opacity:.8;margin-bottom:1.5rem}
+    .pillar__icon{width:52px;height:52px;border-radius:14px;background:rgba(0,200,168,.14);border:1px solid rgba(0,200,168,.22);display:flex;align-items:center;justify-content:center;color:var(--color-accent);margin-bottom:1.5rem;flex-shrink:0}
+    .pillar__icon svg{width:23px;height:23px}
+    .pillar__title{color:#fff;font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .pillar__text{color:rgba(255,255,255,.62);font-size:var(--fs-sm);line-height:1.82;flex:1}
+    .pillar__divider{height:1px;background:rgba(255,255,255,.09);margin-block:1.5rem;flex-shrink:0}
+    .pillar__result{display:flex;align-items:flex-start;gap:.625rem;color:var(--color-accent);font-size:var(--fs-sm);font-weight:600;line-height:1.45}
+    .pillar__result svg{width:16px;height:16px;flex-shrink:0;margin-top:.15rem;opacity:.85}
+
+    /* ══ ANALYSE-BEREICHE ════════════════════════════════════════ */
+    .audit-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
+    .audit-section__inner{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(2.5rem,5vw,5rem);align-items:start}
+    .audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)}
+    .audit-card{background:var(--color-white);border:1px solid var(--color-border);border-left:3px solid var(--color-accent);border-radius:var(--radius-md);padding:clamp(1rem,2vw,1.4rem);display:flex;align-items:flex-start;gap:.875rem;transition:box-shadow .2s ease,border-color .2s ease}
+    .audit-card:hover{box-shadow:var(--shadow-sm);border-color:rgba(0,200,168,.5)}
+    .audit-card__num{font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:rgba(0,200,168,.2);line-height:1;flex-shrink:0;min-width:2rem}
+    .audit-card__content{flex:1}
+    .audit-card__title{font-size:var(--fs-md);font-weight:700;color:var(--color-primary);margin-bottom:.4rem}
+    .audit-card__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.65}
+
+    /* ══ PHASEN-MODELL ══════════════════════════════════════════ */
+    .phases{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
+    .phases__track{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(2rem,4vw,3.5rem);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);box-shadow:var(--shadow-sm)}
+    .phase{padding:clamp(2rem,4vw,2.75rem);position:relative;border-right:1px solid var(--color-border)}
+    .phase:last-child{border-right:none}
+    .phase__indicator{display:flex;align-items:center;gap:.75rem;margin-bottom:var(--space-lg)}
+    .phase__dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+    .phase:nth-child(1) .phase__dot{background:#e2e8f0}
+    .phase:nth-child(2) .phase__dot{background:rgba(0,200,168,.6)}
+    .phase:nth-child(3) .phase__dot{background:var(--color-accent)}
+    .phase__name{font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-muted)}
+    .phase__num{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--font-heading);font-size:3.5rem;font-weight:700;color:rgba(12,53,48,.05);line-height:1}
+    .phase__title{font-size:clamp(1.15rem,2vw,1.4rem);color:var(--color-primary);font-weight:700;margin-bottom:.75rem;line-height:1.3}
+    .phase__text{color:var(--color-text-muted);font-size:var(--fs-sm);line-height:1.75;margin-bottom:var(--space-lg)}
+    .phase__tags{display:flex;flex-direction:column;gap:.5rem}
+    .phase__tag{display:flex;align-items:center;gap:.5rem;font-size:var(--fs-xs);color:var(--color-primary);font-weight:500}
+    .phase__tag svg{width:13px;height:13px;color:var(--color-accent);flex-shrink:0}
+    .phase:nth-child(1){background:#fafbfb}
+    .phase:nth-child(2){background:rgba(0,200,168,.04)}
+    .phase:nth-child(3){background:rgba(0,200,168,.08)}
+
+    /* ══ WARUM VANESSA ══════════════════════════════════════════ */
+    .why-section{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(135deg,#081F1C 0%,var(--color-primary) 100%)}
+    .why-section__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+    .why-quote{font-family:var(--font-heading);font-style:italic;font-size:clamp(1.2rem,2.2vw,1.55rem);color:var(--color-white);line-height:1.55;border-left:4px solid var(--color-accent);padding-left:var(--space-lg);margin-bottom:var(--space-xl)}
+    .why-sub{color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:var(--space-lg)}
+    .cred-list{display:flex;flex-direction:column;gap:.75rem}
+    .cred-item{display:flex;align-items:flex-start;gap:.875rem;padding:var(--space-md);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-md)}
+    .cred-item__icon{width:34px;height:34px;border-radius:50%;background:rgba(0,200,168,.15);border:1px solid rgba(0,200,168,.2);color:var(--color-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .cred-item__icon svg{width:15px;height:15px}
+    .cred-item__text{font-size:var(--fs-sm);color:rgba(255,255,255,.88);font-weight:600;line-height:1.45}
+    .cred-item__sub{font-size:var(--fs-xs);color:rgba(255,255,255,.45);font-weight:400}
+
+    /* ══ LEISTUNGSINHALT ════════════════════════════════════════ */
+    .content-block{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
+    .content-block__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+    .content-block__heading{font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-md)}
+    .content-block__sub{color:var(--color-text-muted);margin-bottom:var(--space-lg);line-height:1.75}
+    .info-card{background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+    .info-card__header{background:linear-gradient(135deg,var(--color-primary),#0e4a3f);padding:var(--space-lg)}
+    .info-card__label{color:rgba(255,255,255,.6);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+    .info-card__title{color:var(--color-white);font-size:var(--fs-lg);font-weight:700;line-height:1.3}
+    .info-card__body{padding:var(--space-lg)}
+    .info-row{display:flex;align-items:flex-start;gap:.875rem;padding-block:.875rem;border-bottom:1px solid var(--color-border);font-size:var(--fs-sm)}
+    .info-row:last-child{border-bottom:none}
+    .info-row__icon{width:34px;height:34px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .info-row__icon svg{width:15px;height:15px}
+    .info-row__label{color:var(--color-text-muted);font-size:var(--fs-xs);margin-bottom:2px}
+    .info-row__value{color:var(--color-primary);font-weight:600}
+
+    /* ══ FAQ ════════════════════════════════════════════════════ */
+    .faq-section{padding-block:clamp(4rem,8vw,6rem);background:var(--color-off-white)}
+    .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
+    .faq-item{border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden;background:var(--color-white)}
+    .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1rem,2.5vw,1.4rem) clamp(1rem,2.5vw,1.5rem);font-weight:600;color:var(--color-primary);cursor:pointer;list-style:none;font-size:var(--fs-sm)}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary svg{width:18px;height:18px;flex-shrink:0;transition:transform .25s ease;color:var(--color-accent)}
+    .faq-item[open] summary svg{transform:rotate(45deg)}
+    .faq-item[open] summary{background:var(--color-accent-light)}
+    .faq-item__body{padding:clamp(1rem,2.5vw,1.25rem) clamp(1rem,2.5vw,1.5rem);color:var(--color-text-muted);line-height:1.75;font-size:var(--fs-sm);border-top:1px solid var(--color-border)}
+
+    /* ══ RESPONSIVE ════════════════════════════════════════════ */
+    @media(max-width:1024px){
+      .phases__track{grid-template-columns:1fr}.phase{border-right:none;border-bottom:1px solid var(--color-border)}.phase:last-child{border-bottom:none}
+      .pillars__grid{grid-template-columns:1fr;max-width:480px;margin-inline:auto}
+    }
+    @media(max-width:900px){
+      .struct-hero__inner{grid-template-columns:1fr}.diag-panel{display:none}
+      .symptom-intro{grid-template-columns:1fr}
+      .symptom-grid{grid-template-columns:1fr 1fr}
+      .audit-section__inner{grid-template-columns:1fr}
+      .why-section__inner{grid-template-columns:1fr}
+      .content-block__inner{grid-template-columns:1fr}
+      .symptom-cta{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:580px){.symptom-grid{grid-template-columns:1fr}.audit-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="container"><div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="VZ Concept Startseite"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white"><img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color"></a>
+      <ul class="nav__menu" role="list">
+        <li><a href="ueber-mich.html" class="nav__link">&Uuml;ber mich</a></li>
+        <li class="nav__item--dropdown">
+          <button type="button" class="nav__link nav__dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Leistungen<svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <ul class="nav__dropdown" role="list" aria-label="Leistungsbereiche">
+            <li><a href="leistung-gruendung.html" class="nav__dropdown-link"><strong>Gr&uuml;ndungs- &amp; Entscheidungsbegleitung</strong><span>Ich will gr&uuml;nden &ndash; aber nicht blind starten</span></a></li>
+            <li><a href="leistung-avgs.html" class="nav__dropdown-link"><strong>AVGS-Gr&uuml;ndercoaching</strong><span>Gef&ouml;rderte Gr&uuml;ndung realistisch vorbereiten</span></a></li>
+            <li><a href="leistung-krise.html" class="nav__dropdown-link"><strong>Krisen- &amp; Neuaufstellung</strong><span>Mein Unternehmen steht unter Druck</span></a></li>
+            <li><a href="leistung-struktur.html" class="nav__dropdown-link"><strong>Struktur &amp; Unternehmensentwicklung</strong><span>Es l&auml;uft &ndash; aber intern funktioniert es nicht sauber</span></a></li>
+            <li><a href="leistung-traeger.html" class="nav__dropdown-link"><strong>Tr&auml;ger &amp; Institutionen</strong><span>Ich brauche eine realistische Einsch&auml;tzung</span></a></li>
+            <li><a href="leistung-businessplan.html" class="nav__dropdown-link"><strong>Businessplan-Service</strong><span>F&uuml;r Bank, Investor oder eigene Orientierung</span></a></li>
+            <li><a href="leistung-aufenthaltsrecht.html" class="nav__dropdown-link"><strong>Businessplan f&uuml;r Aufenthaltsrecht</strong><span>Selbst&auml;ndigkeit im aufenthaltsrechtlichen Kontext</span></a></li>
+            <li class="nav__dropdown-divider"></li>
+            <li><a href="leistungen.html" class="nav__dropdown-link nav__dropdown-link--all">Alle Leistungen ansehen &rarr;</a></li>
+          </ul>
+        </li>
+        <li><a href="ablauf.html" class="nav__link">Ablauf</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="referenzen.html" class="nav__link">Stimmen</a></li>
+        <li><a href="partner.html" class="nav__link">Partner</a></li>
+      </ul>
+      <div class="nav__cta"><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a></div>
+      <button class="nav__toggle" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div></div>
+  </nav>
+
+  <!-- ══ HERO ═══════════════════════════════════════════════════ -->
+  <header class="struct-hero" aria-labelledby="struct-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Brotkrumen" style="margin-bottom:var(--space-xl)">
+        <a href="index.html" style="color:rgba(255,255,255,.5)">Startseite</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:rgba(255,255,255,.3)"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="leistungen.html" style="color:rgba(255,255,255,.5)">Leistungen</a>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:14px;height:14px;color:rgba(255,255,255,.3)"><polyline points="9 18 15 12 9 6"/></svg>
+        <span style="color:rgba(255,255,255,.35)">Struktur &amp; Unternehmensentwicklung</span>
+      </nav>
+      <div class="struct-hero__inner">
+        <div>
+          <p class="struct-hero__label">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            Struktur &amp; Unternehmensentwicklung
+          </p>
+          <h1 class="struct-hero__h1" id="struct-title">Es l&auml;uft.<br><em>Aber es reibt &mdash; intern.</em></h1>
+          <p class="struct-hero__sub">Viele Betriebe funktionieren nach au&szlig;en gut &mdash; aber intern h&auml;ngt zu viel an einer Person, laufen Dinge &uuml;ber Umwege und sitzt der Unternehmer im Betrieb statt am Betrieb. Ich bringe Ordnung in das, was Entlastung und Wachstum bisher blockiert.</p>
+          <div class="struct-hero__actions">
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Betrieb analysieren lassen
+            </a>
+            <a href="#was-enthalten" class="btn btn--outline-white">Was ist enthalten?</a>
+          </div>
+          <div class="struct-hero__trust">
+            <span class="struct-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>F&uuml;r kleine Betriebe in Gesundheit, Beauty &amp; Pflege</span>
+            <span class="struct-hero__trust-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Keine sch&ouml;nen Konzepte &mdash; Strukturen die tragen</span>
+          </div>
+        </div>
+        <div class="diag-panel" id="kurzcheck" role="group" aria-label="Kurzcheck: Klick auf Punkte die auf dich zutreffen">
+          <p class="diag-panel__label">Kurzcheck &mdash; Klick auf was zutrifft</p>
+          <p class="diag-panel__question">Erkennst du dich in einem dieser Punkte?</p>
+          <div class="diag-item">
+            <div class="diag-item__check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p class="diag-item__text">Alles l&auml;uft &uuml;ber mich &mdash; delegieren ist kaum m&ouml;glich</p>
+          </div>
+          <div class="diag-item">
+            <div class="diag-item__check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p class="diag-item__text">Ich wei&szlig; nicht genau was ich wirklich verdiene</p>
+          </div>
+          <div class="diag-item">
+            <div class="diag-item__check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p class="diag-item__text">Wachstum w&auml;re m&ouml;glich &mdash; aber schon jetzt ist alles zu viel</p>
+          </div>
+          <div class="diag-item">
+            <div class="diag-item__check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <p class="diag-item__text">Ich arbeite viel &mdash; aber wei&szlig; nicht ob die Preise stimmen</p>
+          </div>
+          <p class="diag-result" id="diag-result" aria-live="polite">Klick auf Punkte die auf dich zutreffen</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ══ SYMPTOM-CHECKER ═══════════════════════════════════════ -->
+    <section class="symptoms" aria-labelledby="sym-title">
+      <div class="container">
+        <div class="symptom-intro">
+          <div>
+            <p class="section-label">Typische Situation</p>
+            <h2 class="symptom-intro__heading" id="sym-title">Welches dieser Symptome kennst du?</h2>
+          </div>
+          <p class="symptom-intro__sub">Das sind keine allgemeinen Probleme &mdash; das sind die konkreten Engp&auml;sse, die ich in kleinen Betrieben am h&auml;ufigsten vorfinde. Wenn du einen erkennst, bist du hier richtig.</p>
+        </div>
+        <div class="symptom-grid">
+          <div class="symptom-card">
+            <div class="symptom-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <h3 class="symptom-card__title">Alles h&auml;ngt an dir</h3>
+            <p class="symptom-card__text">Mitarbeiter fragen f&uuml;r alles nach, Entscheidungen bleiben liegen wenn du nicht da bist, Delegation f&uuml;hlt sich nach mehr Aufwand an als selbst machen.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+            <h3 class="symptom-card__title">Preise und Zahlen stimmen nicht</h3>
+            <p class="symptom-card__text">Du bist viel ausgelastet, aber am Ende des Monats bleibt wenig &uuml;brig. Preise wurden nie richtig kalkuliert &mdash; sie basieren auf Gef&uuml;hl und was der Markt scheinbar hergibt.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <h3 class="symptom-card__title">Abl&auml;ufe die niemand kennt</h3>
+            <p class="symptom-card__text">Dinge passieren, aber niemand wei&szlig; genau warum oder in welcher Reihenfolge. Was funktioniert, funktioniert weil du es wei&szlig;t &mdash; nicht weil es geregelt ist.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg></div>
+            <h3 class="symptom-card__title">Wachstum blockiert sich selbst</h3>
+            <p class="symptom-card__text">Du siehst M&ouml;glichkeiten, aber weißt dass du sie jetzt nicht umsetzen kannst &mdash; weil schon das Bestehende kaum zu steuern ist. Mehr Auftr&auml;ge w&uuml;rden mehr Chaos bedeuten.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <h3 class="symptom-card__title">Du arbeitest im Betrieb &mdash; nicht am Betrieb</h3>
+            <p class="symptom-card__text">Der Alltag frisst die Zeit f&uuml;r Planung, Entwicklung und strategische Entscheidungen. Was du eigentlich br&auml;uchtest, kommt nie dran weil das Operative nicht aufh&ouml;rt.</p>
+          </div>
+          <div class="symptom-card">
+            <div class="symptom-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+            <h3 class="symptom-card__title">Zust&auml;ndigkeiten sind unklar</h3>
+            <p class="symptom-card__text">Mitarbeiter tun was sie f&uuml;r richtig halten &mdash; oder fragen bei dir nach. Klare Verantwortlichkeiten existieren nur in deinem Kopf, nicht im Betrieb.</p>
+          </div>
+        </div>
+        <div class="symptom-cta">
+          <div>
+            <p class="symptom-cta__text">Einer oder mehrere davon treffen zu?</p>
+            <p class="symptom-cta__sub">Dann sind wir im richtigen Bereich. Im Erstgespr&auml;ch schauen wir gemeinsam, wo der eigentliche Engpass liegt.</p>
+          </div>
+          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="flex-shrink:0">Erstgespr&auml;ch buchen &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DREI SÄULEN ═══════════════════════════════════════════ -->
+    <section class="pillars" aria-labelledby="pil-title">
+      <div class="container">
+        <p class="section-label section-label--light text-center">Was du davon hast</p>
+        <h2 class="section-title section-title--white text-center" id="pil-title">Drei Ergebnisse. Alle im Alltag sp&uuml;rbar.</h2>
+        <p class="section-subtitle text-center" style="max-width:560px;margin-inline:auto;color:rgba(255,255,255,.6)">Nicht Konzepte f&uuml;r die Schublade. Sondern Ver&auml;nderungen, die du in deinem Betrieb t&auml;glich merkst.</p>
+        <div class="pillars__grid">
+          <div class="pillar">
+            <span class="pillar__ghost" aria-hidden="true">01</span>
+            <div class="pillar__content">
+              <p class="pillar__num">Ergebnis 01</p>
+              <div class="pillar__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <h3 class="pillar__title">Du kannst loslassen.</h3>
+              <p class="pillar__text">Klare Zust&auml;ndigkeiten, geregelte Abl&auml;ufe und ein Team das wei&szlig;, was von ihm erwartet wird. Delegation h&ouml;rt auf, sich nach Kontrollverlust anzuf&uuml;hlen &mdash; und f&auml;ngt an zu funktionieren.</p>
+              <div class="pillar__divider" aria-hidden="true"></div>
+              <div class="pillar__result"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Weniger operative Last, mehr Spielraum f&uuml;r Entscheidungen</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar__ghost" aria-hidden="true">02</span>
+            <div class="pillar__content">
+              <p class="pillar__num">Ergebnis 02</p>
+              <div class="pillar__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+              <h3 class="pillar__title">Die Zahlen machen Sinn.</h3>
+              <p class="pillar__text">Preise basieren auf Kalkulation, nicht auf Gef&uuml;hl. Du wei&szlig;t was ein Auftrag wirklich kostet, was er wirklich bringt &mdash; und ob dein Gesch&auml;ftsmodell unter realen Bedingungen wirtschaftlich funktioniert.</p>
+              <div class="pillar__divider" aria-hidden="true"></div>
+              <div class="pillar__result"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Preisgestaltung die tr&auml;gt &mdash; auch wenn es stressig wird</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <span class="pillar__ghost" aria-hidden="true">03</span>
+            <div class="pillar__content">
+              <p class="pillar__num">Ergebnis 03</p>
+              <div class="pillar__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg></div>
+              <h3 class="pillar__title">Wachstum wird m&ouml;glich.</h3>
+              <p class="pillar__text">Wenn Struktur und Abl&auml;ufe funktionieren, ist Wachstum kein Chaos mehr. Du kannst Kapazit&auml;ten erh&ouml;hen, Mitarbeiter einbinden und Entscheidungen treffen &mdash; weil der Betrieb das tr&auml;gt.</p>
+              <div class="pillar__divider" aria-hidden="true"></div>
+              <div class="pillar__result"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Wachstum das nicht sofort &uuml;berlastet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ANALYSE-BEREICHE ══════════════════════════════════════ -->
+    <section class="audit-section" aria-labelledby="audit-title">
+      <div class="container">
+        <div class="audit-section__inner">
+          <div>
+            <p class="section-label">Was wir anschauen</p>
+            <h2 style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-md);line-height:1.25" id="audit-title">Sechs Bereiche. Einer davon ist dein Engpass.</h2>
+            <p style="color:var(--color-text-muted);line-height:1.75;margin-bottom:var(--space-lg)">Keine pauschale Beratung. Ich schaue mir konkret an, wo in deinem Betrieb Reibung entsteht &mdash; und fange genau dort an.</p>
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Betrieb einordnen lassen
+            </a>
+          </div>
+          <div class="audit-grid">
+            <div class="audit-card">
+              <span class="audit-card__num" aria-hidden="true">01</span>
+              <div class="audit-card__content">
+                <p class="audit-card__title">Struktur &amp; Zust&auml;ndigkeiten</p>
+                <p class="audit-card__text">Wer ist wof&uuml;r verantwortlich? Was passiert wenn jemand ausf&auml;llt?</p>
+              </div>
+            </div>
+            <div class="audit-card">
+              <span class="audit-card__num" aria-hidden="true">02</span>
+              <div class="audit-card__content">
+                <p class="audit-card__title">Operative Abl&auml;ufe</p>
+                <p class="audit-card__text">Wie l&auml;uft der Alltag? Wo entstehen Reibungsverluste?</p>
+              </div>
+            </div>
+            <div class="audit-card">
+              <span class="audit-card__num" aria-hidden="true">03</span>
+              <div class="audit-card__content">
+                <p class="audit-card__title">Preisgestaltung &amp; Kalkulation</p>
+                <p class="audit-card__text">Stimmen Preise, Deckungsbeitr&auml;ge und Wirtschaftlichkeit?</p>
+              </div>
+            </div>
+            <div class="audit-card">
+              <span class="audit-card__num" aria-hidden="true">04</span>
+              <div class="audit-card__content">
+                <p class="audit-card__title">Delegation &amp; Personal</p>
+                <p class="audit-card__text">Wer kann was &uuml;bernehmen? Was braucht das Team?</p>
+              </div>
+            </div>
+            <div class="audit-card">
+              <span class="audit-card__num" aria-hidden="true">05</span>
+              <div class="audit-card__content">
+                <p class="audit-card__title">Wachstum &amp; Kapazit&auml;t</p>
+                <p class="audit-card__text">Wo ist Wachstum m&ouml;glich &mdash; und was w&auml;re daf&uuml;r n&ouml;tig?</p>
+              </div>
+            </div>
+            <div class="audit-card">
+              <span class="audit-card__num" aria-hidden="true">06</span>
+              <div class="audit-card__content">
+                <p class="audit-card__title">Entscheidungsstruktur</p>
+                <p class="audit-card__text">Welche Entscheidungen m&uuml;ssen wirklich &uuml;ber dich laufen?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PHASEN-MODELL ════════════════════════════════════════ -->
+    <section class="phases" aria-labelledby="phase-title">
+      <div class="container">
+        <p class="section-label text-center">Wie wir vorgehen</p>
+        <h2 class="section-title text-center" id="phase-title">Drei Phasen. Vom Engpass zur stabilen Struktur.</h2>
+        <p class="section-subtitle text-center" style="max-width:540px;margin-inline:auto">Keine Sofortl&ouml;sung, kein Jahresprojekt. Sondern ein strukturierter Weg, der im Alltag deines Betriebs funktioniert.</p>
+        <div class="phases__track">
+          <div class="phase">
+            <span class="phase__num" aria-hidden="true">1</span>
+            <div class="phase__indicator"><div class="phase__dot" aria-hidden="true"></div><p class="phase__name">Phase 1 &mdash; Diagnose</p></div>
+            <h3 class="phase__title">Verstehen, was wirklich nicht stimmt</h3>
+            <p class="phase__text">Wir schauen uns gemeinsam an, wo die echten Engp&auml;sse liegen &mdash; nicht die offensichtlichen Symptome, sondern die Ursachen. Zahlen, Struktur, Abl&auml;ufe, Personal. Alles auf dem Tisch.</p>
+            <div class="phase__tags">
+              <div class="phase__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Betriebsanalyse ohne Schönreden</div>
+              <div class="phase__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Priorisierung: Was zuerst?</div>
+            </div>
+          </div>
+          <div class="phase">
+            <span class="phase__num" aria-hidden="true">2</span>
+            <div class="phase__indicator"><div class="phase__dot" aria-hidden="true"></div><p class="phase__name">Phase 2 &mdash; Ordnung</p></div>
+            <h3 class="phase__title">Strukturieren was strukturiert werden muss</h3>
+            <p class="phase__text">Nicht alles auf einmal &mdash; sondern das, was jetzt den gr&ouml;&szlig;ten Unterschied macht. Abl&auml;ufe, Zust&auml;ndigkeiten, Preise, Prozesse. Konkret, umsetzbar, passend zu deinem Alltag.</p>
+            <div class="phase__tags">
+              <div class="phase__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Ma&szlig;nahmen die im Alltag tragen</div>
+              <div class="phase__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Kein &Uuml;berforderungskonzept</div>
+            </div>
+          </div>
+          <div class="phase">
+            <span class="phase__num" aria-hidden="true">3</span>
+            <div class="phase__indicator"><div class="phase__dot" aria-hidden="true"></div><p class="phase__name">Phase 3 &mdash; Stabilit&auml;t</p></div>
+            <h3 class="phase__title">Verankern, damit es h&auml;lt</h3>
+            <p class="phase__text">Ver&auml;nderungen halten nur wenn sie in den Betrieb eingebaut sind &mdash; nicht als externe Ideen, die nach dem Projekt verschwinden. Wir sorgen daf&uuml;r, dass die neuen Strukturen im Alltag funktionieren.</p>
+            <div class="phase__tags">
+              <div class="phase__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Nachhaltige Umsetzung</div>
+              <div class="phase__tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Begleitung bis es steht</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WARUM VANESSA ═════════════════════════════════════════ -->
+    <section class="why-section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why-section__inner">
+          <div>
+            <p class="section-label section-label--light">Warum mit Vanessa</p>
+            <h2 id="why-title" style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-white);margin-bottom:var(--space-lg)">Ich kenne die Realit&auml;t kleiner Betriebe von innen.</h2>
+            <blockquote class="why-quote">&bdquo;Ich arbeite nicht an sch&ouml;nen Konzepten. Ich arbeite an den Strukturen, Abl&auml;ufen und Entscheidungen, die in deinem Alltag tats&auml;chlich Entlastung und Stabilit&auml;t schaffen.&ldquo;</blockquote>
+            <p class="why-sub">Vanessa hat 16 Jahre lang selbst Betriebe gef&uuml;hrt &mdash; kleine, personenbezogene Unternehmen, in denen alles an einer Person h&auml;ngt. Sie kennt nicht nur die Symptome, sondern auch was es bedeutet, wenn strukturelle Ver&auml;nderungen im Betriebsalltag ankommen m&uuml;ssen.</p>
+            <a href="ueber-mich.html" class="btn btn--outline-white">Mehr &uuml;ber Vanessa &rarr;</a>
+          </div>
+          <div class="cred-list">
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">16 Jahre eigene Betriebsverantwortung<span class="cred-item__sub"> &mdash; Keine Theorie, sondern gelebte Praxis im kleinen Betrieb</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">IHK-gepr&uuml;fte Unternehmensberaterin<span class="cred-item__sub"> &mdash; Methodische Grundlage f&uuml;r belastbare Ver&auml;nderungen</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">Branchenfokus: Gesundheit, Beauty, Pflege, Soziales<span class="cred-item__sub"> &mdash; Keine allgemeinen Konzepte, sondern Marktkenntnis</span></p></div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><p class="cred-item__text">Ma&szlig;nahmen die im Alltag funktionieren<span class="cred-item__sub"> &mdash; Nicht Projekte die nach Abschluss verschwinden</span></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WAS ENTHALTEN ════════════════════════════════════════ -->
+    <section class="content-block" id="was-enthalten" aria-labelledby="content-title">
+      <div class="container">
+        <div class="content-block__inner">
+          <div>
+            <p class="section-label">Das Angebot im Detail</p>
+            <h2 class="content-block__heading" id="content-title">Das ist in der Strukturberatung enthalten.</h2>
+            <p class="content-block__sub">Die Begleitung richtet sich nach den echten Engp&auml;ssen in deinem Betrieb &mdash; nicht nach einem Standard-Programm. Was ich ansehe, bestimmt sich danach, was bei dir wirklich Entlastung schafft.</p>
+            <ul class="check-list">
+              <li>Analyse von Struktur, Verantwortlichkeiten und echten Engp&auml;ssen</li>
+              <li>Ordnung und Vereinfachung operativer Abl&auml;ufe</li>
+              <li>Pr&uuml;fung von Preisgestaltung, Kalkulation und Wirtschaftlichkeit</li>
+              <li>Planung von Delegation, Wachstum und Entlastung</li>
+              <li>Changemanagement und Organisationsentwicklung</li>
+              <li>F&ouml;rderoptionen k&ouml;nnen bei Bedarf gepr&uuml;ft und eingeordnet werden</li>
+            </ul>
+            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top:var(--space-xl)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Erstgespr&auml;ch zur Unternehmensberatung buchen
+            </a>
+          </div>
+          <div>
+            <div class="info-card">
+              <div class="info-card__header">
+                <p class="info-card__label">Auf einen Blick</p>
+                <p class="info-card__title">Struktur die im Alltag tr&auml;gt</p>
+              </div>
+              <div class="info-card__body">
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                  <div><p class="info-row__label">F&uuml;r wen</p><p class="info-row__value">Kleine Betriebe in Gesundheit, Beauty, Pflege und Dienstleistung</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                  <div><p class="info-row__label">Ziel</p><p class="info-row__value">Aus &Uuml;berlastung zur&uuml;ck in steuerbare Abl&auml;ufe und klare Struktur</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div><p class="info-row__label">Format</p><p class="info-row__value">Analyse, Begleitung und Umsetzungsunterst&uuml;tzung</p></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+                  <div><p class="info-row__label">Hinweis</p><p class="info-row__value">F&ouml;rderwege werden einbezogen wenn sie fachlich passen</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══════════════════════════════════════════════════ -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="section-label text-center">H&auml;ufige Fragen</p>
+        <h2 class="section-title text-center" id="faq-title">Was Inhaber kleiner Betriebe am h&auml;ufigsten fragen.</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Mein Betrieb l&auml;uft doch eigentlich &mdash; brauche ich das wirklich?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Das ist genau das Richtige, was du fragst. Strukturarbeit ist kein Krisenmanagement &mdash; sie ist Investition in Stabilit&auml;t und Wachstum. Wer wartet bis etwas kriselt, hat weniger Spielraum. Wer jetzt schaut, kann ruhig und gezielt ver&auml;ndern.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Wie lange dauert so eine Begleitung?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Das h&auml;ngt vom Umfang der Engp&auml;sse ab. Manche Betriebe profitieren schon von wenigen fokussierten Sitzungen &mdash; andere brauchen eine l&auml;ngere Begleitung durch die Umsetzung. Das klären wir im Erstgespräch auf Basis deiner konkreten Situation.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Bekomme ich am Ende ein Konzept das ich umsetzen muss?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Nein &mdash; ich mache keine Konzepte f&uuml;r die Schublade. Was du bekommst, ist konkret, umsetzbar und auf deinen Alltag zugeschnitten. Bei Bedarf begleite ich auch die Umsetzung &mdash; damit Struktur nicht beim Papier bleibt.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Muss ich mein Team mit einbeziehen?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Das kommt drauf an. In manchen F&auml;llen gen&uuml;gt es, zun&auml;chst mit dir zu arbeiten &mdash; das Team kommt dann sp&auml;ter dazu wenn Strukturen klarer sind. In anderen F&auml;llen ist es von Anfang an sinnvoll. Das kl&auml;ren wir je nach Situation.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══════════════════════════════════════════════════ -->
+    <section class="section section--dark" aria-labelledby="cta-title">
+      <div class="container text-center">
+        <p class="section-label section-label--light">N&auml;chster Schritt</p>
+        <h2 class="section-title section-title--white" id="cta-title">30 Minuten &mdash; und wir wissen,<br>wo bei dir der Hebel liegt.</h2>
+        <p class="section-subtitle section-subtitle--white" style="max-width:500px;margin-inline:auto">Du beschreibst deinen Betrieb und was dich bremst. Ich sage dir, was ich einsch&auml;tze und welcher Bereich zuerst angegangen werden sollte.</p>
+        <div class="btn-group" style="justify-content:center;margin-top:var(--space-xl)">
+          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespr&auml;ch buchen
+          </a>
+          <a href="leistungen.html" class="btn btn--outline-white">Alle Leistungen ansehen</a>
+        </div>
+        <p style="margin-top:var(--space-lg);color:rgba(255,255,255,.5);font-size:var(--fs-xs)">Unverbindlich &middot; Klar &middot; Ohne Verkaufsdruck</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo"><div class="container"><div class="footer__inner">
+    <div class="footer__brand"><div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo"></div><p class="footer__tagline">Beratung f&uuml;r Gr&uuml;ndung, Neuaufstellung und unternehmerische Entscheidungen unter realen Bedingungen.</p><div class="footer__social" aria-label="Social Media"><a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
+    <div><p class="footer__nav-title">Navigation</p><ul class="footer__nav-list" role="list"><li><a href="index.html">Startseite</a></li><li><a href="ueber-mich.html">&Uuml;ber mich</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ablauf.html">Ablauf</a></li><li><a href="referenzen.html">Stimmen</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div><p class="footer__nav-title">Leistungen</p><ul class="footer__nav-list" role="list"><li><a href="leistung-gruendung.html">Gr&uuml;ndungsbegleitung</a></li><li><a href="leistung-avgs.html">AVGS-Gr&uuml;ndercoaching</a></li><li><a href="leistung-krise.html">Krisenberatung</a></li><li><a href="leistung-struktur.html">Struktur &amp; Entwicklung</a></li><li><a href="leistung-traeger.html">Tr&auml;ger &amp; Institutionen</a></li><li><a href="leistung-businessplan.html">Businessplan-Service</a></li><li><a href="leistung-aufenthaltsrecht.html">Businessplan f&uuml;r Aufenthaltsrecht</a></li></ul></div>
+    <div><p class="footer__nav-title">Kontakt</p><ul class="footer__nav-list" role="list"><li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespr&auml;ch buchen</a></li><li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li><li><a href="tel:+4915254596585">+49 152 54596585</a></li></ul></div>
+  </div><div class="footer__bottom"><p class="footer__copy">&copy; 2026 VZ Concept &ndash; Consulting UG &middot; Alle Rechte vorbehalten</p><nav class="footer__legal" aria-label="Rechtliche Links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a></nav></div></div></footer>
+
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.diag-item');
+      var result = document.getElementById('diag-result');
+      var messages = [
+        'Klick auf Punkte die auf dich zutreffen',
+        'Das kenne ich aus vielen Betrieben.',
+        'Zwei Punkte — das ist kein Zufall.',
+        'Drei Punkte — ein klares Signal.',
+        'Alle vier — hier liegt echtes Potenzial.'
+      ];
+      items.forEach(function (item) {
+        item.addEventListener('click', function () {
+          item.classList.toggle('is-checked');
+          var checked = document.querySelectorAll('.diag-item.is-checked').length;
+          if (result) {
+            result.textContent = messages[checked] || messages[messages.length - 1];
+            result.className = 'diag-result' + (checked > 0 ? ' has-hits' : '');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
