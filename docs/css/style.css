@@ -3222,6 +3222,34 @@ a.hero__proof-item:hover {
     padding: 1.25rem !important;
   }
 
+  /* Content-Block: CTA-Button + Info-Card auf Mobile */
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .content-block__inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .content-block .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: var(--fs-xs) !important;
+    white-space: normal;
+    text-align: center;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .info-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .info-row {
+    gap: 0.625rem;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .info-row__icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+
   :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
     .info-row,
     .cred-item,

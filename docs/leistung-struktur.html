@@ -178,6 +178,13 @@
       .symptom-cta{flex-direction:column;align-items:flex-start}
     }
     @media(max-width:580px){.symptom-grid{grid-template-columns:1fr}.audit-grid{grid-template-columns:1fr}}
+    @media(max-width:640px){
+      .content-block__inner{grid-template-columns:1fr}
+      .content-block .btn{width:100%;justify-content:center;font-size:var(--fs-xs)}
+      .info-card{min-width:0;width:100%}
+      .info-row{gap:.625rem}
+      .info-row__icon{width:30px;height:30px;flex-shrink:0}
+    }
   </style>
 </head>
 <body>
