@@ -70,9 +70,12 @@
     .process-connector{flex:0 0 auto;display:flex;align-items:flex-start;padding-top:22px;padding-inline:.625rem;color:var(--color-accent);opacity:.45}
     .process-connector svg{width:18px;height:18px}
 
-    /* ── Warum Vanessa ── */
+    /* ── Warum Vanessa — mit Foto ── */
     .why-vanessa{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
-    .why-vanessa__inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,6rem);align-items:center}
+    .why-vanessa__inner{display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,5rem);align-items:start}
+    .why-vanessa__photo-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 48px rgba(12,53,48,.14);flex-shrink:0}
+    .why-vanessa__photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .why-vanessa__photo-wrap::after{content:'';position:absolute;inset:0;border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px rgba(12,53,48,.1);pointer-events:none}
     .why-vanessa__quote{font-family:var(--font-heading);font-style:italic;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--color-primary);line-height:1.5;border-left:4px solid var(--color-accent);padding-left:var(--space-lg);margin-bottom:var(--space-xl)}
     .why-vanessa__sub{color:var(--color-text-muted);line-height:1.75;margin-bottom:var(--space-lg)}
     .credential-list{display:flex;flex-direction:column;gap:.875rem}
@@ -112,12 +115,25 @@
     .faq-item[open] summary{background:var(--color-accent-light)}
     .faq-item__body{padding:clamp(1rem,2.5vw,1.25rem) clamp(1rem,2.5vw,1.5rem);color:var(--color-text-muted);line-height:1.75;font-size:var(--fs-sm);border-top:1px solid var(--color-border)}
 
+    /* ── Auch passend — Cross-Links ── */
+    .related-section{padding-block:clamp(3rem,6vw,4.5rem);background:var(--color-off-white)}
+    .related-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md);margin-top:clamp(1.5rem,3vw,2rem)}
+    .related-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);display:flex;align-items:flex-start;gap:1.25rem;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+    .related-card:hover{border-color:rgba(0,200,168,.3);box-shadow:var(--shadow-sm);transform:translateY(-3px)}
+    .related-card__icon{width:44px;height:44px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-primary),#0e4a3f);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .related-card__icon svg{width:20px;height:20px}
+    .related-card__label{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+    .related-card__title{font-size:var(--fs-md);color:var(--color-primary);font-weight:700;margin-bottom:.4rem;line-height:1.3}
+    .related-card__desc{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.65}
+
     /* ── Responsive ── */
     @media(max-width:1024px){.process__track{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md)}.process-connector{display:none}}
     @media(max-width:768px){
       .sl-hero__inner,.recognition__inner,.why-vanessa__inner,.content-block__inner{grid-template-columns:1fr}
       .benefits__grid{grid-template-columns:1fr}
       .sl-hero-card{display:none}
+      .why-vanessa__photo-wrap{max-width:260px;aspect-ratio:1/1}
+      .related-cards{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -303,15 +319,15 @@
     <section class="why-vanessa" aria-labelledby="why-title">
       <div class="container">
         <div class="why-vanessa__inner">
+          <div class="why-vanessa__photo-wrap">
+            <img src="assets/images/vanessa/vanessa-telefon.jpg" alt="Vanessa Zimmer" loading="lazy" width="300" height="400">
+          </div>
           <div>
             <p class="section-label">Warum mit Vanessa</p>
             <h2 id="why-title" style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-lg)">Ich kenne den Unterschied zwischen Plan und Realit&auml;t.</h2>
-            <blockquote class="why-vanessa__quote">&bdquo;Ich habe 16 Jahre lang Unternehmen gef&uuml;hrt. Ich wei&szlig;, was es bedeutet, wenn die Zahlen nicht stimmen &mdash; und ich sage es dir, bevor du es auf die harte Tour lernst.&ldquo;</blockquote>
-            <p class="why-vanessa__sub">Viele Beratungen best&auml;tigen, was der Kunde h&ouml;ren will. Vanessa macht das Gegenteil: Sie pr&uuml;ft mit dir, ob dein Vorhaben unter realen Bedingungen funktioniert &mdash; mit dem Branchenwissen aus Gesundheit, Beauty, Pflege und Dienstleistung.</p>
-            <a href="ueber-mich.html" class="btn btn--ghost">Mehr &uuml;ber Vanessa &rarr;</a>
-          </div>
-          <div>
-            <div class="credential-list">
+            <blockquote class="why-vanessa__quote">&bdquo;Ich habe 16 Jahre lang Unternehmen gef&uuml;hrt. Ich wei&szlig;, was es bedeutet wenn die Zahlen nicht stimmen &mdash; und ich sage es dir, bevor du es auf die harte Tour lernst.&ldquo;</blockquote>
+            <p class="why-vanessa__sub">Viele Beratungen best&auml;tigen, was der Kunde h&ouml;ren will. Ich mache das Gegenteil: Ich pr&uuml;fe mit dir, ob dein Vorhaben unter realen Bedingungen funktioniert &mdash; mit Branchenwissen aus Gesundheit, Beauty, Pflege und Dienstleistung.</p>
+            <div class="credential-list" style="margin-block:var(--space-lg)">
               <div class="credential-item">
                 <div class="credential-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
                 <div><p class="credential-item__text">IHK-gepr&uuml;fte Gründungs- &amp; Unternehmensberaterin<span class="credential-item__sub"> &mdash; Fachliche Grundlage, keine Selbstbezeichnung</span></p></div>
@@ -329,6 +345,7 @@
                 <div><p class="credential-item__text">Zertifizierte AVGS-Kooperation mit zugelassenen Tr&auml;gern<span class="credential-item__sub"> &mdash; F&ouml;rderung kann gepr&uuml;ft werden</span></p></div>
               </div>
             </div>
+            <a href="ueber-mich.html" class="btn btn--ghost">Mehr &uuml;ber Vanessa &rarr;</a>
           </div>
         </div>
       </div>
@@ -411,6 +428,36 @@
             <summary>Bin ich nach dem Erstgespr&auml;ch zu irgendetwas verpflichtet?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
             <div class="faq-item__body">Nein. Das Erstgespr&auml;ch kostet dich 30 Minuten &mdash; keine Verpflichtung, kein Verkaufsgespr&auml;ch, kein Druck. Du bekommst eine ehrliche Einsch&auml;tzung deiner Situation. Ob wir danach zusammenarbeiten, entscheidest du.</div>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AUCH PASSEND ══════════════════════════════════════════ -->
+    <section class="related-section" aria-labelledby="related-title">
+      <div class="container">
+        <p class="section-label text-center">Auch relevant</p>
+        <h2 class="section-title text-center" id="related-title" style="font-size:clamp(1.3rem,2.5vw,1.75rem)">Diese Leistungen erg&auml;nzen die Gr&uuml;ndungsbegleitung.</h2>
+        <div class="related-cards">
+          <a href="leistung-avgs.html" class="related-card">
+            <div class="related-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><path d="M7 15h.01"/><path d="M11 15h6"/></svg>
+            </div>
+            <div>
+              <p class="related-card__label">F&ouml;rderung</p>
+              <p class="related-card__title">AVGS-Gr&uuml;ndercoaching</p>
+              <p class="related-card__desc">Wenn du arbeitslos bist oder einen F&ouml;rdergutschein hast, kann die Gr&uuml;ndungsbegleitung bis zu 100&thinsp;% &uuml;bernommen werden.</p>
+            </div>
+          </a>
+          <a href="leistung-businessplan.html" class="related-card">
+            <div class="related-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div>
+              <p class="related-card__label">N&auml;chster Schritt</p>
+              <p class="related-card__title">Businessplan-Service</p>
+              <p class="related-card__desc">Wenn die Entscheidung f&auml;llt zu gr&uuml;nden: professioneller Businessplan f&uuml;r Bank, Investor oder Gr&uuml;ndungszuschuss.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>

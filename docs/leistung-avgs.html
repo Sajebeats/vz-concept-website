@@ -16,7 +16,7 @@
     .avgs-hero{background:linear-gradient(175deg,#081F1C 0%,#0C3530 60%,#0f5044 100%);padding:clamp(5rem,11vw,8.5rem) 0 0;position:relative;overflow:hidden}
     .avgs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 80% at 50% 20%,rgba(0,200,168,.1) 0%,transparent 65%);pointer-events:none}
     .avgs-hero__inner{max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:1;padding-bottom:clamp(3rem,6vw,5rem)}
-    .avgs-hero__badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,168,.15);border:1px solid rgba(0,200,168,.35);border-radius:var(--radius-pill);padding:.45rem 1.1rem;color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--space-lg)}
+    .avgs-hero__badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,168,.18);border:1px solid rgba(0,200,168,.45);border-radius:var(--radius-pill);padding:.5rem 1.25rem;color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--space-lg);box-shadow:0 0 0 4px rgba(0,200,168,.06)}
     .avgs-hero__badge svg{width:13px;height:13px}
     .avgs-hero__h1{font-size:clamp(2rem,4.8vw,3.2rem);color:var(--color-white);line-height:1.15;margin-bottom:var(--space-md)}
     .avgs-hero__h1 em{color:var(--color-accent);font-style:normal;display:block}
@@ -137,13 +137,32 @@
     .faq-item[open] summary{background:var(--color-accent-light)}
     .faq-item__body{padding:clamp(1rem,2.5vw,1.25rem) clamp(1rem,2.5vw,1.5rem);color:var(--color-text-muted);line-height:1.75;font-size:var(--fs-sm);border-top:1px solid var(--color-border)}
 
+    /* ══ WARUM VANESSA — mit Foto ════════════════════════════ */
+    .why-section__inner{display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,5rem);align-items:start}
+    .why-photo-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 48px rgba(12,53,48,.14);flex-shrink:0}
+    .why-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .why-photo-wrap::after{content:'';position:absolute;inset:0;border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px rgba(12,53,48,.1);pointer-events:none}
+
+    /* ══ AUCH PASSEND — Cross-Links ══════════════════════════ */
+    .related-section{padding-block:clamp(3rem,6vw,4.5rem);background:var(--color-off-white)}
+    .related-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md);margin-top:clamp(1.5rem,3vw,2rem)}
+    .related-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);display:flex;align-items:flex-start;gap:1.25rem;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+    .related-card:hover{border-color:rgba(0,200,168,.3);box-shadow:var(--shadow-sm);transform:translateY(-3px)}
+    .related-card__icon{width:44px;height:44px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-primary),#0e4a3f);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .related-card__icon svg{width:20px;height:20px}
+    .related-card__label{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+    .related-card__title{font-size:var(--fs-md);color:var(--color-primary);font-weight:700;margin-bottom:.4rem;line-height:1.3}
+    .related-card__desc{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.65}
+
     /* ══ RESPONSIVE ════════════════════════════════════════════ */
     @media(max-width:900px){
       .explainer-grid{grid-template-columns:1fr}
       .eligibility__inner{grid-template-columns:1fr}
       .benefits-asym__grid{grid-template-columns:1fr}
       .why-section__inner{grid-template-columns:1fr}
+      .why-photo-wrap{max-width:260px;aspect-ratio:1/1}
       .content-block__inner{grid-template-columns:1fr}
+      .related-cards{grid-template-columns:1fr}
     }
     @media(max-width:768px){
       .avgs-journey__inner{flex-wrap:wrap;gap:.5rem}
@@ -426,30 +445,29 @@
     <section class="why-section" aria-labelledby="why-title">
       <div class="container">
         <div class="why-section__inner">
+          <div class="why-photo-wrap">
+            <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer in der Beratung" loading="lazy" width="300" height="400">
+          </div>
           <div>
             <p class="section-label">Warum mit Vanessa</p>
             <h2 id="why-title" style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-lg)">Ein AVGS ist kein Selbstzweck.<br>Entscheidend ist, was draus wird.</h2>
-            <blockquote class="why-quote">&bdquo;Ich begleite keine F&ouml;rderprogramme &mdash; ich begleite Gr&uuml;ndungen. Der Unterschied ist, dass ich dir sage, was ich wirklich von deinem Vorhaben halte. Auch wenn das unbequem ist.&ldquo;</blockquote>
-            <p class="why-sub">Viele AVGS-Begleitungen sind darauf ausgelegt, Stunden zu verbrauchen. Vanessa geht anders vor: Sie pr&uuml;ft mit dir, ob dein Vorhaben unter realen Bedingungen funktioniert &mdash; und begleitet dich mit dem, was du wirklich brauchst, nicht mit dem was das Programm vorschreibt.</p>
+            <blockquote class="why-quote">&bdquo;Ich begleite keine F&ouml;rderprogramme &mdash; ich begleite Gr&uuml;ndungen. Der Unterschied: Ich sage dir, was ich wirklich von deinem Vorhaben halte. Auch wenn das unbequem ist.&ldquo;</blockquote>
+            <p class="why-sub">Viele AVGS-Begleitungen sind darauf ausgelegt, Stunden zu f&uuml;llen. Ich pr&uuml;fe mit dir, ob dein Vorhaben unter realen Bedingungen funktioniert &mdash; Markt, Zahlen, Positionierung. Was du am Ende hast, ist keine sch&ouml;ne Pr&auml;sentation, sondern eine Einsch&auml;tzung auf die du dich verlassen kannst.</p>
+            <div class="cred-list" style="margin-block:var(--space-lg)">
+              <div class="cred-item">
+                <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <div><p class="cred-item__text">IHK-gepr&uuml;fte Gr&uuml;ndungs- &amp; Unternehmensberaterin<span class="cred-item__sub"> &mdash; Fachliche Basis, keine Selbstbezeichnung</span></p></div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <div><p class="cred-item__text">Kooperation mit zugelassenen AVGS-Tr&auml;gern<span class="cred-item__sub"> &mdash; Bis zu 100&thinsp;% der Kosten gef&ouml;rdert m&ouml;glich</span></p></div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <div><p class="cred-item__text">16 Jahre eigene Unternehmensverantwortung<span class="cred-item__sub"> &mdash; Ich kenne den Unterschied zwischen Plan und Realit&auml;t</span></p></div>
+              </div>
+            </div>
             <a href="ueber-mich.html" class="btn btn--ghost">Mehr &uuml;ber Vanessa &rarr;</a>
-          </div>
-          <div class="cred-list">
-            <div class="cred-item">
-              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-              <div><p class="cred-item__text">Kooperation mit zugelassenen AVGS-Tr&auml;gern<span class="cred-item__sub"> &mdash; Bis zu 100&thinsp;% der Kosten gef&ouml;rdert m&ouml;glich</span></p></div>
-            </div>
-            <div class="cred-item">
-              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-              <div><p class="cred-item__text">IHK-gepr&uuml;fte Gr&uuml;ndungs- &amp; Unternehmensberaterin<span class="cred-item__sub"> &mdash; Fachliche Basis, keine Selbstbezeichnung</span></p></div>
-            </div>
-            <div class="cred-item">
-              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-              <div><p class="cred-item__text">16 Jahre Unternehmensverantwortung<span class="cred-item__sub"> &mdash; Ich wei&szlig;, was im Markt funktioniert und was nicht</span></p></div>
-            </div>
-            <div class="cred-item">
-              <div class="cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-              <div><p class="cred-item__text">Keine Standardbegleitung<span class="cred-item__sub"> &mdash; Jede Situation wird individuell eingeordnet</span></p></div>
-            </div>
           </div>
         </div>
       </div>
@@ -532,6 +550,36 @@
             <summary>Bin ich nach dem Erstgespr&auml;ch zu irgendetwas verpflichtet?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
             <div class="faq-item__body">Nein. Das Erstgespr&auml;ch ist unverbindlich &mdash; kein Verkaufsgespr&auml;ch, kein Druck, keine Verpflichtung. Du bekommst eine ehrliche Einsch&auml;tzung deiner Situation. Ob danach eine Zusammenarbeit entsteht, entscheidest du.</div>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AUCH PASSEND ══════════════════════════════════════════ -->
+    <section class="related-section" aria-labelledby="related-title">
+      <div class="container">
+        <p class="section-label text-center">Auch relevant</p>
+        <h2 class="section-title text-center" id="related-title" style="font-size:clamp(1.3rem,2.5vw,1.75rem)">Diese Leistungen erg&auml;nzen das AVGS-Coaching.</h2>
+        <div class="related-cards">
+          <a href="leistung-gruendung.html" class="related-card">
+            <div class="related-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div>
+              <p class="related-card__label">Gr&uuml;ndung</p>
+              <p class="related-card__title">Gr&uuml;ndungs- &amp; Entscheidungsbegleitung</p>
+              <p class="related-card__desc">Du willst gr&uuml;nden &mdash; auch ohne AVGS. Ich pr&uuml;fe mit dir ob dein Vorhaben wirtschaftlich Sinn ergibt, bevor du investierst.</p>
+            </div>
+          </a>
+          <a href="leistung-businessplan.html" class="related-card">
+            <div class="related-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div>
+              <p class="related-card__label">Dokument</p>
+              <p class="related-card__title">Businessplan-Service</p>
+              <p class="related-card__desc">F&uuml;r Bank, Investor oder Gr&uuml;ndungszuschuss &mdash; professionell, vollst&auml;ndig, auf deinen konkreten Zweck zugeschnitten.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
