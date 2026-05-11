@@ -688,15 +688,6 @@ blockquote {
   transform: scaleY(1);
 }
 
-.nav__mega-page--cta {
-  margin-top: auto;
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-.nav__mega-page--cta::before {
-  background: var(--color-accent);
-}
 
 /* Spalte 2: Leistungen */
 .nav__mega-services {
