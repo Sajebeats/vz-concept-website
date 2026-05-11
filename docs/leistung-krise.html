@@ -177,7 +177,13 @@
       .related-cards{grid-template-columns:1fr}
       .content-block__inner{grid-template-columns:1fr}
     }
-    @media(max-width:640px){.alt-step{grid-template-columns:44px 1fr;gap:1rem}.alt-step__num{width:44px;height:44px;font-size:1rem}.alt-step__vline{display:none}}
+    @media(max-width:640px){
+      .alt-step{grid-template-columns:44px 1fr;gap:1rem;direction:ltr}
+      .alt-step__center{grid-column:1;grid-row:1;align-self:flex-start}
+      .alt-step__content{grid-column:2;grid-row:1}
+      .alt-step__num{width:40px;height:40px;font-size:.95rem}
+      .alt-step__vline{display:none}
+    }
   </style>
 </head>
 <body>
