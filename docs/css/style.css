@@ -653,25 +653,49 @@ blockquote {
 .nav__mega-page {
   display: flex;
   align-items: center;
-  padding: .5rem .625rem;
+  padding: .5rem .625rem .5rem .875rem;
   font-size: var(--fs-sm);
   color: var(--color-text);
   text-decoration: none;
   border-radius: var(--radius-sm);
-  transition: background .15s, color .15s;
+  transition: background .18s, color .18s, padding-left .18s;
   font-weight: 500;
   line-height: 1.4;
+  position: relative;
+}
+
+.nav__mega-page::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform .18s ease;
 }
 
 .nav__mega-page:hover {
   background: var(--color-accent-light);
   color: var(--color-primary);
+  padding-left: 1.1rem;
+}
+
+.nav__mega-page:hover::before {
+  transform: scaleY(1);
 }
 
 .nav__mega-page--cta {
   margin-top: auto;
   color: var(--color-accent);
   font-weight: 600;
+}
+
+.nav__mega-page--cta::before {
+  background: var(--color-accent);
 }
 
 /* Spalte 2: Leistungen */
@@ -689,11 +713,38 @@ blockquote {
   padding: .5rem .75rem;
   text-decoration: none;
   border-radius: var(--radius-sm);
-  transition: background .15s;
+  transition: background .18s;
+  position: relative;
+}
+
+.nav__mega-service::after {
+  content: '→';
+  position: absolute;
+  right: .875rem;
+  font-size: var(--fs-xs);
+  color: var(--color-accent);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .18s ease, transform .18s ease;
+  font-weight: 700;
 }
 
 .nav__mega-service:hover {
   background: var(--color-accent-light);
+}
+
+.nav__mega-service:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav__mega-service:hover .nav__mega-service-icon {
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(12,53,48,.22);
+}
+
+.nav__mega-service:hover .nav__mega-service-body strong {
+  color: var(--color-accent);
 }
 
 .nav__mega-service-icon {
@@ -706,6 +757,7 @@ blockquote {
   justify-content: center;
   color: var(--color-accent);
   flex-shrink: 0;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
 .nav__mega-service-icon svg {
