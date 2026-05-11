@@ -84,6 +84,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -95,6 +97,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 img, svg {
@@ -139,6 +143,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+  min-width: 0;
 }
 
 .container--text {
@@ -2606,6 +2611,514 @@ a.hero__proof-item:hover {
 
   .stats-row {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* --- Leistungsbereich: mobile Feinschliff-Schicht --- */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body > * {
+    max-width: 100vw;
+  }
+
+  .nav__menu {
+    top: 68px;
+    max-height: calc(100svh - 68px);
+    overflow-y: auto;
+    padding: 0.75rem 1.1rem 1.25rem;
+    gap: 0.35rem;
+  }
+
+  .nav__item--dropdown {
+    width: 100%;
+  }
+
+  .nav__dropdown {
+    margin: 0.15rem 0 0.35rem 0.9rem;
+    border-left-color: rgba(0, 200, 168, 0.35);
+  }
+
+  .nav__dropdown-link {
+    padding: 0.62rem 0.9rem;
+    border-radius: var(--radius-sm);
+    color: rgba(255,255,255,0.82);
+  }
+
+  .nav__dropdown-link:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav__dropdown-link strong {
+    color: rgba(255,255,255,0.92);
+    line-height: 1.35;
+  }
+
+  .nav__dropdown-link--all {
+    color: var(--color-accent);
+  }
+
+  .breadcrumb {
+    justify-content: flex-start !important;
+    margin-bottom: 1.35rem !important;
+    max-width: 100%;
+  }
+
+  .breadcrumb span,
+  .breadcrumb a {
+    line-height: 1.35;
+  }
+
+  .hub-hero,
+  .sl-hero,
+  .avgs-hero,
+  .crisis-hero,
+  .struct-hero,
+  .bp-hero,
+  .ar-hero,
+  .inst-hero {
+    padding-top: calc(68px + clamp(1.35rem, 8vw, 2.25rem)) !important;
+    padding-bottom: clamp(2.75rem, 10vw, 4rem) !important;
+    max-width: 100vw;
+  }
+
+  .avgs-hero {
+    padding-bottom: 0 !important;
+  }
+
+  .hub-hero__inner,
+  .avgs-hero__inner {
+    text-align: left !important;
+    margin-inline: 0 !important;
+    max-width: 100%;
+  }
+
+  .hub-hero__label,
+  .sl-hero__label,
+  .avgs-hero__badge,
+  .crisis-hero__label,
+  .struct-hero__label,
+  .bp-hero__badge,
+  .ar-hero__badge,
+  .inst-hero__badge {
+    max-width: 100%;
+    align-items: flex-start !important;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.35;
+    letter-spacing: 0.08em;
+  }
+
+  .hub-hero__h1,
+  .sl-hero__h1,
+  .avgs-hero__h1,
+  .crisis-hero__h1,
+  .struct-hero__h1,
+  .bp-hero__h1,
+  .ar-hero__h1,
+  .inst-hero__h1 {
+    font-size: clamp(2rem, 9vw, 2.45rem) !important;
+    line-height: 1.08 !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+
+  .hub-hero__sub,
+  .sl-hero__sub,
+  .avgs-hero__sub,
+  .crisis-hero__sub,
+  .struct-hero__sub,
+  .bp-hero__sub,
+  .ar-hero__sub,
+  .inst-hero__sub {
+    max-width: 34rem;
+    margin-inline: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.68 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .sl-hero__actions,
+  .avgs-hero__cta,
+  .crisis-hero__actions,
+  .struct-hero__actions,
+  .bp-hero__actions,
+  .ar-hero__actions,
+  .inst-hero__actions,
+  .cta-band__actions,
+  .cta-banner__actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.75rem;
+  }
+
+  .sl-hero__actions .btn,
+  .avgs-hero__cta .btn,
+  .crisis-hero__actions .btn,
+  .struct-hero__actions .btn,
+  .bp-hero__actions .btn,
+  .ar-hero__actions .btn,
+  .inst-hero__actions .btn,
+  .cta-band__actions .btn,
+  .cta-banner__actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sl-hero__trust,
+  .crisis-hero__trust,
+  .struct-hero__trust,
+  .bp-hero__trust,
+  .ar-hero__trust,
+  .inst-hero__trust {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    margin-top: 1.25rem !important;
+  }
+
+  .avgs-journey {
+    padding-block: 0.85rem !important;
+  }
+
+  .avgs-journey__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .journey-step {
+    width: 100%;
+    padding: 0.7rem 0.8rem !important;
+    border-radius: var(--radius-md);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .journey-step__label {
+    white-space: normal !important;
+    line-height: 1.25;
+  }
+
+  .leistung-nav {
+    top: 68px;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .leistung-nav .container {
+    padding-inline: 0;
+    max-width: 100%;
+  }
+
+  .leistung-nav__inner {
+    display: flex;
+    max-width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .leistung-nav__inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .leistung-nav__link {
+    flex: 0 0 auto;
+    max-width: 74vw;
+    padding: 0.85rem 1rem !important;
+    white-space: nowrap;
+    font-size: 0.78rem !important;
+    line-height: 1.25;
+  }
+
+  .leistung-block {
+    max-width: 100vw;
+    overflow: hidden;
+    scroll-margin-top: 120px;
+  }
+
+  .leistung-block__inner {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.25rem !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1.1rem !important;
+    border-radius: 22px !important;
+    direction: ltr !important;
+  }
+
+  .leistung-block__inner > * {
+    min-width: 0;
+    direction: ltr !important;
+  }
+
+  .leistung-head {
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 0.9rem !important;
+  }
+
+  .leistung-icon-lg {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 16px !important;
+  }
+
+  .leistung-title {
+    font-size: clamp(2rem, 8.5vw, 2.55rem) !important;
+    line-height: 1.08 !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+
+  .leistung-situation,
+  .leistung-subtitle,
+  .leistung-desc,
+  .leistung-info-card,
+  .leistung-note {
+    max-width: 100%;
+  }
+
+  .leistung-info-card__body,
+  .leistung-info-card__header {
+    padding: 1.15rem !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .section,
+    .main-section,
+    .extra-section,
+    .avgs-explainer,
+    .eligibility,
+    .benefits-asym,
+    .timeline-section,
+    .why-section,
+    .why-vanessa,
+    .content-block,
+    .faq-section,
+    .recognition,
+    .benefits,
+    .process,
+    .situations-band,
+    .traps-section,
+    .beforeafter,
+    .alt-process,
+    .urgency,
+    .symptoms,
+    .pillars,
+    .audit-section,
+    .phases,
+    .chapters-section,
+    .usecase-section,
+    .compare-section,
+    .steps-section,
+    .status-section,
+    .behoerden-section,
+    .contents-section,
+    .legal-notice,
+    .cred-band,
+    .angebot-section,
+    .koop-section,
+    .quality-section
+  ) {
+    padding-block: clamp(3rem, 11vw, 4.25rem) !important;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .section-title,
+    .main-section__heading,
+    .section-header
+  ) {
+    text-align: left;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .section-label.text-center,
+    .section-title.text-center,
+    .section-subtitle.text-center
+  ) {
+    text-align: left !important;
+    margin-inline: 0 !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.35rem);
+    line-height: 1.12;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .section-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .main-card,
+    .extra-card,
+    .explainer-card,
+    .check-card,
+    .benefit-main,
+    .benefit-small,
+    .benefit-card,
+    .process-card,
+    .trap-card,
+    .alt-step__content,
+    .symptom-card,
+    .pillar,
+    .audit-card,
+    .phase,
+    .info-card,
+    .faq-item
+  ) {
+    border-radius: 18px !important;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .info-card__body,
+    .info-card__header
+  ) {
+    padding: 1.25rem !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .info-row,
+    .cred-item,
+    .credential-item,
+    .recognition__item,
+    .audit-card,
+    .legal-notice__box
+  ) {
+    gap: 0.75rem !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .main-cards,
+    .extra-cards,
+    .explainer-grid,
+    .benefits__grid,
+    .traps-grid,
+    .symptom-grid,
+    .audit-grid
+  ) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .main-card__title,
+  .extra-card__title {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: auto;
+  }
+
+  .main-card__cta,
+  .extra-card__link {
+    gap: 0.75rem;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .hub-hero__h1 br,
+  .sl-hero__h1 br,
+  .avgs-hero__h1 br,
+  .crisis-hero__h1 br,
+  .struct-hero__h1 br,
+  .bp-hero__h1 br,
+  .ar-hero__h1 br,
+  .inst-hero__h1 br {
+    display: none;
+  }
+
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .hub-hero__h1,
+  .sl-hero__h1,
+  .avgs-hero__h1,
+  .crisis-hero__h1,
+  .struct-hero__h1,
+  .bp-hero__h1,
+  .ar-hero__h1,
+  .inst-hero__h1 {
+    font-size: clamp(1.9rem, 8.8vw, 2.28rem) !important;
+  }
+
+  .leistung-head {
+    grid-template-columns: 1fr;
+  }
+
+  .leistung-title {
+    font-size: clamp(1.85rem, 8.2vw, 2.25rem) !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .timeline__item,
+    .proc-item,
+    .process-timeline-item
+  ) {
+    grid-template-columns: 42px 1fr !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .timeline__content {
+    padding-left: 1rem !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .timeline__marker,
+    .proc-num,
+    .process-timeline-num
+  ) {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 0.95rem !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .traps-pivot,
+    .legal-notice__box,
+    .symptom-cta
+  ) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
+    .main-card__top,
+    .main-card__bottom,
+    .extra-card,
+    .explainer-card__head,
+    .explainer-card__body,
+    .check-card,
+    .benefit-main,
+    .benefit-small,
+    .benefit-card,
+    .process-card,
+    .trap-card,
+    .ba-col,
+    .alt-step__content,
+    .pillar__content,
+    .phase
+  ) {
+    padding: 1.15rem !important;
   }
 }
 
