@@ -423,11 +423,12 @@ blockquote {
 }
 
 .btn--sm {
-  padding: 0.55rem 1.25rem;
+  padding: 0.65rem 1.25rem;
   font-size: var(--fs-xs);
   font-weight: 700;
   gap: 0.35rem;
   box-shadow: none;
+  min-height: 44px;
 }
 
 .btn--lg {
@@ -550,6 +551,10 @@ blockquote {
   display: none;
   flex-direction: column;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
   padding: 8px;
   cursor: pointer;
   background: none;
@@ -2110,8 +2115,8 @@ a.hero__proof-item:hover {
 }
 
 .social-btn {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.12);
@@ -2557,7 +2562,7 @@ a.hero__proof-item:hover {
   .nav__menu {
     display: none;
     position: fixed;
-    top: 76px;
+    top: 68px;
     left: 0;
     right: 0;
     background: var(--color-primary-deep);
@@ -3270,6 +3275,91 @@ a.hero__proof-item:hover {
     .phase
   ) {
     padding: 1.15rem !important;
+  }
+}
+
+
+/* ─── 25b. MOBILE FIXES ────────────────────────────── */
+
+/* Mobile Nav CTA — nur sichtbar wenn Menü offen */
+.nav__mobile-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav__mobile-cta {
+    display: block;
+    padding: var(--space-md) 0 var(--space-sm);
+    border-top: 1px solid rgba(255,255,255,.1);
+    margin-top: var(--space-sm);
+  }
+
+  .nav__mobile-cta .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+    font-size: var(--fs-sm);
+  }
+
+  /* Social icons — größer für Touch */
+  .social-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* btn--sm — nutzbar auf Touch */
+  .btn--sm {
+    min-height: 44px;
+  }
+
+  /* Foto-Block in Why-Sections — ab 640px quadratisch */
+  .why-photo-wrap,
+  .why-vanessa__photo-wrap,
+  .vanessa-trust__photo-wrap,
+  .vanessa-intro__photo-wrap {
+    max-width: 220px;
+    aspect-ratio: 1/1;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Footer früher auf 1 Spalte */
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Sections etwas weniger Abstand */
+  .section {
+    padding-block: clamp(3rem, 8vw, 5rem);
+  }
+
+  /* Related-Cards früher 1-spaltig */
+  .related-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Why-Sections: Foto oben, kleiner */
+  .why-photo-wrap,
+  .why-vanessa__photo-wrap,
+  .vanessa-trust__photo-wrap,
+  .vanessa-intro__photo-wrap {
+    max-width: 180px;
+    aspect-ratio: 1/1;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stats: 2×2 statt 4×1 */
+  .v4-stats__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Nav Mega Menu Services — mehr Luft */
+  .nav__mega-service {
+    padding: .625rem .875rem;
+    min-height: 44px;
   }
 }
 
