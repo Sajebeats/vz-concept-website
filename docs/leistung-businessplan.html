@@ -112,9 +112,23 @@
     .bp-step__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.75}
     .bp-step__detail{margin-top:.25rem;padding:.5rem .75rem;background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:var(--fs-xs);color:var(--color-text-muted);line-height:1.5}
 
-    /* ══ WARUM VANESSA ══════════════════════════════════════════ */
+    /* ══ WARUM VANESSA — mit Foto ════════════════════════════ */
     .why-section{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(135deg,#081F1C 0%,var(--color-primary) 100%)}
-    .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+    .why-inner{display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,5rem);align-items:start}
+    .why-photo-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 48px rgba(0,0,0,.3);flex-shrink:0}
+    .why-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .why-photo-wrap::after{content:'';position:absolute;inset:0;border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px rgba(0,200,168,.2);pointer-events:none}
+
+    /* ══ CROSS-LINKS ════════════════════════════════════════ */
+    .related-section{padding-block:clamp(3rem,6vw,4.5rem);background:var(--color-off-white)}
+    .related-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md);margin-top:clamp(1.5rem,3vw,2rem)}
+    .related-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);display:flex;align-items:flex-start;gap:1.25rem;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
+    .related-card:hover{border-color:rgba(0,200,168,.3);box-shadow:var(--shadow-sm);transform:translateY(-3px)}
+    .related-card__icon{width:44px;height:44px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-primary),#0e4a3f);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
+    .related-card__icon svg{width:20px;height:20px}
+    .related-card__label{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+    .related-card__title{font-size:var(--fs-md);color:var(--color-primary);font-weight:700;margin-bottom:.4rem;line-height:1.3}
+    .related-card__desc{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.65}
     .why-quote{font-family:var(--font-heading);font-style:italic;font-size:clamp(1.15rem,2.2vw,1.5rem);color:var(--color-white);line-height:1.6;border-left:3px solid var(--color-accent);padding-left:var(--space-lg);margin-bottom:var(--space-xl)}
     .why-sub{color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:var(--space-lg)}
     .why-cred-list{display:flex;flex-direction:column;gap:.75rem}
@@ -149,6 +163,8 @@
       .bp-hero__inner{grid-template-columns:1fr}.usecase-panel{display:none}
       .chapters-intro{grid-template-columns:1fr}
       .why-inner{grid-template-columns:1fr}
+      .why-photo-wrap{max-width:260px;aspect-ratio:1/1}
+      .related-cards{grid-template-columns:1fr}
       .cta-banner__inner{grid-template-columns:1fr}.cta-banner__actions{align-items:flex-start}
     }
     @media(max-width:768px){
@@ -547,13 +563,15 @@
     <section class="why-section" aria-labelledby="why-title">
       <div class="container">
         <div class="why-inner">
+          <div class="why-photo-wrap">
+            <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer" loading="lazy" width="300" height="400">
+          </div>
           <div>
             <p class="section-label section-label--light">Warum Vanessa Zimmer</p>
             <h2 class="section-title section-title--white" id="why-title" style="margin-bottom:var(--space-xl)">16 Jahre auf der anderen Seite des Schreibtischs.</h2>
             <blockquote class="why-quote">&bdquo;Ich habe Businesspl&auml;ne geschrieben &mdash; und ich habe gesehen was passiert wenn die Zahlen im echten Betrieb nicht stimmen. Den Unterschied kenne ich aus eigener Erfahrung.&ldquo;</blockquote>
-            <p class="why-sub">Ich habe selbst Unternehmen gegr&uuml;ndet, gef&uuml;hrt und in schwierigen Phasen stabilisiert. Das hei&szlig;t: Ich schreibe keinen Plan der gl&auml;nzt, aber in der Praxis scheitert. Ich schreibe einen der standhält &mdash; im Bankgespr&auml;ch und im ersten Gesch&auml;ftsjahr.</p>
-          </div>
-          <div class="why-cred-list">
+            <p class="why-sub">Ich habe selbst Unternehmen gegr&uuml;ndet, gef&uuml;hrt und in schwierigen Phasen stabilisiert. Ich schreibe keinen Plan der gl&auml;nzt, aber in der Praxis scheitert &mdash; sondern einen der standhält: im Bankgespr&auml;ch und im ersten Gesch&auml;ftsjahr.</p>
+            <div class="why-cred-list" style="margin-block:var(--space-lg)">
             <div class="why-cred-item">
               <div class="why-cred-item__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
               <div>
@@ -582,6 +600,8 @@
                 <p class="why-cred-item__sub">Ich sage dir auch, wenn eine Zahl nicht aufgeht &mdash; lieber jetzt als im Bankgespr&auml;ch</p>
               </div>
             </div>
+            </div>
+            <a href="ueber-mich.html" class="btn btn--outline-white">Mehr &uuml;ber Vanessa &rarr;</a>
           </div>
         </div>
       </div>
@@ -624,6 +644,36 @@
             <div class="faq-item__body">Dann sage ich das &mdash; direkt, fr&uuml;hzeitig und mit Begr&uuml;ndung. Das ist unbequem, aber es sch&uuml;tzt dich vor einem teuren Fehler. Manchmal bedeutet das: Annahme &auml;ndern, Konzept anpassen. Manchmal bedeutet es: nicht gr&uuml;nden. Beides ist ein wertvolles Ergebnis.</div>
           </details>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AUCH PASSEND ══════════════════════════════════════ -->
+    <section class="related-section" aria-labelledby="related-title">
+      <div class="container">
+        <p class="section-label text-center">Auch relevant</p>
+        <h2 class="section-title text-center" id="related-title" style="font-size:clamp(1.3rem,2.5vw,1.75rem)">Diese Leistungen erg&auml;nzen den Businessplan-Service.</h2>
+        <div class="related-cards">
+          <a href="leistung-gruendung.html" class="related-card">
+            <div class="related-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div>
+              <p class="related-card__label">Vor dem Plan</p>
+              <p class="related-card__title">Gr&uuml;ndungs- &amp; Entscheidungsbegleitung</p>
+              <p class="related-card__desc">Wenn du erst pr&uuml;fen m&ouml;chtest ob dein Vorhaben wirtschaftlich Sinn ergibt &mdash; bevor ein Businessplan entsteht.</p>
+            </div>
+          </a>
+          <a href="leistung-aufenthaltsrecht.html" class="related-card">
+            <div class="related-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </div>
+            <div>
+              <p class="related-card__label">Beh&ouml;rden &amp; Visum</p>
+              <p class="related-card__title">Businessplan f&uuml;r Aufenthaltsrecht</p>
+              <p class="related-card__desc">Wenn der Plan nicht f&uuml;r eine Bank, sondern f&uuml;r die Ausl&auml;nderbeh&ouml;rde oder das Konsulat erstellt werden muss.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
