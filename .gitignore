@@ -13,3 +13,7 @@ Thumbs.db
 # Node (falls mal genutzt)
 node_modules/
 package-lock.json
+
+# Claude Code interne Dateien
+.claude/worktrees/
+.playwright-cli/
