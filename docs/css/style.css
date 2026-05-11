@@ -3281,15 +3281,17 @@ a.hero__proof-item:hover {
 
 /* ─── 25b. MOBILE FIXES ────────────────────────────── */
 
-/* Mobile Nav CTA — nur sichtbar wenn Menü offen */
+/* Mobile Nav CTA — letztes li in nav__menu, nur auf Mobile sichtbar */
 .nav__mobile-cta {
   display: none;
+  list-style: none;
 }
 
 @media (max-width: 768px) {
   .nav__mobile-cta {
     display: block;
-    padding: var(--space-md) 0 var(--space-sm);
+    list-style: none;
+    padding: var(--space-md) 1rem var(--space-sm);
     border-top: 1px solid rgba(255,255,255,.1);
     margin-top: var(--space-sm);
   }
