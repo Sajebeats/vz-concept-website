@@ -27,6 +27,125 @@
   <!-- Favicon (Platzhalter – gegen eigenes Favicon ersetzen) -->
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 
+  <!-- ══ Strukturierte Daten (Schema.org JSON-LD) ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["ProfessionalService", "LocalBusiness"],
+        "@id": "https://www.vz-concept.de/#organization",
+        "name": "VZ Concept & Consulting UG",
+        "alternateName": "VZ Concept",
+        "url": "https://www.vz-concept.de/",
+        "logo": "https://www.vz-concept.de/assets/images/logo.png",
+        "image": "https://www.vz-concept.de/assets/images/vanessa/vanessa-beratung.jpg",
+        "telephone": "+4915254596585",
+        "email": "vz@vz-concept.de",
+        "description": "Gründungs- und Unternehmensberatung mit Vanessa Zimmer. Wirtschaftliche Prüfung von Geschäftsideen, AVGS-Gründercoaching, Businessplan, Krisen- und Strukturberatung. 16 Jahre eigene unternehmerische Erfahrung.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "An der Wildbahn 67",
+          "postalCode": "13503",
+          "addressLocality": "Berlin",
+          "addressCountry": "DE"
+        },
+        "areaServed": { "@type": "Country", "name": "Deutschland" },
+        "priceRange": "€€",
+        "founder": { "@id": "https://www.vz-concept.de/ueber-mich.html#vanessa" },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "9",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "David Dutt" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Das Coaching hat uns als Gründerteam enorm weitergebracht. Klare Struktur, hilfreiche Impulse und ein professioneller Blick von außen."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Organization", "name": "Fachanwaltskanzlei Torsten Günther" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Fachlich kompetent und stets professionell. In der Beratung stets lösungsorientiert und fachlich hervorragend. Jederzeit zu empfehlen!"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Mehdi Nasari" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Ich habe für die Gründung meiner Kampfsportschule in Hamburg die Unterstützung von Vanessa bekommen und bin sehr zufrieden mit dem Service den sie anbietet."
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Beratungsleistungen",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gründungs- & Entscheidungsbegleitung", "url": "https://www.vz-concept.de/leistung-gruendung.html" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AVGS-Gründercoaching", "url": "https://www.vz-concept.de/leistung-avgs.html" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Krisenberatung & Neuaufstellung", "url": "https://www.vz-concept.de/leistung-krise.html" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Struktur & Unternehmensentwicklung", "url": "https://www.vz-concept.de/leistung-struktur.html" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Businessplan-Service", "url": "https://www.vz-concept.de/leistung-businessplan.html" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Businessplan für Aufenthaltsrecht", "url": "https://www.vz-concept.de/leistung-aufenthaltsrecht.html" } }
+          ]
+        },
+        "sameAs": [
+          "https://www.instagram.com/v.z.concept__consulting/",
+          "https://www.linkedin.com/in/vzconcept/",
+          "https://www.facebook.com/VanessaZimmerConcept"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.vz-concept.de/#website",
+        "url": "https://www.vz-concept.de/",
+        "name": "VZ Concept",
+        "publisher": { "@id": "https://www.vz-concept.de/#organization" },
+        "inLanguage": "de-DE"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.vz-concept.de/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Ist das Erstgespräch verbindlich?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nein. Das Erstgespräch dauert 30 Minuten und kostet nichts. Es geht ausschließlich darum, deine Situation einzuordnen — du entscheidest danach in Ruhe, ob eine Zusammenarbeit für dich Sinn ergibt. Kein Verkaufsdruck, keine versteckten Verpflichtungen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich auch kommen, wenn meine Idee noch unsortiert ist?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ja — gerade dann. Du musst nicht warten, bis alles fertig genug wirkt. Je früher Idee, Zielgruppe, Zahlen und nächster Schritt sauber geprüft werden, desto weniger fängst du später teuer von vorne an." }
+          },
+          {
+            "@type": "Question",
+            "name": "Muss ich vorher etwas vorbereiten?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nein. Du musst keine Unterlagen, keinen Businessplan und keine fertigen Antworten mitbringen. Beschreib einfach in ein, zwei Sätzen, worum es geht — den Rest sortieren wir gemeinsam im Gespräch." }
+          },
+          {
+            "@type": "Question",
+            "name": "Geht es nur um Gründung?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nein. Neben Gründung und AVGS-Gründercoaching geht es genauso um Unternehmensentwicklung, Struktur, Businessplan, Krisensituationen und Neuaufstellung — überall dort, wo eine ehrliche wirtschaftliche Einordnung gefragt ist." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist AVGS-Förderung möglich?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In vielen Fällen ja. Die Beratung läuft über zugelassene Träger, sodass die Kosten bei berechtigten Personen bis zu 100 % über den AVGS gefördert werden können. Ob du berechtigt bist und wie die Beantragung läuft, klären wir im Erstgespräch." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist, wenn du mir abrätst zu gründen?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dann sage ich es dir — frühzeitig und mit Begründung. Eine ehrliche Nein-so-nicht-Einschätzung ist oft wertvoller als ein schöner Businessplan, der im Markt nicht trägt. Du gehst trotzdem mit Klarheit raus, was als Nächstes sinnvoll wäre." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
@@ -151,8 +270,8 @@
                 <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
                   Erstgespräch buchen
                 </a>
-                <a href="#leistungen-uebersicht" class="btn btn--outline-white">
-                  Angebote ansehen
+                <a href="#faq-start" class="btn btn--outline-white">
+                  Häufige Fragen klären
                 </a>
               </div>
             </div>
@@ -430,6 +549,42 @@
             <p>Du entscheidest, ob und wann ein nächster Schritt folgt. Wenn du loslegst, hast du Struktur, Prioritäten und einen realistischen Plan in der Hand.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="v4-section" id="investition" aria-labelledby="v4-invest-title">
+      <div class="container">
+        <div class="v4-section-head">
+          <p class="v4-kicker">Investition</p>
+          <h2 class="v4-title" id="v4-invest-title">Was die Beratung kostet — und was nicht.</h2>
+          <p class="v4-lead">Es gibt keine versteckten Pakete und keine Kleingedruckten. Hier siehst du, wie die Investition strukturiert ist, bevor wir überhaupt reden.</p>
+        </div>
+
+        <div class="v4-invest-grid">
+          <article class="v4-invest-card v4-invest-card--free">
+            <p class="v4-invest-card__label">Schritt 1</p>
+            <p class="v4-invest-card__price">0 €</p>
+            <h3 class="v4-invest-card__title">Erstgespräch</h3>
+            <p class="v4-invest-card__text">30 Minuten, kein Verkaufsgespräch, keine Verpflichtung. Wir klären, wo du stehst und ob eine Zusammenarbeit überhaupt Sinn ergibt.</p>
+          </article>
+
+          <article class="v4-invest-card v4-invest-card--avgs">
+            <p class="v4-invest-card__label">Mit AVGS</p>
+            <p class="v4-invest-card__price">0 €<span class="v4-invest-card__sub">für dich</span></p>
+            <h3 class="v4-invest-card__title">AVGS-Gründercoaching</h3>
+            <p class="v4-invest-card__text">Wenn du arbeitssuchend gemeldet bist und einen AVGS bekommst, läuft die Beratung über einen AZAV-Träger — bis zu 100 % gefördert. Voraussetzungen klären wir vorab.</p>
+            <a href="leistung-avgs.html" class="v4-invest-card__link">AVGS-Voraussetzungen ansehen →</a>
+          </article>
+
+          <article class="v4-invest-card">
+            <p class="v4-invest-card__label">Ohne AVGS</p>
+            <p class="v4-invest-card__price">Individuell</p>
+            <h3 class="v4-invest-card__title">Beratung &amp; Begleitung</h3>
+            <p class="v4-invest-card__text">Der Aufwand hängt von Umfang und Komplexität ab. Du bekommst nach dem Erstgespräch ein transparentes Angebot mit klarem Preis und klarem Lieferumfang — keine Pakete, keine Schätzungen im Nachhinein.</p>
+          </article>
+        </div>
+
+        <p class="v4-invest-note">Keine Vorab-Rechnung, keine Bindung. Erst entscheiden, dann investieren.</p>
       </div>
     </section>
 

@@ -1319,3 +1319,140 @@
   }
 
 }
+
+/* ══ Investition / Preis-Transparenz ════════════════════════ */
+.v4-invest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2vw, 1.75rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.v4-invest-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 2.6vw, 2.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  position: relative;
+  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.v4-invest-card:hover {
+  border-color: rgba(0, 200, 168, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(12, 53, 48, 0.08);
+}
+
+.v4-invest-card--free {
+  background: linear-gradient(165deg, var(--color-primary) 0%, #0e4a3f 100%);
+  color: var(--color-white);
+  border-color: transparent;
+}
+
+.v4-invest-card--avgs {
+  background: linear-gradient(165deg, rgba(0, 200, 168, 0.08), rgba(0, 200, 168, 0.02));
+  border-color: rgba(0, 200, 168, 0.32);
+}
+
+.v4-invest-card__label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.v4-invest-card--free .v4-invest-card__label {
+  color: var(--color-accent);
+}
+
+.v4-invest-card__price {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 3.4vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-primary);
+  margin: 0.2rem 0 0.4rem;
+}
+
+.v4-invest-card--free .v4-invest-card__price {
+  color: var(--color-white);
+}
+
+.v4-invest-card__sub {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.42em;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+  vertical-align: middle;
+}
+
+.v4-invest-card--free .v4-invest-card__sub,
+.v4-invest-card--avgs .v4-invest-card__sub {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.v4-invest-card--free .v4-invest-card__sub {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.v4-invest-card__title {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.v4-invest-card--free .v4-invest-card__title {
+  color: var(--color-white);
+}
+
+.v4-invest-card__text {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.v4-invest-card--free .v4-invest-card__text {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.v4-invest-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: gap .25s ease, color .2s ease;
+}
+
+.v4-invest-card__link:hover {
+  color: var(--color-accent);
+  gap: 0.6rem;
+}
+
+.v4-invest-note {
+  margin-top: clamp(1.5rem, 3vw, 2.2rem);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 880px) {
+  .v4-invest-grid {
+    grid-template-columns: 1fr;
+  }
+}
