@@ -1456,3 +1456,155 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ══ Vanessa-Story-Zitat (in v4-why) ════════════════════════ */
+.v4-why__quote {
+  position: relative;
+  margin: 1.75rem 0 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+  background: rgba(0, 200, 168, 0.06);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.v4-why__quote::before {
+  content: '“';
+  position: absolute;
+  top: 0.4rem;
+  left: 0.8rem;
+  font-family: var(--font-script);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.5;
+}
+
+.v4-why__quote p {
+  margin: 0 0 0.7rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.v4-why__quote footer {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ══ Erwartungs-Info nach Calendly-CTA ══════════════════════ */
+.v4-after-click {
+  margin-top: 2.5rem;
+  padding: 1.4rem 1.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  text-align: left;
+  max-width: 580px;
+  margin-inline: auto;
+}
+
+.v4-after-click__title {
+  margin: 0 0 0.9rem;
+  color: var(--color-accent);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.v4-after-click__steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: after-step;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.v4-after-click__steps li {
+  counter-increment: after-step;
+  padding-left: 2rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+}
+
+.v4-after-click__steps li::before {
+  content: counter(after-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.v4-after-click__steps strong {
+  color: var(--color-white);
+}
+
+/* ══ Sticky Mobile CTA ══════════════════════════════════════ */
+.sticky-mobile-cta {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(120%);
+  transition: opacity .35s ease, transform .35s cubic-bezier(.22,.61,.36,1);
+  display: none;
+}
+
+.sticky-mobile-cta.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sticky-mobile-cta__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1.2rem;
+  background: linear-gradient(135deg, var(--color-accent), #00c8a8);
+  color: var(--color-primary);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 14px 38px rgba(0, 200, 168, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: var(--fs-sm);
+}
+
+.sticky-mobile-cta__btn span {
+  flex: 1;
+}
+
+.sticky-mobile-cta__btn small {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(4, 22, 19, 0.65);
+  white-space: nowrap;
+}
+
+.sticky-mobile-cta__btn svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .sticky-mobile-cta {
+    display: block;
+  }
+}

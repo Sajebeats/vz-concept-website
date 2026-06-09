@@ -442,6 +442,10 @@
             <p class="v4-why__bio-text">
               Aus 16 Jahren als Unternehmerin weiß Vanessa, was Druck, Verantwortung und unternehmerische Entscheidungen bedeuten. Diese Erfahrung fließt direkt in jede Beratung ein.
             </p>
+            <blockquote class="v4-why__quote">
+              <p>„Ich habe selbst aufgebaut, geführt, investiert — und auch Phasen erlebt, in denen ich alles neu sortieren musste. Genau aus dieser Erfahrung berate ich heute. Nicht aus dem Lehrbuch, sondern aus der Realität, in der du gerade stehst."</p>
+              <footer>Vanessa Zimmer · Inhaberin VZ Concept</footer>
+            </blockquote>
             <div class="v4-proof-points">
               <div><strong>Gründungsberaterin</strong><span>realistische Prüfung von Idee, Markt und Förderung</span></div>
               <div><strong>Entscheidungs&shy;begleiterin</strong><span>Klarheit, wenn mehrere Wege möglich sind</span></div>
@@ -690,6 +694,16 @@
             <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Erstgespräch buchen</a>
             <a href="leistungen.html" class="btn btn--outline-white">Leistungen ansehen</a>
           </div>
+
+          <div class="v4-after-click">
+            <p class="v4-after-click__title">Was nach dem Klick passiert</p>
+            <ol class="v4-after-click__steps">
+              <li><strong>Termin wählen</strong> in Calendly — dauert keine Minute.</li>
+              <li><strong>Bestätigungs-Mail</strong> mit Zoom-Link kommt sofort.</li>
+              <li><strong>Erinnerung</strong> 24 Stunden vor dem Termin.</li>
+              <li><strong>Im Gespräch:</strong> keine Vorbereitung nötig. Komm so, wie du gerade bist.</li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -782,9 +796,39 @@
     </div>
   </footer>
 
+  <!-- ══ Sticky Mobile CTA ══ -->
+  <div class="sticky-mobile-cta" aria-hidden="true">
+    <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="sticky-mobile-cta__btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Erstgespräch buchen</span>
+      <small>30 Min · kostenlos · unverbindlich</small>
+    </a>
+  </div>
+
   <!-- Script -->
     <script src="js/cookie-consent.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script>
+    // Sticky Mobile CTA — nach Hero einblenden, kurz vor Footer ausblenden
+    (function() {
+      const el = document.querySelector('.sticky-mobile-cta');
+      if (!el) return;
+      const hero = document.getElementById('hero-neu');
+      const footer = document.querySelector('.footer');
+      function update() {
+        if (!hero || !footer) return;
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const footerTop = footer.getBoundingClientRect().top;
+        const vh = window.innerHeight;
+        const show = heroBottom < 100 && footerTop > vh;
+        el.setAttribute('aria-hidden', show ? 'false' : 'true');
+        el.classList.toggle('is-visible', show);
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
 
 </body>
 </html>
