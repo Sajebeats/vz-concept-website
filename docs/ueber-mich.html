@@ -459,6 +459,17 @@
       align-items: start;
     }
 
+    .about-credentials--single {
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 880px;
+      margin-inline: auto;
+    }
+
+    .about-credentials--single .about-cv,
+    .about-credentials--single .about-focus-list {
+      margin-top: 1.8rem;
+    }
+
     .about-focus-list,
     .about-cv {
       display: grid;
@@ -663,10 +674,6 @@
                 <span class="nav__mega-service-icon nav__mega-service-icon--struktur" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
                 <span class="nav__mega-service-body"><strong>Struktur &amp; Unternehmensentwicklung</strong><em>Es l&auml;uft &ndash; aber intern funktioniert es nicht sauber</em></span>
               </a>
-              <a href="leistung-traeger.html" class="nav__mega-service">
-                <span class="nav__mega-service-icon nav__mega-service-icon--traeger" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-                <span class="nav__mega-service-body"><strong>Tr&auml;ger &amp; Institutionen</strong><em>Ich brauche eine realistische Einsch&auml;tzung</em></span>
-              </a>
               <a href="leistung-businessplan.html" class="nav__mega-service">
                 <span class="nav__mega-service-icon nav__mega-service-icon--bp" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
                 <span class="nav__mega-service-body"><strong>Businessplan-Service</strong><em>F&uuml;r Bank, Investor oder eigene Orientierung</em></span>
@@ -830,7 +837,7 @@
 
     <section class="about-section" aria-labelledby="credentials-title">
       <div class="container">
-        <div class="about-credentials">
+        <div class="about-credentials about-credentials--single">
           <div>
             <p class="about-kicker">Qualifikation</p>
             <h2 class="about-title" id="credentials-title">Was ich mitbringe.</h2>
@@ -853,10 +860,16 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="about-section about-section--soft" aria-labelledby="focus-title">
+      <div class="container">
+        <div class="about-credentials about-credentials--single">
           <div>
             <p class="about-kicker">Fokus</p>
-            <h2 class="about-title">Für wen mein Blick besonders wertvoll ist.</h2>
+            <h2 class="about-title" id="focus-title">Für wen mein Blick besonders wertvoll ist.</h2>
             <div class="about-focus-list">
               <div class="about-focus-item">
                 <strong>Gründer:innen</strong>
@@ -933,7 +946,6 @@
             <li><a href="leistungen.html#krise">Krisenberatung</a></li>
             <li><a href="leistungen.html#businessplan">Businessplan-Service</a></li>
             <li><a href="leistungen.html#aufenthaltsrecht">Aufenthaltsrecht</a></li>
-            <li><a href="leistungen.html#b2b">Träger &amp; Institutionen</a></li>
           </ul>
         </div>
         <div>
