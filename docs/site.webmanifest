@@ -1,0 +1,14 @@
+{
+  "name": "VZ Concept – Vanessa Zimmer",
+  "short_name": "VZ Concept",
+  "description": "Gründungs- und Unternehmensberatung mit Vanessa Zimmer.",
+  "icons": [
+    { "src": "android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#0C3530",
+  "background_color": "#0C3530",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "de"
+}
