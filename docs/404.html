@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Seite nicht gefunden – VZ Concept</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <style>
+    .nf {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 2rem;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,200,168,0.10) 0%, transparent 60%),
+        var(--color-primary);
+      color: var(--color-white);
+    }
+    .nf__inner { max-width: 560px; }
+    .nf__logo { width: 150px; margin-bottom: 2.5rem; }
+    .nf__code {
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 18vw, 10rem);
+      line-height: 0.9;
+      color: var(--color-accent);
+      letter-spacing: -0.04em;
+      text-shadow: 0 0 50px rgba(0,200,168,0.35);
+      margin-bottom: 1rem;
+    }
+    .nf__title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--color-white);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .nf__text {
+      color: rgba(255,255,255,0.72);
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      line-height: 1.7;
+      margin-bottom: 2.25rem;
+    }
+    .nf__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .nf__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.5rem;
+      justify-content: center;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .nf__links a {
+      color: rgba(255,255,255,0.7);
+      font-size: var(--fs-sm);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nf__links a:hover { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <div class="nf__inner">
+      <a href="index.html" aria-label="Zur Startseite">
+        <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nf__logo">
+      </a>
+      <p class="nf__code">404</p>
+      <h1 class="nf__title">Diese Seite gibt es nicht (mehr).</h1>
+      <p class="nf__text">
+        Der Link ist veraltet oder die Adresse wurde falsch eingegeben. Kein Problem &ndash;
+        finde hier direkt zurück zu dem, was du suchst.
+      </p>
+      <div class="nf__actions">
+        <a href="index.html" class="btn btn--primary btn--lg">Zur Startseite</a>
+        <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--outline-white">Erstgespräch buchen</a>
+      </div>
+      <nav class="nf__links" aria-label="Beliebte Seiten">
+        <a href="leistungen.html">Leistungen</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="ablauf.html">Ablauf</a>
+        <a href="referenzen.html">Stimmen</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mailto:vz@vz-concept.de">Kontakt</a>
+      </nav>
+    </div>
+  </main>
+</body>
+</html>

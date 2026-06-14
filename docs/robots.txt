@@ -1,0 +1,24 @@
+# robots.txt – VZ Concept
+# Alle seriösen Crawler dürfen die öffentlichen Seiten indexieren.
+
+User-agent: *
+Allow: /
+
+# Interne / rechtliche / Entwicklungsseiten nicht indexieren
+Disallow: /foto-vergleich.html
+Disallow: /leistung-traeger.html
+
+# KI-Crawler ausdrücklich erlaubt (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.vz-concept.de/sitemap.xml
