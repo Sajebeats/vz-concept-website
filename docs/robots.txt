@@ -4,8 +4,7 @@
 User-agent: *
 Allow: /
 
-# Interne / rechtliche / Entwicklungsseiten nicht indexieren
-Disallow: /foto-vergleich.html
+# Interne Seite nicht indexieren (wird gerade überarbeitet)
 Disallow: /leistung-traeger.html
 
 # KI-Crawler ausdrücklich erlaubt (Generative Engine Optimization)
