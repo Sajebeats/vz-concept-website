@@ -282,9 +282,7 @@
 .v4-hero .btn {
   min-width: 190px;
   justify-content: center;
-  border-radius: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  border-radius: var(--radius-pill);
   box-shadow: none;
 }
 
@@ -489,7 +487,7 @@
   gap: 0.55rem;
   padding: 1.5rem 1.1rem 1.35rem;
   border: 1px solid rgba(0, 200, 168, 0.18);
-  border-radius: 14px;
+  border-radius: 12px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%),
     rgba(8, 31, 28, 0.55);
@@ -776,7 +774,7 @@
   gap: 0.35rem;
   padding: 1.25rem 1.35rem;
   border: 1px solid var(--color-border);
-  border-radius: 22px;
+  border-radius: 20px;
   background: rgba(255,255,255,0.78);
   box-shadow: 0 18px 50px rgba(12,53,48,0.07);
   transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
@@ -805,7 +803,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   border: 1px solid var(--color-border);
-  border-radius: 30px;
+  border-radius: 28px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
 }
@@ -922,7 +920,7 @@
 }
 
 .v4-proof-image {
-  border-radius: 32px;
+  border-radius: 28px;
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   aspect-ratio: 4 / 5;
@@ -1051,7 +1049,7 @@
   min-height: 245px;
   padding: 1.4rem;
   border: 1px solid var(--color-border);
-  border-radius: 26px;
+  border-radius: 28px;
   background: var(--color-white);
   box-shadow: 0 18px 45px rgba(12,53,48,0.07);
 }
@@ -1090,7 +1088,7 @@
   flex-direction: column;
   padding: 1.75rem;
   border: 1px solid var(--color-border);
-  border-radius: 26px;
+  border-radius: 28px;
   background: var(--color-white);
   box-shadow: 0 18px 48px rgba(12,53,48,0.08);
 }

@@ -144,9 +144,31 @@
 
   function initHomeMotion() {
     const hero = document.querySelector('.v4-hero');
-    const revealEls = document.querySelectorAll(
+    const specificEls = document.querySelectorAll(
       '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .fact, .stat-item, .about-hero__inner, .about-proof__item, .about-section__head, .about-story__media, .about-chapter, .about-pullquote, .about-principle, .about-cv-item, .about-focus-item, .about-cta__inner, .v4-partners__top, .partner-marquee, .v4-section-head, .v4-split > *, .v4-compare__side, .v4-offer-card, .v4-center-cta, .v4-proof-image, .v4-why__bio, .v4-proof-points div, .v4-stats__card, .v4-process article, .v4-testimonials article, .v4-faq-panel, .v4-final-cta .v4-hero__actions'
     );
+
+    // Generische Reveal-Ziele auf Unterseiten: Karten, Items, Steps,
+    // Sektions-Köpfe und Hero-Container — Muster-basiert, damit die
+    // seitenspezifischen Klassen (benefit-card, eg-step, ba-item, …)
+    // nicht einzeln gepflegt werden müssen.
+    const seen = new Set(specificEls);
+    const revealEls = Array.from(specificEls);
+    document.querySelectorAll(
+      'main [class*="-card"], main [class*="-item"], main [class*="-step"], main .section-label, main .section-title, main .section-subtitle, main .page-hero__inner, main .cta-band__inner, main .cta-section__inner'
+    ).forEach(function (el) {
+      if (typeof el.className !== 'string') return;
+      if (el.className.indexOf('__') !== -1) return; // nur Container, keine Innenteile
+      if (seen.has(el)) return;
+      // nicht innerhalb eines bereits animierten Elements (verhindert Doppel-Animation)
+      let p = el.parentElement;
+      while (p && p.tagName !== 'MAIN' && p.tagName !== 'BODY') {
+        if (seen.has(p)) return;
+        p = p.parentElement;
+      }
+      seen.add(el);
+      revealEls.push(el);
+    });
 
     if (reduceMotion) {
       document.documentElement.classList.add('motion-reduced');
@@ -174,6 +196,19 @@
 
     document.querySelectorAll('.v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-why__stats, .v4-process, .v4-testimonials, .about-proof__grid').forEach(function (group) {
       setMotionDelay(Array.from(group.children), 70, 0);
+    });
+
+    // Generischer Stagger: Reveal-Geschwister im selben Container versetzen
+    const byParent = new Map();
+    revealEls.forEach(function (el) {
+      if (el.style.getPropertyValue('--motion-delay')) return;
+      const parent = el.parentElement;
+      if (!parent) return;
+      if (!byParent.has(parent)) byParent.set(parent, []);
+      byParent.get(parent).push(el);
+    });
+    byParent.forEach(function (els) {
+      if (els.length > 1) setMotionDelay(els, 70, 0);
     });
 
     if ('IntersectionObserver' in window) {
