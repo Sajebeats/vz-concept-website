@@ -1665,11 +1665,12 @@
   height: 100%;
 }
 
-/* ══ Reduced Motion: Partner-Marquee anhalten ══════════════ */
+/* Das Partnerband bleibt als Orientierung aktiv, laeuft bei reduzierter
+   Bewegung aber deutlich langsamer als im regulaeren Modus. */
 @media (prefers-reduced-motion: reduce) {
   .partner-marquee__track {
-    animation: none !important;
-    transform: none !important;
+    animation: partnerMarquee 60s linear infinite !important;
+    animation-play-state: running !important;
   }
 }
 
