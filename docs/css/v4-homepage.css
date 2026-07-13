@@ -1672,3 +1672,136 @@
     transform: none !important;
   }
 }
+
+/* ══ SITUATIONS-ROUTER — „Wo stehst du gerade?" ══════════════
+   Drei gleichberechtigte, farbcodierte Entscheidungs-Karten
+   mit sichtbarem CTA. Farblogik identisch mit leistungen.html:
+   Grün = Gründung, Gold = Struktur, Rot = Krise. */
+.v4-router {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.v4-router-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: clamp(1.6rem, 2.6vw, 2.3rem) clamp(1.4rem, 2.2vw, 2rem) clamp(1.3rem, 2vw, 1.7rem);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.v4-router-card:hover,
+.v4-router-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.v4-router-card--gruendung:hover,
+.v4-router-card--gruendung:focus-visible { border-color: rgba(0, 200, 168, 0.45); }
+.v4-router-card--struktur:hover,
+.v4-router-card--struktur:focus-visible { border-color: rgba(123, 92, 0, 0.4); }
+.v4-router-card--krise:hover,
+.v4-router-card--krise:focus-visible { border-color: rgba(229, 62, 62, 0.4); }
+
+.v4-router-card__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.v4-router-card--gruendung .v4-router-card__accent { background: linear-gradient(90deg, var(--color-accent), rgba(0, 200, 168, 0.3)); }
+.v4-router-card--struktur .v4-router-card__accent { background: linear-gradient(90deg, #7b5c00, rgba(123, 92, 0, 0.3)); }
+.v4-router-card--krise .v4-router-card__accent { background: linear-gradient(90deg, #e53e3e, rgba(229, 62, 62, 0.3)); }
+
+.v4-router-card__tag {
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.v4-router-card--gruendung .v4-router-card__tag { color: var(--color-accent-ink); }
+.v4-router-card--struktur .v4-router-card__tag { color: #7b5c00; }
+.v4-router-card--krise .v4-router-card__tag { color: #c53030; }
+
+.v4-router-card__title {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.v4-router-card__desc {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.v4-router-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.v4-router-card--gruendung .v4-router-card__cta { color: var(--color-accent-ink); }
+.v4-router-card--struktur .v4-router-card__cta { color: #7b5c00; }
+.v4-router-card--krise .v4-router-card__cta { color: #c53030; }
+
+.v4-router-card__cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.v4-router-card:hover .v4-router-card__cta svg,
+.v4-router-card:focus-visible .v4-router-card__cta svg {
+  transform: translateX(4px);
+}
+
+.v4-router-fallback {
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
+.v4-router-fallback .btn--ghost {
+  font-size: var(--fs-sm);
+  min-height: 0;
+  padding-block: 0;
+}
+
+@media (max-width: 960px) {
+  .v4-router {
+    grid-template-columns: 1fr;
+  }
+
+  .v4-router-card__desc {
+    flex: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v4-router-card,
+  .v4-router-card__cta svg {
+    transition: none !important;
+    transform: none !important;
+  }
+}
