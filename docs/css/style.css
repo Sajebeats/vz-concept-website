@@ -90,6 +90,7 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-synthesis: none;
   font-size: var(--fs-base);
   color: var(--color-text);
   background-color: var(--color-white);
@@ -99,6 +100,32 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 11000;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform var(--transition);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 img, svg {
@@ -234,7 +261,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 0.65rem;
   font-size: var(--fs-xs);
-  font-weight: 850;
+  font-weight: 700;
   letter-spacing: 0.17em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -330,7 +357,6 @@ blockquote {
     opacity 0.76s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.92s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--motion-delay, 0ms);
-  will-change: opacity, transform;
 }
 
 .motion-ready .reveal-item.reveal-from-left {
@@ -361,9 +387,9 @@ blockquote {
   }
 
   .motion-soft .reveal-item {
-    opacity: 0;
-    transition: opacity 0.48s ease;
-    transition-delay: var(--motion-delay, 0ms);
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   .motion-soft .reveal-item.is-visible {
@@ -380,10 +406,10 @@ blockquote {
   padding: 0.95rem 2.15rem;
   border-radius: var(--radius-pill);
   font-size: var(--fs-sm);
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--font-body);
   letter-spacing: 0.015em;
-  transition: all var(--transition);
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition), transform var(--transition), gap var(--transition);
   cursor: pointer;
   border: 2px solid transparent;
   text-decoration: none;
@@ -544,7 +570,7 @@ blockquote {
   color: rgba(255,255,255,0.9);
   padding: 0.5rem 0.875rem;
   border-radius: var(--radius-sm);
-  transition: all var(--transition);
+  transition: color var(--transition), background-color var(--transition);
 }
 
 .nav__link:hover {
@@ -595,7 +621,7 @@ blockquote {
   height: 2px;
   background: var(--color-white);
   border-radius: 2px;
-  transition: all var(--transition);
+  transition: background-color var(--transition), transform var(--transition), opacity var(--transition);
 }
 
 .nav.scrolled .nav__toggle span {
@@ -1077,7 +1103,7 @@ blockquote {
   gap: 0.55rem;
   color: rgba(255,255,255,0.58);
   font-size: 0.74rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.13em;
   line-height: 1.2;
   margin: 0.15rem 0 0.25rem;
@@ -1101,7 +1127,7 @@ blockquote {
   gap: 0.5rem;
   color: rgba(255,255,255,0.86);
   font-size: clamp(0.82rem, 0.85vw, 0.92rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.35;
   padding: 0.62rem 0.72rem;
   border: 1px solid rgba(255,255,255,0.08);
@@ -1204,7 +1230,7 @@ a.hero__proof-item:hover {
 .partner-teaser__kicker {
   color: var(--color-accent);
   font-size: 0.7rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -1233,7 +1259,7 @@ a.hero__proof-item:hover {
   gap: 0.45rem;
   margin-top: 0.95rem;
   color: var(--color-accent);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--fs-sm);
   text-decoration: none;
 }
@@ -1325,7 +1351,7 @@ a.hero__proof-item:hover {
 .partner-logo-card span {
   color: rgba(255,255,255,0.68);
   font-size: 0.76rem;
-  font-weight: 750;
+  font-weight: 700;
   letter-spacing: 0.02em;
   text-align: center;
 }
@@ -1805,7 +1831,7 @@ a.hero__proof-item:hover {
 
 .fact__num {
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-accent);
   font-family: var(--font-heading);
   display: block;
@@ -2007,6 +2033,12 @@ a.hero__proof-item:hover {
   color: var(--color-accent);
 }
 
+.faq-question:focus-visible {
+  color: var(--color-accent);
+  outline: 3px solid rgba(0, 200, 168, 0.35);
+  outline-offset: 4px;
+}
+
 .faq-icon {
   width: 32px;
   height: 32px;
@@ -2018,7 +2050,7 @@ a.hero__proof-item:hover {
   justify-content: center;
   flex-shrink: 0;
   color: var(--color-primary);
-  transition: all var(--transition);
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
 
 .faq-icon svg {
@@ -2209,7 +2241,7 @@ a.hero__proof-item:hover {
   align-items: center;
   justify-content: center;
   color: rgba(255,255,255,0.6);
-  transition: all var(--transition);
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
 
 .social-btn:hover {
@@ -2268,14 +2300,27 @@ a.hero__proof-item:hover {
   gap: var(--space-md);
 }
 
-.footer__legal a {
+.footer__legal a,
+.footer__legal button {
   font-size: var(--fs-xs);
   color: rgba(255,255,255,0.35);
   transition: color var(--transition);
 }
 
-.footer__legal a:hover {
+.footer__legal button {
+  padding: 0;
+}
+
+.footer__legal a:hover,
+.footer__legal button:hover {
   color: var(--color-accent);
+}
+
+.footer__legal a:focus-visible,
+.footer__legal button:focus-visible {
+  color: var(--color-accent);
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 
@@ -2431,7 +2476,7 @@ a.hero__proof-item:hover {
 
 .stat-item__num {
   font-size: var(--fs-4xl);
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--font-heading);
   color: var(--color-accent);
   display: block;
@@ -2550,7 +2595,7 @@ a.hero__proof-item:hover {
 .footer__nav-title,
 .contact-info__label,
 .diff-box__label {
-  font-weight: 850;
+  font-weight: 700;
   letter-spacing: 0.15em;
 }
 
@@ -2572,7 +2617,7 @@ a.hero__proof-item:hover {
 
 .tag,
 .service-card__foerderung {
-  font-weight: 750;
+  font-weight: 700;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
 }
 
@@ -2679,6 +2724,11 @@ a.hero__proof-item:hover {
     border: none;
     outline: none;
     box-shadow: none;
+  }
+
+  .nav__dropdown-trigger.nav__link:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
   }
 
   .nav__link:hover {

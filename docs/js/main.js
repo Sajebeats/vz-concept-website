@@ -97,23 +97,40 @@
   });
 
   document.querySelectorAll('.faq-question').forEach(function (btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item ? item.querySelector('.faq-answer') : null;
+
+    function setFaqState(targetItem, isOpen) {
+      const targetButton = targetItem.querySelector('.faq-question');
+      const targetAnswer = targetItem.querySelector('.faq-answer');
+      targetItem.classList.toggle('open', isOpen);
+      targetButton.setAttribute('aria-expanded', String(isOpen));
+      if (targetAnswer) targetAnswer.hidden = !isOpen;
+    }
+
     btn.addEventListener('click', function () {
-      const item = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
 
       document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
-        openItem.classList.remove('open');
-        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        setFaqState(openItem, false);
       });
 
       if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
+        setFaqState(item, true);
       }
     });
 
-    btn.setAttribute('aria-expanded', 'false');
+    const isInitiallyOpen = item.classList.contains('open');
+    btn.setAttribute('aria-expanded', String(isInitiallyOpen));
+    if (answer) answer.hidden = !isInitiallyOpen;
   });
+
+  const cookieSettingsButton = document.getElementById('cookie-settings-button');
+  if (cookieSettingsButton) {
+    cookieSettingsButton.addEventListener('click', function () {
+      if (window.cookieConsent) window.cookieConsent.show();
+    });
+  }
 
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
@@ -130,7 +147,7 @@
         e.preventDefault();
         const offset = 88;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+        window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
       }
     });
   });
@@ -255,7 +272,14 @@
       const target = Number(el.dataset.count);
       const decimals = Number(el.dataset.decimals || 0);
       const plus = el.querySelector('.v4-stats__plus, .about-proof__suffix');
-      const duration = reduceMotion ? 400 : 1400;
+      if (reduceMotion) {
+        const finalText = formatValue(target, decimals);
+        if (plus) el.firstChild.nodeValue = finalText;
+        else el.textContent = finalText;
+        return;
+      }
+
+      const duration = 1400;
       const startTime = performance.now();
 
       const tick = function (now) {
