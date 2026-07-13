@@ -1309,7 +1309,7 @@
   .v4-hero__content > *,
   .v4-hero__visual,
   .v4-hero__title span,
-  .reveal-item {
+  .motion-ready .reveal-item {
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
@@ -1916,6 +1916,11 @@
   .v4-router-card,
   .v4-router-card__link svg {
     transition: none !important;
+  }
+
+  .motion-soft .v4-router-card.reveal-item {
+    transition: opacity 0.48s ease !important;
+    transition-delay: var(--motion-delay, 0ms) !important;
   }
 
   .v4-router-card:hover,

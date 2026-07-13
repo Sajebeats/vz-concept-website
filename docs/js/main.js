@@ -146,7 +146,7 @@
   function initHomeMotion() {
     const hero = document.querySelector('.v4-hero');
     const specificEls = document.querySelectorAll(
-      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .fact, .stat-item, .about-hero__inner, .about-proof__item, .about-section__head, .about-story__media, .about-chapter, .about-pullquote, .about-principle, .about-cv-item, .about-focus-item, .about-cta__inner, .v4-partners__top, .partner-marquee, .v4-section-head, .v4-split > *, .v4-compare__side, .v4-offer-card, .v4-center-cta, .v4-proof-image, .v4-why__bio, .v4-proof-points div, .v4-stats__card, .v4-process article, .v4-testimonials article, .v4-faq-panel, .v4-final-cta .v4-hero__actions'
+      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .fact, .stat-item, .about-hero__inner, .about-proof__item, .about-section__head, .about-story__media, .about-chapter, .about-pullquote, .about-principle, .about-cv-item, .about-focus-item, .about-cta__inner, .v4-partners__top > *, .partner-marquee, .v4-section-head > *, .v4-router-card, .v4-split > *, .v4-compare__side, .v4-offer-card, .v4-center-cta, .v4-proof-image, .v4-why__bio, .v4-proof-points div, .v4-stats__card, .v4-process article, .v4-testimonials article, .v4-faq-panel, .v4-final-cta .v4-hero__actions'
     );
 
     // Generische Reveal-Ziele auf Unterseiten: Karten, Items, Steps,
@@ -171,16 +171,7 @@
       revealEls.push(el);
     });
 
-    if (reduceMotion) {
-      document.documentElement.classList.add('motion-reduced');
-      revealEls.forEach(function (el) {
-        el.classList.add('is-visible');
-      });
-      if (hero) hero.classList.add('is-visible');
-      return;
-    }
-
-    document.documentElement.classList.add('motion-ready');
+    document.documentElement.classList.add(reduceMotion ? 'motion-soft' : 'motion-ready');
 
     if (hero) {
       const heroParts = hero.querySelectorAll('.v4-eyebrow, .v4-hero__title, .v4-hero__text, .v4-hero__actions, .v4-hero__note, .v4-hero__visual');
@@ -195,8 +186,24 @@
       el.classList.add('reveal-item');
     });
 
-    document.querySelectorAll('.v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-why__stats, .v4-process, .v4-testimonials, .about-proof__grid').forEach(function (group) {
+    document.querySelectorAll('.v4-section-head, .v4-partners__top, .v4-router, .v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-process, .v4-testimonials, .about-proof__grid').forEach(function (group) {
+      setMotionDelay(Array.from(group.children), 85, 0);
+    });
+
+    document.querySelectorAll('.v4-why__stats').forEach(function (group) {
       setMotionDelay(Array.from(group.children), 70, 0);
+    });
+
+    document.querySelectorAll('.v4-split > :first-child, .v4-compare__side:first-child, .v4-proof-image').forEach(function (el) {
+      el.classList.add('reveal-from-left');
+    });
+
+    document.querySelectorAll('.v4-split > :last-child, .v4-compare__side:last-child, .v4-why__bio, .v4-faq-panel').forEach(function (el) {
+      el.classList.add('reveal-from-right');
+    });
+
+    document.querySelectorAll('.v4-router-card, .v4-offer-card, .v4-process article, .v4-testimonials article, .partner-marquee').forEach(function (el) {
+      el.classList.add('reveal-scale');
     });
 
     // Generischer Stagger: Reveal-Geschwister im selben Container versetzen
@@ -220,7 +227,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+      }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
 
       revealEls.forEach(function (el) {
         observer.observe(el);
