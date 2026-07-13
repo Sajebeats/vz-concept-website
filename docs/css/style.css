@@ -3543,3 +3543,28 @@ details.faq-item[open] .faq-item__body {
     transform: none !important;
   }
 }
+
+
+/* ─── 28. A11Y: KONTRAST AKZENT-TEXT AUF HELLEN FLÄCHEN ───
+   #00C8A8 als Text auf Weiß = 2,14:1 (WCAG-Fail).
+   Auf hellen Flächen dunkleres Akzent-Grün (4,9:1); Buttons,
+   dunkle Sektionen und Partner-Band bleiben unverändert. */
+:root {
+  --color-accent-ink: #007A68;
+}
+
+.section-label:not(.section-label--light) {
+  color: var(--color-accent-ink);
+}
+
+.btn--ghost {
+  color: var(--color-accent-ink);
+}
+
+.v4-section:not(.v4-section--dark) .v4-kicker {
+  color: var(--color-accent-ink);
+}
+
+.about-section:not(.about-section--dark) .about-kicker {
+  color: var(--color-accent-ink);
+}
