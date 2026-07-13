@@ -87,10 +87,11 @@
     });
   });
 
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  // Saubere URLs: '/ueber-mich', Alt-URLs '/ueber-mich.html' und '/' normalisieren
+  const currentPath = (window.location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
   document.querySelectorAll('.nav__link[href]').forEach(function (link) {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+    const href = (link.getAttribute('href') || '').replace(/\.html$/, '');
+    if (href === currentPath || (currentPath === 'index' && (href === '/' || href === 'index'))) {
       link.classList.add('active');
     }
   });

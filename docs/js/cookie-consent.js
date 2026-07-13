@@ -151,7 +151,7 @@
           <button type="button" class="vz-cc__btn vz-cc__btn--primary" data-action="accept-all">Alle akzeptieren</button>
         </div>
         <p class="vz-cc__legal">
-          Mehr erfährst du in unserer <a href="datenschutz.html">Datenschutzerklärung</a> und im <a href="impressum.html">Impressum</a>.
+          Mehr erfährst du in unserer <a href="datenschutz">Datenschutzerklärung</a> und im <a href="impressum">Impressum</a>.
         </p>
       </div>
     `;
