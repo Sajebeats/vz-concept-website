@@ -191,9 +191,8 @@
     document.documentElement.classList.add(reduceMotion ? 'motion-soft' : 'motion-ready');
 
     if (hero) {
-      const heroParts = hero.querySelectorAll('.v4-eyebrow, .v4-hero__title, .v4-hero__text, .v4-hero__actions, .v4-hero__note, .v4-hero__visual');
+      const heroParts = hero.querySelectorAll('.v4-eyebrow, .v4-hero__title, .v4-hero__text, .v4-hero__actions, .v4-hero__trust, .v4-hero__visual');
       setMotionDelay(Array.from(heroParts), 90, 80);
-      setMotionDelay(Array.from(hero.querySelectorAll('.v4-hero__title span')), 110, 220);
       window.requestAnimationFrame(function () {
         hero.classList.add('is-visible');
       });
@@ -219,7 +218,7 @@
       el.classList.add('reveal-from-right');
     });
 
-    document.querySelectorAll('.v4-router-card, .v4-offer-card, .v4-process article, .v4-testimonials article, .partner-marquee').forEach(function (el) {
+    document.querySelectorAll('.v4-offer-card, .v4-process article, .v4-testimonials article, .partner-marquee').forEach(function (el) {
       el.classList.add('reveal-scale');
     });
 
@@ -324,32 +323,6 @@
     }
   }
 
-  function initHeroDepth() {
-    const hero = document.querySelector('.v4-hero');
-    if (!hero || reduceMotion) return;
-
-    let ticking = false;
-
-    const update = function () {
-      const rect = hero.getBoundingClientRect();
-      const progress = Math.min(Math.max(-rect.top / Math.max(rect.height, 1), 0), 1);
-      hero.style.setProperty('--hero-content-shift', (-progress * 18).toFixed(2) + 'px');
-      hero.style.setProperty('--hero-visual-shift', (progress * 26).toFixed(2) + 'px');
-      hero.style.setProperty('--hero-glow-shift', (progress * 38).toFixed(2) + 'px');
-      ticking = false;
-    };
-
-    const requestUpdate = function () {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(update);
-    };
-
-    window.addEventListener('scroll', requestUpdate, { passive: true });
-    window.addEventListener('resize', requestUpdate);
-    requestUpdate();
-  }
-
   document.querySelectorAll('.grid-2, .grid-3, .grid-4').forEach(function (grid) {
     Array.from(grid.children).forEach(function (child, i) {
       child.style.transitionDelay = (i * 0.08) + 's';
@@ -358,5 +331,4 @@
 
   initHomeMotion();
   initCountUp();
-  initHeroDepth();
 })();
