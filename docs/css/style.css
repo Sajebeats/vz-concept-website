@@ -3646,3 +3646,38 @@ details.faq-item[open] .faq-item__body {
 .about-section:not(.about-section--dark) .about-kicker {
   color: var(--color-accent-ink);
 }
+
+
+/* ─── 29. LANDING-PAGE-BAUSTEINE (Leistungsseiten) ──────
+   Hero-Rating, Zitat-Formate, Social-Proof-Karten und
+   Sticky-CTA — pro Seite unterschiedlich kombiniert. */
+
+/* Hero-Bewertung (auf dunklen Heroes) */
+.sl-hero-rating{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.82);font-weight:600;font-size:var(--fs-xs);text-decoration:none;transition:color .2s ease}
+.sl-hero-rating:hover{color:#fff}
+.sl-hero-rating .sl-stars{color:#ffc247;letter-spacing:1px;font-size:.95em}
+
+/* Zitat-Leiste (3 Stimmen, direkt nach Hero) */
+.sl-quotes-bar{background:var(--color-primary-deep);border-top:1px solid rgba(0,200,168,.22);padding-block:clamp(1.6rem,3vw,2.4rem)}
+.sl-quotes-bar__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.25rem,3vw,2.5rem)}
+.sl-quotes-bar figure{margin:0;display:flex;flex-direction:column;gap:.45rem}
+.sl-quotes-bar .sl-stars{color:#ffc247;letter-spacing:1.5px;font-size:.8rem}
+.sl-quotes-bar blockquote{margin:0;color:rgba(255,255,255,.88);font-size:var(--fs-sm);line-height:1.6;font-style:italic}
+.sl-quotes-bar figcaption{color:rgba(255,255,255,.5);font-size:var(--fs-xs);font-weight:600}
+@media(max-width:820px){.sl-quotes-bar__grid{grid-template-columns:1fr}.sl-quotes-bar figure:nth-child(n+3){display:none}}
+
+/* Großes Einzelzitat (helle Sektion) */
+.sl-quote-single{background:linear-gradient(180deg,var(--color-off-white),var(--color-white));padding-block:clamp(3rem,6vw,5rem)}
+.sl-quote-single__inner{max-width:760px;margin-inline:auto;text-align:center}
+.sl-quote-single .sl-stars{color:#f5a623;letter-spacing:2.5px;font-size:1.15rem;display:block;margin-bottom:var(--space-md)}
+.sl-quote-single blockquote{margin:0 0 var(--space-md);color:var(--color-primary);font-family:var(--font-heading);font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.4;font-style:italic;letter-spacing:-.01em}
+.sl-quote-single figcaption{color:var(--color-text-muted);font-size:var(--fs-sm);font-weight:600}
+.sl-quote-single--calm{background:var(--color-white);padding-block:clamp(2.5rem,5vw,4rem)}
+.sl-quote-single--calm .sl-stars{font-size:.95rem;letter-spacing:1.5px}
+.sl-quote-single--calm blockquote{font-size:clamp(1.05rem,1.8vw,1.35rem);color:var(--color-text)}
+
+/* Sticky-CTA (nur Mobil) */
+.sl-sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:.6rem;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));background:rgba(4,22,19,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(0,200,168,.28);box-shadow:0 -6px 24px rgba(0,0,0,.28)}
+.sl-sticky-cta .btn{flex:1;justify-content:center;min-height:48px}
+@media(max-width:768px){.sl-sticky-cta{display:flex}body.has-sticky-cta{padding-bottom:72px}}
+@media(prefers-reduced-motion:reduce){.sl-hero-rating{transition:none}}
