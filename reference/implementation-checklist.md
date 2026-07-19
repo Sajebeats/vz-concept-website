@@ -1,55 +1,114 @@
-# Implementation-Checklist: vz-concept.de
+# VZ Concept – Umsetzungs- und Qualitätscheckliste
 
-**Zweck dieser Datei:** Der eine Ort für offene Arbeiten — priorisiert, mit Status.
-Nach jeder Session aktualisieren. Detail-Status/Historie: `context/current-data.md` (lokal).
+Eine Aufgabe gilt nicht als abgeschlossen, sobald der Code funktioniert.
 
-Status: ☐ offen · ◐ in Arbeit · ☑ erledigt · ⏸ wartet auf Entscheidung/Zuarbeit
+Sie gilt erst als abgeschlossen, wenn die gerenderte Website
+inhaltlich und visuell geprüft wurde.
+
+## Vor der Umsetzung
+
+- bestehende HTML-Struktur prüfen
+- bestehende CSS-Regeln prüfen
+- betroffene Links und Anker identifizieren
+- relevante Bilder prüfen
+- keine Inhalte erfinden
+
+## Während der Umsetzung
+
+- nur die vereinbarten Sections ändern
+- semantisches HTML verwenden
+- eine H1 pro Seite
+- bestehende Links erhalten
+- keine neuen Abhängigkeiten ohne Zustimmung
+- vorhandene Markenfarben verwenden
+
+## Visuelle Prüfung
+
+Folgende Viewports testen:
+
+- 1440 × 900
+- 1280 × 800
+- 768 × 1024
+- 390 × 844
+
+Für jeden Viewport einen Screenshot erstellen.
+
+## Prüffragen
+
+- Ist die Kernaussage innerhalb von fünf Sekunden verständlich?
+- Ist die wichtigste Headline gut lesbar?
+- Wirkt Vanessa präsent und professionell?
+- Gibt es unnötige Leerräume?
+- Sind Texte zu lang?
+- Wirkt das Layout ausgewogen?
+- Sind Buttons klar priorisiert?
+- Gibt es horizontales Scrollen?
+- Werden Wörter unschön getrennt?
+- Ist der mobile Aufbau vollständig?
+- Sieht das Ergebnis nach einer professionellen Website aus?
+
+## Verpflichtende Iteration
+
+Wenn eine der Prüffragen nicht eindeutig mit Ja beantwortet werden kann,
+muss weiter überarbeitet werden.
+
+Das Modell darf die Aufgabe nicht nach dem ersten Rendering abschließen.
+
+## Abschlussbericht
+
+Nach jeder Umsetzung zeigen:
+
+1. geänderte Dateien
+2. kurze Begründung
+3. Screenshots aller Viewports
+4. vollständigen Diff
+5. bekannte offene Punkte
+6. keine Commits oder Pushes ohne Freigabe
 
 ---
 
-## Kritisch (vor dem nächsten Deploy)
+## Anhang A: Umgebungs-Hinweis zur visuellen Prüfung
 
-- ☐ **Review + Deploy des Design-System-Stands** — Commits `7b58795` + `7f1cdaa`
-  im Worktree ansehen (localhost:8124), dann `/deploy`; vorher `git fetch origin main`
-  (parallele Arbeit an main!)
+Der Screenshot-Encoder des eingebetteten Test-Browsers hängt in dieser
+Arbeitsumgebung reproduzierbar (dokumentiert seit 19.07.2026). Verfahren:
 
-## Wichtig (Conversion & Vertrauen)
+1. Screenshots in allen vier Viewports **immer zuerst versuchen**.
+2. Hängt der Encoder, gelten als Ersatz: DOM-/Computed-Style-Messungen je Viewport
+   (H1-Anzahl, Overflow, Flächen-Signaturen, Schrift-Renderings) **plus** Sichtprüfung
+   durch Dennis auf `http://localhost:8124` — die Prüffragen beantwortet dann er.
+3. Im Abschlussbericht transparent machen, welcher Weg genutzt wurde.
 
-- ⏸ **Case-Study-Sektionen** bauen (Problem → Vorgehen → Ergebnis in Zahlen) —
-  wartet auf Vanessas ausgefüllten Fragebogen (`outputs/Case-Study-Fragebogen-VZ-Concept.pdf`);
-  Platzierung: Startseite zwischen Stimmen und Investition (→ `homepage-structure.md`)
-- ⏸ **Hero-Foto-Entscheidung** (Vanessa) — danach ggf. Bildwechsel Startseite/Über-mich
-- ☐ **Google Ads Vorbereitung**: Conversion-Tracking + Consent-Mode VOR Kampagnenstart;
-  Zuständigkeit klären (Dennis oder Dienstleister)
-- ⏸ **Träger-Seite öffentlich?** (Vanessa) — aktuell noindex, ohne Nav-Link, nicht in Sitemap
+## Anhang B: Offene Arbeiten (Backlog)
 
-## Visuelle Qualität
+Status: ☐ offen · ◐ in Arbeit · ☑ erledigt · ⏸ wartet auf Entscheidung/Zuarbeit
 
+### Kritisch
+- ☐ Review + Deploy des Design-System-Stands (Commits `7b58795`, `7f1cdaa`, Reference-Struktur) —
+  Sichtprüfung auf localhost:8124, dann `/deploy`; vorher `git fetch origin main`
+
+### Wichtig
 - ☐ **Startseiten-Umbau auf 8-Sektionen-Struktur** (`homepage-structure.md`) —
   vorher klären: Verbleib von Partner-Marquee, Router, Investitions-Sektion, FAQ-Block
-- ☐ **Textbreite anpassen**: `--container-text` 760 px → Zielvorgabe 560–680 px
-  (`design-direction.md` §Layout), danach Unterseiten prüfen
+- ⏸ Case-Study-Sektionen (Problem → Vorgehen → Ergebnis in Zahlen) — wartet auf
+  Vanessas Fragebogen (`outputs/Case-Study-Fragebogen-VZ-Concept.pdf`)
+- ⏸ Hero-Foto-Entscheidung (Vanessa)
+- ☐ Google Ads: Conversion-Tracking + Consent-Mode vor Kampagnenstart; Zuständigkeit klären
+- ⏸ Träger-Seite öffentlich? (Vanessa) — aktuell noindex, ohne Nav-Link
 
-- ☐ **Startseite straffen**: Offer-Grid kompakter, Testimonials auf 3–4 kuratierte
-  (Karten-Budget in `homepage-structure.md` §Regeln)
-- ☐ **Hero-Glow-Feintuning** nach Sichtprüfung: wirkt ein Unterseiten-Hero zu flach,
-  `--hero-glow-a` der Seite in `subpage-theme.css` justieren (eine Zeile)
-- ☐ **Sichtprüfung durch Menschen** auf echten Geräten (Desktop + iPhone/Android) —
-  automatische Screenshots hängen weiterhin, DOM-Messungen ersetzen keine Augen
+### Visuelle Qualität
+- ☐ Textbreite: `--container-text` 760 px → Ziel 560–680 px (`design-direction.md`), Unterseiten prüfen
+- ☐ Hero-Glow-Feintuning nach Sichtprüfung (`--hero-glow-a` je Seite, subpage-theme.css)
+- ☐ Sichtprüfung auf echten Geräten (Desktop + Smartphone)
 
-## Technische Pflege (optional, ohne Termindruck)
-
-- ☐ `!important`-Abbau in `docs/css/style.css` (72 Vorkommen, Wartbarkeit)
+### Technische Pflege (ohne Termindruck)
+- ☐ `!important`-Abbau in `docs/css/style.css` (72 Vorkommen)
 - ☐ Inline-`<style>`-Blöcke der Unterseiten schrittweise in Klassen überführen
-  (bei Gelegenheit, wenn eine Seite ohnehin angefasst wird — kein Big Bang)
-- ☐ `audit-website`-Skill einmal gegen die Live-Domain laufen lassen (nach Deploy)
+- ☐ `audit-website`-Skill gegen Live-Domain (nach Deploy)
 - ☐ Selbst-Tests (Gründer-Check, Förder-Check, Krisen-Check) — geplant, nicht gebaut
 
-## Erledigt (Auszug, Details in context/current-data.md)
-
-- ☑ SEO/GEO-Paket, saubere URLs, CLS-Fixes, Kontrast-Fixes (Stand `fa509c8`, live)
+### Erledigt (Auszug, Historie in context/current-data.md)
+- ☑ SEO/GEO-Paket, saubere URLs, CLS-/Kontrast-Fixes (Stand `fa509c8`, live)
 - ☑ Fonts selbst gehostet — Google-CDN entfernt (DSGVO)
-- ☑ Hero-Typografie auf Markensystem (Playfair statt Dancing Script) — `7b58795`
-- ☑ Design-System: 4 Flächentypen, Guidelines, Skill-Erweiterung — `7f1cdaa`
-- ☑ Reference-Struktur: brand-foundation, copy-guidelines, homepage-structure,
-  design-direction, implementation-checklist
+- ☑ Hero-Typografie auf Markensystem (`7b58795`)
+- ☑ Design-System: 4 Flächentypen, Guidelines, Skill-Erweiterung (`7f1cdaa`)
+- ☑ Reference-Struktur mit finalen Fassungen von Dennis (brand, copy, homepage, design, checklist)

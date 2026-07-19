@@ -39,7 +39,8 @@ claude-workspace-Vanessa Zimmer/
 - Vor jeder Design-/CSS-Arbeit: `reference/design-guidelines.md` lesen — Flächentypen (nur die 4 Surface-Tokens), Verbotsliste und Ausnahmen-Register sind verbindlich
 - Neue Seiten: `reference/page-template.html` als Basis verwenden
 - Texte schreiben: `reference/copy-guidelines.md` immer lesen (Basis: `reference/Professional_Copywriting_Operating_System.md`)
-- Marken-/Struktur-Fragen: `reference/brand-foundation.md`, `reference/homepage-structure.md`, `reference/design-direction.md` sind maßgeblich; offene Arbeiten stehen in `reference/implementation-checklist.md`
+- Marken-/Struktur-Fragen: `reference/brand-foundation.md`, `reference/homepage-structure.md`, `reference/design-direction.md` sind maßgeblich
+- Jede Umsetzung folgt `reference/implementation-checklist.md` (Prüf-Viewports, Prüffragen, Abschlussbericht) — **keine Commits oder Pushes ohne Freigabe**; Backlog steht in Anhang B
 - Nach Änderungen: `context/current-data.md` aktualisieren wenn sich Status ändert
 
 **Nie:**
