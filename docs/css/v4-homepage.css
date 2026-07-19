@@ -256,19 +256,20 @@
 
 .v4-hero__title-main {
   display: block;
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 3.85vw, 3.3rem);
   font-weight: 400;
-  line-height: 1.02;
+  line-height: 1.08;
 }
 
 .v4-hero__title-script {
   display: block;
   color: var(--color-accent);
-  font-family: var(--font-script);
-  font-size: clamp(3.75rem, 5vw, 4.3rem);
-  font-weight: 600;
-  line-height: 0.92;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(3.15rem, 4.1vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
 }
 
 .v4-hero__text {
@@ -1397,7 +1398,7 @@
   }
 
   .v4-hero__title-script {
-    font-size: clamp(2.85rem, 12vw, 3.25rem);
+    font-size: clamp(2.45rem, 10.5vw, 2.85rem);
   }
 
   .v4-hero__text {
@@ -1781,6 +1782,25 @@
   .sticky-mobile-cta {
     display: block;
   }
+}
+
+/* ══ Google-Rating-Zeile im Stimmen-Kopf ═══════════════════ */
+.v4-rating-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.v4-rating-link__stars {
+  color: #FFC107;
+  letter-spacing: 0.05em;
+}
+
+.v4-rating-link svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* ══ Testimonials: Google-Quelle je Karte ══════════════════ */
