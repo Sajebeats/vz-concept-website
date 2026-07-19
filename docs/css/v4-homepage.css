@@ -121,7 +121,7 @@
 .v4-hero {
   position: relative;
   display: flex;
-  min-height: clamp(720px, 100svh, 900px);
+  min-height: max(720px, 100svh);
   padding-top: 76px;
   overflow: clip;
   background: var(--color-primary-deep);
@@ -140,7 +140,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
 }
 
 .v4-hero__main {
