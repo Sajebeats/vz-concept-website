@@ -1,67 +1,120 @@
-# Copy-Guidelines: vz-concept.de
+# VZ Concept – Sprach- und Copy-Regeln
 
-**Zweck dieser Datei:** Die anwendbaren Textregeln für die Website — kondensiert
-für den täglichen Gebrauch. Das vollständige System (Awareness-Levels, Belief
-Engineering, Offer Framework) steht in `Professional_Copywriting_Operating_System.md`
-und bleibt die Grundlage. Markenbasis: `brand-foundation.md`.
+## Grundprinzip
+
+Die Texte sollen klingen, als würde Vanessa einem Interessenten
+in einem persönlichen Gespräch ruhig und ehrlich erklären,
+wie sie helfen kann.
+
+Nicht wie:
+- eine Werbeagentur
+- ein KI-Text
+- eine große Strategieberatung
+- ein Motivationscoach
+
+## Tonalität
+
+- persönlich
+- klar
+- ruhig
+- kompetent
+- verständlich
+- direkt
+- ehrlich
+
+## Schreibweise
+
+- kurze bis mittellange Sätze
+- konkrete Aussagen
+- natürliche Übergänge
+- direkte Ansprache mit „du“
+- möglichst wenig Fachsprache
+- ein Gedanke pro Satz
+
+## Vermeiden
+
+Keine typischen KI-Dreierketten wie:
+
+- Chancen erkennen, Risiken minimieren und Potenziale entfalten
+- klar, strategisch und nachhaltig
+- individuell, professionell und zielorientiert
+
+Keine leeren Begriffe wie:
+
+- maßgeschneiderte Lösungen
+- ganzheitlicher Ansatz
+- nachhaltiger Erfolg
+- maximale Potenziale
+- zukunftsfähige Strategien
+- auf das nächste Level bringen
+
+Keine unnötige Dramatisierung.
+
+Keine Behauptungen ohne Grundlage.
+
+Keine Texte, die nur gut klingen, aber nichts Konkretes sagen.
+
+## Bevorzugte Sprache
+
+Statt:
+
+„Ich entwickle maßgeschneiderte Strategien für nachhaltigen Erfolg.“
+
+Besser:
+
+„Wir schauen gemeinsam, was wirtschaftlich sinnvoll ist und welche
+nächsten Schritte zu deinem Vorhaben passen.“
+
+Statt:
+
+„Fundierte Analysen schaffen die Grundlage für zukunftsfähige Entscheidungen.“
+
+Besser:
+
+„Bevor du Zeit und Geld investierst, prüfen wir, ob sich dein Vorhaben
+wirklich trägt.“
+
+Statt:
+
+„Ich begleite dich ganzheitlich auf deinem Weg.“
+
+Besser:
+
+„Ich begleite dich von der ersten Prüfung deiner Idee bis zum fertigen
+Businessplan.“
+
+## Qualitätsprüfung
+
+Jeder Text muss diese Fragen bestehen:
+
+1. Würde Vanessa diesen Satz in einem echten Gespräch sagen?
+2. Versteht ein Besucher sofort, was gemeint ist?
+3. Enthält der Satz eine konkrete Aussage?
+4. Könnte derselbe Satz auch auf der Website einer beliebigen Beratung stehen?
+
+Wenn Frage 4 mit Ja beantwortet wird, muss der Satz überarbeitet werden.
 
 ---
 
-## 1. Grundhaltung
+## Anhang: Verbindliche Web-Bausteine
 
-Jeder Text beantwortet: **Warum sollte jemand genau Vanessa vertrauen?**
-Geschrieben wird nicht, um zu beeindrucken — sondern damit Entscheidungen leichter werden.
-
-## 2. Struktur jedes längeren Textes (Messaging Hierarchy)
-
-Aufmerksamkeit → Problem → Konsequenz → Neue Wahrheit → Mechanismus → Beweis → Risiko senken → CTA.
-Nie nur Ergebnisse versprechen — immer den **Mechanismus** zeigen (Problem → Methode → Ergebnis).
-
-## 3. Headlines
-
-- Maximal **8 Wörter**, konkret, ohne Marketing-Blabla
-- Spannung durch Wahrheit, nicht durch Übertreibung
-- Gute Muster aus dem Bestand: *„Ich habe selbst unterschrieben, wo andere nur beraten."*,
-  *„Was die Beratung kostet — und was nicht."*
-
-## 4. CTA-Muster (verbindlich)
-
-CTAs bauen Reibung ab, statt Druck zu machen:
+**CTA-Muster** (überall identisch, baut Reibung ab statt Druck):
 
 > **Kostenloses Erstgespräch buchen**
 > 30 Min · kostenlos · unverbindlich
 
-- Haupt-CTA immer aufs Calendly-Erstgespräch; sekundär: „Mehr erfahren"-Pfade
-- Nach dem CTA Erwartung klären („Was nach dem Klick passiert")
-- Nie: „Jetzt zuschlagen", Countdown-Druck, künstliche Verknappung
+Danach Erwartung klären („Was nach dem Klick passiert"). Nie Countdown,
+Verknappung oder „Jetzt zuschlagen".
 
-## 5. Sprachregeln
-
-**Immer:** kurze Sätze · starke Verben · Zahlen statt Adjektive · Du-Ansprache
-(Träger-Seite: Sie) · konkrete Situationen statt Abstraktionen · „Sinn ergeben" (nie „Sinn machen")
-
-**Verboten:** innovativ · einzigartig · ganzheitlich · nachhaltig (als Floskel) ·
-Potenzial entfalten · Traum leben · Erfolgsgeheimnis · durchstarten ·
-alle Superlative ohne Beleg
-
-## 6. Typografische Regeln
-
-- Deutsche Anführungszeichen: „…" — nie gerade Zeichen `"…"`
-- Gedankenstrich mit Abständen ( — ), Ellipse als … (ein Zeichen)
-- Zahlen: 16 Jahre, 100+, 5,0 ★ — Ziffern, nicht ausgeschrieben
+**Typografie in Texten:**
+- Deutsche Anführungszeichen „…“ — nie gerade `"…"`
+- Zahlen als Ziffern: 16 Jahre, 100+, 5,0 ★
 - Geschütztes Leerzeichen bei Einheiten: 30&nbsp;Min, 100&nbsp;%
+- „Sinn ergeben", nie „Sinn machen"
 
-## 7. Beweisführung
+**Kennzahlen:** nur die belegten aus `brand-foundation.md` (Anhang „Belegte Beweise");
+Zitate immer mit Name + Kontext.
 
-- Zitate immer mit Name + Kontext („Gründung Kampfsportschule, Hamburg · Google")
-- Kennzahlen nur die belegten aus `brand-foundation.md` §5
-- Einwände vorab behandeln: zu teuer / noch nicht bereit / kann ich selbst /
-  kein Vertrauen / keine Zeit — je Money-Page mindestens zwei davon adressieren
-
-## 8. Qualitätsprüfung vor Veröffentlichung
-
-Jeden Satz prüfen: Konkret? Erzeugt Spannung? Baut Vertrauen? —
-**Könnte ihn jeder Wettbewerber schreiben? Dann neu schreiben.**
-
-Scorecard (aus dem Copywriting-OS): Klarheit, Relevanz, Spezifität, Emotion,
-Vertrauen, CTA — je 0–10. **Veröffentlichen ab 55/60.**
+**Tiefere Systematik** (Awareness-Levels, Messaging-Hierarchie, Scorecard 55/60):
+`Professional_Copywriting_Operating_System.md` — gilt für lange Verkaufstexte;
+bei Widerspruch gewinnt diese Datei hier.
