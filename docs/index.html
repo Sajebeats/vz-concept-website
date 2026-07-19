@@ -278,8 +278,10 @@
   <main class="home-v4" id="startseite-neu">
 
     <header class="v4-hero" id="hero-neu">
-      <span class="v4-hero__glow v4-hero__glow--left" aria-hidden="true"></span>
-      <span class="v4-hero__glow v4-hero__glow--right" aria-hidden="true"></span>
+      <picture class="v4-hero__background" aria-hidden="true">
+        <source srcset="assets/images/vanessa/vanessa-hero-background.webp" type="image/webp">
+        <img src="assets/images/vanessa/vanessa-hero-background.png" alt="" fetchpriority="high" width="1792" height="1024">
+      </picture>
       <div class="v4-hero__main">
         <div class="container">
           <div class="v4-hero__grid">
@@ -299,20 +301,6 @@
                 </a>
               </div>
 
-              <ul class="v4-hero__trust" aria-label="Erfahrung und Förderung">
-                <li><strong>16 Jahre</strong><span>Unternehmerin</span></li>
-                <li><strong>Über 100</strong><span>Gründungen begleitet</span></li>
-                <li><strong>AVGS</strong><span>förderfähig</span></li>
-              </ul>
-            </div>
-
-            <div class="v4-hero__visual">
-              <div class="v4-hero__portrait">
-                <picture>
-                  <source srcset="assets/images/vanessa/vanessa-cutout-hero-clean.webp" type="image/webp">
-                  <img src="assets/images/vanessa/vanessa-cutout-hero-clean.png" alt="Vanessa Zimmer, Gründungsberaterin und Unternehmensberaterin" fetchpriority="high" width="1080" height="1350">
-                </picture>
-              </div>
               <a class="v4-hero__google" href="https://www.google.com/search?q=VZ+Concept+Unternehmensberater" target="_blank" rel="noopener" aria-label="VZ Concept auf Google: 5,0 Sterne, 9 Bewertungen">
                 <svg class="v4-hero__google-icon" viewBox="0 0 24 24" aria-hidden="true">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -325,7 +313,14 @@
                 <span class="v4-hero__google-divider" aria-hidden="true">·</span>
                 <span class="v4-hero__google-meta">9 Google-Bewertungen</span>
               </a>
+
+              <ul class="v4-hero__trust" aria-label="Erfahrung und Förderung">
+                <li><strong>16 Jahre</strong><span>Unternehmerin</span></li>
+                <li><strong>Über 100</strong><span>Gründungen begleitet</span></li>
+                <li><strong>AVGS</strong><span>förderfähig</span></li>
+              </ul>
             </div>
+
           </div>
         </div>
       </div>
