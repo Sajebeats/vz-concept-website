@@ -46,6 +46,7 @@ claude-workspace-Vanessa Zimmer/
 **Nie:**
 - Dateien in `context/` oder `plans/` auf GitHub pushen
 - Design-Entscheidungen treffen ohne Rückfrage (Farben, Layout-Änderungen)
+- Den Startseitenbereich `#problem-loesung` direkt nach `#zielgruppen` ersetzen, umbenennen oder neu strukturieren, sofern Dennis dies nicht im aktuellen Chat ausdrücklich verlangt. Verbindlich ist die Vergleichsdarstellung „Ohne klare Einordnung / Mit VZ Concept“.
 - Google Fonts CDN ersetzen ohne explizite Anweisung
 - Mehr als nötig lesen — erst Reference-Dateien, dann nur die betroffene HTML-Datei
 

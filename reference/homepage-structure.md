@@ -64,30 +64,29 @@ Vertrauensnachweise:
 
 ---
 
-## Section 2 – Situation des Besuchers
+## Section 2 – Problem & Lösung (geschützte Bestandssektion)
 
 ### Aufgabe
 
-Dem Besucher zeigen:
-Vanessa versteht, vor welcher Entscheidung er steht.
+Den Unterschied zwischen einer ungeprüften Ausgangslage und der klaren Einordnung
+durch VZ Concept unmittelbar sichtbar machen.
 
-### Kerngedanke
+### Verbindliche Umsetzung
 
-Eine Geschäftsidee kann sich gut anfühlen und trotzdem wirtschaftlich
-nicht funktionieren. Umgekehrt werden gute Ideen oft nicht umgesetzt,
-weil Zahlen, Planung oder Orientierung fehlen.
+- HTML-ID: `#problem-loesung`
+- Eyebrow: „Problem & Lösung“
+- Headline: „Viele Vorhaben scheitern nicht an Motivation. Sondern an fehlender Klarheit.“
+- Zweiteilige Vergleichsdarstellung:
+  - „Ohne klare Einordnung“
+  - „Mit VZ Concept“
+- Bestehende Klassen `.v4-compare`, `.v4-compare__side` und
+  `.v4-compare__side--dark` beibehalten.
 
-### Mögliche Einstiegsheadline
+### Schutzregel
 
-Bevor du Zeit und Geld investierst, solltest du wissen, worauf du dich einlässt.
-
-### Themen
-
-- Geschäftsidee prüfen
-- Finanzierung planen
-- Businessplan erstellen
-- Fördermöglichkeiten verstehen
-- Wachstum realistisch einschätzen
+Diese Sektion darf weder durch „Deine Situation“ noch durch eine einfache Themenliste
+oder ein neues Kartenlayout ersetzt werden. Änderungen sind ausschließlich nach einer
+ausdrücklichen Anweisung von Dennis im aktuellen Chat zulässig.
 
 ---
 
@@ -216,7 +215,7 @@ Ziel-Struktur: 8 Sektionen. Aktuelle Seite: 11. Mapping:
 | Neu | Übernimmt aus Bestand | Flächentyp-Vorschlag |
 |---|---|---|
 | 1 Hero | `.v4-hero` (Layout passt schon: Text links, Vanessa rechts, Trust-Zahlen) | Hero (C + 1 Glow) |
-| 2 Situation | Kern aus `#problem-loesung` + Wiedererkennungs-Ideen aus `#zielgruppen` (Router) | A hell |
+| 2 Problem & Lösung | Geschützter Bestand `#problem-loesung` mit Vergleich „Ohne klare Einordnung / Mit VZ Concept“ | A hell |
 | 3 Ansatz | Neu; Material aus `.v4-why` (Bio-Text, Zitat) | B mint |
 | 4 Leistungen | `#leistungen-uebersicht`, von 6 Karten auf 4 Situations-Blöcke | A hell |
 | 5 Zusammenarbeit | `#ablauf` (4 Schritte bestehen bereits) | B mint |

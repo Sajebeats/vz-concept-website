@@ -85,8 +85,8 @@ Status: ☐ offen · ◐ in Arbeit · ☑ erledigt · ⏸ wartet auf Entscheidun
 ### Kritisch
 - ☑ Design-System + Reference-Struktur deployed (19.07.2026, Stand `480e2fd`) —
   auf Codex-Redesign-Basis neu aufgesetzt; Typografie-Entscheidung: Playfair + Inter
-- ☐ **Live-Sichtprüfung auf vz-concept.de** (nach Pages-Deploy): Prüffragen aus dieser
-  Checkliste beantworten, besonders Hero (Playfair statt Dancing Script) und Section 2
+- ☑ **Section 2 geschützt und live geprüft**: `#problem-loesung` mit der Vergleichsdarstellung
+  „Ohne klare Einordnung / Mit VZ Concept“ ist verbindlich und darf nicht automatisch ersetzt werden.
 
 ### Wichtig
 - ☐ **Startseiten-Umbau auf 8-Sektionen-Struktur** (`homepage-structure.md`) —
@@ -114,5 +114,6 @@ Status: ☐ offen · ◐ in Arbeit · ☑ erledigt · ⏸ wartet auf Entscheidun
 - ☑ Hero-Typografie auf Markensystem (`7b58795`)
 - ☑ Design-System: 4 Flächentypen, Guidelines, Skill-Erweiterung (`7f1cdaa`)
 - ☑ Reference-Struktur mit finalen Fassungen von Dennis (brand, copy, homepage, design, checklist)
-- ☑ Section 2 „Deine Situation" umgesetzt und live (Stand `480e2fd`)
+- ☑ Section 2 nach ausdrücklicher Entscheidung auf „Problem & Lösung“ zurückgesetzt
+  und gegen automatische Neuinterpretation geschützt (Stand `9432d57`)
 - ☑ Merge der Parallelstände: Codex-Redesign (Hero-Bild, Calendly) + unser Design-System vereint

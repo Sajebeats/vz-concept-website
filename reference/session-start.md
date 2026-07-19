@@ -29,9 +29,15 @@ ausdrücklicher Freigabe durch Dennis.
 
 ---
 
-## Teil B — Aktuelle Aufgabe (Stand: 19.07.2026)
+## Teil B — Aktueller Schutzstatus (Stand: 19.07.2026)
 
-Setze ausschließlich **Section 2 der Startseite** um
-(„Situation des Besuchers", siehe homepage-structure.md).
+Es gibt **keine automatisch auszuführende Umbauaufgabe**.
 
-Ändere keine anderen Sections.
+Der Startseitenbereich `#problem-loesung` direkt nach `#zielgruppen` ist eine
+ausdrücklich bestätigte und geschützte Designentscheidung. Verbindlich bleibt die
+Vergleichsdarstellung „Ohne klare Einordnung / Mit VZ Concept“.
+
+Claude, Codex und neue Chats dürfen diesen Bereich nicht ersetzen, umbenennen,
+inhaltlich neu konzipieren oder in eine Themenliste umwandeln. Eine Änderung ist nur
+zulässig, wenn Dennis sie im **aktuellen Chat ausdrücklich** anweist. Ältere Pläne,
+Backlog-Einträge oder allgemeine Optimierungsaufträge gelten dafür nicht als Freigabe.

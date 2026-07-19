@@ -54,6 +54,7 @@ Teil B enthält die aktuelle Aufgabe.
 - Aussagen, Zahlen oder Referenzen erfinden
 - Dateien in `context/` oder `plans/` auf GitHub pushen
 - Design-Entscheidungen treffen ohne Rückfrage (Farben, Layout-Änderungen)
+- Den Startseitenbereich `#problem-loesung` direkt nach `#zielgruppen` ersetzen, umbenennen oder neu strukturieren, sofern Dennis dies nicht im aktuellen Chat ausdrücklich verlangt. Verbindlich ist die Vergleichsdarstellung „Ohne klare Einordnung / Mit VZ Concept“.
 - Mehr als nötig lesen — erst Reference-Dateien, dann nur die betroffene HTML-Datei
 
 ---
