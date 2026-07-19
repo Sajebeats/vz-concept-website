@@ -962,13 +962,18 @@
       const el = document.querySelector('.sticky-mobile-cta');
       if (!el) return;
       const hero = document.getElementById('hero-neu');
+      const finalCta = document.querySelector('.v4-final-cta');
       const footer = document.querySelector('.footer');
       function update() {
         if (!hero || !footer) return;
         const heroBottom = hero.getBoundingClientRect().bottom;
+        const finalCtaRect = finalCta ? finalCta.getBoundingClientRect() : null;
         const footerTop = footer.getBoundingClientRect().top;
         const vh = window.innerHeight;
-        const show = heroBottom < 100 && footerTop > vh;
+        const finalCtaVisible = finalCtaRect
+          ? finalCtaRect.top < vh && finalCtaRect.bottom > 0
+          : false;
+        const show = heroBottom < 100 && footerTop > vh && !finalCtaVisible;
         el.setAttribute('aria-hidden', show ? 'false' : 'true');
         el.inert = !show;
         el.classList.toggle('is-visible', show);

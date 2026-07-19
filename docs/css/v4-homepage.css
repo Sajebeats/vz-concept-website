@@ -2346,31 +2346,68 @@
 
 @media (max-width: 640px) {
   .v4-final-cta {
-    padding-block: 3rem;
+    padding-block: 2.25rem;
+  }
+
+  .v4-final-cta > .container {
+    padding-inline: 0.75rem;
   }
 
   .v4-final-cta__inner {
-    padding: 1.6rem 1.25rem;
-    border-radius: 17px;
+    gap: 1.75rem;
+    padding: 1.5rem 0.75rem;
+    border-radius: 16px;
+  }
+
+  .v4-final-cta__content {
+    min-width: 0;
   }
 
   .v4-final-cta h2 {
-    font-size: clamp(2.35rem, 12vw, 3.25rem);
+    margin-bottom: 1rem;
+    font-size: clamp(2.1rem, 10vw, 2.6rem);
+    line-height: 1.02;
+  }
+
+  .v4-final-cta .v4-final-cta__lead {
+    margin-bottom: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .v4-final-cta__actions {
+    margin-bottom: 1.25rem;
+  }
+
+  .v4-final-cta__actions .btn {
+    min-height: 54px;
+    padding-inline: 1rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
   }
 
   .v4-final-cta__contact {
     flex-direction: column;
+    gap: 0.65rem;
   }
 
   .v4-calendly-shell {
-    margin-inline: -0.35rem;
-    padding: 0.5rem;
-    border-radius: 14px;
+    max-width: 100%;
+    margin-inline: 0;
+    padding: 0.4rem;
+    border-radius: 13px;
+  }
+
+  .v4-calendly-shell__title {
+    padding: 0.25rem 0.3rem 0.55rem;
+    font-size: 0.78rem;
   }
 
   .v4-calendly-widget {
     min-width: 0;
-    height: 500px;
+    height: 460px;
+    border-radius: 9px;
   }
 }
 
