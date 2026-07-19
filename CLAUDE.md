@@ -38,7 +38,8 @@ claude-workspace-Vanessa Zimmer/
 - HTML-Änderungen: CSS-Klassen aus `reference/design-tokens.md` nutzen
 - Vor jeder Design-/CSS-Arbeit: `reference/design-guidelines.md` lesen — Flächentypen (nur die 4 Surface-Tokens), Verbotsliste und Ausnahmen-Register sind verbindlich
 - Neue Seiten: `reference/page-template.html` als Basis verwenden
-- Texte schreiben: `reference/copywriting-guide.md` immer lesen bevor Texte verfasst werden
+- Texte schreiben: `reference/copy-guidelines.md` immer lesen (Basis: `reference/Professional_Copywriting_Operating_System.md`)
+- Marken-/Struktur-Fragen: `reference/brand-foundation.md`, `reference/homepage-structure.md`, `reference/design-direction.md` sind maßgeblich; offene Arbeiten stehen in `reference/implementation-checklist.md`
 - Nach Änderungen: `context/current-data.md` aktualisieren wenn sich Status ändert
 
 **Nie:**
