@@ -15,13 +15,14 @@
 
 ## Schriften
 ```css
---font-heading: 'Manrope', system-ui, sans-serif  /* H1-H4 */
---font-body:    'Manrope', system-ui, sans-serif  /* Body, UI */
---font-script:  'Manrope', system-ui, sans-serif  /* Akzentzeilen */
-/* DSGVO-konform lokal als WOFF2 geladen */
+--font-heading: 'Playfair Display', Georgia, serif   /* H1-H4 */
+--font-body:    'Inter', system-ui, sans-serif        /* Body, UI */
+--font-script:  'Playfair Display', Georgia, serif    /* Akzentzeilen, immer kursiv */
+/* DSGVO-konform lokal als WOFF2 geladen (docs/assets/fonts/) */
 ```
 
-Ausnahme: Die handschriftliche Akzentzeile im Startseiten-Hero verwendet lokal geladenes `Dancing Script`.
+Entschieden 19.07.2026: Playfair + Inter sind fix (brand-foundation.md). Keine Handschrift-Fonts;
+die Hero-Akzentzeile nutzt Playfair Italic. Manrope-/Dancing-Script-Dateien liegen ungenutzt im Fonts-Ordner.
 
 ## Spacing
 ```css

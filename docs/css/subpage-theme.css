@@ -1,76 +1,46 @@
 /* VZ Concept subpage theme
-   Shared color language with page-specific light direction and depth. */
+   Flächensystem: Jede Sektion gehört genau EINEM der vier Flächentypen
+   (A hell / B mint / C dunkel / D CTA) aus style.css :root.
+   Regeln, Mapping und Ausnahmen: reference/design-guidelines.md */
 
 body {
   background: var(--color-white);
 }
 
-/* General subpage heroes */
-.page-hero {
+/* ── Heroes: Typ C + EIN parametrisierter Glow (Seiten-Identität) ── */
+:is(.page-hero, .hub-hero, .eg-hero, .sl-hero, .avgs-hero,
+    .struct-hero, .crisis-hero, .bp-hero, .ar-hero) {
   background:
-    radial-gradient(ellipse at 88% 28%, rgba(0, 200, 168, 0.27), transparent 38%),
-    linear-gradient(116deg, #061815 0%, #08231f 34%, #0c3933 68%, #0b7065 100%);
-  border-bottom: 1px solid rgba(120, 234, 215, 0.14);
+    radial-gradient(ellipse at var(--hero-glow-pos), rgba(0, 200, 168, var(--hero-glow-a)), transparent 40%),
+    var(--surface-dark);
+  border-bottom: 1px solid var(--surface-border-dark);
 }
 
-.hub-hero {
-  background:
-    radial-gradient(ellipse at 50% 16%, rgba(120, 234, 215, 0.13), transparent 38%),
-    linear-gradient(155deg, #061815 0%, #092b27 58%, #0b5b52 100%);
-  border-bottom: 1px solid rgba(120, 234, 215, 0.14);
-}
+/* Seiten-Identität: nur Glow-Position und -Intensität, je Seite eine Zeile */
+.page-hero   { --hero-glow-pos: 88% 28%; }
+.hub-hero    { --hero-glow-pos: 50% 12%; --hero-glow-a: 0.14; }
+.eg-hero     { --hero-glow-pos: 18% 88%; --hero-glow-a: 0.2; }
+.sl-hero     { --hero-glow-pos: 86% 30%; }
+.avgs-hero   { --hero-glow-pos: 50% 8%;  --hero-glow-a: 0.16; }
+.struct-hero { --hero-glow-pos: 12% 64%; --hero-glow-a: 0.22; }
+.crisis-hero { --hero-glow-pos: 82% 86%; --hero-glow-a: 0.15; }
+.bp-hero     { --hero-glow-pos: 92% 18%; --hero-glow-a: 0.18; }
+.ar-hero     { --hero-glow-pos: 14% 100%; --hero-glow-a: 0.2; }
 
-.eg-hero {
-  background:
-    radial-gradient(ellipse at 18% 88%, rgba(0, 200, 168, 0.2), transparent 42%),
-    linear-gradient(145deg, #061815 0%, #092824 54%, #10483f 100%);
-  border-bottom: 1px solid rgba(120, 234, 215, 0.12);
-}
-
-/* Service heroes: one family, different light direction per topic */
-.sl-hero {
-  background:
-    radial-gradient(ellipse at 86% 30%, rgba(0, 200, 168, 0.3), transparent 38%),
-    linear-gradient(112deg, #061815 0%, #081f1c 30%, #0c3530 64%, #0b7669 100%);
-}
-
-.avgs-hero {
-  background:
-    radial-gradient(ellipse at 50% 8%, rgba(120, 234, 215, 0.16), transparent 42%),
-    linear-gradient(176deg, #061815 0%, #092b27 56%, #0b554c 100%);
-}
-
-.struct-hero {
-  background:
-    radial-gradient(ellipse at 12% 64%, rgba(0, 200, 168, 0.23), transparent 38%),
-    linear-gradient(138deg, #071b18 0%, #0a302b 56%, #0b6258 100%);
-}
-
-.crisis-hero {
-  background:
-    radial-gradient(ellipse at 82% 86%, rgba(0, 168, 141, 0.18), transparent 38%),
-    linear-gradient(150deg, #050f0d 0%, #08221f 46%, #0c4038 100%);
-}
-
-.bp-hero {
-  background:
-    radial-gradient(ellipse at 92% 18%, rgba(120, 234, 215, 0.18), transparent 36%),
-    linear-gradient(124deg, #061815 0%, #0a2d28 58%, #0b5f56 100%);
-}
-
-.ar-hero {
-  background:
-    radial-gradient(ellipse at 14% 100%, rgba(0, 200, 168, 0.2), transparent 44%),
-    linear-gradient(158deg, #061815 0%, #092824 58%, #10483f 100%);
-}
-
+/* Ausnahme: Träger-Seite bleibt hell (institutionelle Zielgruppe) */
 .inst-hero {
-  background:
-    linear-gradient(138deg, #e6f4f0 0%, #fbfdfc 52%, #dff1ed 100%);
-  border-bottom: 1px solid rgba(9, 63, 57, 0.1);
+  background: var(--surface-mint);
+  border-bottom: 1px solid var(--surface-border-light);
 }
 
-/* Light section rhythm */
+/* Doppel-Glows neutralisieren: die Inline-Styles der Seiten legen dekorative
+   ::before-Glows auf die Heroes — der eine Glow kommt jetzt aus dem Token. */
+:is(.page-hero, .hub-hero, .eg-hero, .sl-hero, .avgs-hero,
+    .struct-hero, .crisis-hero, .bp-hero, .ar-hero, .inst-hero)::before {
+  background: none;
+}
+
+/* ── Typ B: Hell-Akzent (Mint) ── */
 :is(
   .recognition,
   .eligibility,
@@ -80,25 +50,7 @@ body {
   .contents-section,
   .audit-section,
   .section--off-white,
-  .about-section--soft
-) {
-  background:
-    linear-gradient(142deg, #eaf6f3 0%, #f9fcfb 52%, #e5f2ee 100%);
-  border-top: 1px solid rgba(9, 63, 57, 0.05);
-  border-bottom: 1px solid rgba(9, 63, 57, 0.07);
-}
-
-:is(
-  .content-block,
-  .faq-section,
-  .related-section,
-  .eg-faq,
-  .vanessa-trust-section
-) {
-  background: linear-gradient(180deg, #ffffff 0%, #f3f8f6 100%);
-}
-
-:is(
+  .about-section--soft,
   .process,
   .timeline-section,
   .alt-process,
@@ -106,74 +58,56 @@ body {
   .process-section,
   .pillars
 ) {
-  background:
-    linear-gradient(132deg, #edf7f4 0%, #ffffff 50%, #e8f4f0 100%);
-  border-top: 1px solid rgba(9, 63, 57, 0.05);
-  border-bottom: 1px solid rgba(9, 63, 57, 0.07);
+  background: var(--surface-mint);
+  border-top: 1px solid var(--surface-border-light);
+  border-bottom: 1px solid var(--surface-border-light);
 }
 
-/* Dark proof and trust bands */
-.sl-quotes-bar {
-  background: linear-gradient(105deg, #061815 0%, #0a302b 62%, #0b5f56 100%);
+/* ── Typ A: Weiß ── */
+:is(
+  .content-block,
+  .faq-section,
+  .related-section,
+  .eg-faq,
+  .vanessa-trust-section,
+  .sl-proof,
+  .sl-quote-single,
+  .benefits,
+  .why-vanessa
+) {
+  background: var(--surface-light);
 }
 
-.ref-stats {
-  background:
-    radial-gradient(ellipse at 84% 50%, rgba(0, 200, 168, 0.2), transparent 38%),
-    linear-gradient(120deg, #061815 0%, #092824 58%, #10483f 100%);
+/* ── Typ C: Dunkel-Vertrauen (ohne Glow) ── */
+:is(
+  .sl-quotes-bar,
+  .ref-stats,
+  .logo-strip,
+  .about-proof,
+  .about-section--dark,
+  .eg-quote,
+  .why-section,
+  .cred-band,
+  .quality-section,
+  .situations-band,
+  .behoerden-section
+) {
+  background: var(--surface-dark);
 }
 
-.logo-strip {
-  background: linear-gradient(158deg, #061815 0%, #0b302b 58%, #0a4c44 100%);
-}
+/* Dokumentierte Ausnahme: .urgency (leistung-krise.html) behält seine rote
+   Warnfläche — semantisches Signal, kein Deko-Gradient (design-guidelines.md §9). */
 
-.about-proof {
-  background:
-    radial-gradient(ellipse at 16% 60%, rgba(120, 234, 215, 0.13), transparent 36%),
-    linear-gradient(148deg, #061815 0%, #092824 60%, #10483f 100%);
-}
-
-.about-section--dark {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 20%),
-    linear-gradient(145deg, #061815 0%, #092824 56%, #0d4038 100%);
-}
-
-.eg-quote {
-  background:
-    radial-gradient(ellipse at 18% 72%, rgba(0, 200, 168, 0.14), transparent 36%),
-    linear-gradient(155deg, #061815 0%, #0a2d28 100%);
-}
-
-/* Conversion areas use related, but not identical, gradients */
-.section--dark {
-  background:
-    radial-gradient(ellipse at 84% 20%, rgba(0, 200, 168, 0.18), transparent 38%),
-    linear-gradient(142deg, #061815 0%, #092824 56%, #0d463e 100%);
-}
-
-.cta-section {
-  background:
-    radial-gradient(ellipse at 50% 100%, rgba(0, 200, 168, 0.22), transparent 44%),
-    linear-gradient(160deg, #061815 0%, #092824 55%, #073a33 100%);
-}
-
-.cta-banner {
-  background:
-    radial-gradient(ellipse at 92% 35%, rgba(120, 234, 215, 0.18), transparent 40%),
-    linear-gradient(120deg, #061815 0%, #0a2f2a 62%, #0b6157 100%);
-}
-
-.cta-band {
-  background:
-    radial-gradient(ellipse at 12% 50%, rgba(0, 200, 168, 0.17), transparent 38%),
-    linear-gradient(138deg, #061815 0%, #092824 54%, #10483f 100%);
-}
-
-.about-cta {
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(120, 234, 215, 0.12), transparent 38%),
-    linear-gradient(170deg, #061815 0%, #092824 62%, #0b4d45 100%);
+/* ── Typ D: CTA-Dunkel (ein Glow, im Token fixiert) ── */
+:is(
+  .section--dark,
+  .cta-section,
+  .cta-banner,
+  .cta-band,
+  .about-cta,
+  .nf
+) {
+  background: var(--surface-cta);
 }
 
 :is(.cta-section__inner, .cta-banner__inner, .cta-band__inner) {
@@ -197,16 +131,8 @@ body {
 }
 
 .footer {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 16%),
-    linear-gradient(145deg, #061815 0%, #081f1c 58%, #0a3d36 100%);
+  background: var(--surface-dark);
   border-top: 1px solid rgba(120, 234, 215, 0.1);
-}
-
-.nf {
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(120, 234, 215, 0.18), transparent 42%),
-    linear-gradient(160deg, #061815 0%, #092824 58%, #0b5b52 100%);
 }
 
 @media (max-width: 760px) {

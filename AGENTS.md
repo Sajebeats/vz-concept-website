@@ -30,20 +30,30 @@ Codex-workspace-Vanessa Zimmer/
 
 ---
 
+## Session-Start (verbindlich)
+
+**Bei jedem Chat-Start zuerst `reference/session-start.md` lesen und befolgen** —
+Teil A: die fünf Reference-Dateien (brand-foundation, copy-guidelines,
+homepage-structure, design-direction, implementation-checklist) vollständig lesen.
+Teil B enthält die aktuelle Aufgabe.
+
 ## Verhaltensregeln für Codex
 
 **Immer:**
 - Deutsch antworten (Fachbegriffe auf Englisch OK)
 - Vor Code-Änderungen: kurz erklären WAS und WARUM
 - HTML-Änderungen: CSS-Klassen aus `reference/design-tokens.md` nutzen
+- Vor Design-/CSS-Arbeit: `reference/design-guidelines.md` (Flächentypen, Verbotsliste) beachten
 - Neue Seiten: `reference/page-template.html` als Basis verwenden
-- Texte schreiben: `reference/copywriting-guide.md` immer lesen bevor Texte verfasst werden
+- Texte schreiben: `reference/copy-guidelines.md` immer lesen bevor Texte verfasst werden
+- Jede Umsetzung folgt `reference/implementation-checklist.md` (Viewports, Prüffragen, Abschlussbericht)
 - Nach Änderungen: `context/current-data.md` aktualisieren wenn sich Status ändert
 
 **Nie:**
+- Committen oder pushen ohne ausdrückliche Freigabe durch Dennis
+- Aussagen, Zahlen oder Referenzen erfinden
 - Dateien in `context/` oder `plans/` auf GitHub pushen
 - Design-Entscheidungen treffen ohne Rückfrage (Farben, Layout-Änderungen)
-- Google Fonts CDN ersetzen ohne explizite Anweisung
 - Mehr als nötig lesen — erst Reference-Dateien, dann nur die betroffene HTML-Datei
 
 ---
@@ -61,10 +71,12 @@ Codex-workspace-Vanessa Zimmer/
 ---
 
 ## Git-Workflow
+
+**Commits und Pushes nur nach ausdrücklicher Freigabe durch Dennis.**
+Nach Freigabe:
 ```bash
-# Änderungen deployen (aus diesem Ordner):
-git add .
-git commit -m "Kurze Beschreibung"
+git add <gezielt die geänderten Dateien>   # nie pauschal "git add ." im Hauptordner
+git commit -m "Seite: Was geändert"
 git push origin main
 # → GitHub Pages updated in ~2 Minuten
 ```

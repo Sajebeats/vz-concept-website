@@ -28,9 +28,9 @@
   --color-text-light:     #7A9896;
 
   /* Typografie */
-  --font-heading:         'Manrope', system-ui, -apple-system, sans-serif;
-  --font-body:            'Manrope', system-ui, -apple-system, sans-serif;
-  --font-script:          'Manrope', system-ui, -apple-system, sans-serif;
+  --font-heading:         'Playfair Display', Georgia, serif;
+  --font-body:            'Inter', system-ui, -apple-system, sans-serif;
+  --font-script:          'Playfair Display', Georgia, serif; /* Editorial-Italic statt Handschrift — passend zur Marken-Typografie */
 
   /* Schriftgrößen (clamp für Fluid Typography) */
   --fs-xs:    0.75rem;    /* 12px */
@@ -70,6 +70,22 @@
   /* Transitions */
   --transition: 0.22s ease;
   --transition-slow: 0.4s ease;
+
+  /* Flächentypen — die EINZIGEN erlaubten Sektions-Hintergründe.
+     Regeln & Mapping: reference/design-guidelines.md */
+  --surface-light:  linear-gradient(180deg, #ffffff 0%, #f3f8f6 100%);              /* A: Weiß */
+  --surface-mint:   linear-gradient(142deg, #eaf6f3 0%, #f9fcfb 52%, #e5f2ee 100%); /* B: Hell-Akzent */
+  --surface-dark:   linear-gradient(145deg, #061815 0%, #092824 56%, #10483f 100%); /* C: Dunkel, OHNE Glow */
+  --surface-cta:    radial-gradient(ellipse at 85% 25%, rgba(0, 200, 168, 0.2), transparent 40%),
+                    linear-gradient(142deg, #061815 0%, #092824 56%, #0d463e 100%); /* D: CTA, EIN Glow */
+
+  /* Hero = Typ C + EIN parametrisierter Glow (Seiten-Identität) */
+  --hero-glow-pos:  86% 30%;
+  --hero-glow-a:    0.24;
+
+  /* Trennkanten auf Flächenwechseln */
+  --surface-border-light: rgba(9, 63, 57, 0.06);
+  --surface-border-dark:  rgba(120, 234, 215, 0.14);
 }
 
 
@@ -106,6 +122,11 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Verhindert 300-ms-Tap-Delay und Doppeltipp-Zoom auf interaktiven Elementen */
+a, button, input, select, textarea, label, summary {
+  touch-action: manipulation;
 }
 
 .skip-link {
@@ -323,6 +344,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .script-text {
   font-family: var(--font-script);
+  font-style: italic;
   font-weight: 400;
 }
 
@@ -2654,9 +2676,7 @@ a.hero__proof-item:hover {
 }
 
 .footer {
-  background:
-    radial-gradient(circle at 85% 0%, rgba(0,200,168,0.1), transparent 32%),
-    var(--color-primary-deep);
+  background: var(--surface-dark);
 }
 
 
