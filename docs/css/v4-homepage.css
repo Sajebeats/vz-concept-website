@@ -248,20 +248,20 @@
 
 .v4-hero__title-main {
   display: block;
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-size: clamp(3.15rem, 4.1vw, 3.6rem);
-  font-weight: 700;
-  line-height: 1.02;
+  font-weight: 400;
+  line-height: 1.08;
 }
 
 .v4-hero__title-script {
   display: block;
   color: var(--color-accent);
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(3.75rem, 5vw, 4.3rem);
-  font-weight: 600;
-  line-height: 0.92;
-  white-space: nowrap;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-size: clamp(2.9rem, 3.6vw, 3.3rem);
+  font-weight: 400;
+  line-height: 1.05;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
@@ -562,10 +562,7 @@
 }
 
 .v4-partners {
-  background:
-    radial-gradient(circle at 8% 22%, rgba(0, 200, 168, 0.09), transparent 30%),
-    radial-gradient(circle at 92% 78%, rgba(12, 53, 48, 0.055), transparent 28%),
-    linear-gradient(180deg, #ffffff 0%, #f8fcfb 52%, #ffffff 100%);
+  background: var(--surface-light);
   padding-block: clamp(2rem, 4vw, 3rem);
   border-block: 1px solid rgba(12, 53, 48, 0.08);
 }
@@ -691,14 +688,62 @@
 }
 
 .v4-section--light {
-  background: linear-gradient(180deg, var(--color-light-bg), var(--color-white));
+  background: var(--surface-light);
 }
 
 .v4-section--dark {
-  background:
-    radial-gradient(circle at 100% 0%, rgba(0,200,168,0.16), transparent 30%),
-    var(--color-primary);
+  background: var(--surface-dark);
   color: var(--color-white);
+}
+
+#situation {
+  background: var(--surface-light);
+}
+
+/* Lange Aussage-Headline: moderierte Groesse, damit sie auf Desktop
+   bei zwei bis drei ruhigen Zeilen bleibt (design-direction.md) */
+#situation .v4-title {
+  max-width: 760px;
+  font-size: clamp(1.85rem, 2.6vw, 2.55rem);
+  line-height: 1.22;
+}
+
+/* Themenliste: ruhige Editorial-Liste statt Karten (design-direction.md §Layout) */
+.v4-situation-topics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 3rem;
+  max-width: 680px;
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.v4-situation-topics li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--color-primary);
+  font-size: clamp(1.02rem, 1.2vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.v4-situation-topics li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .v4-situation-topics {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
 }
 
 .v4-section--faq {
@@ -1074,9 +1119,7 @@
   border: 1px solid rgba(12, 53, 48, 0.13);
   border-radius: 14px;
   color: var(--color-white);
-  background:
-    radial-gradient(circle at 88% 16%, rgba(0, 200, 168, 0.18), transparent 38%),
-    linear-gradient(145deg, #0c3530 0%, #08241f 100%);
+  background: var(--surface-dark);
   border-color: rgba(120, 234, 215, 0.22);
   box-shadow:
     0 20px 44px rgba(12, 53, 48, 0.16),
@@ -1087,9 +1130,6 @@
 #leistungen-uebersicht .v4-offer-card:hover {
   transform: translateY(-4px);
   border-color: rgba(120, 234, 215, 0.62);
-  background:
-    radial-gradient(circle at 88% 16%, rgba(0, 200, 168, 0.28), transparent 40%),
-    linear-gradient(145deg, #0d4039 0%, #092b26 100%);
   box-shadow:
     0 26px 54px rgba(12, 53, 48, 0.22),
     0 8px 26px rgba(0, 200, 168, 0.1),
@@ -1194,9 +1234,7 @@
 
 .v4-why {
   position: relative;
-  background:
-    radial-gradient(ellipse at 22% 58%, rgba(120, 234, 215, 0.1), transparent 34%),
-    linear-gradient(145deg, #061815 0%, #081f1c 54%, #0c3530 100%);
+  background: var(--surface-dark);
   border-top: 1px solid rgba(120, 234, 215, 0.16);
   border-bottom: 1px solid rgba(120, 234, 215, 0.1);
 }
@@ -1376,9 +1414,7 @@
 }
 
 #ablauf {
-  background:
-    radial-gradient(circle at 12% 0%, rgba(0, 200, 168, 0.11), transparent 32%),
-    linear-gradient(150deg, #051b18 0%, #061613 48%, #09251f 100%);
+  background: var(--surface-dark);
   border-top: 1px solid rgba(120, 234, 215, 0.12);
   border-bottom: 1px solid rgba(120, 234, 215, 0.1);
   color: var(--color-white);
@@ -1495,12 +1531,28 @@
 }
 
 #stimmen {
-  background:
-    radial-gradient(ellipse at 14% 8%, rgba(120, 234, 215, 0.13), transparent 31%),
-    radial-gradient(ellipse at 88% 78%, rgba(0, 200, 168, 0.18), transparent 36%),
-    linear-gradient(154deg, #061815 0%, #092b27 50%, #0b5b52 100%);
+  background: var(--surface-dark);
   border-top: 1px solid rgba(120, 234, 215, 0.14);
   border-bottom: 1px solid rgba(120, 234, 215, 0.1);
+}
+
+/* Google-Rating-Zeile im Stimmen-Kopf (ersetzt Inline-Styles) */
+.v4-rating-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.v4-rating-link__stars {
+  color: #FFC107;
+  letter-spacing: 0.05em;
+}
+
+.v4-rating-link svg {
+  width: 18px;
+  height: 18px;
 }
 
 .v4-testimonials article {
@@ -1577,8 +1629,8 @@
 }
 
 #faq-start {
-  background: linear-gradient(132deg, #eaf4f1 0%, #f8fbfa 52%, #edf6f3 100%);
-  border-top: 1px solid rgba(9, 63, 57, 0.06);
+  background: var(--surface-mint);
+  border-top: 1px solid var(--surface-border-light);
 }
 
 .v4-faq-list {
@@ -1589,9 +1641,7 @@
 
 .v4-final-cta {
   padding-block: clamp(3rem, 5vw, 4.5rem);
-  background:
-    radial-gradient(circle at 50% 0%, rgba(0, 200, 168, 0.09), transparent 34%),
-    #031713;
+  background: var(--surface-cta);
   border-top: 1px solid rgba(120, 234, 215, 0.14);
   color: var(--color-white);
 }
@@ -1789,7 +1839,7 @@
   }
 
   .v4-hero__title-script {
-    font-size: clamp(2.85rem, 12vw, 3.25rem);
+    font-size: clamp(2.45rem, 10.5vw, 2.85rem);
     white-space: normal;
   }
 
@@ -1876,7 +1926,7 @@
 }
 
 #investition {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbfa 48%, #eef6f3 100%);
+  background: var(--surface-light);
 }
 
 .v4-invest-card {
@@ -1898,9 +1948,7 @@
 }
 
 .v4-invest-card--free {
-  background:
-    radial-gradient(circle at 86% 18%, rgba(0, 200, 168, 0.22), transparent 38%),
-    linear-gradient(148deg, #061815 0%, #0a302b 58%, #0b5f56 100%);
+  background: var(--surface-dark);
   color: var(--color-white);
   border-color: transparent;
 }
@@ -2013,9 +2061,7 @@
 /* Investitionswege: heller Überblick mit dunklem Erstgespräch als Einstieg. */
 #investition {
   color: var(--color-primary);
-  background:
-    radial-gradient(circle at 82% 18%, rgba(0, 200, 168, 0.055), transparent 30%),
-    linear-gradient(180deg, #ffffff 0%, #f9fcfb 100%);
+  background: var(--surface-light);
   border-block: 1px solid rgba(12, 53, 48, 0.08);
 }
 
@@ -2845,9 +2891,7 @@
   position: relative;
   padding-block: clamp(5rem, 8vw, 7rem);
   color: var(--color-white);
-  background:
-    radial-gradient(circle at 78% 18%, rgba(0, 200, 168, 0.1), transparent 31%),
-    linear-gradient(145deg, #061815 0%, #081f1c 52%, #0a2b27 100%);
+  background: var(--surface-dark);
   border-top: 1px solid rgba(120, 234, 215, 0.1);
 }
 
@@ -2907,8 +2951,7 @@
   min-height: 280px;
   padding: clamp(1.5rem, 2.4vw, 2rem);
   color: var(--color-white);
-  background:
-    linear-gradient(135deg, rgba(12, 53, 48, 0.94), rgba(8, 31, 28, 0.96));
+  background: var(--surface-dark);
   border: 1px solid rgba(120, 234, 215, 0.16);
   border-radius: var(--radius-md);
   box-shadow:
