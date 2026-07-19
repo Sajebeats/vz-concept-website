@@ -36,6 +36,7 @@ claude-workspace-Vanessa Zimmer/
 - Deutsch antworten (Fachbegriffe auf Englisch OK)
 - Vor Code-Änderungen: kurz erklären WAS und WARUM
 - HTML-Änderungen: CSS-Klassen aus `reference/design-tokens.md` nutzen
+- Vor jeder Design-/CSS-Arbeit: `reference/design-guidelines.md` lesen — Flächentypen (nur die 4 Surface-Tokens), Verbotsliste und Ausnahmen-Register sind verbindlich
 - Neue Seiten: `reference/page-template.html` als Basis verwenden
 - Texte schreiben: `reference/copywriting-guide.md` immer lesen bevor Texte verfasst werden
 - Nach Änderungen: `context/current-data.md` aktualisieren wenn sich Status ändert
