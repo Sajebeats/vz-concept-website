@@ -249,18 +249,22 @@
 .v4-hero__title-main {
   display: block;
   font-family: var(--font-body);
-  font-size: clamp(3rem, 3.85vw, 3.3rem);
-  font-weight: 400;
+  font-size: clamp(3.15rem, 4.1vw, 3.6rem);
+  font-weight: 700;
   line-height: 1.02;
 }
 
 .v4-hero__title-script {
   display: block;
   color: var(--color-accent);
-  font-family: var(--font-script);
+  font-family: 'Dancing Script', cursive;
   font-size: clamp(3.75rem, 5vw, 4.3rem);
   font-weight: 600;
   line-height: 0.92;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .v4-hero__text {
@@ -558,7 +562,19 @@
 }
 
 .v4-partners {
-  background: var(--color-primary-deep);
+  background:
+    linear-gradient(90deg,
+      rgba(12, 53, 48, 0.96) 0%,
+      rgba(0, 145, 132, 0.24) 50%,
+      transparent 72%),
+    linear-gradient(270deg,
+      rgba(12, 53, 48, 0.96) 0%,
+      rgba(0, 145, 132, 0.24) 50%,
+      transparent 72%),
+    radial-gradient(ellipse at 50% 48%,
+      rgba(0, 200, 168, 0.09) 0%,
+      transparent 58%),
+    var(--color-primary-deep);
   padding-block: clamp(2rem, 4vw, 3rem);
   border-top: none;
 }
@@ -1358,6 +1374,7 @@
 
   .v4-hero__title-script {
     font-size: clamp(2.85rem, 12vw, 3.25rem);
+    white-space: normal;
   }
 
   .v4-hero__text {
@@ -1864,15 +1881,6 @@
   margin: 0;
 }
 
-.v4-router-card__number {
-  color: rgba(0, 168, 141, 0.38);
-  font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 3.5vw, 3.25rem);
-  font-weight: 700;
-  line-height: 0.85;
-  font-variant-numeric: tabular-nums;
-}
-
 .v4-router-card__tag {
   font-size: 0.7rem;
   font-weight: 700;
@@ -2220,26 +2228,29 @@
 .v4-router-card__top {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
-  margin: 0 0 1.65rem;
+  min-height: 4.5rem;
+  margin: 0 0 1rem;
   padding-top: 0.35rem;
 }
 
-.v4-router-card__number {
-  font-size: clamp(2.35rem, 3vw, 3rem);
-  color: rgba(120, 234, 215, 0.5);
-}
-
 .v4-router-card__tag {
-  max-width: 150px;
-  text-align: right;
+  max-width: none;
+  margin: 0;
   color: #78ead7;
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.25vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-align: left;
+  text-transform: none;
 }
 
 .v4-router-card__title {
   margin-bottom: 0.9rem;
-  font-size: clamp(1.45rem, 1.8vw, 1.75rem);
+  font-size: clamp(1.2rem, 1.45vw, 1.4rem);
   color: var(--color-white);
 }
 

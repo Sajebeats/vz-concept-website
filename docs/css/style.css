@@ -28,9 +28,9 @@
   --color-text-light:     #7A9896;
 
   /* Typografie */
-  --font-heading:         'Playfair Display', Georgia, serif;
-  --font-body:            'Inter', system-ui, -apple-system, sans-serif;
-  --font-script:          'Dancing Script', cursive;
+  --font-heading:         'Manrope', system-ui, -apple-system, sans-serif;
+  --font-body:            'Manrope', system-ui, -apple-system, sans-serif;
+  --font-script:          'Manrope', system-ui, -apple-system, sans-serif;
 
   /* Schriftgrößen (clamp für Fluid Typography) */
   --fs-xs:    0.75rem;    /* 12px */

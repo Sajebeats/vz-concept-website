@@ -15,10 +15,13 @@
 
 ## Schriften
 ```css
---font-heading: 'Playfair Display', Georgia, serif   /* H1-H4 */
---font-body:    'Inter', system-ui, sans-serif        /* Body, UI */
-/* Geladen via Google Fonts CDN */
+--font-heading: 'Manrope', system-ui, sans-serif  /* H1-H4 */
+--font-body:    'Manrope', system-ui, sans-serif  /* Body, UI */
+--font-script:  'Manrope', system-ui, sans-serif  /* Akzentzeilen */
+/* DSGVO-konform lokal als WOFF2 geladen */
 ```
+
+Ausnahme: Die handschriftliche Akzentzeile im Startseiten-Hero verwendet lokal geladenes `Dancing Script`.
 
 ## Spacing
 ```css
