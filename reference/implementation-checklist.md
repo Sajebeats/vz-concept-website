@@ -25,6 +25,11 @@ Status: ☐ offen · ◐ in Arbeit · ☑ erledigt · ⏸ wartet auf Entscheidun
 
 ## Visuelle Qualität
 
+- ☐ **Startseiten-Umbau auf 8-Sektionen-Struktur** (`homepage-structure.md`) —
+  vorher klären: Verbleib von Partner-Marquee, Router, Investitions-Sektion, FAQ-Block
+- ☐ **Textbreite anpassen**: `--container-text` 760 px → Zielvorgabe 560–680 px
+  (`design-direction.md` §Layout), danach Unterseiten prüfen
+
 - ☐ **Startseite straffen**: Offer-Grid kompakter, Testimonials auf 3–4 kuratierte
   (Karten-Budget in `homepage-structure.md` §Regeln)
 - ☐ **Hero-Glow-Feintuning** nach Sichtprüfung: wirkt ein Unterseiten-Hero zu flach,
