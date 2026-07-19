@@ -1,75 +1,92 @@
-# Brand Foundation: VZ Concept
+# VZ Concept – Markenfundament
 
-**Zweck dieser Datei:** Das Fundament, auf dem alle anderen Dokumente aufbauen —
-wer die Marke ist, für wen sie arbeitet und warum man ihr glaubt.
-Texte → `copy-guidelines.md` · Gestaltung → `design-direction.md` · Startseite → `homepage-structure.md`
+## Positionierung
+
+VZ Concept ist keine klassische Unternehmensberatung.
+
+Vanessa unterstützt Gründer:innen und Unternehmer:innen dabei,
+wichtige wirtschaftliche Entscheidungen fundiert zu treffen.
+
+Die Leistungen wie Businessplan, Marktanalyse oder Fördermittelberatung
+sind Werkzeuge. Das eigentliche Ergebnis ist Klarheit.
+
+## Was Vanessa verkauft
+
+Nicht:
+- einen Businessplan
+- eine Marktanalyse
+- eine Fördermittelberatung
+
+Sondern:
+- Klarheit vor wichtigen Entscheidungen
+- Sicherheit bei Gründung und Wachstum
+- einen ehrlichen Blick auf Zahlen, Chancen und Risiken
+- Orientierung durch eigene unternehmerische Erfahrung
+
+## Zielgruppen
+
+### Gründer:innen
+Menschen, die eine Geschäftsidee haben und wissen möchten,
+ob sie wirtschaftlich tragfähig ist.
+
+Typische Gedanken:
+- Kann ich damit wirklich meinen Lebensunterhalt verdienen?
+- Ist mein Businessplan überzeugend genug?
+- Welche Kosten habe ich übersehen?
+- Kann ich dafür Fördermittel bekommen?
+- Ist jetzt der richtige Zeitpunkt?
+
+### Selbstständige und Unternehmen
+Menschen, die wachsen, investieren oder ihr Geschäftsmodell
+weiterentwickeln möchten.
+
+Typische Gedanken:
+- Lohnt sich dieser nächste Schritt?
+- Wo verliere ich aktuell Geld?
+- Ist mein Vorhaben realistisch?
+- Welche Entscheidung ist wirtschaftlich sinnvoll?
+
+## Vanessas Stärke
+
+- 16 Jahre eigene unternehmerische Erfahrung
+- persönliche Beratung statt Standardlösung
+- ehrliche Einschätzung ohne Schönreden
+- wirtschaftlicher Blick statt bloßer Motivation
+- verständliche Beratung ohne unnötige Fachsprache
+
+## Markenwirkung
+
+Die Website soll wirken:
+- professionell
+- persönlich
+- erfahren
+- ruhig
+- klar
+- hochwertig
+- vertrauenswürdig
+
+Die Website soll nicht wirken:
+- laut
+- künstlich emotional
+- wie eine typische Coaching-Seite
+- wie eine anonyme Großberatung
+- übertrieben werblich
+- sichtbar KI-generiert
 
 ---
 
-## 1. Wer
-
-**Vanessa Zimmer** — Gründungs- und Unternehmensberaterin, Berlin.
-Firma: VZ Concept & Consulting UG. Website: vz-concept.de.
-
-Der entscheidende Unterschied: **16 Jahre eigene unternehmerische Erfahrung** —
-eigene Betriebe aufgebaut und geführt, mit Personal, Miete, Investitionen, Auslastung.
-Sie berät nicht aus dem Lehrbuch, sondern aus gelebter Verantwortung:
-*„Ich habe selbst unterschrieben, wo andere nur beraten."*
-
-## 2. Kernversprechen (Core Promise)
-
-> **Ehrliche wirtschaftliche Einordnung, bevor Entscheidungen teuer werden.**
-
-Jede Seite, jeder Text, jedes Gestaltungselement zahlt auf diesen einen Satz ein.
-VZ Concept verkauft keine Motivation und keine Träume — sondern Klarheit,
-auch wenn die Antwort „Nein, so nicht" lautet.
-
-## 3. Positionierung
-
-- **Der Feind:** Gefälligkeits-Beratung — Businesspläne, die nur schön aussehen;
-  Coaches ohne eigene unternehmerische Erfahrung; Durchhalteparolen statt Zahlen.
-- **Die Wahrheit, die niemand sagt:** Die meisten Vorhaben scheitern nicht an
-  Motivation, sondern an fehlender Klarheit über Markt, Zahlen und den nächsten Schritt.
-- **Warum glaubwürdig:** 16 Jahre eigene Betriebe, 100+ begleitete Gründungen,
-  5,0 Sterne aus 9 Google-Bewertungen, zugelassene AVGS-Träger-Kooperationen.
-- **Was anders ist:** Ehrliche Nein-Einschätzungen gehören zum Angebot.
-  Das Erstgespräch ist ein Prüfgespräch, kein Verkaufsgespräch.
-
-## 4. Zielgruppen (3 Einstiege + 1 B2B)
-
-| Segment | Situation | Einstiegsseite |
-|---|---|---|
-| **Gründung** | Will starten, aber nicht blind — Idee, Markt, Zahlen, Förderung prüfen | leistung-gruendung, leistung-avgs |
-| **Struktur & Wachstum** | Läuft, aber alles hängt an der Inhaberin/dem Inhaber | leistung-struktur |
-| **Krise & Druck** | Zahlen, Liquidität oder Team werden zum Druck; Optionen ehrlich einordnen | leistung-krise |
-| **Träger & Institutionen** (B2B) | Bildungsträger, Jobcenter — Kooperationspartner | leistung-traeger (aktuell versteckt) |
-
-Sekundär: Businessplan-Anlässe (Bank/Investor/Förderung; § 21 AufenthG).
-
-## 5. Beweise (Authority — immer konkret, nie Superlative)
+## Anhang: Belegte Beweise (einzige zulässige Kennzahlen in Texten)
 
 - **16 Jahre** eigene unternehmerische Erfahrung
 - **100+** Gründer:innen und Unternehmen begleitet
-- **5,0 ★** aus 9 Google-Bewertungen (mit Namen und Kontext zitiert)
+- **5,0 ★** aus 9 Google-Bewertungen (immer mit Name + Kontext zitieren)
 - **AVGS**: Förderung bis zu 100 % über zugelassene AZAV-Träger
-- Partnernetzwerk: Gründerinnenzentrale, Gründerplattform, Fachanwaltskanzlei
+- Partner: Gründerinnenzentrale, Gründerplattform, Fachanwaltskanzlei
   Torsten Günther, VMK Berlin, Erfolgspfad, Vital Kosmetikakademie
 
-Fehlender Beweis-Baustein (in Arbeit): Case Studies mit Zahlen
-(Problem → Vorgehen → Ergebnis) — siehe `implementation-checklist.md`.
+## Anhang: Feste Markenentscheidungen (nicht ändern ohne Vanessa)
 
-## 6. Markenpersönlichkeit
-
-**Ist:** ruhig, direkt, erfahren, konkret, auf Augenhöhe, wirtschaftlich denkend.
-**Ist nicht:** euphorisch, motivierend-schwammig, belehrend, Coaching-Sprech,
-Hochglanz-Agentur, Pastell-Wohlfühlwelt.
-
-Tonalität in einem Satz: *Wie eine erfahrene Unternehmerin, die dir beim Kaffee
-sagt, was Sache ist — respektvoll, aber ohne Weichzeichner.*
-
-## 7. Feste Markenentscheidungen (nicht ändern ohne Vanessa)
-
-- Ansprache: **Du** (B2C-Segmente); Träger-Seite: Sie
+- Ansprache: **Du** (Träger-/Institutionen-Seite: Sie)
 - Farben: Dark Teal `#0C3530`, Akzent Türkis `#00C8A8` (→ `design-tokens.md`)
 - Schriften: Playfair Display + Inter, selbst gehostet
 - Stack: Static HTML/CSS/JS auf GitHub Pages — kein CMS, kein Framework
