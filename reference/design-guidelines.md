@@ -33,8 +33,9 @@ Nie über eigene Gradient-Stacks, Winkel oder Farbstops.
 ## 2. Typografie-Hierarchie
 
 - **Playfair Display** (`--font-heading`): H1–H4. Gewichte nur 400/700 (geladene Schnitte).
-- **Playfair Italic** (`--font-script`): NUR Hero-H1-Akzentzeile und Editorial-Zitate.
-  Keine Handschrift-/Skript-Fonts — Dancing Script wurde bewusst entfernt.
+- **Playfair Italic** (`--font-script`): Editorial-Zitate und Akzente auf Unterseiten.
+- **Dancing Script**: AUSSCHLIESSLICH die Hero-H1-Akzentzeile der Startseite
+  (`.v4-hero__title-script`) — von Dennis bestätigte Ausnahme (§9). Nirgendwo sonst.
 - **Inter** (`--font-body`): Body, UI, Buttons, Labels, Navigation. Gewichte 400–700.
 - **Eyebrow-Muster** (einziges Label-Muster über Sektionen): Inter, Uppercase,
   `letter-spacing: 0.12–0.16em`, kurzer Strich davor (`::before`, 28–32 px).
@@ -78,8 +79,9 @@ Nie über eigene Gradient-Stacks, Winkel oder Farbstops.
    Tabelle oder Fließtext die Information besser trägt.
 4. **Keine Flächendefinitionen in Inline-`<style>`-Blöcken** der HTML-Seiten.
 5. **Kein `!important` für Backgrounds.**
-6. **Keine Skript-/Handschrift-Fonts, keine Pastell-Blobs, keine Emoji-Icons** —
-   Coaching-Ästhetik ist per Strategie ausgeschlossen (`context/strategy.md`).
+6. **Keine Skript-/Handschrift-Fonts** (einzige Ausnahme: Hero-Akzentzeile, §9),
+   **keine Pastell-Blobs, keine Emoji-Icons** — Coaching-Ästhetik ist per
+   Strategie ausgeschlossen (`context/strategy.md`).
 7. **Keine Deko ohne Zweck:** Jedes visuelle Element braucht eine Funktion
    (Orientierung, Hierarchie, Beweis, Handlung).
 
@@ -107,6 +109,7 @@ Nie über eigene Gradient-Stacks, Winkel oder Farbstops.
 | `.inst-hero` ist hell (Typ B) | leistung-traeger.html | Institutionelle Zielgruppe, bewusste Abgrenzung |
 | `.about-hero` Foto + Scrim-Gradients | ueber-mich.html (Inline-Style) | Funktionaler Scrim über Portrait, kein Deko-Gradient |
 | `.urgency` rote Warnfläche | leistung-krise.html (Inline-Style) | Semantisches Dringlichkeits-Signal im Krisenkontext |
+| `.v4-hero__title-script` in Dancing Script | index.html Hero | Von Dennis bestätigte Handschrift-Akzentzeile (19.07.2026) — einziger Skript-Font-Einsatz |
 | Funktionale Gradients | style.css / v4-homepage.css | Scrims, Marquee-Fade-Kanten, Text-Clip, Fokus-Ringe — erlaubt, weil funktional |
 | Partner-Marquee-Animation | Startseite | Dauer-Animation, bei reduced-motion verlangsamt |
 | `--surface-hero` (v4-Hero-Basis) | v4-homepage.css | Startseiten-Hero darf einen eigenen, dokumentierten Basis-Verlauf nutzen, falls Typ C zu flach wirkt |

@@ -21,8 +21,9 @@
 /* DSGVO-konform lokal als WOFF2 geladen (docs/assets/fonts/) */
 ```
 
-Entschieden 19.07.2026: Playfair + Inter sind fix (brand-foundation.md). Keine Handschrift-Fonts;
-die Hero-Akzentzeile nutzt Playfair Italic. Manrope-/Dancing-Script-Dateien liegen ungenutzt im Fonts-Ordner.
+Entschieden 19.07.2026: Playfair + Inter sind fix (brand-foundation.md).
+Einzige Ausnahme: Die Hero-Akzentzeile der Startseite (`.v4-hero__title-script`) nutzt
+lokal geladenes `Dancing Script` (von Dennis bestätigt). Manrope-Dateien liegen ungenutzt im Fonts-Ordner.
 
 ## Spacing
 ```css
