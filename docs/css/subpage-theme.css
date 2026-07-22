@@ -51,11 +51,6 @@ body {
   .audit-section,
   .section--off-white,
   .about-section--soft,
-  .process,
-  .timeline-section,
-  .alt-process,
-  .bp-process,
-  .process-section,
   .pillars
 ) {
   background: var(--surface-mint);
@@ -135,6 +130,393 @@ body {
   border-top: 1px solid rgba(120, 234, 215, 0.1);
 }
 
+/* ════════════════════════════════════════════════════════════════
+   KOMPONENTEN-SCHICHT: Startseiten-Designsprache auf Leistungsseiten
+   (Dennis, 19.07.2026 — Karten, Prozess-Schritte und verwandte
+   Leistungen folgen dem Stil von Orientierung / Problem&Lösung /
+   Warum VZ / Leistungen / Ablauf der Startseite)
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Helle Inhaltskarten: Look der Problem&Lösung-Karten ── */
+:is(
+  .chapter-card, .audit-card, .check-card, .angebot-card,
+  .status-card, .credential-item
+) {
+  background: linear-gradient(145deg, #ffffff 0%, #f7faf9 100%);
+  border: 1px solid rgba(12, 53, 48, 0.14);
+  border-radius: 18px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 16px 38px rgba(12, 53, 48, 0.08);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+:is(
+  .chapter-card, .audit-card, .check-card, .angebot-card,
+  .status-card, .credential-item
+):hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 168, 141, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 22px 48px rgba(12, 53, 48, 0.12);
+}
+
+/* ── Wiedererkennungs-Karten: Look der Orientierungs-Karten (dunkel,
+      nummeriert wie 01/02/03 auf der Startseite) ── */
+:is(.recognition__list, .symptoms__grid, .traps-grid, .usecase-grid,
+    .recognition__inner) {
+  counter-reset: vz-card;
+}
+
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card) {
+  counter-increment: vz-card;
+  position: relative;
+  background: var(--surface-dark);
+  color: var(--color-white);
+  border: 1px solid rgba(120, 234, 215, 0.22);
+  border-radius: 14px;
+  padding: clamp(1.35rem, 2vw, 1.75rem);
+  box-shadow:
+    0 20px 44px rgba(12, 53, 48, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+/* Keine Nummern auf den Wiedererkennungs-Karten (Dennis, 19.07.2026) */
+
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card)::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--color-accent);
+}
+
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card):hover {
+  transform: translateY(-4px);
+  border-color: rgba(120, 234, 215, 0.62);
+}
+
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card) :is(h3, h4, strong, [class$="__title"], [class$="-text"], [class$="__text"]) {
+  color: var(--color-white);
+}
+
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card) :is(p, [class$="__desc"], [class$="__sub"], li) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card) :is([class$="__icon"], svg) {
+  color: #78ead7;
+}
+
+/* ── Benefit-Kästen: Look der „Warum VZ Concept"-Proof-Kästen ── */
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 162px;
+  padding: 1.25rem;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(0, 200, 168, 0.1), transparent 38%),
+    linear-gradient(145deg, rgba(14, 50, 45, 0.96), rgba(7, 31, 28, 0.98));
+  border: 1px solid rgba(120, 234, 215, 0.18);
+  border-radius: 14px;
+  box-shadow:
+    0 18px 40px rgba(12, 53, 48, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.28s ease, border-color 0.28s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(120, 234, 215, 0.45);
+}
+
+.benefit-card :is(h3, h4, .benefit-card__title) { color: var(--color-white); }
+.benefit-card :is(p, .benefit-card__text) { color: rgba(255, 255, 255, 0.72); }
+.benefit-card .benefit-card__icon { color: #78ead7; }
+
+/* ── Verwandte Leistungen + Hub-Karten: Look der Leistungs-Karten ── */
+:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) {
+  position: relative;
+  background: var(--surface-dark);
+  color: var(--color-white);
+  border: 1px solid rgba(120, 234, 215, 0.22);
+  border-radius: 14px;
+  box-shadow:
+    0 20px 44px rgba(12, 53, 48, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card)::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--color-accent);
+}
+
+:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card):hover {
+  transform: translateY(-4px);
+  border-color: rgba(120, 234, 215, 0.62);
+  box-shadow:
+    0 26px 54px rgba(12, 53, 48, 0.22),
+    0 8px 26px rgba(0, 200, 168, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) :is(h3, h4, [class$="__title"]) {
+  color: var(--color-white);
+}
+
+:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) :is(p, [class$="__desc"], [class$="__text"]) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) :is([class$="__label"], [class$="__icon"], a) {
+  color: #78ead7;
+}
+
+/* ── Prozess-Sektionen: dunkle Ablauf-Bühne wie auf der Startseite ── */
+:is(.process, .timeline-section, .alt-process, .bp-process, .process-section, .phases) {
+  background: var(--surface-dark);
+  border-top: 1px solid var(--surface-border-dark);
+  border-bottom: 1px solid var(--surface-border-dark);
+}
+
+/* Schritte werden transparent — die Bühne trägt, nicht die Karte */
+:is(.process, .timeline-section, .alt-process, .bp-process, .process-section, .phases)
+  :is(.process-card, .alt-step, .bp-step, .proc-item, .journey-step, .phase, .timeline-item) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+:is(.process, .timeline-section, .alt-process, .bp-process, .process-section, .phases)
+  :is(h2, h3, h4, .section-label, [class$="__title"]) {
+  color: var(--color-white);
+}
+
+:is(.process, .timeline-section, .alt-process, .bp-process, .process-section, .phases)
+  :is(p, li, [class$="__text"], [class$="__sub"], [class$="__desc"]) {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+:is(.process, .timeline-section, .alt-process, .bp-process, .process-section, .phases)
+  :is(.alt-step__label, .bp-step__label, .phase__label, .step-label, .section-label, [class$="__kicker"]) {
+  color: #78ead7;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* ── Ablauf im Referenz-Layout der Startseite: 4 Spalten, Marker-Kreis,
+      Schritt-Label auf der Verbindungslinie ── */
+.vz-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3.25rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.vz-steps--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vz-step {
+  display: block;
+  position: relative;
+  min-width: 0;
+  padding-bottom: 0;
+}
+
+.vz-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 24px;
+  left: 52px;
+  width: calc(100% + clamp(1.5rem, 3vw, 3.25rem) - 52px);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(120, 234, 215, 0.62), rgba(120, 234, 215, 0.16));
+}
+
+.vz-step__marker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.vz-step__icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #092a25;
+  border: 1px solid rgba(120, 234, 215, 0.34);
+  color: #78ead7;
+  box-shadow: 0 0 0 6px #061916, 0 0 24px rgba(0, 200, 168, 0.08);
+}
+
+.vz-step__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.vz-step__label {
+  color: #78ead7;
+  background: #061916;
+  padding-inline: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.vz-step h3 {
+  max-width: 240px;
+  margin-bottom: 0.65rem;
+  color: var(--color-white);
+  font-size: 1.18rem;
+  line-height: 1.3;
+}
+
+.vz-step p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+@media (max-width: 1024px) {
+  .vz-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.75rem;
+  }
+  .vz-step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .vz-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Marker-Kreise wie der Startseiten-Ablauf */
+:is(.process-card__badge, .proc-item__num, .content-item__num) {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #092a25;
+  border: 1px solid rgba(120, 234, 215, 0.34);
+  color: #78ead7;
+  font-weight: 700;
+  box-shadow: 0 0 0 6px #061916, 0 0 24px rgba(0, 200, 168, 0.08);
+}
+
+.process-card__ghost {
+  color: rgba(120, 234, 215, 0.08);
+}
+
+.process-connector {
+  background: linear-gradient(90deg, rgba(120, 234, 215, 0.62), rgba(120, 234, 215, 0.16));
+}
+
+/* ── Verwandte Leistungen: Startseiten-Nummern (01/02/03) ── */
+:is(.related-cards, .leistungen-grid) {
+  counter-reset: vz-rel;
+}
+
+.related-card {
+  counter-increment: vz-rel;
+}
+
+.related-card::after {
+  content: '0' counter(vz-rel);
+  position: absolute;
+  top: 1rem;
+  right: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: rgba(120, 234, 215, 0.55);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* ── Doppelte Prozess-Nummern: der grosse Ghost unten entfaellt,
+      der Marker-Kreis oben bleibt (Dennis, 19.07.2026) ── */
+.process-card__ghost {
+  display: none;
+}
+
+/* ── Icons: hochwertige Fassung statt nackter Strich-Icons ── */
+/* Auf dunklen Karten: Teal-Glas-Kachel */
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card, .benefit-card,
+    .info-card, .explainer-card, .zulassung-card, .related-card, .leistung-card)
+  :is([class$="__icon"], [class$="-icon"]) {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 200, 168, 0.18), rgba(0, 200, 168, 0.04));
+  border: 1px solid rgba(120, 234, 215, 0.28);
+  color: #78ead7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Auf hellen Karten: dunkle Marken-Kachel (erlaubter Icon-Gradient) */
+:is(.chapter-card, .audit-card, .check-card, .angebot-card, .status-card, .credential-item)
+  :is([class$="__icon"], [class$="-icon"]) {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-primary), #0e4a3f);
+  color: var(--color-accent);
+  box-shadow: 0 8px 20px rgba(12, 53, 48, 0.25);
+}
+
+:is(.recognition__item, .symptom-card, .trap-card, .uc-card, .benefit-card,
+    .info-card, .explainer-card, .zulassung-card, .related-card, .leistung-card,
+    .chapter-card, .audit-card, .check-card, .angebot-card, .status-card, .credential-item)
+  :is([class$="__icon"], [class$="-icon"]) svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Karten-Typografie: ruhig und sauber lesbar ── */
+:is(.benefit-card, .recognition__item, .symptom-card, .trap-card, .uc-card)
+  :is(h3, h4, [class$="__title"]) {
+  font-size: 1.05rem;
+  line-height: 1.35;
+  margin-top: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+
+:is(.benefit-card, .recognition__item, .symptom-card, .trap-card, .uc-card)
+  :is(p, [class$="__text"], [class$="__desc"]) {
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.66);
+}
+
 @media (max-width: 760px) {
   .page-hero,
   .hub-hero,
@@ -150,7 +532,13 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :is(.faq-item, .related-card, .partner-card, .leistung-card, .process-card, .benefit-card) {
+  :is(
+    .faq-item, .related-card, .partner-card, .leistung-card, .process-card,
+    .benefit-card, .uc-card, .chapter-card, .audit-card, .symptom-card,
+    .trap-card, .check-card, .info-card, .angebot-card, .explainer-card,
+    .status-card, .zulassung-card, .credential-item, .recognition__item
+  ) {
     transition: none;
+    transform: none;
   }
 }
