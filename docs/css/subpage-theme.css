@@ -50,8 +50,7 @@ body {
   .contents-section,
   .audit-section,
   .section--off-white,
-  .about-section--soft,
-  .pillars
+  .about-section--soft
 ) {
   background: var(--surface-mint);
   border-top: 1px solid var(--surface-border-light);
@@ -81,7 +80,6 @@ body {
   .about-proof,
   .about-section--dark,
   .eg-quote,
-  .why-section,
   .cred-band,
   .quality-section,
   .situations-band,
@@ -169,7 +167,7 @@ body {
   counter-reset: vz-card;
 }
 
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card) {
+:is(.recognition__item, .symptom-card, .trap-card) {
   counter-increment: vz-card;
   position: relative;
   background: var(--surface-dark);
@@ -186,7 +184,7 @@ body {
 
 /* Keine Nummern auf den Wiedererkennungs-Karten (Dennis, 19.07.2026) */
 
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card)::after {
+:is(.recognition__item, .symptom-card, .trap-card)::after {
   content: '';
   position: absolute;
   inset: 0 0 auto;
@@ -194,20 +192,20 @@ body {
   background: var(--color-accent);
 }
 
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card):hover {
+:is(.recognition__item, .symptom-card, .trap-card):hover {
   transform: translateY(-4px);
   border-color: rgba(120, 234, 215, 0.62);
 }
 
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card) :is(h3, h4, strong, [class$="__title"], [class$="-text"], [class$="__text"]) {
+:is(.recognition__item, .symptom-card, .trap-card) :is(h3, h4, strong, [class$="__title"], [class$="-text"], [class$="__text"]) {
   color: var(--color-white);
 }
 
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card) :is(p, [class$="__desc"], [class$="__sub"], li) {
+:is(.recognition__item, .symptom-card, .trap-card) :is(p, [class$="__desc"], [class$="__sub"], li) {
   color: rgba(255, 255, 255, 0.72);
 }
 
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card) :is([class$="__icon"], svg) {
+:is(.recognition__item, .symptom-card, .trap-card) :is([class$="__icon"], svg) {
   color: #78ead7;
 }
 
@@ -239,7 +237,7 @@ body {
 .benefit-card .benefit-card__icon { color: #78ead7; }
 
 /* ── Verwandte Leistungen + Hub-Karten: Look der Leistungs-Karten ── */
-:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) {
+:is(.related-card, .leistung-card) {
   position: relative;
   background: var(--surface-dark);
   color: var(--color-white);
@@ -252,7 +250,7 @@ body {
   transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
-:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card)::before {
+:is(.related-card, .leistung-card)::before {
   content: '';
   position: absolute;
   inset: 0 0 auto;
@@ -260,7 +258,7 @@ body {
   background: var(--color-accent);
 }
 
-:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card):hover {
+:is(.related-card, .leistung-card):hover {
   transform: translateY(-4px);
   border-color: rgba(120, 234, 215, 0.62);
   box-shadow:
@@ -269,15 +267,15 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) :is(h3, h4, [class$="__title"]) {
+:is(.related-card, .leistung-card) :is(h3, h4, [class$="__title"]) {
   color: var(--color-white);
 }
 
-:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) :is(p, [class$="__desc"], [class$="__text"]) {
+:is(.related-card, .leistung-card) :is(p, [class$="__desc"], [class$="__text"]) {
   color: rgba(255, 255, 255, 0.72);
 }
 
-:is(.related-card, .leistung-card, .info-card, .explainer-card, .zulassung-card) :is([class$="__label"], [class$="__icon"], a) {
+:is(.related-card, .leistung-card) :is([class$="__label"], [class$="__icon"], a) {
   color: #78ead7;
 }
 
@@ -466,8 +464,8 @@ body {
 
 /* ── Icons: hochwertige Fassung statt nackter Strich-Icons ── */
 /* Auf dunklen Karten: Teal-Glas-Kachel */
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card, .benefit-card,
-    .info-card, .explainer-card, .zulassung-card, .related-card, .leistung-card)
+:is(.recognition__item, .symptom-card, .trap-card, .benefit-card,
+    .related-card, .leistung-card)
   :is([class$="__icon"], [class$="-icon"]) {
   display: grid;
   place-items: center;
@@ -493,7 +491,7 @@ body {
   box-shadow: 0 8px 20px rgba(12, 53, 48, 0.25);
 }
 
-:is(.recognition__item, .symptom-card, .trap-card, .uc-card, .benefit-card,
+:is(.recognition__item, .symptom-card, .trap-card, .benefit-card,
     .info-card, .explainer-card, .zulassung-card, .related-card, .leistung-card,
     .chapter-card, .audit-card, .check-card, .angebot-card, .status-card, .credential-item)
   :is([class$="__icon"], [class$="-icon"]) svg {
@@ -502,7 +500,7 @@ body {
 }
 
 /* ── Karten-Typografie: ruhig und sauber lesbar ── */
-:is(.benefit-card, .recognition__item, .symptom-card, .trap-card, .uc-card)
+:is(.benefit-card, .recognition__item, .symptom-card, .trap-card)
   :is(h3, h4, [class$="__title"]) {
   font-size: 1.05rem;
   line-height: 1.35;
@@ -510,11 +508,30 @@ body {
   margin-bottom: 0.4rem;
 }
 
-:is(.benefit-card, .recognition__item, .symptom-card, .trap-card, .uc-card)
+:is(.benefit-card, .recognition__item, .symptom-card, .trap-card)
   :is(p, [class$="__text"], [class$="__desc"]) {
   font-size: 0.92rem;
   line-height: 1.62;
   color: rgba(255, 255, 255, 0.66);
+}
+
+/* ── Akzent-Text auf hellen Flächen: Türkis (#00C8A8, Kontrast 2,1) durch
+      dunkleres Akzent-Grün ersetzen. Nur die accent-Varianten, nicht die
+      muted/roten Gegenstücke. (Kontrast-Fix, 22.07.2026) ── */
+.compare-section .compare-col--pro .compare-col__label,
+.beforeafter .ba-col--after .ba-col__label,
+.avgs-hint strong,
+.angebot-card__num,
+.inst-hero__h1 em {
+  color: var(--color-accent-ink);
+}
+
+/* Bewertungssterne: goldenes Gelb (#f5a623, Kontrast 2,0) auf ein
+   AA-konformes Gold heben (3:1 für grafische Objekte, WCAG 1.4.11). */
+.sl-proof__rating .sl-proof__stars,
+.sl-proof__stars,
+.sl-proof__stars-sm {
+  color: #b8790f;
 }
 
 @media (max-width: 760px) {
