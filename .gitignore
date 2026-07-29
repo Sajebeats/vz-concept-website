@@ -4,6 +4,13 @@ plans/
 outputs/
 scripts/
 shell-aliases.md
+_image-originals-backup/
+
+# Interne Arbeitsunterlagen — Repo ist oeffentlich (Pages-Voraussetzung),
+# daher duerfen Strategie-/Copywriting-Dokumente nicht hinein.
+reference/
+CLAUDE.md
+AGENTS.md
 
 # Mac/Windows Systemmüll
 __MACOSX/
