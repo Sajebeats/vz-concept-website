@@ -28,98 +28,25 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0C3530">
-
-  <style>
-    .process-section {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: clamp(3rem, 6vw, 5rem);
-      align-items: flex-start;
-    }
-
-    .process-sidebar {
-      position: sticky;
-      top: calc(76px + 2rem);
-    }
-
-    .info-aside {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .info-aside__header {
-      background: linear-gradient(135deg, var(--color-primary), #0E4A3F);
-      padding: var(--space-lg);
-      color: var(--color-white);
-    }
-
-    .info-aside__title {
-      font-family: var(--font-heading);
-      font-size: var(--fs-xl);
-      color: var(--color-white);
-      margin-bottom: 0.375rem;
-    }
-
-    .info-aside__sub {
-      font-size: var(--fs-sm);
-      color: rgba(255,255,255,0.7);
-    }
-
-    .info-aside__body {
-      padding: var(--space-lg);
-    }
-
-    .aside-note {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding-block: var(--space-sm);
-      border-bottom: 1px solid var(--color-border);
-      font-size: var(--fs-sm);
-    }
-
-    .aside-note:last-of-type { border-bottom: none; }
-
-    .aside-note__icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--color-accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--color-accent);
-    }
-
-    .aside-note__icon svg { width: 14px; height: 14px; }
-
-    .aside-note__text { color: var(--color-text-muted); line-height: 1.55; }
-    .aside-note__text strong { color: var(--color-primary); display: block; margin-bottom: 2px; }
-
-    @media (max-width: 900px) {
-      .process-section {
-        grid-template-columns: 1fr;
-      }
-      .process-sidebar { position: static; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/pages/ablauf.css">
   <link rel="stylesheet" href="css/subpage-theme.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Hauptnavigation">
     <div class="container">
       <div class="nav__inner">
+
+        <!-- Logo: weiß (auf Hero) + farbig (gescrollt) -->
         <a href="/" class="nav__logo" aria-label="VZ Concept Startseite">
           <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white" width="2917" height="694">
           <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color" width="500" height="500">
         </a>
+
+        <!-- Desktop-Menü -->
         <ul class="nav__menu" role="list">
           <li><a href="ueber-mich" class="nav__link">Über mich</a></li>
         <li class="nav__item--dropdown">
@@ -169,29 +96,38 @@
               <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer" class="nav__mega-feature-img" loading="lazy" width="1067" height="1600">
               <div class="nav__mega-feature-body">
                 <p>Nicht sicher welche Leistung passt?</p>
-                <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+                <a href="erstgespraech#buchung" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
                 <p class="nav__mega-feature-note">30 Min &middot; kostenlos &middot; unverbindlich</p>
               </div>
             </div>
           </div>
         </li>
-          <li><a href="ablauf" class="nav__link active">Ablauf</a></li>
+          <li><a href="ablauf" class="nav__link">Ablauf</a></li>
           <li><a href="faq" class="nav__link">FAQ</a></li>
           <li><a href="referenzen" class="nav__link">Stimmen</a></li>
           <li><a href="partner" class="nav__link">Partner</a></li>
           <li class="nav__mobile-cta">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+            <a href="erstgespraech#buchung" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
           </li>
         </ul>
+
+        <!-- Mobile CTA -->
+
+        <!-- CTA -->
         <div class="nav__cta">
-          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          <a href="erstgespraech#buchung" class="btn btn--primary">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Erstgespräch buchen
           </a>
         </div>
+
+        <!-- Mobile Toggle -->
         <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
       </div>
     </div>
   </nav>
@@ -231,7 +167,7 @@
               <div class="process-step__content">
                 <h3 class="process-step__title">Erstgespräch buchen</h3>
                 <p class="process-step__desc">
-                  Du buchst direkt über Calendly einen Termin. Im Gespräch geht es nicht um einen Pitch, sondern um deine Situation: Wo stehst du, was ist offen, und welche Art von Unterstützung wäre sinnvoll?
+                  Du wählst über Calendly einen freien Termin für das kostenlose Erstgespräch. Die Bestätigung enthält die Gesprächsdetails. Überlege vorab, welche Frage für dich gerade am wichtigsten ist.
                 </p>
                 <div class="highlight-box mt-sm" style="padding: var(--space-sm) var(--space-md);">
                   <p style="font-size: var(--fs-xs); color: var(--color-primary); font-weight: 600;">Du musst noch keine fertige Entscheidung mitbringen. Eine kurze Einordnung reicht für den Einstieg.</p>
@@ -247,7 +183,7 @@
                   Im Gespräch lerne ich deine Situation kennen: Wo stehst du? Was ist der eigentliche Engpass? Was hast du bereits versucht? Ich höre zu, frage nach und sortiere mit dir, was wirklich geklärt werden muss.
                 </p>
                 <p class="process-step__desc">
-                  Am Ende des Gesprächs bist du klüger als vorher – unabhängig davon, ob wir zusammenarbeiten oder nicht.
+                  Wir halten fest, welches Anliegen zuerst geklärt werden sollte und ob ich dich dabei unterstützen kann.
                 </p>
               </div>
             </div>
@@ -286,7 +222,7 @@
                   Wir arbeiten in strukturierten Sitzungen – online oder vor Ort. Jede Sitzung hat ein klares Ziel. Zwischen den Terminen gibt es bei Bedarf Rückmeldungen und Zwischenergebnisse. Du weißt immer, wo wir stehen.
                 </p>
                 <p class="process-step__desc">
-                  Keine leeren Stunden, keine Wiederholungen, kein Aufwand um des Aufwands willen.
+                  Je nach Auftrag prüfen wir Kalkulationen, erarbeiten Planungsunterlagen oder legen konkrete Maßnahmen mit Zuständigkeiten fest.
                 </p>
               </div>
             </div>
@@ -296,7 +232,7 @@
               <div class="process-step__content">
                 <h3 class="process-step__title">Ergebnis &amp; nächste Schritte</h3>
                 <p class="process-step__desc">
-                  Am Ende unserer Zusammenarbeit hast du das, was du gebraucht hast: Klarheit, einen Businessplan, eine Entscheidungsgrundlage, eine Struktur oder einen realistischen nächsten Schritt. Und du weißt, was als nächstes zu tun ist.
+                  Du erhältst die vereinbarten Ergebnisse: zum Beispiel einen Businessplan mit Finanzplanung, eine Wirtschaftlichkeitsprüfung oder einen priorisierten Maßnahmenplan. Wir besprechen die zugrunde liegenden Annahmen und die nächsten Umsetzungsschritte.
                 </p>
                 <p class="process-step__desc">
                   Auf Wunsch bleiben wir in loser Verbindung – für Rückfragen, Folgethemen oder neue Herausforderungen.
@@ -319,7 +255,7 @@
                 <div class="aside-note__icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
-                <p class="aside-note__text"><strong>Dauer</strong> 30–45 Minuten</p>
+                <p class="aside-note__text"><strong>Dauer</strong> 30&nbsp;Minuten</p>
               </div>
               <div class="aside-note">
                 <div class="aside-note__icon" aria-hidden="true">
@@ -331,7 +267,7 @@
                 <div class="aside-note__icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                 </div>
-                <p class="aside-note__text"><strong>Kosten</strong> Aktuell kostenfrei &amp; ohne Verpflichtung</p>
+                <p class="aside-note__text"><strong>Kosten</strong> Kostenlos &amp; unverbindlich</p>
               </div>
               <div class="aside-note">
                 <div class="aside-note__icon" aria-hidden="true">
@@ -340,7 +276,7 @@
                 <p class="aside-note__text"><strong>Buchung</strong> Direkt via Calendly – sofort wählbar</p>
               </div>
 
-              <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="width:100%; justify-content:center; margin-top: var(--space-md);">
+              <a href="erstgespraech#buchung" class="btn btn--primary" style="width:100%; justify-content:center; margin-top: var(--space-md);">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 Jetzt Termin buchen
               </a>
@@ -350,12 +286,11 @@
           <!-- Förderungs-Hinweis -->
           <div class="highlight-box mt-md">
             <p style="font-size: var(--fs-sm); font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">
-              💡 Förderung möglich
+              Fördermöglichkeiten
             </p>
             <p style="font-size: var(--fs-sm); color: var(--color-text-muted); line-height: 1.6;">
-              Gründerberatung über AVGS: Förderung individuell über zugelassene Träger prüfbar.<br><br>
-              INQA-Beratungsförderung für KMU: Förderung individuell prüfbar.<br><br>
-              Ich begleite dich auf Wunsch auch bei der Beantragung.
+              AVGS-Gründercoaching findet über zugelassene AZAV-Kooperationsträger statt. Die Agentur für Arbeit oder das Jobcenter entscheidet im Einzelfall über die Förderung.<br><br>
+              Vor dem Start klären wir den Förderweg und die benötigten Unterlagen.
             </p>
           </div>
 
@@ -418,11 +353,11 @@
         <p class="section-label section-label--light">Bereit?</p>
         <h2 class="cta-section__title" id="cta-title">Der erste Schritt ist einfacher, als du denkst.</h2>
         <p class="cta-section__text">Buche dein Erstgespräch und lass uns einordnen, was deine Situation jetzt braucht.</p>
-        <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+        <a href="erstgespraech#buchung" class="btn btn--primary btn--lg">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Erstgespräch buchen
         </a>
-        <p class="cta-section__note">Unverbindlich · Klar · Ohne Vertriebsdruck</p>
+        <p class="cta-section__note">30&nbsp;Min · kostenlos · unverbindlich</p>
       </div>
     </div>
   </section>
@@ -433,10 +368,32 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
+
+        <!-- Brand -->
         <div class="footer__brand">
-          <div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694"></div>
-          <p class="footer__tagline">Gründungs- und Unternehmensberatung mit klarem Blick auf Markt, Struktur und Alltag.</p>
+          <div class="footer__logo">
+            <img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694">
+          </div>
+          <p class="footer__tagline">
+            Gründungs- und Unternehmensberatung für Vorhaben, die im Markt und im Alltag bestehen sollen.
+          </p>
+          <div class="footer__social" aria-label="Social Media">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
         </div>
+
+        <!-- Navigation -->
         <div>
           <p class="footer__nav-title">Navigation</p>
           <ul class="footer__nav-list" role="list">
@@ -444,40 +401,55 @@
             <li><a href="ueber-mich">Über mich</a></li>
             <li><a href="leistungen">Leistungen</a></li>
             <li><a href="ablauf">Ablauf</a></li>
+            <li><a href="referenzen">Stimmen</a></li>
             <li><a href="faq">FAQ</a></li>
           </ul>
         </div>
+
+        <!-- Leistungen -->
         <div>
           <p class="footer__nav-title">Leistungen</p>
           <ul class="footer__nav-list" role="list">
             <li><a href="leistung-gruendung">Gründungsberatung</a></li>
             <li><a href="leistung-avgs">AVGS-Gründercoaching</a></li>
             <li><a href="leistung-krise">Krisenberatung</a></li>
-            <li><a href="leistung-businessplan">Businessplan</a></li>
+            <li><a href="leistung-businessplan">Businessplan-Service</a></li>
             <li><a href="leistung-aufenthaltsrecht">Aufenthaltsrecht</a></li>
             <li><a href="leistung-struktur">Struktur &amp; Unternehmensentwicklung</a></li>
           </ul>
         </div>
+
+        <!-- Kontakt -->
         <div>
           <p class="footer__nav-title">Kontakt</p>
           <ul class="footer__nav-list" role="list">
-            <li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="erstgespraech#buchung">Erstgespräch buchen</a></li>
             <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+            <li><a href="tel:+4915254589658">+49 152 5458 9658</a></li>
+            <li><a href="https://vz-concept.de" target="_blank" rel="noopener">vz-concept.de</a></li>
           </ul>
         </div>
+
       </div>
+
+      <!-- Bottom Bar -->
       <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 VZ Concept &amp; Consulting UG</p>
+        <p class="footer__copy">
+          &copy; 2026 VZ Concept &amp; Consulting UG · Alle Rechte vorbehalten
+        </p>
         <nav class="footer__legal" aria-label="Rechtliche Links">
-          <a href="impressum">Impressum</a>
-          <a href="datenschutz">Datenschutz</a>
-          <a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a>
+          <a href="impressum" data-no-campaign="true">Impressum</a>
+          <a href="datenschutz" data-no-campaign="true">Datenschutz</a>
+          <button type="button" id="cookie-settings-button">Cookie-Einstellungen</button>
         </nav>
       </div>
+
     </div>
   </footer>
-
-    <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement-config.js" defer></script>
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement.js" defer></script>
+  <script src="js/booking.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

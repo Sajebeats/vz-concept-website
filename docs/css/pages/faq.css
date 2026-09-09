@@ -1,0 +1,12 @@
+.faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .faq-layout {
+        grid-template-columns: 1fr;
+      }
+    }

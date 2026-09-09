@@ -1,0 +1,615 @@
+.about-page {
+      overflow: hidden;
+      background: var(--color-white);
+    }
+
+    .about-hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding-top: 76px;
+      color: var(--color-white);
+      background: var(--color-primary-deep);
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(4, 22, 19, 0.96) 0%, rgba(4, 22, 19, 0.9) 30%, rgba(4, 22, 19, 0.68) 52%, rgba(4, 22, 19, 0.16) 76%),
+        linear-gradient(0deg, rgba(4, 22, 19, 0.84) 0%, transparent 36%),
+        url('../../assets/images/vanessa/vanessa-beratung.jpg') right center / min(68vw, 930px) auto no-repeat;
+      pointer-events: none;
+    }
+
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: rgba(0, 200, 168, 0.28);
+    }
+
+    .about-hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 690px;
+      padding-block: clamp(6rem, 13vw, 10rem) clamp(3rem, 7vw, 5rem);
+    }
+
+    .about-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+      color: var(--color-accent);
+      font-size: var(--fs-xs);
+      font-weight: 850;
+      letter-spacing: 0.17em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .about-kicker::before {
+      content: '';
+      width: 34px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .about-hero__title {
+      max-width: 660px;
+      margin-bottom: 1.4rem;
+      color: var(--color-white);
+      font-size: clamp(3rem, 7.2vw, 6.45rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .about-hero__title span {
+      display: block;
+      color: var(--color-accent);
+      font-family: var(--font-script);
+      font-size: clamp(3.55rem, 8vw, 6.95rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+    }
+
+    .about-hero__text {
+      max-width: 590px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+      line-height: 1.72;
+      margin-bottom: 2rem;
+    }
+
+    .about-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .about-proof {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,200,168,0.07) 0%, transparent 65%),
+        var(--color-primary);
+      color: var(--color-white);
+      padding-block: clamp(2.5rem, 4vw, 3.5rem);
+      position: relative;
+    }
+
+    .about-proof::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(0,200,168,0.45) 25%, rgba(0,200,168,0.45) 75%, transparent 100%);
+    }
+
+    .about-proof__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      background: transparent;
+    }
+
+    .about-proof__item {
+      padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.25rem, 2.2vw, 2rem);
+      background: transparent;
+      border-right: 1px solid rgba(0, 200, 168, 0.12);
+      position: relative;
+      transition: background 0.35s ease;
+    }
+
+    .about-proof__item:last-child {
+      border-right: none;
+    }
+
+    .about-proof__item::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-accent);
+      border-radius: 999px;
+      margin-bottom: 0.9rem;
+      opacity: 0.75;
+      transition: width 0.35s ease, opacity 0.35s ease;
+    }
+
+    .about-proof__item:hover {
+      background: rgba(0, 200, 168, 0.04);
+    }
+
+    .about-proof__item:hover::before {
+      width: 40px;
+      opacity: 1;
+    }
+
+    .about-proof__value {
+      display: block;
+      color: var(--color-accent);
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      line-height: 0.9;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      text-shadow:
+        0 0 40px rgba(0, 200, 168, 0.38),
+        0 0 80px rgba(0, 200, 168, 0.12);
+    }
+
+    .about-proof__suffix {
+      font-size: 0.85em;
+      opacity: 0.9;
+    }
+
+    .about-proof__label {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: clamp(0.71rem, 1vw, 0.8rem);
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .about-section {
+      padding-block: clamp(5rem, 9vw, 8rem);
+    }
+
+    .about-section--soft {
+      background: linear-gradient(180deg, var(--color-light-bg), var(--color-white));
+    }
+
+    .about-section--dark {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(0, 200, 168, 0.16), transparent 30%),
+        var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .about-section__head {
+      max-width: 760px;
+      margin-bottom: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .about-section__head--center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .about-title {
+      color: var(--color-primary);
+      font-size: clamp(2.15rem, 4.6vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .about-section--dark .about-title {
+      color: var(--color-white);
+    }
+
+    .about-lead {
+      color: var(--color-text-muted);
+      font-size: clamp(1rem, 1.3vw, 1.18rem);
+      line-height: 1.75;
+    }
+
+    .about-section--dark .about-lead {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .about-story {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(2.4rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    .about-story__media {
+      position: sticky;
+      top: calc(76px + 2rem);
+    }
+
+    .about-story__image {
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border-radius: 8px;
+      background: var(--color-light-bg);
+      box-shadow: 0 34px 90px rgba(12, 53, 48, 0.16);
+    }
+
+    .about-story__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 52% top;
+      display: block;
+    }
+
+    .about-signature {
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .about-signature strong {
+      display: block;
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+      font-size: var(--fs-lg);
+      margin-bottom: 0.2rem;
+    }
+
+    .about-signature span {
+      color: var(--color-text-muted);
+      font-size: var(--fs-sm);
+    }
+
+    .about-story__copy {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.75rem, 3vw, 2.5rem);
+    }
+
+    .about-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.85rem, 1.4vw, 1.1rem);
+    }
+
+    /* ── Verbundene Kapitel-Gruppe (01 + 02) ── */
+    .about-chapter-group {
+      border: 1px solid rgba(12,53,48,0.1);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(12,53,48,0.07);
+    }
+
+    .about-chapter-group .about-chapter {
+      border: none;
+      border-bottom: 1px solid rgba(12,53,48,0.08);
+      border-radius: 0;
+      box-shadow: none;
+      transition: background 0.25s ease;
+    }
+
+    .about-chapter-group .about-chapter:last-child {
+      border-bottom: none;
+    }
+
+    .about-chapter-group .about-chapter:hover {
+      background: rgba(0,200,168,0.028);
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── Einzelne Chapter-Card ── */
+    .about-chapter {
+      background: white;
+      border: 1px solid rgba(12,53,48,0.1);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 12px;
+      padding: clamp(1.1rem, 1.8vw, 1.55rem) clamp(1.25rem, 2vw, 1.75rem);
+      box-shadow: 0 2px 20px rgba(12,53,48,0.07);
+      transition: box-shadow 0.28s ease, transform 0.28s ease;
+    }
+
+    .about-chapter:hover {
+      box-shadow: 0 6px 28px rgba(12,53,48,0.12);
+      transform: translateY(-2px);
+    }
+
+    .about-chapter h3 {
+      color: var(--color-primary);
+      font-size: clamp(1rem, 1.65vw, 1.35rem);
+      line-height: 1.2;
+      font-weight: 700;
+      margin: 0 0 0.45rem;
+    }
+
+    .about-chapter p {
+      color: var(--color-text-muted);
+      font-size: clamp(0.875rem, 1.1vw, 0.94rem);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .about-chapter p + p {
+      margin-top: 0.4rem;
+    }
+
+    .story-em {
+      font-style: normal;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* ── Pullquote — dunkles Panel ── */
+    .about-pullquote {
+      margin: 0;
+      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.75rem, 3vw, 2.75rem);
+      background:
+        radial-gradient(circle at 8% 50%, rgba(0,200,168,0.1), transparent 55%),
+        var(--color-primary);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
+      font-style: italic;
+      line-height: 1.32;
+      letter-spacing: -0.02em;
+      border-top: none;
+    }
+
+    .about-pullquote::before {
+      content: '\201C';
+      position: absolute;
+      left: clamp(0.75rem, 1.5vw, 1.25rem);
+      top: -0.1em;
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 9vw, 8rem);
+      color: var(--color-accent);
+      opacity: 0.15;
+      line-height: 1;
+      pointer-events: none;
+      font-style: normal;
+    }
+
+    .about-pullquote::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--color-accent), rgba(0,200,168,0.3));
+      border-radius: 12px 0 0 12px;
+    }
+
+    .about-principles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .about-principle {
+      min-height: 310px;
+      padding: clamp(1.4rem, 3vw, 2.4rem);
+      background: rgba(255, 255, 255, 0.045);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .about-principle:hover {
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-4px);
+    }
+
+    .about-principle span {
+      color: var(--color-accent);
+      font-size: var(--fs-xs);
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .about-principle h3 {
+      color: var(--color-white);
+      font-size: clamp(1.45rem, 2.4vw, 2rem);
+      line-height: 1.12;
+      margin: 1.5rem 0 0.85rem;
+    }
+
+    .about-principle p {
+      color: rgba(255, 255, 255, 0.68);
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+    }
+
+    .about-credentials {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: clamp(2.2rem, 6vw, 5rem);
+      align-items: start;
+    }
+
+    .about-credentials--single {
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 880px;
+      margin-inline: auto;
+    }
+
+    .about-credentials--single .about-cv,
+    .about-credentials--single .about-focus-list {
+      margin-top: 1.8rem;
+    }
+
+    .about-focus-list,
+    .about-cv {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .about-focus-item,
+    .about-cv-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .about-focus-item strong,
+    .about-cv-item strong {
+      display: block;
+      color: var(--color-primary);
+      font-size: var(--fs-md);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-focus-item span,
+    .about-cv-item span {
+      color: var(--color-text-muted);
+      font-size: var(--fs-sm);
+      line-height: 1.55;
+    }
+
+    .about-cta {
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(5rem, 9vw, 7rem);
+      background: var(--color-primary-deep);
+      color: var(--color-white);
+    }
+
+    .about-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(4, 22, 19, 0.88), rgba(4, 22, 19, 0.68)),
+        url('../../assets/images/vanessa/vanessa-hero.jpg') right center / auto 120% no-repeat;
+      opacity: 0.92;
+    }
+
+    .about-cta__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .about-cta h2 {
+      color: var(--color-white);
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+    }
+
+    .about-cta p {
+      max-width: 590px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: var(--fs-md);
+      line-height: 1.72;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .about-hero::before {
+        background:
+          linear-gradient(180deg, rgba(4, 22, 19, 0.68), rgba(4, 22, 19, 0.94)),
+          url('../../assets/images/vanessa/vanessa-beratung.jpg') center top / auto 76vh no-repeat;
+      }
+
+      .about-hero__inner {
+        padding-top: 54vh;
+      }
+
+      .about-proof__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      /* Erste Reihe bekommt untere Trennlinie */
+      .about-proof__item:nth-child(1),
+      .about-proof__item:nth-child(2) {
+        border-bottom: 1px solid rgba(0, 200, 168, 0.08);
+      }
+
+      /* Zweite Spalte: keine rechte Border */
+      .about-proof__item:nth-child(2n) {
+        border-right: none;
+      }
+
+      .about-principles,
+      .about-story,
+      .about-credentials {
+        grid-template-columns: 1fr;
+      }
+
+      .about-story__media {
+        position: static;
+      }
+
+      .about-story__image {
+        max-height: 560px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about-hero {
+        min-height: auto;
+      }
+
+      .about-hero::before {
+        background:
+          linear-gradient(180deg, rgba(4, 22, 19, 0.36), rgba(4, 22, 19, 0.96)),
+          url('../../assets/images/vanessa/vanessa-beratung.jpg') center top / auto 54vh no-repeat;
+      }
+
+      .about-hero__inner {
+        padding-top: 48vh;
+        padding-bottom: 3rem;
+      }
+
+      .about-hero__actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .about-proof__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Auf 2x2-Grid: nur Items 1 und 3 haben rechte Border */
+      .about-proof__item {
+        border-right: 1px solid rgba(0, 200, 168, 0.12);
+        border-bottom: 1px solid rgba(0, 200, 168, 0.08);
+      }
+
+      .about-proof__item:nth-child(2n) {
+        border-right: none;
+      }
+
+      .about-proof__item:nth-child(3),
+      .about-proof__item:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .about-pullquote {
+        font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+      }
+
+      .about-section {
+        padding-block: 4rem;
+      }
+    }

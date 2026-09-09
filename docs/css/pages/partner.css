@@ -1,0 +1,231 @@
+/* ── Partner-Karten ── */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .partner-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .partner-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-accent-mid);
+    }
+
+    .partner-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    .partner-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .partner-card__icon svg { width: 24px; height: 24px; }
+
+    .partner-card__category {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .partner-card__title {
+      font-family: var(--font-heading);
+      font-size: var(--fs-xl);
+      color: var(--color-primary);
+      line-height: 1.25;
+    }
+
+    .partner-card__desc {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    .partner-card__benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-md);
+    }
+
+    .partner-card__benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      line-height: 1.45;
+    }
+
+    .partner-card__benefits li svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--color-accent);
+    }
+
+    /* ── Vertrauens-Band ── */
+    .partner-quote {
+      background: var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 4vw, 3.5rem);
+      text-align: center;
+      margin-block: var(--space-2xl);
+    }
+
+    .partner-quote__mark {
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      color: var(--color-accent);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: var(--space-md);
+      opacity: 0.5;
+    }
+
+    .partner-quote__text {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      color: var(--color-white);
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto var(--space-md);
+    }
+
+    .partner-quote__author {
+      font-size: var(--fs-sm);
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── Kooperations-Anfrage ── */
+    .kooperation-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
+      background: var(--color-accent-light);
+      border: 1px solid var(--color-accent-mid);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 4vw, 3rem);
+    }
+
+    .kooperation-box__title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .kooperation-box__text {
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    .kooperation-box__cta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      align-items: flex-start;
+    }
+
+    /* ── Logo-Strip ── */
+    .logo-strip {
+      background: var(--color-primary);
+      padding-block: var(--space-xl);
+    }
+
+    .logo-strip__label {
+      text-align: center;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: var(--space-lg);
+    }
+
+    .logo-strip__grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .logo-strip__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .logo-strip__item:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(0,200,168,0.4);
+    }
+
+    .logo-strip__item img {
+      max-height: 56px;
+      max-width: 180px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.88;
+      transition: opacity var(--transition);
+    }
+
+    .logo-strip__item:hover img {
+      opacity: 1;
+    }
+
+    /* Gründerinnenzentrale-Siegel braucht etwas mehr Platz */
+    .logo-strip__item--badge img {
+      max-height: 72px;
+      max-width: 220px;
+    }
+
+    .logo-strip__item--wide img {
+      max-width: 260px;
+    }
+
+    @media (max-width: 600px) {
+      .logo-strip__grid { gap: var(--space-md); }
+      .logo-strip__item img { max-height: 44px; max-width: 140px; }
+    }
+
+    @media (max-width: 900px) {
+      .partner-grid { grid-template-columns: 1fr; }
+      .kooperation-box { grid-template-columns: 1fr; }
+    }

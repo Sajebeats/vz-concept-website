@@ -5,7 +5,6 @@ User-agent: *
 Allow: /
 
 # Interne Seite nicht indexieren (wird gerade überarbeitet)
-Disallow: /leistung-traeger.html
 
 # KI-Crawler ausdrücklich erlaubt (Generative Engine Optimization)
 User-agent: GPTBot

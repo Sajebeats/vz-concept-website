@@ -29,624 +29,6 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0C3530">
 
-  <style>
-    .about-page {
-      overflow: hidden;
-      background: var(--color-white);
-    }
-
-    .about-hero {
-      position: relative;
-      min-height: 100svh;
-      display: grid;
-      align-items: end;
-      padding-top: 76px;
-      color: var(--color-white);
-      background: var(--color-primary-deep);
-    }
-
-    .about-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(4, 22, 19, 0.96) 0%, rgba(4, 22, 19, 0.9) 30%, rgba(4, 22, 19, 0.68) 52%, rgba(4, 22, 19, 0.16) 76%),
-        linear-gradient(0deg, rgba(4, 22, 19, 0.84) 0%, transparent 36%),
-        url('assets/images/vanessa/vanessa-beratung.jpg') right center / min(68vw, 930px) auto no-repeat;
-      pointer-events: none;
-    }
-
-    .about-hero::after {
-      content: '';
-      position: absolute;
-      inset: auto 0 0;
-      height: 1px;
-      background: rgba(0, 200, 168, 0.28);
-    }
-
-    .about-hero__inner {
-      position: relative;
-      z-index: 1;
-      max-width: 690px;
-      padding-block: clamp(6rem, 13vw, 10rem) clamp(3rem, 7vw, 5rem);
-    }
-
-    .about-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 1.2rem;
-      color: var(--color-accent);
-      font-size: var(--fs-xs);
-      font-weight: 850;
-      letter-spacing: 0.17em;
-      line-height: 1.2;
-      text-transform: uppercase;
-    }
-
-    .about-kicker::before {
-      content: '';
-      width: 34px;
-      height: 2px;
-      border-radius: 999px;
-      background: currentColor;
-    }
-
-    .about-hero__title {
-      max-width: 660px;
-      margin-bottom: 1.4rem;
-      color: var(--color-white);
-      font-size: clamp(3rem, 7.2vw, 6.45rem);
-      line-height: 0.9;
-      letter-spacing: -0.055em;
-    }
-
-    .about-hero__title span {
-      display: block;
-      color: var(--color-accent);
-      font-family: var(--font-script);
-      font-size: clamp(3.55rem, 8vw, 6.95rem);
-      font-weight: 600;
-      letter-spacing: -0.035em;
-    }
-
-    .about-hero__text {
-      max-width: 590px;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: clamp(1.05rem, 1.45vw, 1.28rem);
-      line-height: 1.72;
-      margin-bottom: 2rem;
-    }
-
-    .about-hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      align-items: center;
-    }
-
-    .about-proof {
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,200,168,0.07) 0%, transparent 65%),
-        var(--color-primary);
-      color: var(--color-white);
-      padding-block: clamp(2.5rem, 4vw, 3.5rem);
-      position: relative;
-    }
-
-    .about-proof::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(0,200,168,0.45) 25%, rgba(0,200,168,0.45) 75%, transparent 100%);
-    }
-
-    .about-proof__grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0;
-      background: transparent;
-    }
-
-    .about-proof__item {
-      padding: clamp(1.5rem, 2.5vw, 2.25rem) clamp(1.25rem, 2.2vw, 2rem);
-      background: transparent;
-      border-right: 1px solid rgba(0, 200, 168, 0.12);
-      position: relative;
-      transition: background 0.35s ease;
-    }
-
-    .about-proof__item:last-child {
-      border-right: none;
-    }
-
-    .about-proof__item::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--color-accent);
-      border-radius: 999px;
-      margin-bottom: 0.9rem;
-      opacity: 0.75;
-      transition: width 0.35s ease, opacity 0.35s ease;
-    }
-
-    .about-proof__item:hover {
-      background: rgba(0, 200, 168, 0.04);
-    }
-
-    .about-proof__item:hover::before {
-      width: 40px;
-      opacity: 1;
-    }
-
-    .about-proof__value {
-      display: block;
-      color: var(--color-accent);
-      font-family: var(--font-heading);
-      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
-      line-height: 0.9;
-      margin-bottom: 0.65rem;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      text-shadow:
-        0 0 40px rgba(0, 200, 168, 0.38),
-        0 0 80px rgba(0, 200, 168, 0.12);
-    }
-
-    .about-proof__suffix {
-      font-size: 0.85em;
-      opacity: 0.9;
-    }
-
-    .about-proof__label {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: clamp(0.71rem, 1vw, 0.8rem);
-      font-weight: 600;
-      line-height: 1.45;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .about-section {
-      padding-block: clamp(5rem, 9vw, 8rem);
-    }
-
-    .about-section--soft {
-      background: linear-gradient(180deg, var(--color-light-bg), var(--color-white));
-    }
-
-    .about-section--dark {
-      background:
-        radial-gradient(circle at 100% 0%, rgba(0, 200, 168, 0.16), transparent 30%),
-        var(--color-primary);
-      color: var(--color-white);
-    }
-
-    .about-section__head {
-      max-width: 760px;
-      margin-bottom: clamp(2rem, 4vw, 3.2rem);
-    }
-
-    .about-section__head--center {
-      margin-inline: auto;
-      text-align: center;
-    }
-
-    .about-title {
-      color: var(--color-primary);
-      font-size: clamp(2.15rem, 4.6vw, 4.6rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      margin-bottom: 1rem;
-    }
-
-    .about-section--dark .about-title {
-      color: var(--color-white);
-    }
-
-    .about-lead {
-      color: var(--color-text-muted);
-      font-size: clamp(1rem, 1.3vw, 1.18rem);
-      line-height: 1.75;
-    }
-
-    .about-section--dark .about-lead {
-      color: rgba(255, 255, 255, 0.74);
-    }
-
-    .about-story {
-      display: grid;
-      grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
-      gap: clamp(2.4rem, 6vw, 6rem);
-      align-items: start;
-    }
-
-    .about-story__media {
-      position: sticky;
-      top: calc(76px + 2rem);
-    }
-
-    .about-story__image {
-      overflow: hidden;
-      aspect-ratio: 4 / 5;
-      border-radius: 8px;
-      background: var(--color-light-bg);
-      box-shadow: 0 34px 90px rgba(12, 53, 48, 0.16);
-    }
-
-    .about-story__image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 52% top;
-      display: block;
-    }
-
-    .about-signature {
-      margin-top: 1.2rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .about-signature strong {
-      display: block;
-      color: var(--color-primary);
-      font-family: var(--font-heading);
-      font-size: var(--fs-lg);
-      margin-bottom: 0.2rem;
-    }
-
-    .about-signature span {
-      color: var(--color-text-muted);
-      font-size: var(--fs-sm);
-    }
-
-    .about-story__copy {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(1.75rem, 3vw, 2.5rem);
-    }
-
-    .about-timeline {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(0.85rem, 1.4vw, 1.1rem);
-    }
-
-    /* ── Verbundene Kapitel-Gruppe (01 + 02) ── */
-    .about-chapter-group {
-      border: 1px solid rgba(12,53,48,0.1);
-      border-left: 3px solid var(--color-accent);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 20px rgba(12,53,48,0.07);
-    }
-
-    .about-chapter-group .about-chapter {
-      border: none;
-      border-bottom: 1px solid rgba(12,53,48,0.08);
-      border-radius: 0;
-      box-shadow: none;
-      transition: background 0.25s ease;
-    }
-
-    .about-chapter-group .about-chapter:last-child {
-      border-bottom: none;
-    }
-
-    .about-chapter-group .about-chapter:hover {
-      background: rgba(0,200,168,0.028);
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* ── Einzelne Chapter-Card ── */
-    .about-chapter {
-      background: white;
-      border: 1px solid rgba(12,53,48,0.1);
-      border-left: 3px solid var(--color-accent);
-      border-radius: 12px;
-      padding: clamp(1.1rem, 1.8vw, 1.55rem) clamp(1.25rem, 2vw, 1.75rem);
-      box-shadow: 0 2px 20px rgba(12,53,48,0.07);
-      transition: box-shadow 0.28s ease, transform 0.28s ease;
-    }
-
-    .about-chapter:hover {
-      box-shadow: 0 6px 28px rgba(12,53,48,0.12);
-      transform: translateY(-2px);
-    }
-
-    .about-chapter h3 {
-      color: var(--color-primary);
-      font-size: clamp(1rem, 1.65vw, 1.35rem);
-      line-height: 1.2;
-      font-weight: 700;
-      margin: 0 0 0.45rem;
-    }
-
-    .about-chapter p {
-      color: var(--color-text-muted);
-      font-size: clamp(0.875rem, 1.1vw, 0.94rem);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .about-chapter p + p {
-      margin-top: 0.4rem;
-    }
-
-    .story-em {
-      font-style: normal;
-      color: var(--color-primary);
-      font-weight: 600;
-    }
-
-    /* ── Pullquote — dunkles Panel ── */
-    .about-pullquote {
-      margin: 0;
-      padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.75rem, 3vw, 2.75rem);
-      background:
-        radial-gradient(circle at 8% 50%, rgba(0,200,168,0.1), transparent 55%),
-        var(--color-primary);
-      border-radius: 12px;
-      position: relative;
-      overflow: hidden;
-      color: white;
-      font-family: var(--font-heading);
-      font-size: clamp(1.2rem, 2vw, 1.8rem);
-      font-style: italic;
-      line-height: 1.32;
-      letter-spacing: -0.02em;
-      border-top: none;
-    }
-
-    .about-pullquote::before {
-      content: '\201C';
-      position: absolute;
-      left: clamp(0.75rem, 1.5vw, 1.25rem);
-      top: -0.1em;
-      font-family: var(--font-heading);
-      font-size: clamp(5rem, 9vw, 8rem);
-      color: var(--color-accent);
-      opacity: 0.15;
-      line-height: 1;
-      pointer-events: none;
-      font-style: normal;
-    }
-
-    .about-pullquote::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--color-accent), rgba(0,200,168,0.3));
-      border-radius: 12px 0 0 12px;
-    }
-
-    .about-principles {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .about-principle {
-      min-height: 310px;
-      padding: clamp(1.4rem, 3vw, 2.4rem);
-      background: rgba(255, 255, 255, 0.045);
-      transition: background var(--transition), transform var(--transition);
-    }
-
-    .about-principle:hover {
-      background: rgba(255, 255, 255, 0.07);
-      transform: translateY(-4px);
-    }
-
-    .about-principle span {
-      color: var(--color-accent);
-      font-size: var(--fs-xs);
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .about-principle h3 {
-      color: var(--color-white);
-      font-size: clamp(1.45rem, 2.4vw, 2rem);
-      line-height: 1.12;
-      margin: 1.5rem 0 0.85rem;
-    }
-
-    .about-principle p {
-      color: rgba(255, 255, 255, 0.68);
-      font-size: var(--fs-sm);
-      line-height: 1.7;
-    }
-
-    .about-credentials {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: clamp(2.2rem, 6vw, 5rem);
-      align-items: start;
-    }
-
-    .about-credentials--single {
-      grid-template-columns: minmax(0, 1fr);
-      max-width: 880px;
-      margin-inline: auto;
-    }
-
-    .about-credentials--single .about-cv,
-    .about-credentials--single .about-focus-list {
-      margin-top: 1.8rem;
-    }
-
-    .about-focus-list,
-    .about-cv {
-      display: grid;
-      gap: 0.95rem;
-    }
-
-    .about-focus-item,
-    .about-cv-item {
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .about-focus-item strong,
-    .about-cv-item strong {
-      display: block;
-      color: var(--color-primary);
-      font-size: var(--fs-md);
-      margin-bottom: 0.25rem;
-    }
-
-    .about-focus-item span,
-    .about-cv-item span {
-      color: var(--color-text-muted);
-      font-size: var(--fs-sm);
-      line-height: 1.55;
-    }
-
-    .about-cta {
-      position: relative;
-      overflow: hidden;
-      padding-block: clamp(5rem, 9vw, 7rem);
-      background: var(--color-primary-deep);
-      color: var(--color-white);
-    }
-
-    .about-cta::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(4, 22, 19, 0.88), rgba(4, 22, 19, 0.68)),
-        url('assets/images/vanessa/vanessa-hero.jpg') right center / auto 120% no-repeat;
-      opacity: 0.92;
-    }
-
-    .about-cta__inner {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-    }
-
-    .about-cta h2 {
-      color: var(--color-white);
-      font-size: clamp(2.4rem, 5vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      margin-bottom: 1rem;
-    }
-
-    .about-cta p {
-      max-width: 590px;
-      color: rgba(255, 255, 255, 0.76);
-      font-size: var(--fs-md);
-      line-height: 1.72;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 1024px) {
-      .about-hero::before {
-        background:
-          linear-gradient(180deg, rgba(4, 22, 19, 0.68), rgba(4, 22, 19, 0.94)),
-          url('assets/images/vanessa/vanessa-beratung.jpg') center top / auto 76vh no-repeat;
-      }
-
-      .about-hero__inner {
-        padding-top: 54vh;
-      }
-
-      .about-proof__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      /* Erste Reihe bekommt untere Trennlinie */
-      .about-proof__item:nth-child(1),
-      .about-proof__item:nth-child(2) {
-        border-bottom: 1px solid rgba(0, 200, 168, 0.08);
-      }
-
-      /* Zweite Spalte: keine rechte Border */
-      .about-proof__item:nth-child(2n) {
-        border-right: none;
-      }
-
-      .about-principles,
-      .about-story,
-      .about-credentials {
-        grid-template-columns: 1fr;
-      }
-
-      .about-story__media {
-        position: static;
-      }
-
-      .about-story__image {
-        max-height: 560px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .about-hero {
-        min-height: auto;
-      }
-
-      .about-hero::before {
-        background:
-          linear-gradient(180deg, rgba(4, 22, 19, 0.36), rgba(4, 22, 19, 0.96)),
-          url('assets/images/vanessa/vanessa-beratung.jpg') center top / auto 54vh no-repeat;
-      }
-
-      .about-hero__inner {
-        padding-top: 48vh;
-        padding-bottom: 3rem;
-      }
-
-      .about-hero__actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .about-proof__grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      /* Auf 2x2-Grid: nur Items 1 und 3 haben rechte Border */
-      .about-proof__item {
-        border-right: 1px solid rgba(0, 200, 168, 0.12);
-        border-bottom: 1px solid rgba(0, 200, 168, 0.08);
-      }
-
-      .about-proof__item:nth-child(2n) {
-        border-right: none;
-      }
-
-      .about-proof__item:nth-child(3),
-      .about-proof__item:nth-child(4) {
-        border-bottom: none;
-      }
-
-      .about-pullquote {
-        font-size: clamp(1.1rem, 4.5vw, 1.5rem);
-      }
-
-      .about-section {
-        padding-block: 4rem;
-      }
-    }
-  </style>
-
   <!-- ══ Strukturierte Daten (Schema.org JSON-LD) ══ -->
   <script type="application/ld+json">
   {
@@ -686,21 +68,27 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="css/pages/ueber-mich.css">
   <link rel="stylesheet" href="css/subpage-theme.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Hauptnavigation">
     <div class="container">
       <div class="nav__inner">
+
+        <!-- Logo: weiß (auf Hero) + farbig (gescrollt) -->
         <a href="/" class="nav__logo" aria-label="VZ Concept Startseite">
           <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white" width="2917" height="694">
           <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color" width="500" height="500">
         </a>
+
+        <!-- Desktop-Menü -->
         <ul class="nav__menu" role="list">
-          <li><a href="ueber-mich" class="nav__link active">Über mich</a></li>
+          <li><a href="ueber-mich" class="nav__link">Über mich</a></li>
         <li class="nav__item--dropdown">
           <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">
             Leistungen
@@ -748,7 +136,7 @@
               <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer" class="nav__mega-feature-img" loading="lazy" width="1067" height="1600">
               <div class="nav__mega-feature-body">
                 <p>Nicht sicher welche Leistung passt?</p>
-                <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+                <a href="erstgespraech#buchung" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
                 <p class="nav__mega-feature-note">30 Min &middot; kostenlos &middot; unverbindlich</p>
               </div>
             </div>
@@ -759,37 +147,46 @@
           <li><a href="referenzen" class="nav__link">Stimmen</a></li>
           <li><a href="partner" class="nav__link">Partner</a></li>
           <li class="nav__mobile-cta">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+            <a href="erstgespraech#buchung" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
           </li>
         </ul>
+
+        <!-- Mobile CTA -->
+
+        <!-- CTA -->
         <div class="nav__cta">
-          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          <a href="erstgespraech#buchung" class="btn btn--primary">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Erstgespräch buchen
           </a>
         </div>
+
+        <!-- Mobile Toggle -->
         <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
       </div>
     </div>
   </nav>
 
 
-  <main class="about-page">
+  <main id="main" class="about-page">
     <header class="about-hero" aria-labelledby="page-title">
       <div class="container">
         <div class="about-hero__inner">
           <p class="about-kicker">Über Vanessa Zimmer</p>
           <h1 class="about-hero__title" id="page-title">
-            Keine Theorie.
-            <span>Echte Verantwortung.</span>
+            Unternehmerin.
+            <span>Deine Beraterin.</span>
           </h1>
           <p class="about-hero__text">
-            Ich habe selbst aufgebaut, geführt, investiert und entschieden. Deshalb prüfe ich Vorhaben nicht nach Wunschdenken, sondern nach Markt, Zahlen und Alltag.
+            Ich bin Vanessa Zimmer. Als Gründungs- und Unternehmensberaterin verbinde ich 16 Jahre eigene unternehmerische Erfahrung mit einem genauen Blick auf deine Kalkulation, deinen Markt und die nächsten Entscheidungen.
           </p>
           <div class="about-hero__actions">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Erstgespräch buchen</a>
+            <a href="erstgespraech#buchung" class="btn btn--primary btn--lg">Erstgespräch buchen</a>
             <a href="#geschichte" class="btn btn--outline-white">Meine Geschichte</a>
           </div>
         </div>
@@ -800,16 +197,16 @@
       <div class="container">
         <div class="about-proof__grid">
           <div class="about-proof__item">
-            <span class="about-proof__value" data-count="16">16<span class="about-proof__suffix">+</span></span>
+            <span class="about-proof__value" data-count="16">16</span>
             <span class="about-proof__label">Jahre eigene unternehmerische Verantwortung</span>
           </div>
           <div class="about-proof__item">
-            <span class="about-proof__value" data-count="600">600<span class="about-proof__suffix"> qm</span></span>
-            <span class="about-proof__label">Betrieb aufgebaut, geführt und gesteuert</span>
+            <span class="about-proof__value" data-count="100">100<span class="about-proof__suffix">+</span></span>
+            <span class="about-proof__label">Gründer:innen und Unternehmen begleitet</span>
           </div>
           <div class="about-proof__item">
             <span class="about-proof__value about-proof__value--text">AVGS</span>
-            <span class="about-proof__label">Gründercoaching und Förderkontexte</span>
+            <span class="about-proof__label">Coaching über AZAV-Kooperationsträger</span>
           </div>
           <div class="about-proof__item">
             <span class="about-proof__value" data-count="5" data-decimals="1">5,0</span>
@@ -843,13 +240,13 @@
 
               <div class="about-chapter-group">
                 <article class="about-chapter">
-                  <h3>Aufgebaut statt nur beobachtet.</h3>
-                  <p>Nicht im Seminarraum, sondern mit echter Verantwortung: Räume, Personal, Kalkulation, Auslastung, Investitionen — und der Frage, <em class="story-em">ob ein Betrieb wirtschaftlich trägt.</em></p>
+                  <h3>Eigene unternehmerische Verantwortung.</h3>
+                  <p>Im eigenen Betrieb habe ich Räume, Personal und Investitionen verantwortet. Dabei stand immer auch die Frage im Raum, <em class="story-em">ob ein Betrieb wirtschaftlich trägt.</em></p>
                 </article>
 
                 <article class="about-chapter">
                   <h3>Klarheit, bevor es teuer wird.</h3>
-                  <p>Gründer:innen scheitern selten an Einsatz. Häufig fehlen <em class="story-em">ehrliche Zahlen und ein tragfähiger Marktbezug.</em> Genau dort setze ich an.</p>
+                  <p>Vor größeren Ausgaben prüfe ich mit dir <em class="story-em">Kosten, Preise und realistische Nachfrage.</em> So werden offene Annahmen sichtbar, bevor du dich festlegst.</p>
                 </article>
               </div>
 
@@ -873,7 +270,7 @@
         <div class="about-section__head about-section__head--center">
           <p class="about-kicker">Meine Haltung</p>
           <h2 class="about-title" id="principles-title">Woran du meine Beratung erkennst.</h2>
-          <p class="about-lead">Keine Motivationsfloskeln. Keine Erfolgsversprechen. Sondern ein klarer Blick auf das, was wirklich trägt.</p>
+          <p class="about-lead">Ich erkläre dir, worauf meine Einschätzung beruht, welche Annahmen offen sind und was sie für deine Entscheidung bedeuten.</p>
         </div>
 
         <div class="about-principles">
@@ -905,7 +302,7 @@
             <div class="about-cv">
               <div class="about-cv-item">
                 <strong>Betriebswirtin (IWW)</strong>
-                <span>Ich sehe in deinen Zahlen, was trägt und was kippt — Kalkulation, Deckungsbeitrag, Break-even. Kein Bauchgefühl, sondern Rechnung.</span>
+                <span>Ich prüfe Kalkulation und Deckungsbeiträge und rechne mit dir aus, ab welchem Umsatz dein Vorhaben die Kosten deckt.</span>
               </div>
               <div class="about-cv-item">
                 <strong>Gründer- und Krisencoach</strong>
@@ -959,8 +356,8 @@
         <div class="about-cta__inner">
           <p class="about-kicker">Nächster Schritt</p>
           <h2 id="cta-title">Lass uns ehrlich auf dein Vorhaben schauen.</h2>
-          <p>Du musst noch keine fertige Entscheidung mitbringen. 30 Minuten reichen, um deine Situation einzuordnen und zu klären, welcher nächste Schritt sinnvoll ist.</p>
-          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Erstgespräch buchen</a>
+          <p>Im kostenlosen Erstgespräch nehmen wir uns 30&nbsp;Minuten für deine Ausgangslage. Wir klären die wichtigste offene Frage und besprechen, welche Unterstützung sinnvoll ist.</p>
+          <a href="erstgespraech#buchung" class="btn btn--primary btn--lg">Erstgespräch buchen</a>
         </div>
       </div>
     </section>
@@ -971,23 +368,32 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
+
+        <!-- Brand -->
         <div class="footer__brand">
           <div class="footer__logo">
             <img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694">
           </div>
-          <p class="footer__tagline">Gründungs- und Unternehmensberatung mit klarem Blick auf Markt, Struktur und Alltag.</p>
+          <p class="footer__tagline">
+            Gründungs- und Unternehmensberatung für Vorhaben, die im Markt und im Alltag bestehen sollen.
+          </p>
           <div class="footer__social" aria-label="Social Media">
+            <!-- Instagram -->
             <a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
             </a>
+            <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
+            <!-- Facebook -->
             <a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
           </div>
         </div>
+
+        <!-- Navigation -->
         <div>
           <p class="footer__nav-title">Navigation</p>
           <ul class="footer__nav-list" role="list">
@@ -999,6 +405,8 @@
             <li><a href="faq">FAQ</a></li>
           </ul>
         </div>
+
+        <!-- Leistungen -->
         <div>
           <p class="footer__nav-title">Leistungen</p>
           <ul class="footer__nav-list" role="list">
@@ -1010,27 +418,38 @@
             <li><a href="leistung-struktur">Struktur &amp; Unternehmensentwicklung</a></li>
           </ul>
         </div>
+
+        <!-- Kontakt -->
         <div>
           <p class="footer__nav-title">Kontakt</p>
           <ul class="footer__nav-list" role="list">
-            <li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="erstgespraech#buchung">Erstgespräch buchen</a></li>
             <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
             <li><a href="tel:+4915254589658">+49 152 5458 9658</a></li>
+            <li><a href="https://vz-concept.de" target="_blank" rel="noopener">vz-concept.de</a></li>
           </ul>
         </div>
+
       </div>
+
+      <!-- Bottom Bar -->
       <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 VZ Concept &amp; Consulting UG · Alle Rechte vorbehalten</p>
+        <p class="footer__copy">
+          &copy; 2026 VZ Concept &amp; Consulting UG · Alle Rechte vorbehalten
+        </p>
         <nav class="footer__legal" aria-label="Rechtliche Links">
-          <a href="impressum">Impressum</a>
-          <a href="datenschutz">Datenschutz</a>
-          <a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a>
+          <a href="impressum" data-no-campaign="true">Impressum</a>
+          <a href="datenschutz" data-no-campaign="true">Datenschutz</a>
+          <button type="button" id="cookie-settings-button">Cookie-Einstellungen</button>
         </nav>
       </div>
+
     </div>
   </footer>
-
-    <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement-config.js" defer></script>
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement.js" defer></script>
+  <script src="js/booking.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

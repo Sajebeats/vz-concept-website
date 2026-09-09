@@ -7,6 +7,7 @@
   <title>Seite nicht gefunden – VZ Concept</title>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cookie-consent.css">
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -14,68 +15,12 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0C3530">
-  <style>
-    .nf {
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 2rem;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,200,168,0.10) 0%, transparent 60%),
-        var(--color-primary);
-      color: var(--color-white);
-    }
-    .nf__inner { max-width: 560px; }
-    .nf__logo { width: 150px; margin-bottom: 2.5rem; }
-    .nf__code {
-      font-family: var(--font-heading);
-      font-size: clamp(5rem, 18vw, 10rem);
-      line-height: 0.9;
-      color: var(--color-accent);
-      letter-spacing: -0.04em;
-      text-shadow: 0 0 50px rgba(0,200,168,0.35);
-      margin-bottom: 1rem;
-    }
-    .nf__title {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      color: var(--color-white);
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-    .nf__text {
-      color: rgba(255,255,255,0.72);
-      font-size: clamp(1rem, 1.4vw, 1.15rem);
-      line-height: 1.7;
-      margin-bottom: 2.25rem;
-    }
-    .nf__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      justify-content: center;
-      margin-bottom: 2.5rem;
-    }
-    .nf__links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 1.5rem;
-      justify-content: center;
-      padding-top: 1.75rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
-    }
-    .nf__links a {
-      color: rgba(255,255,255,0.7);
-      font-size: var(--fs-sm);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .nf__links a:hover { color: var(--color-accent); }
-  </style>
+  <link rel="stylesheet" href="css/pages/404.css">
   <link rel="stylesheet" href="css/subpage-theme.css">
 </head>
 <body>
-  <main class="nf">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <main id="main" class="nf">
     <div class="nf__inner">
       <a href="/" aria-label="Zur Startseite">
         <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nf__logo" width="2917" height="694">
@@ -88,7 +33,7 @@
       </p>
       <div class="nf__actions">
         <a href="/" class="btn btn--primary btn--lg">Zur Startseite</a>
-        <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--outline-white">Erstgespräch buchen</a>
+        <a href="erstgespraech#buchung" class="btn btn--outline-white">Erstgespräch buchen</a>
       </div>
       <nav class="nf__links" aria-label="Beliebte Seiten">
         <a href="leistungen">Leistungen</a>
@@ -100,5 +45,10 @@
       </nav>
     </div>
   </main>
+  <script src="js/measurement-config.js" defer></script>
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement.js" defer></script>
+  <script src="js/booking.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

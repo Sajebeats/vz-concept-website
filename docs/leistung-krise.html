@@ -30,191 +30,6 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0C3530">
   <title>Krisenberatung &amp; Neuaufstellung Berlin | VZ Concept</title>
-  <style>
-
-    /* ══ HERO — 60/40 Split mit Situations-Panel ═══════════════ */
-    .crisis-hero{background:linear-gradient(155deg,#060f0e 0%,#0C3530 50%,#0d3f34 100%);padding:clamp(5rem,11vw,8.5rem) 0 clamp(4rem,8vw,7rem);position:relative;overflow:hidden}
-    .crisis-hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse 80% 70% at 80% 50%,rgba(0,200,168,.08) 0%,transparent 70%);pointer-events:none}
-    .crisis-hero__inner{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
-    .crisis-hero__label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,168,.12);border:1px solid rgba(0,200,168,.25);color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.4rem 1rem;border-radius:var(--radius-pill);margin-bottom:var(--space-md)}
-    .crisis-hero__label svg{width:13px;height:13px}
-    .crisis-hero__h1{font-size:clamp(2rem,4.5vw,3rem);color:var(--color-white);line-height:1.15;margin-bottom:var(--space-md)}
-    .crisis-hero__h1 em{color:var(--color-accent);font-style:normal}
-    .crisis-hero__sub{color:rgba(255,255,255,.75);line-height:1.8;font-size:clamp(.95rem,1.8vw,1.08rem);margin-bottom:var(--space-xl)}
-    .crisis-hero__actions{display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center}
-    .crisis-hero__trust{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin-top:var(--space-lg)}
-    .crisis-hero__trust-item{display:flex;align-items:center;gap:.45rem;color:rgba(255,255,255,.55);font-size:var(--fs-xs)}
-    .crisis-hero__trust-item svg{width:13px;height:13px;color:var(--color-accent);flex-shrink:0}
-
-    /* Situations-Panel rechts */
-    .situations-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:calc(var(--radius-lg) + 4px);padding:clamp(1.5rem,3vw,2rem);backdrop-filter:blur(10px)}
-    .situations-panel__label{color:rgba(255,255,255,.45);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--space-md)}
-    .situation-item{display:flex;align-items:flex-start;gap:.875rem;padding-block:.875rem;border-bottom:1px solid rgba(255,255,255,.08)}
-    .situation-item:last-child{border-bottom:none}
-    .situation-item__dot{width:8px;height:8px;border-radius:50%;background:var(--color-accent);flex-shrink:0;margin-top:.4rem}
-    .situation-item__text{color:rgba(255,255,255,.75);font-size:var(--fs-sm);line-height:1.6;font-style:italic}
-
-    /* ══ SITUATIONS-BAND — dunkel, früh ════════════════════════ */
-    .situations-band{background:linear-gradient(135deg,#060f0e 0%,#0C3530 100%);padding-block:clamp(3.5rem,7vw,5.5rem)}
-    .situations-band__inner{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:var(--radius-lg);overflow:hidden}
-    .situation-col{padding:clamp(1.75rem,3.5vw,2.5rem);background:rgba(255,255,255,.04);position:relative}
-    .situation-col::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-    .situation-col:nth-child(1)::before{background:linear-gradient(90deg,#e53e3e,rgba(229,62,62,.3))}
-    .situation-col:nth-child(2)::before{background:linear-gradient(90deg,#dd6b20,rgba(221,107,32,.3))}
-    .situation-col:nth-child(3)::before{background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.3))}
-    .situation-col__icon{width:46px;height:46px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-md)}
-    .situation-col:nth-child(1) .situation-col__icon{background:rgba(229,62,62,.15);color:#fc8181}
-    .situation-col:nth-child(2) .situation-col__icon{background:rgba(221,107,32,.15);color:#f6ad55}
-    .situation-col:nth-child(3) .situation-col__icon{background:rgba(0,200,168,.15);color:var(--color-accent)}
-    .situation-col__icon svg{width:22px;height:22px}
-    .situation-col__title{color:var(--color-white);font-size:var(--fs-md);font-weight:700;margin-bottom:.6rem;line-height:1.3}
-    .situation-col__text{color:rgba(255,255,255,.6);font-size:var(--fs-sm);line-height:1.7}
-
-    /* ══ 3 FALLEN UNTER DRUCK ═══════════════════════════════════ */
-    .traps-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
-    .traps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin-top:clamp(2rem,4vw,3rem)}
-    .trap-card{background:var(--color-white);border:1px solid #fecaca;border-top:3px solid #e53e3e;border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem)}
-    .trap-card__icon{width:42px;height:42px;border-radius:50%;background:#fef2f2;display:flex;align-items:center;justify-content:center;color:#e53e3e;margin-bottom:var(--space-md)}
-    .trap-card__icon svg{width:20px;height:20px}
-    .trap-card__title{font-size:var(--fs-md);font-weight:700;color:#c53030;margin-bottom:.5rem}
-    .trap-card__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.7}
-    .traps-pivot{display:flex;align-items:center;gap:var(--space-lg);margin-top:clamp(2rem,4vw,3rem);padding:clamp(1.5rem,3vw,2.25rem);background:linear-gradient(135deg,var(--color-primary),#0e4a3f);border-radius:var(--radius-lg);color:var(--color-white)}
-    .traps-pivot__icon{width:56px;height:56px;border-radius:var(--radius-md);background:rgba(0,200,168,.2);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
-    .traps-pivot__icon svg{width:26px;height:26px}
-    .traps-pivot__label{color:rgba(255,255,255,.55);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
-    .traps-pivot__title{color:var(--color-white);font-size:clamp(1rem,2vw,1.25rem);font-weight:700;line-height:1.35}
-
-    /* ══ VORHER / NACHHER ═══════════════════════════════════════ */
-    .beforeafter{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
-    .beforeafter__grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:clamp(2rem,4vw,3rem);align-items:stretch;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);box-shadow:var(--shadow-sm)}
-    .ba-col{padding:clamp(1.75rem,3.5vw,2.5rem)}
-    .ba-col--before{background:var(--color-off-white)}
-    .ba-col--after{background:linear-gradient(165deg,rgba(0,200,168,.06) 0%,rgba(0,200,168,.02) 100%)}
-    .ba-col__label{font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:var(--space-lg)}
-    .ba-col--before .ba-col__label{color:#c53030}
-    .ba-col--after .ba-col__label{color:var(--color-accent)}
-    .ba-col__list{display:flex;flex-direction:column;gap:var(--space-md)}
-    .ba-item{display:flex;align-items:flex-start;gap:.875rem;font-size:var(--fs-sm);line-height:1.6}
-    .ba-item__icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
-    .ba-col--before .ba-item__icon{background:#fef2f2;color:#e53e3e}
-    .ba-col--after .ba-item__icon{background:var(--color-accent-light);color:var(--color-accent)}
-    .ba-col--before .ba-item__icon svg,.ba-col--after .ba-item__icon svg{width:13px;height:13px}
-    .ba-col--before .ba-item{color:var(--color-text-muted)}
-    .ba-col--after .ba-item{color:var(--color-text);font-weight:500}
-    .ba-divider{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 1.25rem;background:var(--color-white);border-inline:1px solid var(--color-border)}
-    .ba-divider__arrow{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);display:flex;align-items:center;justify-content:center;color:var(--color-accent)}
-    .ba-divider__arrow svg{width:18px;height:18px}
-
-    /* ══ ALTERNIERENDER PROZESS ════════════════════════════════ */
-    .alt-process{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(180deg,var(--color-off-white) 0%,#f9fcfb 100%)}
-    .alt-steps{display:flex;flex-direction:column;gap:clamp(2rem,4vw,3rem);margin-top:clamp(2rem,4vw,3.5rem)}
-    .alt-step{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
-    .alt-step--flip{direction:rtl}
-    .alt-step--flip>*{direction:ltr}
-    .alt-step__content{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.5rem,3vw,2.25rem);box-shadow:var(--shadow-sm)}
-    .alt-step__label{color:var(--color-accent);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
-    .alt-step__title{font-size:clamp(1.1rem,2vw,1.35rem);color:var(--color-primary);font-weight:700;margin-bottom:.75rem;line-height:1.3}
-    .alt-step__text{color:var(--color-text-muted);font-size:var(--fs-sm);line-height:1.75}
-    .alt-step__center{display:flex;flex-direction:column;align-items:center;gap:.5rem}
-    .alt-step__num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);font-family:var(--font-heading);font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(12,53,48,.25);flex-shrink:0}
-    .alt-step__vline{width:2px;height:clamp(1rem,2vw,1.5rem);background:linear-gradient(180deg,rgba(0,200,168,.4),transparent)}
-    .alt-step__empty{background:transparent;border:none;box-shadow:none}
-
-    /* ══ DRINGLICHKEITS-STREIFEN ════════════════════════════════ */
-    .urgency{background:linear-gradient(135deg,#1a0808 0%,#2d1111 100%);padding-block:clamp(3rem,6vw,4.5rem);border-top:1px solid rgba(229,62,62,.2)}
-    .urgency__inner{display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,5vw,5rem);align-items:center}
-    .urgency__eyebrow{color:rgba(229,62,62,.8);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.75rem}
-    .urgency__headline{font-size:clamp(1.4rem,3vw,2rem);color:var(--color-white);line-height:1.3;font-family:var(--font-heading)}
-    .urgency__headline em{color:#fc8181;font-style:normal}
-    .urgency__sub{color:rgba(255,255,255,.6);margin-top:.875rem;font-size:var(--fs-sm);line-height:1.7;max-width:500px}
-
-    /* ══ WARUM VANESSA — mit Foto ════════════════════════════ */
-    .why-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
-    .why-section__inner{display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,5rem);align-items:start}
-    .why-photo-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 48px rgba(12,53,48,.14);flex-shrink:0}
-    .why-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-    .why-photo-wrap::after{content:'';position:absolute;inset:0;border-radius:var(--radius-lg);box-shadow:inset 0 0 0 1px rgba(12,53,48,.1);pointer-events:none}
-
-    /* ══ CROSS-LINKS ════════════════════════════════════════ */
-    .related-section{padding-block:clamp(3rem,6vw,4.5rem);background:var(--color-off-white)}
-    .related-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md);margin-top:clamp(1.5rem,3vw,2rem)}
-    .related-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem);display:flex;align-items:flex-start;gap:1.25rem;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
-    .related-card:hover{border-color:rgba(0,200,168,.3);box-shadow:var(--shadow-sm);transform:translateY(-3px)}
-    .related-card__icon{width:44px;height:44px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-primary),#0e4a3f);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
-    .related-card__icon svg{width:20px;height:20px}
-    .related-card__label{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
-    .related-card__title{font-size:var(--fs-md);color:var(--color-primary);font-weight:700;margin-bottom:.4rem;line-height:1.3}
-    .related-card__desc{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.65}
-    .why-quote{font-family:var(--font-heading);font-style:italic;font-size:clamp(1.2rem,2.2vw,1.55rem);color:var(--color-primary);line-height:1.55;border-left:4px solid var(--color-accent);padding-left:var(--space-lg);margin-bottom:var(--space-xl)}
-    .why-sub{color:var(--color-text-muted);line-height:1.75;margin-bottom:var(--space-lg)}
-    .cred-list{display:flex;flex-direction:column;gap:.75rem}
-    .cred-item{display:flex;align-items:flex-start;gap:.875rem;padding:var(--space-md);background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-md)}
-    .cred-item__icon{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .cred-item__icon svg{width:15px;height:15px}
-    .cred-item__text{font-size:var(--fs-sm);color:var(--color-primary);font-weight:600;line-height:1.45}
-    .cred-item__sub{font-size:var(--fs-xs);color:var(--color-text-muted);font-weight:400}
-
-    /* ══ LEISTUNGSINHALT ════════════════════════════════════════ */
-    .content-block{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
-    .content-block__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
-    .content-block__heading{font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-md)}
-    .content-block__sub{color:var(--color-text-muted);margin-bottom:var(--space-lg);line-height:1.75}
-    .info-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
-    .info-card__header{background:linear-gradient(135deg,var(--color-primary),#0e4a3f);padding:var(--space-lg)}
-    .info-card__label{color:rgba(255,255,255,.6);font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
-    .info-card__title{color:var(--color-white);font-size:var(--fs-lg);font-weight:700;line-height:1.3}
-    .info-card__body{padding:var(--space-lg)}
-    .info-row{display:flex;align-items:flex-start;gap:.875rem;padding-block:.875rem;border-bottom:1px solid var(--color-border);font-size:var(--fs-sm)}
-    .info-row:last-child{border-bottom:none}
-    .info-row__icon{width:34px;height:34px;border-radius:50%;background:var(--color-accent-light);display:flex;align-items:center;justify-content:center;color:var(--color-accent);flex-shrink:0}
-    .info-row__icon svg{width:15px;height:15px}
-    .info-row__label{color:var(--color-text-muted);font-size:var(--fs-xs);margin-bottom:2px}
-    .info-row__value{color:var(--color-primary);font-weight:600}
-    .crisis-note{margin-top:var(--space-md);padding:var(--space-md);background:rgba(229,62,62,.06);border:1px solid rgba(229,62,62,.18);border-radius:var(--radius-md);color:#742a2a;font-size:var(--fs-sm);line-height:1.7}
-    .crisis-note strong{display:block;margin-bottom:.3rem;font-size:var(--fs-xs);text-transform:uppercase;letter-spacing:.08em;color:#e53e3e}
-
-    /* ══ FAQ ════════════════════════════════════════════════════ */
-    .faq-section{padding-block:clamp(4rem,8vw,6rem);background:var(--color-white)}
-    .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
-    .faq-item{border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden}
-    .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(1rem,2.5vw,1.4rem) clamp(1rem,2.5vw,1.5rem);font-weight:600;color:var(--color-primary);cursor:pointer;list-style:none;font-size:var(--fs-sm)}
-    .faq-item summary::-webkit-details-marker{display:none}
-    .faq-item summary svg{width:18px;height:18px;flex-shrink:0;transition:transform .25s ease;color:var(--color-accent)}
-    .faq-item[open] summary svg{transform:rotate(45deg)}
-    .faq-item[open] summary{background:var(--color-accent-light)}
-    .faq-item__body{padding:clamp(1rem,2.5vw,1.25rem) clamp(1rem,2.5vw,1.5rem);color:var(--color-text-muted);line-height:1.75;font-size:var(--fs-sm);border-top:1px solid var(--color-border)}
-
-    /* ══ STICKY-CTA (Mobil) ══════════════════════════════════ */
-    .sl-sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:.6rem;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));background:rgba(4,22,19,.94);backdrop-filter:blur(10px);border-top:1px solid rgba(0,200,168,.28);box-shadow:0 -6px 24px rgba(0,0,0,.28)}
-    .sl-sticky-cta .btn{flex:1;justify-content:center;min-height:48px}
-    @media(max-width:768px){.sl-sticky-cta{display:flex}body{padding-bottom:72px}}
-
-    /* ══ RESPONSIVE ════════════════════════════════════════════ */
-    @media(max-width:960px){
-      .crisis-hero__inner{grid-template-columns:1fr}.situations-panel{display:none}
-      .situations-band__inner{grid-template-columns:1fr}
-      .traps-grid{grid-template-columns:1fr}
-      .beforeafter__grid{grid-template-columns:1fr}.ba-divider{display:none}.ba-col--before{border-bottom:1px solid var(--color-border)}
-      .alt-step{grid-template-columns:auto 1fr}.alt-step--flip{direction:ltr}.alt-step__empty{display:none}
-      .urgency__inner{grid-template-columns:1fr}
-      .why-section__inner{grid-template-columns:1fr}
-      .why-photo-wrap{max-width:260px;aspect-ratio:1/1}
-      .related-cards{grid-template-columns:1fr}
-      .content-block__inner{grid-template-columns:1fr}
-    }
-    @media(max-width:640px){
-      .alt-step{grid-template-columns:44px 1fr;gap:1rem;direction:ltr}
-      .alt-step__center{grid-column:1;grid-row:1;align-self:flex-start}
-      .alt-step__content{grid-column:2;grid-row:1}
-      .alt-step__num{width:40px;height:40px;font-size:.95rem}
-      .alt-step__vline{display:none}
-    }
-
-    /* ══ TRUST RATING ══ */
-    .crisis-hero__trust-item--rating{color:rgba(255,255,255,.82);font-weight:600;text-decoration:none;transition:color .2s ease}
-    .crisis-hero__trust-item--rating:hover{color:#fff}
-    .sl-hero__stars{color:#ffc247;letter-spacing:1px;font-size:.95em}
-  </style>
 
   <!-- ══ Strukturierte Daten (Service Schema.org) ══ -->
   <script type="application/ld+json">
@@ -232,8 +47,14 @@
     "url": "https://vz-concept.de/"
   },
   "areaServed": [
-    { "@type": "City", "name": "Berlin" },
-    { "@type": "Country", "name": "Deutschland" }
+    {
+      "@type": "City",
+      "name": "Berlin"
+    },
+    {
+      "@type": "Country",
+      "name": "Deutschland"
+    }
   ],
   "audience": {
     "@type": "Audience",
@@ -279,7 +100,7 @@
           "name": "Ist es schon zu spät für Beratung?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Das lässt sich nur sagen, wenn wir die Situation angeschaut haben. Was ich sagen kann: Ein klarer Blick von außen ist selten zu spät — und in vielen Fällen werden Optionen sichtbar, die man allein nicht mehr sieht. Das Erstgespräch kostet nichts und gibt dir zumindest eine Einschätzung."
+            "text": "Das können wir erst nach einer Bestandsaufnahme einschätzen. Wir prüfen Zahlen, Verpflichtungen und Handlungsmöglichkeiten. Wenn Zahlungen ausfallen oder Zahlungsunfähigkeit droht, hole bitte unverzüglich insolvenzrechtlichen Rat ein; ein Erstgespräch bei mir ersetzt diese Prüfung nicht."
           }
         },
         {
@@ -311,17 +132,30 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="css/pages/leistung-krise.css">
   <link rel="stylesheet" href="css/subpage-theme.css">
 </head>
 <body class="has-sticky-cta">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <nav class="nav" role="navigation" aria-label="Hauptnavigation">
-    <div class="container"><div class="nav__inner">
-      <a href="/" class="nav__logo" aria-label="VZ Concept Startseite"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white" width="2917" height="694"><img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color" width="500" height="500"></a>
-      <ul class="nav__menu" role="list">
-        <li><a href="ueber-mich" class="nav__link">&Uuml;ber mich</a></li>
+    <div class="container">
+      <div class="nav__inner">
+
+        <!-- Logo: weiß (auf Hero) + farbig (gescrollt) -->
+        <a href="/" class="nav__logo" aria-label="VZ Concept Startseite">
+          <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white" width="2917" height="694">
+          <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color" width="500" height="500">
+        </a>
+
+        <!-- Desktop-Menü -->
+        <ul class="nav__menu" role="list">
+          <li><a href="ueber-mich" class="nav__link">Über mich</a></li>
         <li class="nav__item--dropdown">
-          <button type="button" class="nav__link nav__dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Leistungen<svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Leistungen
+            <svg class="nav__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
           <div class="nav__mega" role="region" aria-label="Leistungen Men&uuml;">
             <div class="nav__mega-pages">
               <p class="nav__mega-title">Seiten</p>
@@ -364,23 +198,40 @@
               <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer" class="nav__mega-feature-img" loading="lazy" width="1067" height="1600">
               <div class="nav__mega-feature-body">
                 <p>Nicht sicher welche Leistung passt?</p>
-                <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm" data-event="krise-nav"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+                <a href="erstgespraech#buchung" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
                 <p class="nav__mega-feature-note">30 Min &middot; kostenlos &middot; unverbindlich</p>
               </div>
             </div>
           </div>
         </li>
-        <li><a href="ablauf" class="nav__link">Ablauf</a></li>
-        <li><a href="faq" class="nav__link">FAQ</a></li>
-        <li><a href="referenzen" class="nav__link">Stimmen</a></li>
-        <li><a href="partner" class="nav__link">Partner</a></li>
+          <li><a href="ablauf" class="nav__link">Ablauf</a></li>
+          <li><a href="faq" class="nav__link">FAQ</a></li>
+          <li><a href="referenzen" class="nav__link">Stimmen</a></li>
+          <li><a href="partner" class="nav__link">Partner</a></li>
           <li class="nav__mobile-cta">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" data-event="krise-mobile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+            <a href="erstgespraech#buchung" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
           </li>
-      </ul>
-      <div class="nav__cta"><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" data-event="krise-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a></div>
-      <button class="nav__toggle" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div></div>
+        </ul>
+
+        <!-- Mobile CTA -->
+
+        <!-- CTA -->
+        <div class="nav__cta">
+          <a href="erstgespraech#buchung" class="btn btn--primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Erstgespräch buchen
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
   </nav>
 
   <!-- ══ HERO ═══════════════════════════════════════════════════ -->
@@ -399,10 +250,10 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             KRISEN- &amp; NEUAUFSTELLUNGSBERATUNG
           </p>
-          <h1 class="crisis-hero__h1" id="crisis-title">Dein Unternehmen steht unter Druck.<br><em>Jetzt brauchst du Klarheit, nicht Durchhalteparolen.</em></h1>
-          <p class="crisis-hero__sub">Schwierige Phasen betreffen nie nur Zahlen. Sie ber&uuml;hren Verantwortung, Existenz und die Frage, wie lange das noch tragbar ist. Ich helfe dir, deine Optionen klar zu sehen &mdash; und eine Entscheidung zu treffen, die tr&auml;gt.</p>
+          <h1 class="crisis-hero__h1" id="crisis-title">Dein Unternehmen steht unter Druck.<br><em>Prüfen wir deine Optionen.</em></h1>
+          <p class="crisis-hero__sub">Wir prüfen Liquidität, Kosten und die wirtschaftliche Situation deines Betriebs. Daraus entsteht eine begründete Einschätzung: Was lässt sich verändern, welche Schritte haben Vorrang und wo brauchst du weitere fachliche Unterstützung?</p>
           <div class="crisis-hero__actions">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" data-event="krise-hero">
+            <a href="erstgespraech#buchung" class="btn btn--primary btn--lg" data-event="krise-hero">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Situation jetzt einordnen
             </a>
@@ -594,11 +445,11 @@
         <div class="urgency__inner">
           <div>
             <p class="urgency__eyebrow">Warum jetzt</p>
-            <h2 class="urgency__headline" id="urg-title">Jeder Monat unter Druck kostet.<br><em>Nicht nur Geld.</em></h2>
-            <p class="urgency__sub">Krisen werden nicht besser wenn man wartet. Die Liquidit&auml;t wird knapper. Die Optionen werden weniger. Und die Energie auch. Das ist keine Dramatik &mdash; das sind die realen Konsequenzen von Nichthandeln in schwierigen Phasen.</p>
+            <h2 class="urgency__headline" id="urg-title">Früh prüfen,<br><em>welcher Spielraum bleibt.</em></h2>
+            <p class="urgency__sub">Eine aktuelle Übersicht über fällige Zahlungen, verfügbare Mittel und Verpflichtungen ist die Grundlage für deine nächsten Schritte. Bei drohender Zahlungsunfähigkeit ist unverzüglich insolvenzrechtliche Beratung erforderlich. Meine wirtschaftliche Begleitung ersetzt diese Prüfung nicht.</p>
           </div>
           <div style="flex-shrink:0">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" data-event="krise-urgency">
+            <a href="erstgespraech#buchung" class="btn btn--primary btn--lg" data-event="krise-urgency">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Jetzt Situation einordnen
             </a>
@@ -656,7 +507,7 @@
               <li>Planung sinnvoller Stabilisierungs- und Neuordnungsschritte</li>
               <li>Strukturelle Ma&szlig;nahmen, damit Entscheidungen im Alltag tragen</li>
             </ul>
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top:var(--space-xl)" data-event="krise-detail">
+            <a href="erstgespraech#buchung" class="btn btn--primary" style="margin-top:var(--space-xl)" data-event="krise-detail">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Situation einordnen
             </a>
@@ -714,7 +565,7 @@
         <div class="faq-list">
           <details class="faq-item">
             <summary>Ist es schon zu sp&auml;t f&uuml;r Beratung?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
-            <div class="faq-item__body">Das l&auml;sst sich nur sagen, wenn wir die Situation angeschaut haben. Was ich sagen kann: Ein klarer Blick von au&szlig;en ist selten zu sp&auml;t &mdash; und in vielen F&auml;llen werden Optionen sichtbar, die man allein nicht mehr sieht. Das Erstgespr&auml;ch kostet nichts und gibt dir zumindest eine Einsch&auml;tzung.</div>
+            <div class="faq-item__body">Das können wir erst nach einer Bestandsaufnahme einschätzen. Wir prüfen Zahlen, Verpflichtungen und Handlungsmöglichkeiten. Wenn Zahlungen ausfallen oder Zahlungsunfähigkeit droht, hole bitte unverzüglich insolvenzrechtlichen Rat ein; ein Erstgespräch bei mir ersetzt diese Prüfung nicht.</div>
           </details>
           <details class="faq-item">
             <summary>Was wenn du mir sagst, dass ich aufgeben soll?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
@@ -769,7 +620,7 @@
         <h2 class="section-title section-title--white" id="cta-title">Du musst noch keine L&ouml;sung mitbringen.<br>Nur deine Situation.</h2>
         <p class="section-subtitle section-subtitle--white" style="max-width:500px;margin-inline:auto;color:rgba(255,255,255,.7)">30 Minuten. Kein Verkaufsgespr&auml;ch. Du erkl&auml;rst mir wo du stehst &mdash; ich sage dir, was ich davon halte. Klar und ehrlich.</p>
         <div class="btn-group" style="justify-content:center;margin-top:var(--space-xl)">
-          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" data-event="krise-bottom">
+          <a href="erstgespraech#buchung" class="btn btn--primary btn--lg" data-event="krise-bottom">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Erstgespr&auml;ch buchen
           </a>
@@ -784,17 +635,94 @@
   <!-- ══ STICKY-CTA (nur Mobil) ══ -->
   <div class="sl-sticky-cta" role="region" aria-label="Schnellzugriff Erstgespr&auml;ch">
     <a href="tel:+4915254589658" class="btn btn--outline-white" aria-label="Anrufen"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-    <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary" data-event="krise-sticky"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+    <a href="erstgespraech#buchung" class="btn btn--primary" data-event="krise-sticky"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
   </div>
 
-  <footer class="footer" role="contentinfo"><div class="container"><div class="footer__inner">
-    <div class="footer__brand"><div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694"></div><p class="footer__tagline">Beratung f&uuml;r Gr&uuml;ndung, Neuaufstellung und unternehmerische Entscheidungen unter realen Bedingungen.</p><div class="footer__social" aria-label="Social Media"><a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div>
-    <div><p class="footer__nav-title">Navigation</p><ul class="footer__nav-list" role="list"><li><a href="/">Startseite</a></li><li><a href="ueber-mich">&Uuml;ber mich</a></li><li><a href="leistungen">Leistungen</a></li><li><a href="ablauf">Ablauf</a></li><li><a href="referenzen">Stimmen</a></li><li><a href="faq">FAQ</a></li></ul></div>
-    <div><p class="footer__nav-title">Leistungen</p><ul class="footer__nav-list" role="list"><li><a href="leistung-gruendung">Gr&uuml;ndungsbegleitung</a></li><li><a href="leistung-avgs">AVGS-Gr&uuml;ndercoaching</a></li><li><a href="leistung-krise">Krisenberatung</a></li><li><a href="leistung-struktur">Struktur &amp; Entwicklung</a></li><li><a href="leistung-businessplan">Businessplan-Service</a></li><li><a href="leistung-aufenthaltsrecht">Businessplan f&uuml;r Aufenthaltsrecht</a></li></ul></div>
-    <div><p class="footer__nav-title">Kontakt</p><ul class="footer__nav-list" role="list"><li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespr&auml;ch buchen</a></li><li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li><li><a href="tel:+4915254589658">+49 152 5458 9658</a></li></ul></div>
-  </div><div class="footer__bottom"><p class="footer__copy">&copy; 2026 VZ Concept &ndash; Consulting UG &middot; Alle Rechte vorbehalten</p><nav class="footer__legal" aria-label="Rechtliche Links"><a href="impressum">Impressum</a><a href="datenschutz">Datenschutz</a><a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a></nav></div></div></footer>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
 
+        <!-- Brand -->
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694">
+          </div>
+          <p class="footer__tagline">
+            Gründungs- und Unternehmensberatung für Vorhaben, die im Markt und im Alltag bestehen sollen.
+          </p>
+          <div class="footer__social" aria-label="Social Media">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="footer__nav-title">Navigation</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="/">Startseite</a></li>
+            <li><a href="ueber-mich">Über mich</a></li>
+            <li><a href="leistungen">Leistungen</a></li>
+            <li><a href="ablauf">Ablauf</a></li>
+            <li><a href="referenzen">Stimmen</a></li>
+            <li><a href="faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Leistungen -->
+        <div>
+          <p class="footer__nav-title">Leistungen</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="leistung-gruendung">Gründungsberatung</a></li>
+            <li><a href="leistung-avgs">AVGS-Gründercoaching</a></li>
+            <li><a href="leistung-krise">Krisenberatung</a></li>
+            <li><a href="leistung-businessplan">Businessplan-Service</a></li>
+            <li><a href="leistung-aufenthaltsrecht">Aufenthaltsrecht</a></li>
+            <li><a href="leistung-struktur">Struktur &amp; Unternehmensentwicklung</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontakt -->
+        <div>
+          <p class="footer__nav-title">Kontakt</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="erstgespraech#buchung">Erstgespräch buchen</a></li>
+            <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+            <li><a href="tel:+4915254589658">+49 152 5458 9658</a></li>
+            <li><a href="https://vz-concept.de" target="_blank" rel="noopener">vz-concept.de</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 VZ Concept &amp; Consulting UG · Alle Rechte vorbehalten
+        </p>
+        <nav class="footer__legal" aria-label="Rechtliche Links">
+          <a href="impressum" data-no-campaign="true">Impressum</a>
+          <a href="datenschutz" data-no-campaign="true">Datenschutz</a>
+          <button type="button" id="cookie-settings-button">Cookie-Einstellungen</button>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+  <script src="js/measurement-config.js" defer></script>
   <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement.js" defer></script>
+  <script src="js/booking.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

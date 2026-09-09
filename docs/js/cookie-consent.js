@@ -1,327 +1,112 @@
-/* =====================================================
-   VZ Concept — DSGVO-konformer Cookie-Consent Manager
-   Selbstgehostet, ohne externe Abhängigkeiten
-
-   API:
-     window.cookieConsent.has('statistik')     → boolean
-     window.cookieConsent.has('marketing')     → boolean
-     window.cookieConsent.show()               → öffnet Einstellungen erneut
-     window.cookieConsent.reset()              → Consent zurücksetzen
-
-   Tools werden konditional geladen — siehe loadTools() unten.
-   ===================================================== */
-
+/* VZ Concept – Einwilligungen nur für tatsächlich konfigurierte Messdienste. */
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'vz_consent_v1';
-  const CONSENT_VERSION = 1;
-  const VALIDITY_DAYS = 365;
+  const STORAGE_KEY = 'vz_consent_v2';
+  const VALIDITY_MS = 180 * 24 * 60 * 60 * 1000;
+  const config = window.VZ_MEASUREMENT || {};
+  const categories = [];
 
-  const CATEGORIES = [
-    {
-      key: 'necessary',
-      name: 'Notwendig',
-      desc: 'Technisch erforderlich für die Funktion der Website. Speichert deine Cookie-Einstellungen lokal in deinem Browser. Diese Kategorie kann nicht deaktiviert werden.',
-      required: true,
-    },
-    {
-      key: 'statistik',
-      name: 'Statistik',
-      desc: 'Hilft uns zu verstehen, wie Besucher die Website nutzen, damit wir sie verbessern können (z. B. Google Analytics). Daten werden anonymisiert ausgewertet.',
-      required: false,
-    },
-    {
-      key: 'marketing',
-      name: 'Marketing',
-      desc: 'Wird verwendet, um dir relevante Werbung auf anderen Plattformen zu zeigen (z. B. Meta Pixel, Google Ads). Wir und unsere Partner können dadurch Conversion-Tracking durchführen.',
-      required: false,
-    },
-  ];
+  if (config.enabled && /^G-[A-Z0-9]+$/i.test(config.ga4Id || '')) {
+    categories.push({ key: 'statistik', title: 'Statistik', text: 'Hilft uns, die Nutzung der Website in zusammengefasster Form zu verstehen.' });
+  }
+  if (config.enabled && (/^AW-[0-9]+$/.test(config.googleAdsId || '') || /^[0-9]{5,}$/.test(config.metaPixelId || ''))) {
+    categories.push({ key: 'marketing', title: 'Marketing', text: 'Misst, ob Anzeigen zu einer Anfrage oder Terminbuchung führen.' });
+  }
 
-  // ── State ─────────────────────────────────────────────
-  let consent = loadConsent();
+  let consent = readConsent();
+  let dialog = null;
+  let previousFocus = null;
 
-  function loadConsent() {
+  function readConsent() {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return null;
-      const data = JSON.parse(raw);
-      if (data.version !== CONSENT_VERSION) return null;
-      // Validity check
-      const ageMs = Date.now() - new Date(data.timestamp).getTime();
-      if (ageMs > VALIDITY_DAYS * 86400000) return null;
-      return data;
-    } catch (e) {
+      const value = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (!value || Date.now() - Date.parse(value.savedAt) > VALIDITY_MS) return null;
+      return value;
+    } catch (error) {
       return null;
     }
   }
 
   function saveConsent(choices) {
-    const data = {
-      version: CONSENT_VERSION,
-      timestamp: new Date().toISOString(),
-      choices: { necessary: true, ...choices },
-    };
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch (e) {}
-    consent = data;
-    loadTools();
+    consent = { savedAt: new Date().toISOString(), choices: Object.assign({ necessary: true }, choices) };
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(consent)); } catch (error) {}
+    window.dispatchEvent(new CustomEvent('vz:consent', { detail: consent.choices }));
+    closeDialog();
   }
 
-  // ── Public API ────────────────────────────────────────
+  function buildDialog(showInactiveState) {
+    const root = document.createElement('div');
+    root.className = 'consent-dialog';
+    root.setAttribute('role', 'dialog');
+    root.setAttribute('aria-modal', 'true');
+    root.setAttribute('aria-labelledby', 'consent-title');
+
+    const options = categories.map(function (category) {
+      const checked = consent && consent.choices && consent.choices[category.key] ? ' checked' : '';
+      return '<label class="consent-option"><span><strong>' + category.title + '</strong><small>' + category.text + '</small></span><input type="checkbox" data-consent-category="' + category.key + '"' + checked + '></label>';
+    }).join('');
+
+    root.innerHTML = '<div class="consent-dialog__backdrop" data-consent-close></div>' +
+      '<section class="consent-dialog__panel"><button class="consent-dialog__close" type="button" data-consent-close aria-label="Einstellungen schließen">×</button>' +
+      '<p class="section-label">Datenschutz</p><h2 id="consent-title">Cookie-Einstellungen</h2>' +
+      (showInactiveState ? '<p>Aktuell sind keine Analyse- oder Marketingdienste aktiviert. Technisch notwendige Funktionen laufen ohne Werbetracking.</p>' : '<p>Du entscheidest, welche optionalen Messdienste geladen werden. Deine Auswahl kannst du jederzeit ändern.</p>' + options) +
+      '<div class="consent-dialog__actions">' +
+      (showInactiveState ? '<button class="btn btn--primary" type="button" data-consent-close>Verstanden</button>' : '<button class="btn btn--outline" type="button" data-consent-reject>Nur notwendig</button><button class="btn btn--primary" type="button" data-consent-save>Auswahl speichern</button><button class="btn btn--ghost" type="button" data-consent-all>Alle akzeptieren</button>') +
+      '</div><p class="consent-dialog__legal"><a href="datenschutz" data-no-campaign="true">Datenschutzerklärung</a></p></section>';
+    return root;
+  }
+
+  function closeDialog() {
+    if (!dialog) return;
+    dialog.remove();
+    dialog = null;
+    document.body.classList.remove('consent-open');
+    if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
+  }
+
+  function openDialog() {
+    if (dialog) return;
+    previousFocus = document.activeElement;
+    dialog = buildDialog(categories.length === 0);
+    document.body.appendChild(dialog);
+    document.body.classList.add('consent-open');
+    dialog.querySelector('button').focus();
+  }
+
+  document.addEventListener('click', function (event) {
+    if (!dialog) return;
+    if (event.target.closest('[data-consent-close]')) closeDialog();
+    if (event.target.closest('[data-consent-reject]')) saveConsent({ statistik: false, marketing: false });
+    if (event.target.closest('[data-consent-all]')) saveConsent({ statistik: true, marketing: true });
+    if (event.target.closest('[data-consent-save]')) {
+      const choices = {};
+      dialog.querySelectorAll('[data-consent-category]').forEach(function (input) { choices[input.dataset.consentCategory] = input.checked; });
+      saveConsent(choices);
+    }
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (!dialog) return;
+    if (event.key === 'Escape') closeDialog();
+    if (event.key !== 'Tab') return;
+    const focusable = Array.from(dialog.querySelectorAll('button, a, input')).filter(function (item) { return !item.disabled; });
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
+
   window.cookieConsent = {
-    has: function (category) {
-      if (!consent) return false;
-      return !!consent.choices[category];
-    },
-    show: function () {
-      openModal();
-    },
-    reset: function () {
-      try {
-        localStorage.removeItem(STORAGE_KEY);
-      } catch (e) {}
-      consent = null;
-      showBanner();
-    },
+    has: function (category) { return !!(consent && consent.choices && consent.choices[category]); },
+    show: openDialog,
+    reset: function () { try { localStorage.removeItem(STORAGE_KEY); } catch (error) {} consent = null; if (categories.length) openDialog(); }
   };
 
-  // ── Tool-Loader ──────────────────────────────────────
-  // Hier werden Tracking-Tools konditional nachgeladen.
-  // Wenn ein neues Tool dazukommt: hier integrieren.
-  let toolsLoaded = { statistik: false, marketing: false };
-
-  function loadTools() {
-    if (!consent) return;
-
-    // === STATISTIK ============================================
-    // Google Analytics 4 — Beispiel, einkommentieren wenn aktiv:
-    // if (consent.choices.statistik && !toolsLoaded.statistik) {
-    //   toolsLoaded.statistik = true;
-    //   const GA_ID = 'G-XXXXXXXXXX';
-    //   const s = document.createElement('script');
-    //   s.async = true;
-    //   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    //   document.head.appendChild(s);
-    //   window.dataLayer = window.dataLayer || [];
-    //   function gtag(){ dataLayer.push(arguments); }
-    //   window.gtag = gtag;
-    //   gtag('js', new Date());
-    //   gtag('config', GA_ID, { anonymize_ip: true });
-    // }
-
-    // === MARKETING ============================================
-    // Meta Pixel — Beispiel, einkommentieren wenn aktiv:
-    // if (consent.choices.marketing && !toolsLoaded.marketing) {
-    //   toolsLoaded.marketing = true;
-    //   const PIXEL_ID = 'XXXXXXXXXXXXXXXX';
-    //   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    //   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    //   n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    //   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    //   document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    //   fbq('init', PIXEL_ID);
-    //   fbq('track', 'PageView');
-    // }
-
-    // === GOOGLE ADS CONVERSION TRACKING =======================
-    // if (consent.choices.marketing && !toolsLoaded.marketing) { ... }
+  if (consent) window.dispatchEvent(new CustomEvent('vz:consent', { detail: consent.choices }));
+  if (!consent && categories.length) {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openDialog, { once: true });
+    else openDialog();
   }
-
-  // ── UI Rendering ──────────────────────────────────────
-  function buildBanner() {
-    const banner = document.createElement('div');
-    banner.className = 'vz-cc';
-    banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-labelledby', 'vz-cc-title');
-    banner.setAttribute('aria-describedby', 'vz-cc-desc');
-    banner.innerHTML = `
-      <div class="vz-cc__panel" role="document">
-        <div class="vz-cc__header">
-          <h3 id="vz-cc-title" class="vz-cc__title">Cookies &amp; Datenschutz</h3>
-        </div>
-        <p id="vz-cc-desc" class="vz-cc__text">
-          Wir nutzen Cookies und ähnliche Technologien, um die Website zu verbessern und dir relevante Inhalte anzuzeigen. Mit „Alle akzeptieren" stimmst du allen Kategorien zu. Du kannst deine Auswahl jederzeit unter <em>Einstellungen</em> anpassen.
-        </p>
-        <div class="vz-cc__actions">
-          <button type="button" class="vz-cc__btn vz-cc__btn--secondary" data-action="reject">Nur Notwendige</button>
-          <button type="button" class="vz-cc__btn vz-cc__btn--ghost" data-action="settings">Einstellungen</button>
-          <button type="button" class="vz-cc__btn vz-cc__btn--primary" data-action="accept-all">Alle akzeptieren</button>
-        </div>
-        <p class="vz-cc__legal">
-          Mehr erfährst du in unserer <a href="datenschutz">Datenschutzerklärung</a> und im <a href="impressum">Impressum</a>.
-        </p>
-      </div>
-    `;
-    return banner;
-  }
-
-  function buildModal() {
-    const modal = document.createElement('div');
-    modal.className = 'vz-cc-modal';
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-labelledby', 'vz-cc-modal-title');
-
-    const togglesHtml = CATEGORIES.map(cat => `
-      <div class="vz-cc-cat">
-        <div class="vz-cc-cat__head">
-          <h4 class="vz-cc-cat__name">${cat.name}</h4>
-          <label class="vz-cc-toggle ${cat.required ? 'vz-cc-toggle--required' : ''}">
-            <input type="checkbox" data-cat="${cat.key}" ${cat.required ? 'checked disabled' : ''}>
-            <span class="vz-cc-toggle__track" aria-hidden="true"></span>
-            <span class="vz-cc-toggle__label">${cat.required ? 'Immer aktiv' : 'Optional'}</span>
-          </label>
-        </div>
-        <p class="vz-cc-cat__desc">${cat.desc}</p>
-      </div>
-    `).join('');
-
-    modal.innerHTML = `
-      <div class="vz-cc-modal__backdrop" data-action="close"></div>
-      <div class="vz-cc-modal__panel" role="document">
-        <header class="vz-cc-modal__header">
-          <h3 id="vz-cc-modal-title" class="vz-cc-modal__title">Cookie-Einstellungen</h3>
-          <button type="button" class="vz-cc-modal__close" data-action="close" aria-label="Schließen">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </header>
-        <div class="vz-cc-modal__body">
-          <p class="vz-cc-modal__intro">Du kannst hier auswählen, welche Kategorien du zulassen möchtest. „Notwendig" ist immer aktiv, weil sie für die Funktion der Website erforderlich ist.</p>
-          <div class="vz-cc-cats">${togglesHtml}</div>
-        </div>
-        <footer class="vz-cc-modal__footer">
-          <button type="button" class="vz-cc__btn vz-cc__btn--secondary" data-action="reject">Nur Notwendige</button>
-          <button type="button" class="vz-cc__btn vz-cc__btn--primary" data-action="save-selection">Auswahl speichern</button>
-          <button type="button" class="vz-cc__btn vz-cc__btn--primary" data-action="accept-all">Alle akzeptieren</button>
-        </footer>
-      </div>
-    `;
-    return modal;
-  }
-
-  // ── Banner-Logik ──────────────────────────────────────
-  let bannerEl = null;
-  let modalEl = null;
-
-  function showBanner() {
-    if (bannerEl) return;
-    bannerEl = buildBanner();
-    document.body.appendChild(bannerEl);
-    // Doppeltes rAF erzwingt Reflow → Transition feuert zuverlässig
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        if (bannerEl) bannerEl.classList.add('vz-cc--visible');
-      });
-    });
-    bannerEl.addEventListener('click', onBannerClick);
-  }
-
-  function hideBanner() {
-    if (!bannerEl) return;
-    bannerEl.classList.remove('vz-cc--visible');
-    setTimeout(() => {
-      if (bannerEl && bannerEl.parentNode) bannerEl.parentNode.removeChild(bannerEl);
-      bannerEl = null;
-    }, 350);
-  }
-
-  function onBannerClick(e) {
-    const btn = e.target.closest('[data-action]');
-    if (!btn) return;
-    const action = btn.dataset.action;
-    if (action === 'accept-all') {
-      saveConsent({ statistik: true, marketing: true });
-      hideBanner();
-    } else if (action === 'reject') {
-      saveConsent({ statistik: false, marketing: false });
-      hideBanner();
-    } else if (action === 'settings') {
-      hideBanner();
-      openModal();
-    }
-  }
-
-  function openModal() {
-    if (modalEl) return;
-    modalEl = buildModal();
-    document.body.appendChild(modalEl);
-    document.body.style.overflow = 'hidden';
-
-    // Pre-fill aus aktuellem Consent
-    if (consent) {
-      modalEl.querySelectorAll('input[data-cat]').forEach(input => {
-        const cat = input.dataset.cat;
-        if (cat === 'necessary') return;
-        input.checked = !!consent.choices[cat];
-      });
-    }
-
-    modalEl.addEventListener('click', onModalClick);
-    document.addEventListener('keydown', onModalKey);
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        if (modalEl) modalEl.classList.add('vz-cc-modal--visible');
-      });
-    });
-  }
-
-  function closeModal() {
-    if (!modalEl) return;
-    modalEl.classList.remove('vz-cc-modal--visible');
-    document.body.style.overflow = '';
-    document.removeEventListener('keydown', onModalKey);
-    setTimeout(() => {
-      if (modalEl && modalEl.parentNode) modalEl.parentNode.removeChild(modalEl);
-      modalEl = null;
-    }, 300);
-  }
-
-  function onModalClick(e) {
-    const btn = e.target.closest('[data-action]');
-    if (!btn) return;
-    const action = btn.dataset.action;
-    if (action === 'close') {
-      closeModal();
-    } else if (action === 'accept-all') {
-      saveConsent({ statistik: true, marketing: true });
-      closeModal();
-    } else if (action === 'reject') {
-      saveConsent({ statistik: false, marketing: false });
-      closeModal();
-    } else if (action === 'save-selection') {
-      const choices = {};
-      modalEl.querySelectorAll('input[data-cat]').forEach(input => {
-        const cat = input.dataset.cat;
-        if (cat === 'necessary') return;
-        choices[cat] = input.checked;
-      });
-      saveConsent(choices);
-      closeModal();
-    }
-  }
-
-  function onModalKey(e) {
-    if (e.key === 'Escape') closeModal();
-  }
-
-  // ── Init ─────────────────────────────────────────────
-  function init() {
-    if (consent) {
-      // Bereits Consent vorhanden → Tools laden
-      loadTools();
-    } else {
-      // Banner zeigen (erst nach DOM-Ready)
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', showBanner);
-      } else {
-        showBanner();
-      }
-    }
-  }
-
-  init();
 })();

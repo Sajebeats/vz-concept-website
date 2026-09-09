@@ -15,49 +15,25 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0C3530">
-
-  <style>
-    .dse-content h2 {
-      font-family: var(--font-heading);
-      font-size: var(--fs-xl);
-      color: var(--color-primary);
-      margin-top: var(--space-xl);
-      margin-bottom: var(--space-sm);
-    }
-    .dse-content h3 {
-      font-family: var(--font-heading);
-      font-size: var(--fs-lg);
-      color: var(--color-primary);
-      margin-top: var(--space-md);
-      margin-bottom: 0.5rem;
-    }
-    .dse-content p {
-      line-height: 1.85;
-      color: var(--color-text);
-      margin-bottom: 1rem;
-    }
-    .dse-content a { color: var(--color-accent); }
-    .dse-content ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--color-text);
-      line-height: 1.75;
-    }
-    .dse-content ul li { margin-bottom: 0.35rem; }
-  </style>
+  <link rel="stylesheet" href="css/pages/datenschutz.css">
   <link rel="stylesheet" href="css/subpage-theme.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Hauptnavigation">
     <div class="container">
       <div class="nav__inner">
+
+        <!-- Logo: weiß (auf Hero) + farbig (gescrollt) -->
         <a href="/" class="nav__logo" aria-label="VZ Concept Startseite">
           <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white" width="2917" height="694">
           <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color" width="500" height="500">
         </a>
+
+        <!-- Desktop-Menü -->
         <ul class="nav__menu" role="list">
           <li><a href="ueber-mich" class="nav__link">Über mich</a></li>
         <li class="nav__item--dropdown">
@@ -107,7 +83,7 @@
               <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer" class="nav__mega-feature-img" loading="lazy" width="1067" height="1600">
               <div class="nav__mega-feature-body">
                 <p>Nicht sicher welche Leistung passt?</p>
-                <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+                <a href="erstgespraech#buchung" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
                 <p class="nav__mega-feature-note">30 Min &middot; kostenlos &middot; unverbindlich</p>
               </div>
             </div>
@@ -118,18 +94,27 @@
           <li><a href="referenzen" class="nav__link">Stimmen</a></li>
           <li><a href="partner" class="nav__link">Partner</a></li>
           <li class="nav__mobile-cta">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+            <a href="erstgespraech#buchung" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
           </li>
         </ul>
+
+        <!-- Mobile CTA -->
+
+        <!-- CTA -->
         <div class="nav__cta">
-          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          <a href="erstgespraech#buchung" class="btn btn--primary">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Erstgespräch buchen
           </a>
         </div>
+
+        <!-- Mobile Toggle -->
         <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
       </div>
     </div>
   </nav>
@@ -147,7 +132,7 @@
       <div class="page-hero__inner">
         <p class="section-label section-label--light">Rechtliche Angaben</p>
         <h1 class="page-hero__title" id="page-title">Datenschutzerklärung</h1>
-        <p class="page-hero__subtitle">Zuletzt aktualisiert: Mai 2026</p>
+        <p class="page-hero__subtitle">Zuletzt aktualisiert: September 2026</p>
       </div>
     </div>
   </header>
@@ -166,10 +151,10 @@
         Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
 
         <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
-        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen – etwa durch das Buchen eines Termins über Calendly oder durch eine E-Mail-Kontaktaufnahme. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst (z. B. Browserdaten).</p>
+        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen – etwa durch das Buchen eines Termins über Calendly oder durch eine E-Mail-Kontaktaufnahme. Beim Seitenaufruf verarbeitet der Hosting-Anbieter außerdem technisch notwendige Verbindungsdaten. Der eingebettete Kalender wird erst nach einem bewussten Klick geladen.</p>
 
         <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
-        Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens oder zur Bearbeitung Ihrer Anfragen genutzt werden.</p>
+        Wir verarbeiten Daten für die Bereitstellung der Website, die Bearbeitung Ihrer Anfragen und die Terminvereinbarung. Auf dieser Website sind derzeit keine Analyse- oder Werbetracking-Dienste aktiv.</p>
 
         <h2>2. Hosting</h2>
         <p>Diese Website wird über <strong>GitHub Pages</strong> bereitgestellt (Anbieter: GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). Beim Aufruf der Website verarbeitet GitHub technisch notwendige Daten in Server-Logfiles, insbesondere IP-Adresse, Browser-Typ, Betriebssystem, Referrer-URL, Hostname und Datum/Uhrzeit der Serveranfrage.</p>
@@ -190,56 +175,48 @@
         E-Mail: <a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></p>
 
         <h3>Ihre Rechte</h3>
-        <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>
+        <p>Sie haben nach Maßgabe der gesetzlichen Voraussetzungen das Recht auf Auskunft über Ihre personenbezogenen Daten, Berichtigung, Löschung und Einschränkung der Verarbeitung. Hierzu können Sie sich an die oben genannte verantwortliche Stelle wenden. Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, insbesondere am Ort Ihres gewöhnlichen Aufenthalts, Ihres Arbeitsplatzes oder des mutmaßlichen Verstoßes.</p>
 
+        <p>Für Berlin erreichen Sie die zuständige Aufsichtsbehörde über die <a href="https://www.datenschutz-berlin.de/buergerinnen-und-buerger/beschwerde" target="_blank" rel="noopener noreferrer">Beschwerdeseite der Berliner Beauftragten für Datenschutz und Informationsfreiheit</a>.</p>
         <h3>Recht auf Datenübertragbarkeit</h3>
         <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.</p>
 
         <h3>Widerspruchsrecht</h3>
-        <p>Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, gegen die Verarbeitung Widerspruch einzulegen. Wir verarbeiten Ihre personenbezogenen Daten danach nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen.</p>
+        <p>Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, können Sie aus Gründen, die sich aus Ihrer besonderen Situation ergeben, Widerspruch einlegen. Wir verarbeiten diese Daten dann nicht weiter, es sei denn, wir weisen zwingende schutzwürdige Gründe nach, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>
+        <h3>Speicherdauer</h3>
+        <p>Wir speichern personenbezogene Daten, solange sie für den jeweiligen Zweck erforderlich sind. Anfragen und Termindaten werden gelöscht, wenn ihre Bearbeitung abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten oder berechtigten Gründe für eine weitere Speicherung bestehen. Für technische Daten, die GitHub oder Calendly in eigener Verantwortung verarbeiten, gelten die in deren Datenschutzhinweisen erläuterten Kriterien.</p>
 
         <h2>4. Datenerfassung auf dieser Website</h2>
 
         <h3>Schriftarten (Self-Hosted)</h3>
-        <p>Diese Website nutzt die Schriftarten <em>Manrope</em> und <em>Dancing Script</em> zur einheitlichen Darstellung von Texten. Die Schriften werden direkt vom Server dieser Website ausgeliefert (Self-Hosting). Es findet <strong>keine Verbindung zu Google Fonts oder anderen externen Schriftanbietern</strong> statt. Beim Aufruf einer Seite werden somit keine Schriftdaten an Drittanbieter übertragen.</p>
+        <p>Diese Website nutzt die Schriftarten <em>Inter</em>, <em>Playfair Display</em> und <em>Dancing Script</em>. Die Schriftdateien werden zusammen mit der Website über GitHub Pages ausgeliefert. Dafür wird keine Verbindung zu Google Fonts oder anderen externen Schriftanbietern hergestellt.</p>
 
         <h3>Calendly (Terminbuchung)</h3>
-        <p>Für die Buchung von Terminen nutzen wir den Dienst Calendly (Calendly LLC, 271 17th St NW, Atlanta, GA 30363, USA). Der Calendly-Kalender ist auf der Startseite und der Seite „Erstgespräch“ direkt eingebettet. Beim Laden des Kalenders wird eine Verbindung zu Calendly hergestellt; dabei können insbesondere die IP-Adresse sowie Browser- und Gerätedaten übermittelt und technisch erforderliche Session-Cookies gesetzt werden.</p>
-        <p>Wenn Sie über Calendly einen Termin buchen, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, optional weitere Angaben) an Calendly übertragen und dort verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung sowie vorvertragliche Maßnahmen). Calendly ist nach dem EU-US Data Privacy Framework zertifiziert.</p>
-        <p>Datenschutzerklärung von Calendly: <a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer">calendly.com/privacy</a></p>
+        <p>Für die Terminvereinbarung nutzen wir Calendly LLC, USA. Der eingebettete Kalender wird erst geladen, wenn Sie „Kalender laden“ auswählen. Erst dann werden Verbindungen zu Calendly und den für den Kalender verwendeten Dienstanbietern hergestellt. Dabei können insbesondere IP-Adresse, Browser- und Gerätedaten verarbeitet sowie Cookies oder ähnliche Speichertechniken verwendet werden. Alternativ können Sie Calendly über den externen Buchungslink öffnen oder einen Termin per E-Mail anfragen.</p>
+        <p>Das freiwillige Laden des eingebetteten Kalenders erfolgt auf Grundlage Ihrer Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO; für nicht erforderliche Zugriffe auf Ihr Endgerät gilt § 25 Abs. 1 TDDDG. Sie können die Einbettung durch Neuladen oder Verlassen der Seite beenden. Sie wird beim nächsten Aufruf erst nach erneutem Klick geladen. Die bis dahin erfolgte Verarbeitung bleibt davon unberührt.</p>
+        <p>Bei einer Buchung werden die eingegebenen Angaben, insbesondere Name, E-Mail-Adresse und Terminwunsch, für die Terminorganisation verarbeitet. Bei vertragsbezogenen Terminen ist die Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO, bei sonstigen Anfragen Art. 6 Abs. 1 lit. f DSGVO mit dem Interesse an einer geordneten Bearbeitung. Daten können in den USA verarbeitet werden. Calendly erklärt seine Teilnahme am EU-US Data Privacy Framework und beschreibt weitere Übermittlungsgarantien in seinen Datenschutzhinweisen.</p>
+        <p>Weitere Informationen: <a href="https://calendly.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">Datenschutzhinweise von Calendly</a>.</p>
 
         <h3>Kontakt per E-Mail</h3>
-        <p>Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten zum Zwecke der Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen bzw. Art. 6 Abs. 1 lit. f DSGVO bei sonstigen Anfragen.</p>
+        <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Angaben und Kontaktdaten, um Ihre Anfrage und mögliche Rückfragen zu bearbeiten. Dabei werden die für den E-Mail-Verkehr eingesetzten Dienstanbieter einbezogen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anfragen bzw. Art. 6 Abs. 1 lit. f DSGVO bei sonstigen Anfragen; unser berechtigtes Interesse ist die Bearbeitung Ihrer Nachricht.</p>
 
         <h3>Externe Verlinkungen</h3>
         <p>Auf dieser Website finden sich Verlinkungen zu externen Diensten (z. B. Google-Suche zur Anzeige unserer Bewertungen, Calendly-Buchungstool, Partner-Websites). Diese Links öffnen sich erst nach aktivem Klick durch Sie. Erst beim Aufruf der externen Seite werden Daten an diese Anbieter übertragen. Wir haben keinen Einfluss auf die Datenverarbeitung dieser Drittanbieter.</p>
 
-        <h2>5. Cookies und Einwilligungs-Management</h2>
+        <h2>5. Browserspeicher und Kampagneninformationen</h2>
 
         <h3>Aktueller Stand</h3>
-        <p>Diese Website setzt <strong>aktuell keine eigenen Tracking-Cookies und keine Marketing-Tools</strong> ein. Beim ersten Besuch erscheint ein Cookie-Banner, der dich über die geplante Nutzung von Statistik- und Marketing-Diensten informiert und deine Einwilligung einholt.</p>
+        <p>Diese Website setzt aktuell keine eigenen Tracking-Cookies ein. Google Analytics 4, Google Ads und Meta Pixel sind nicht aktiv. Für lediglich geplante Dienste wird keine Einwilligung eingeholt. Informationen zum aktuellen Stand können Sie über „Cookie-Einstellungen“ im Seitenfuß aufrufen.</p>
 
-        <h3>Kategorien</h3>
-        <ul>
-          <li><strong>Notwendig:</strong> Speicherung deiner Cookie-Einstellungen im lokalen Browser-Speicher (localStorage). Diese Speicherung ist technisch erforderlich, damit der Banner nicht bei jedem Besuch erneut erscheint. Rechtsgrundlage: § 25 Abs. 2 TTDSG (technisch zwingend erforderlich).</li>
-          <li><strong>Statistik (Opt-in):</strong> Werkzeuge zur anonymisierten Reichweitenmessung (z. B. Google Analytics 4). Werden nur nach deiner ausdrücklichen Einwilligung geladen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG.</li>
-          <li><strong>Marketing (Opt-in):</strong> Werkzeuge für personalisierte Werbung und Conversion-Tracking (z. B. Meta Pixel, Google Ads). Werden nur nach deiner ausdrücklichen Einwilligung geladen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 25 Abs. 1 TTDSG.</li>
-        </ul>
+        <h3>Technische Einstellungen</h3>
+        <p>Soweit Sie eine technische Datenschutzeinstellung speichern, wird diese ausschließlich im lokalen Speicher Ihres Browsers hinterlegt. Sie dient der Umsetzung Ihrer Auswahl und wird nicht zur Wiedererkennung für Werbung verwendet. Für eine zur Bereitstellung der ausdrücklich gewünschten Funktion erforderliche Speicherung gilt § 25 Abs. 2 Nr. 2 TDDDG. Sie können lokale Website-Daten über die Einstellungen Ihres Browsers löschen.</p>
 
-        <h3>Geplante Tools</h3>
-        <p>Sobald die folgenden Werkzeuge eingebunden werden, informieren wir hier über die konkreten Verarbeitungsvorgänge. Bis dahin werden keine entsprechenden Skripte geladen, auch wenn du im Banner zugestimmt hast:</p>
-        <ul>
-          <li>Google Analytics 4 (Statistik)</li>
-          <li>Google Ads Conversion Tracking (Marketing)</li>
-          <li>Meta Pixel / Facebook Pixel (Marketing)</li>
-          <li>Newsletter-Tool für E-Mail-Anmeldungen (z. B. Brevo, Mailchimp — Anbieter wird hier ergänzt sobald entschieden)</li>
-        </ul>
+        <h3>Informationen in Kampagnenlinks</h3>
+        <p>Wenn Sie über einen Kampagnenlink auf diese Website gelangen, kann dessen Adresse Herkunftsangaben wie UTM-Parameter oder eine Google-Klickkennung (gclid) enthalten. Vorhandene Parameter können über interne Links bis zur Terminbuchung und beim bewussten Öffnen des Kalenders an Calendly weitergegeben werden, um eine Anfrage ihrer Herkunft zuzuordnen. Dafür legt die Website keinen zusätzlichen Eintrag in Cookies oder im lokalen Browserspeicher an. Eine Klickkennung kann einen einzelnen Anzeigenklick zuordnen und ist daher nicht mit anonymen Daten gleichzusetzen.</p>
+        <p>Die Verarbeitung vorhandener Herkunftsangaben dient unserem berechtigten Interesse, die Herkunft von Anfragen nachzuvollziehen (Art. 6 Abs. 1 lit. f DSGVO). Die im Abschnitt „Widerspruchsrecht“ genannten Rechte gelten auch hierfür. Eine Buchung ohne diese Angaben ist über den direkten <a href="erstgespraech#buchung" data-no-campaign="true">Calendly-Link ohne Kampagnenparameter</a> oder per E-Mail möglich.</p>
 
-        <h3>Widerruf deiner Einwilligung</h3>
-        <p>Du kannst deine Einwilligung jederzeit widerrufen oder anpassen. Klicke dafür auf den Link <strong>„Cookie-Einstellungen“</strong> im Footer dieser Seite. Der Widerruf gilt für die Zukunft.</p>
-
-        <h3>Speicherdauer</h3>
-        <p>Deine Einwilligungs-Entscheidung wird für 12 Monate in deinem lokalen Browser-Speicher (localStorage) gespeichert. Danach erscheint der Banner erneut, damit du deine Auswahl bestätigen oder ändern kannst.</p>
+        <h3>Künftige Änderungen</h3>
+        <p>Wenn Analyse- oder Werbedienste hinzukommen, werden die konkreten Dienste, Zwecke, Empfänger und Speicherfristen hier vor ihrer Aktivierung ergänzt. Soweit eine Einwilligung erforderlich ist, werden solche Dienste erst nach Ihrer ausdrücklichen Auswahl geladen. Name, E-Mail-Adresse oder Gesprächsinhalte werden nicht an Analyse- oder Werbetracking-Dienste übermittelt.</p>
 
         <h2>6. Änderungen dieser Datenschutzerklärung</h2>
         <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
@@ -258,10 +235,32 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
+
+        <!-- Brand -->
         <div class="footer__brand">
-          <div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694"></div>
-          <p class="footer__tagline">Gründungs- und Unternehmensberatung mit klarem Blick auf Markt, Struktur und Alltag.</p>
+          <div class="footer__logo">
+            <img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694">
+          </div>
+          <p class="footer__tagline">
+            Gründungs- und Unternehmensberatung für Vorhaben, die im Markt und im Alltag bestehen sollen.
+          </p>
+          <div class="footer__social" aria-label="Social Media">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
         </div>
+
+        <!-- Navigation -->
         <div>
           <p class="footer__nav-title">Navigation</p>
           <ul class="footer__nav-list" role="list">
@@ -269,40 +268,55 @@
             <li><a href="ueber-mich">Über mich</a></li>
             <li><a href="leistungen">Leistungen</a></li>
             <li><a href="ablauf">Ablauf</a></li>
+            <li><a href="referenzen">Stimmen</a></li>
             <li><a href="faq">FAQ</a></li>
           </ul>
         </div>
+
+        <!-- Leistungen -->
         <div>
           <p class="footer__nav-title">Leistungen</p>
           <ul class="footer__nav-list" role="list">
             <li><a href="leistung-gruendung">Gründungsberatung</a></li>
             <li><a href="leistung-avgs">AVGS-Gründercoaching</a></li>
             <li><a href="leistung-krise">Krisenberatung</a></li>
-            <li><a href="leistung-businessplan">Businessplan</a></li>
+            <li><a href="leistung-businessplan">Businessplan-Service</a></li>
             <li><a href="leistung-aufenthaltsrecht">Aufenthaltsrecht</a></li>
             <li><a href="leistung-struktur">Struktur &amp; Unternehmensentwicklung</a></li>
           </ul>
         </div>
+
+        <!-- Kontakt -->
         <div>
           <p class="footer__nav-title">Kontakt</p>
           <ul class="footer__nav-list" role="list">
-            <li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="erstgespraech#buchung">Erstgespräch buchen</a></li>
             <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+            <li><a href="tel:+4915254589658">+49 152 5458 9658</a></li>
+            <li><a href="https://vz-concept.de" target="_blank" rel="noopener">vz-concept.de</a></li>
           </ul>
         </div>
+
       </div>
+
+      <!-- Bottom Bar -->
       <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 VZ Concept &amp; Consulting UG</p>
+        <p class="footer__copy">
+          &copy; 2026 VZ Concept &amp; Consulting UG · Alle Rechte vorbehalten
+        </p>
         <nav class="footer__legal" aria-label="Rechtliche Links">
-          <a href="impressum">Impressum</a>
-          <a href="datenschutz">Datenschutz</a>
-          <a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a>
+          <a href="impressum" data-no-campaign="true">Impressum</a>
+          <a href="datenschutz" data-no-campaign="true">Datenschutz</a>
+          <button type="button" id="cookie-settings-button">Cookie-Einstellungen</button>
         </nav>
       </div>
+
     </div>
   </footer>
-
-    <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement-config.js" defer></script>
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement.js" defer></script>
+  <script src="js/booking.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

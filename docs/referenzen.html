@@ -28,293 +28,25 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#0C3530">
-
-  <style>
-    /* ── Referenzen-spezifische Styles ── */
-
-    /* Testimonial-Karten (Hauptgitter) */
-    .ref-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-      margin-top: var(--space-xl);
-    }
-    .ref-card {
-      background: var(--color-white);
-      border-radius: var(--radius-lg);
-      padding: clamp(1.5rem, 3vw, 2.25rem);
-      box-shadow: 0 4px 24px rgba(12,53,48,0.07);
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      position: relative;
-      border-top: 3px solid var(--color-accent);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .ref-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(12,53,48,0.12);
-    }
-    .ref-card--featured {
-      grid-column: span 2;
-      background: var(--color-primary);
-      color: var(--color-white);
-      border-top: 3px solid var(--color-accent);
-    }
-    .ref-card__quote-mark {
-      font-family: var(--font-heading);
-      font-size: 4rem;
-      line-height: 1;
-      color: var(--color-accent);
-      font-style: italic;
-      user-select: none;
-      margin-bottom: -1rem;
-    }
-    .ref-card--featured .ref-card__quote-mark {
-      color: rgba(0,200,168,0.6);
-    }
-    .ref-card__text {
-      font-size: var(--fs-base);
-      line-height: 1.75;
-      color: var(--color-text);
-      font-style: italic;
-      flex: 1;
-    }
-    .ref-card--featured .ref-card__text {
-      color: rgba(255,255,255,0.88);
-      font-size: var(--fs-lg);
-    }
-    .ref-card__meta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      border-top: 1px solid var(--color-border);
-      padding-top: 1rem;
-    }
-    .ref-card--featured .ref-card__meta {
-      border-top-color: rgba(255,255,255,0.15);
-    }
-    .ref-card__avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--color-accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: var(--fs-base);
-      color: var(--color-accent);
-      flex-shrink: 0;
-    }
-    .ref-card--featured .ref-card__avatar {
-      background: rgba(0,200,168,0.2);
-      color: var(--color-accent);
-    }
-    .ref-card__name {
-      font-weight: 600;
-      color: var(--color-primary);
-      font-size: var(--fs-base);
-      line-height: 1.3;
-    }
-    .ref-card--featured .ref-card__name {
-      color: var(--color-white);
-    }
-    .ref-card__role {
-      font-size: var(--fs-sm);
-      color: var(--color-text-muted);
-    }
-    .ref-card--featured .ref-card__role {
-      color: rgba(255,255,255,0.6);
-    }
-    .ref-card__tag {
-      display: inline-block;
-      background: var(--color-accent-light);
-      color: var(--color-accent);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-      margin-top: 0.35rem;
-    }
-    .ref-card--featured .ref-card__tag {
-      background: rgba(0,200,168,0.2);
-      color: var(--color-accent);
-    }
-
-    /* Stars */
-    .ref-stars {
-      display: flex;
-      gap: 2px;
-      color: #F59E0B;
-      font-size: 1rem;
-    }
-
-    /* Placeholder Notice */
-    .ref-placeholder-notice {
-      background: #FFFBEB;
-      border: 1px solid #FCD34D;
-      border-radius: var(--radius-md);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin-bottom: var(--space-xl);
-    }
-    .ref-placeholder-notice__icon {
-      color: #D97706;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .ref-placeholder-notice p {
-      font-size: var(--fs-sm);
-      color: #92400E;
-      line-height: 1.6;
-    }
-    .ref-placeholder-notice strong { color: #78350F; }
-
-    /* Branchen-Filter (dekorativ, kein JS-Filter – alle sichtbar) */
-    .ref-filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: var(--space-xl);
-    }
-    .ref-filter-chip {
-      padding: 0.4rem 1.1rem;
-      border-radius: 100px;
-      font-size: var(--fs-sm);
-      font-weight: 600;
-      border: 1.5px solid var(--color-border);
-      color: var(--color-text-muted);
-      background: var(--color-white);
-      cursor: default;
-    }
-    .ref-filter-chip--active {
-      background: var(--color-primary);
-      color: var(--color-white);
-      border-color: var(--color-primary);
-    }
-
-    /* Stats-Banner */
-    .ref-stats {
-      background: var(--color-primary);
-      padding: clamp(3rem, 5vw, 4rem) 0;
-      color: var(--color-white);
-    }
-    .ref-stats__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-lg);
-      text-align: center;
-    }
-    .ref-stat__number {
-      font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700;
-      color: var(--color-accent);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-    .ref-stat__label {
-      font-size: var(--fs-sm);
-      color: rgba(255,255,255,0.7);
-      line-height: 1.5;
-    }
-
-    /* Zitat-Feature (breite Karte, zentriert) */
-    .ref-feature-quote {
-      background: var(--color-accent-light);
-      border-radius: var(--radius-xl);
-      padding: clamp(2rem, 5vw, 4rem);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      margin-top: var(--space-xl);
-    }
-    .ref-feature-quote::before {
-      content: '\201C';
-      position: absolute;
-      top: -0.5rem;
-      left: 2rem;
-      font-family: var(--font-heading);
-      font-size: 12rem;
-      line-height: 1;
-      color: rgba(0,200,168,0.15);
-      pointer-events: none;
-    }
-    .ref-feature-quote__text {
-      font-family: var(--font-heading);
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      font-style: italic;
-      color: var(--color-primary);
-      line-height: 1.5;
-      max-width: 800px;
-      margin: 0 auto var(--space-md);
-    }
-    .ref-feature-quote__attribution {
-      font-weight: 600;
-      color: var(--color-primary);
-      font-size: var(--fs-base);
-    }
-    .ref-feature-quote__role {
-      font-size: var(--fs-sm);
-      color: var(--color-text-muted);
-    }
-
-    /* Write-a-review CTA */
-    .ref-review-cta {
-      background: var(--color-bg-light);
-      border-radius: var(--radius-lg);
-      padding: clamp(2rem, 4vw, 3rem);
-      text-align: center;
-      margin-top: var(--space-xl);
-    }
-    .ref-review-cta__title {
-      font-family: var(--font-heading);
-      font-size: var(--fs-xl);
-      color: var(--color-primary);
-      margin-bottom: 0.75rem;
-    }
-    .ref-review-cta__text {
-      color: var(--color-text-muted);
-      font-size: var(--fs-base);
-      max-width: 500px;
-      margin: 0 auto var(--space-md);
-      line-height: 1.7;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .ref-grid { grid-template-columns: 1fr 1fr; }
-      .ref-card--featured { grid-column: span 2; }
-      .ref-stats__grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .ref-grid { grid-template-columns: 1fr; }
-      .ref-card--featured { grid-column: span 1; }
-      .ref-stats__grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .ref-stats__grid { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/pages/referenzen.css">
   <link rel="stylesheet" href="css/subpage-theme.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Hauptnavigation">
     <div class="container">
       <div class="nav__inner">
+
+        <!-- Logo: weiß (auf Hero) + farbig (gescrollt) -->
         <a href="/" class="nav__logo" aria-label="VZ Concept Startseite">
           <img src="assets/images/logo-white.png" alt="VZ Concept Logo" class="nav__logo-white" width="2917" height="694">
           <img src="assets/images/logo.png" alt="VZ Concept Logo" class="nav__logo-color" width="500" height="500">
         </a>
+
+        <!-- Desktop-Menü -->
         <ul class="nav__menu" role="list">
           <li><a href="ueber-mich" class="nav__link">Über mich</a></li>
         <li class="nav__item--dropdown">
@@ -364,7 +96,7 @@
               <img src="assets/images/vanessa/vanessa-beratung.jpg" alt="Vanessa Zimmer" class="nav__mega-feature-img" loading="lazy" width="1067" height="1600">
               <div class="nav__mega-feature-body">
                 <p>Nicht sicher welche Leistung passt?</p>
-                <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+                <a href="erstgespraech#buchung" class="btn btn--primary btn--sm"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
                 <p class="nav__mega-feature-note">30 Min &middot; kostenlos &middot; unverbindlich</p>
               </div>
             </div>
@@ -372,21 +104,30 @@
         </li>
           <li><a href="ablauf" class="nav__link">Ablauf</a></li>
           <li><a href="faq" class="nav__link">FAQ</a></li>
-          <li><a href="referenzen" class="nav__link active">Stimmen</a></li>
+          <li><a href="referenzen" class="nav__link">Stimmen</a></li>
           <li><a href="partner" class="nav__link">Partner</a></li>
           <li class="nav__mobile-cta">
-            <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
+            <a href="erstgespraech#buchung" class="btn btn--primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Erstgespr&auml;ch buchen</a>
           </li>
         </ul>
+
+        <!-- Mobile CTA -->
+
+        <!-- CTA -->
         <div class="nav__cta">
-          <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+          <a href="erstgespraech#buchung" class="btn btn--primary">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Erstgespräch buchen
           </a>
         </div>
+
+        <!-- Mobile Toggle -->
         <button class="nav__toggle" aria-label="Menü öffnen" aria-expanded="false">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
       </div>
     </div>
   </nav>
@@ -405,7 +146,7 @@
       <div class="page-hero__inner">
         <p class="section-label section-label--light">Stimmen meiner Kunden</p>
         <h1 class="page-hero__title" id="page-title">Nicht meine Worte &mdash; die meiner Kunden.</h1>
-        <p class="page-hero__subtitle">Keine Hochglanz-Versprechen, sondern Einblicke in Situationen, die nach der Beratung klarer, strukturierter oder entscheidbarer wurden.</p>
+        <p class="page-hero__subtitle">Hier berichten Gründer:innen und Kooperationspartner über die Zusammenarbeit mit mir. Die Stimmen geben dir einen persönlichen Einblick in meine Beratung.</p>
       </div>
     </div>
   </header>
@@ -421,7 +162,7 @@
           <p class="ref-stat__label">Durchschnitt aus 9 Google-Bewertungen</p>
         </div>
         <div class="reveal">
-          <p class="ref-stat__number">16+</p>
+          <p class="ref-stat__number">16</p>
           <p class="ref-stat__label">Jahre eigener Unternehmerinnenerfahrung</p>
         </div>
         <div class="reveal">
@@ -429,8 +170,8 @@
           <p class="ref-stat__label">Schwerpunkte: Gründung, Struktur, Businessplan, Neuaufstellung</p>
         </div>
         <div class="reveal">
-          <p class="ref-stat__number">0</p>
-          <p class="ref-stat__label">Standardlösungen – jede Beratung ist individuell</p>
+          <p class="ref-stat__number">100+</p>
+          <p class="ref-stat__label">Gründer:innen und Unternehmen begleitet</p>
         </div>
       </div>
     </div>
@@ -452,10 +193,8 @@
 
       <!-- Branchen-Tags (dekorativ) -->
       <div class="ref-filter-bar" aria-label="Beratungsbereiche" role="list">
-        <span class="ref-filter-chip ref-filter-chip--active" role="listitem">Alle</span>
         <span class="ref-filter-chip" role="listitem">Gründungsberatung</span>
         <span class="ref-filter-chip" role="listitem">Businessplan</span>
-        <span class="ref-filter-chip" role="listitem">AVGS-Coaching</span>
         <span class="ref-filter-chip" role="listitem">B2B / Kooperation</span>
       </div>
 
@@ -473,7 +212,7 @@
             <div>
               <div class="ref-stars" aria-label="5 von 5 Sternen">★★★★★</div>
               <p class="ref-card__name">Helen Ghorbani</p>
-              <p class="ref-card__role">Google-Rezension · vor einem Jahr</p>
+              <p class="ref-card__role">Google-Rezension</p>
               <span class="ref-card__tag">Gründungs- &amp; Berufscoaching</span>
             </div>
           </div>
@@ -490,7 +229,7 @@
             <div>
               <div class="ref-stars" aria-label="5 von 5 Sternen">★★★★★</div>
               <p class="ref-card__name">David Dutt</p>
-              <p class="ref-card__role">Google-Rezension · vor 6 Monaten</p>
+              <p class="ref-card__role">Google-Rezension</p>
               <span class="ref-card__tag">Gründerteam-Coaching</span>
             </div>
           </div>
@@ -507,7 +246,7 @@
             <div>
               <div class="ref-stars" aria-label="5 von 5 Sternen">★★★★★</div>
               <p class="ref-card__name">Fachanwaltskanzlei Torsten Günther</p>
-              <p class="ref-card__role">Google-Rezension · vor 6 Monaten</p>
+              <p class="ref-card__role">Google-Rezension</p>
               <span class="ref-card__tag">B2B-Kooperation</span>
             </div>
           </div>
@@ -524,7 +263,7 @@
             <div>
               <div class="ref-stars" aria-label="5 von 5 Sternen">★★★★★</div>
               <p class="ref-card__name">Mehdi Nasari</p>
-              <p class="ref-card__role">Google-Rezension · vor 2 Monaten</p>
+              <p class="ref-card__role">Google-Rezension</p>
               <span class="ref-card__tag">Gründung Kampfsportschule, Hamburg</span>
             </div>
           </div>
@@ -541,7 +280,7 @@
             <div>
               <div class="ref-stars" aria-label="5 von 5 Sternen">★★★★★</div>
               <p class="ref-card__name">Ramona Gräfe</p>
-              <p class="ref-card__role">Google-Rezension · vor 4 Monaten</p>
+              <p class="ref-card__role">Google-Rezension</p>
               <span class="ref-card__tag">Businessplan-Service</span>
             </div>
           </div>
@@ -558,7 +297,7 @@
             <div>
               <div class="ref-stars" aria-label="5 von 5 Sternen">★★★★★</div>
               <p class="ref-card__name">Lars</p>
-              <p class="ref-card__role">Google-Rezension · vor 7 Monaten</p>
+              <p class="ref-card__role">Google-Rezension</p>
               <span class="ref-card__tag">Erstgründung</span>
             </div>
           </div>
@@ -572,7 +311,7 @@
           „Einfach nur top! Das Coaching war inspirierend, professionell und auf den Punkt. Der Coach hat mit viel Einfühlungsvermögen und klaren Impulsen geholfen.“
         </p>
         <p class="ref-feature-quote__attribution">Mina Nasri</p>
-        <p class="ref-feature-quote__role">Google-Rezension · vor einem Jahr · 5,0 ★</p>
+        <p class="ref-feature-quote__role">Google-Rezension · 5,0 ★</p>
       </div>
 
     </div>
@@ -625,11 +364,11 @@
       <p class="section-label section-label--light">Nächster Schritt</p>
       <h2 class="cta-section__title" id="cta-title">Lass uns einordnen, was bei dir gerade ansteht.</h2>
       <p class="cta-section__text">Im Erstgespräch bekommst du eine erste Einschätzung, ob und wie eine Zusammenarbeit sinnvoll ist.</p>
-      <a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+      <a href="erstgespraech#buchung" class="btn btn--primary btn--lg">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Erstgespräch buchen
       </a>
-      <p class="cta-section__note">Unverbindlich · Klar · Ohne Vertriebsdruck</p>
+      <p class="cta-section__note">30&nbsp;Min · kostenlos · unverbindlich</p>
     </div>
   </section>
 
@@ -640,10 +379,32 @@
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
+
+        <!-- Brand -->
         <div class="footer__brand">
-          <div class="footer__logo"><img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694"></div>
-          <p class="footer__tagline">Gründungs- und Unternehmensberatung mit klarem Blick auf Markt, Struktur und Alltag.</p>
+          <div class="footer__logo">
+            <img src="assets/images/logo-white.png" alt="VZ Concept Logo" width="2917" height="694">
+          </div>
+          <p class="footer__tagline">
+            Gründungs- und Unternehmensberatung für Vorhaben, die im Markt und im Alltag bestehen sollen.
+          </p>
+          <div class="footer__social" aria-label="Social Media">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/v.z.concept__consulting/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/vzconcept/?originalSubdomain=de" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/VanessaZimmerConcept" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
         </div>
+
+        <!-- Navigation -->
         <div>
           <p class="footer__nav-title">Navigation</p>
           <ul class="footer__nav-list" role="list">
@@ -651,41 +412,55 @@
             <li><a href="ueber-mich">Über mich</a></li>
             <li><a href="leistungen">Leistungen</a></li>
             <li><a href="ablauf">Ablauf</a></li>
+            <li><a href="referenzen">Stimmen</a></li>
             <li><a href="faq">FAQ</a></li>
-            <li><a href="partner">Partner &amp; Netzwerk</a></li>
           </ul>
         </div>
+
+        <!-- Leistungen -->
         <div>
           <p class="footer__nav-title">Leistungen</p>
           <ul class="footer__nav-list" role="list">
             <li><a href="leistung-gruendung">Gründungsberatung</a></li>
             <li><a href="leistung-avgs">AVGS-Gründercoaching</a></li>
             <li><a href="leistung-krise">Krisenberatung</a></li>
-            <li><a href="leistung-businessplan">Businessplan</a></li>
+            <li><a href="leistung-businessplan">Businessplan-Service</a></li>
             <li><a href="leistung-aufenthaltsrecht">Aufenthaltsrecht</a></li>
             <li><a href="leistung-struktur">Struktur &amp; Unternehmensentwicklung</a></li>
           </ul>
         </div>
+
+        <!-- Kontakt -->
         <div>
           <p class="footer__nav-title">Kontakt</p>
           <ul class="footer__nav-list" role="list">
-            <li><a href="https://calendly.com/vz-vz-concept/30min" target="_blank" rel="noopener noreferrer">Erstgespräch buchen</a></li>
+            <li><a href="erstgespraech#buchung">Erstgespräch buchen</a></li>
             <li><a href="mailto:vz@vz-concept.de">vz@vz-concept.de</a></li>
+            <li><a href="tel:+4915254589658">+49 152 5458 9658</a></li>
+            <li><a href="https://vz-concept.de" target="_blank" rel="noopener">vz-concept.de</a></li>
           </ul>
         </div>
+
       </div>
+
+      <!-- Bottom Bar -->
       <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2026 VZ Concept &amp; Consulting UG</p>
+        <p class="footer__copy">
+          &copy; 2026 VZ Concept &amp; Consulting UG · Alle Rechte vorbehalten
+        </p>
         <nav class="footer__legal" aria-label="Rechtliche Links">
-          <a href="impressum">Impressum</a>
-          <a href="datenschutz">Datenschutz</a>
-          <a href="#" onclick="if(window.cookieConsent){window.cookieConsent.show();return false;}">Cookie-Einstellungen</a>
+          <a href="impressum" data-no-campaign="true">Impressum</a>
+          <a href="datenschutz" data-no-campaign="true">Datenschutz</a>
+          <button type="button" id="cookie-settings-button">Cookie-Einstellungen</button>
         </nav>
       </div>
+
     </div>
   </footer>
-
-    <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement-config.js" defer></script>
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/measurement.js" defer></script>
+  <script src="js/booking.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

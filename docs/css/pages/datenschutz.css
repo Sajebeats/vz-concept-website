@@ -1,0 +1,27 @@
+.dse-content h2 {
+      font-family: var(--font-heading);
+      font-size: var(--fs-xl);
+      color: var(--color-primary);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+    .dse-content h3 {
+      font-family: var(--font-heading);
+      font-size: var(--fs-lg);
+      color: var(--color-primary);
+      margin-top: var(--space-md);
+      margin-bottom: 0.5rem;
+    }
+    .dse-content p {
+      line-height: 1.85;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+    .dse-content a { color: var(--color-accent); }
+    .dse-content ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-text);
+      line-height: 1.75;
+    }
+    .dse-content ul li { margin-bottom: 0.35rem; }

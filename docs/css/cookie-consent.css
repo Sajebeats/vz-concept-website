@@ -16,6 +16,28 @@
   font-family: var(--font-body);
 }
 
+/* Consent-Dialog für die vorbereitete, derzeit deaktivierte Messarchitektur. */
+.consent-open { overflow: hidden; }
+.consent-dialog { position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; padding: var(--space-md); }
+.consent-dialog__backdrop { position: absolute; inset: 0; background: rgba(4, 24, 21, 0.78); backdrop-filter: blur(4px); }
+.consent-dialog__panel { position: relative; width: min(620px, 100%); max-height: calc(100vh - 2rem); overflow: auto; overscroll-behavior: contain; padding: var(--space-xl); background: var(--surface-light); color: var(--color-text); border: 1px solid var(--surface-border-light); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.consent-dialog__panel h2 { margin-bottom: var(--space-md); color: var(--color-primary); font-size: var(--fs-2xl); }
+.consent-dialog__panel > p:not(.section-label) { color: var(--color-text-muted); }
+.consent-dialog__close { position: absolute; top: var(--space-md); right: var(--space-md); width: 44px; height: 44px; border: 1px solid var(--color-border); border-radius: var(--radius-pill); background: var(--color-white); color: var(--color-primary); font-size: 1.5rem; cursor: pointer; }
+.consent-dialog__close:hover { border-color: var(--color-accent); }
+.consent-option { display: flex; justify-content: space-between; gap: var(--space-lg); align-items: center; padding-block: var(--space-md); border-bottom: 1px solid var(--color-border); cursor: pointer; }
+.consent-option span { display: grid; gap: var(--space-xs); }
+.consent-option small { color: var(--color-text-muted); }
+.consent-option input { width: 22px; height: 22px; flex: 0 0 auto; accent-color: var(--color-primary); }
+.consent-dialog__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+.consent-dialog__legal { margin-top: var(--space-md); font-size: var(--fs-sm); }
+.consent-dialog__legal a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .consent-dialog__panel { padding: var(--space-lg); }
+  .consent-dialog__actions { align-items: stretch; flex-direction: column; }
+}
+
 .vz-cc--visible {
   transform: translateX(-50%) translateY(0);
   opacity: 1;

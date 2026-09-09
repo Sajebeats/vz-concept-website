@@ -10,6 +10,17 @@
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.querySelector('.nav__menu');
   const dropdownItems = document.querySelectorAll('.nav__item--dropdown');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function closeMenu(returnFocus) {
+    if (!menu || !toggle) return;
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
+    closeDropdowns();
+    if (returnFocus) toggle.focus();
+  }
 
   function handleScroll() {
     if (!nav) return;
@@ -37,6 +48,7 @@
     toggle.addEventListener('click', function () {
       const isOpen = menu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
       if (!isOpen) {
         closeDropdowns();
       }
@@ -48,19 +60,17 @@
         if (link.classList.contains('nav__dropdown-trigger')) {
           return;
         }
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        closeDropdowns();
-        document.body.style.overflow = '';
+        closeMenu(false);
       });
     });
 
     document.addEventListener('click', function (e) {
       if (!nav || nav.contains(e.target)) return;
-      menu.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      closeDropdowns();
-      document.body.style.overflow = '';
+      closeMenu(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.classList.contains('open')) closeMenu(true);
     });
   }
 
@@ -77,6 +87,16 @@
         item.classList.add('open');
         trigger.setAttribute('aria-expanded', 'true');
       }
+    });
+
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowDown') return;
+      e.preventDefault();
+      closeDropdowns();
+      item.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+      const firstLink = item.querySelector('.nav__dropdown-link');
+      if (firstLink) firstLink.focus();
     });
 
     item.addEventListener('keydown', function (e) {
@@ -152,7 +172,64 @@
     });
   });
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[role="tablist"]').forEach(function (tablist) {
+    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+    if (!tabs.length) return;
+
+    function activate(tab, focus) {
+      tabs.forEach(function (candidate) {
+        const selected = candidate === tab;
+        candidate.setAttribute('aria-selected', String(selected));
+        candidate.tabIndex = selected ? 0 : -1;
+        const panelId = candidate.getAttribute('aria-controls') || candidate.dataset.tab;
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (panel) {
+          panel.hidden = !selected;
+          panel.classList.toggle('is-active', selected);
+        }
+        candidate.classList.toggle('is-active', selected);
+      });
+      if (focus) tab.focus();
+    }
+
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { activate(tab, false); });
+      tab.addEventListener('keydown', function (event) {
+        let next = null;
+        if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
+        if (event.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
+        if (event.key === 'Home') next = tabs[0];
+        if (event.key === 'End') next = tabs[tabs.length - 1];
+        if (next) { event.preventDefault(); activate(next, true); }
+      });
+    });
+    activate(tabs.find(function (tab) { return tab.getAttribute('aria-selected') === 'true'; }) || tabs[0], false);
+  });
+
+  document.querySelectorAll('.diag-item[role="checkbox"]').forEach(function (item) {
+    function toggleItem() {
+      const selected = item.getAttribute('aria-checked') !== 'true';
+      item.setAttribute('aria-checked', String(selected));
+      item.classList.toggle('is-checked', selected);
+      const result = document.getElementById('diag-result');
+      const count = document.querySelectorAll('.diag-item[aria-checked="true"]').length;
+      const messages = [
+        'Wähle die Punkte aus, die auf dich zutreffen.',
+        'Das kenne ich aus vielen Betrieben.',
+        'Zwei Punkte sind ein guter Anlass, die Abläufe genauer anzusehen.',
+        'Drei Punkte zeigen einen klaren Handlungsbedarf.',
+        'Bei allen vier Punkten lohnt sich eine strukturierte Bestandsaufnahme.'
+      ];
+      if (result) {
+        result.textContent = messages[count] || messages[messages.length - 1];
+        result.classList.toggle('has-hits', count > 0);
+      }
+    }
+    item.addEventListener('click', toggleItem);
+    item.addEventListener('keydown', function (event) {
+      if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); toggleItem(); }
+    });
+  });
 
   function setMotionDelay(elements, step, start) {
     elements.forEach(function (el, index) {
