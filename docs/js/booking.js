@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const BASE = 'https://calendly.com/vz-vz-concept/30min';
-  const allowed = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+  const allowed = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   const campaign = new URLSearchParams();
   const incoming = new URLSearchParams(window.location.search);
 
