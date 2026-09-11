@@ -17,7 +17,14 @@
       color: var(--color-text);
       margin-bottom: 1rem;
     }
-    .dse-content a { color: var(--color-accent); }
+    .dse-content a {
+      /* dunklerer Akzent, sonst 2,14:1 auf Weiß */
+      color: var(--color-accent-text);
+      /* Links im Fließtext waren nur an der Farbe erkennbar. Unterstrichen
+         sind sie unabhängig von Farbwahrnehmung als Link erkennbar. */
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
     .dse-content ul {
       margin-left: 1.5rem;
       margin-bottom: 1rem;

@@ -24,3 +24,8 @@ package-lock.json
 # Claude Code interne Dateien
 .claude/worktrees/
 .playwright-cli/
+
+# Lokale Arbeits- und Vorschauordner (Repo ist oeffentlich)
+_vorschau/
+Claude outputs/
+tmp/
