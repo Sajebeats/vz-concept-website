@@ -222,20 +222,8 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 0;
 }
 
-.container--text {
-  max-width: var(--container-text);
-}
-
 .section {
   padding-block: var(--space-3xl);
-}
-
-.section--sm {
-  padding-block: var(--space-xl);
-}
-
-.section--lg {
-  padding-block: clamp(5rem, 10vw, 9rem);
 }
 
 .section--dark {
@@ -250,16 +238,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-white);
 }
 
-.section--accent-light {
-  background-color: var(--color-accent-light);
-}
-
 .section--off-white {
   background-color: var(--color-off-white);
-}
-
-.section--light-bg {
-  background-color: var(--color-light-bg);
 }
 
 .grid-2 {
@@ -284,27 +264,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.gap-sm { gap: var(--space-sm); }
-.gap-md { gap: var(--space-md); }
-.gap-lg { gap: var(--space-lg); }
-
-
 /* ─── 4. TYPOGRAFIE-UTILITIES ──────────────────────── */
 .text-center { text-align: center; }
-.text-left   { text-align: left; }
-
 .section-label {
   display: inline-flex;
   align-items: center;
@@ -370,20 +331,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-accent);
 }
 
-.script-text {
-  font-family: var(--font-script);
-  font-style: italic;
-  font-weight: 400;
-}
-
 .lead {
   font-size: var(--fs-lg);
   line-height: 1.7;
   color: var(--color-text-muted);
-}
-
-.lead--white {
-  color: rgba(255,255,255,0.85);
 }
 
 blockquote {
@@ -430,12 +381,6 @@ blockquote {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .motion-ready .reveal-item {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
   .motion-soft .reveal-item {
     opacity: 1;
     transform: none;
@@ -929,15 +874,17 @@ blockquote {
 /* ─── Mobile Mega Menu ──────────────────────────────── */
 @media (max-width: 1024px) {
 
-  /* Fix: transform-Override mit höherer Spezifität */
+  /* Mobil: Panel aus dem absoluten Flow holen. Die Selektoren sind spezifischer
+     als die Desktop-Regeln und stehen spaeter in der Datei — die Kaskade reicht,
+     kein !important noetig (empirisch geprueft 11.09.). */
   .nav__item--dropdown .nav__mega,
   .nav__item--dropdown:hover .nav__mega,
   .nav__item--dropdown:focus-within .nav__mega,
   .nav__item--dropdown.open .nav__mega {
-    position: static !important;
-    transform: none !important;
-    left: auto !important;
-    top: auto !important;
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
     opacity: 1;
     pointer-events: all;
   }
@@ -1197,8 +1144,57 @@ blockquote {
   will-change: transform;
 }
 
-.partner-marquee:hover .partner-marquee__track {
-  animation-play-state: running;
+/* WCAG 2.2.2 (Pause, Stop, Hide): Das Band laesst sich anhalten — per Schalter,
+   beim Ueberfahren mit der Maus und sobald ein Logo den Tastaturfokus hat.
+   (Die alte Regel setzte an dieser Stelle 'running' und war damit wirkungslos.) */
+.partner-marquee:hover .partner-marquee__track,
+.partner-marquee:focus-within .partner-marquee__track,
+.partner-marquee.is-paused .partner-marquee__track {
+  animation-play-state: paused;
+}
+
+.partner-marquee__toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.35rem;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 50%;
+  background: rgba(8,31,28,0.55);
+  color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.partner-marquee__toggle:hover,
+.partner-marquee__toggle:focus-visible {
+  background: rgba(8,31,28,0.8);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.partner-marquee__toggle svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.partner-marquee__toggle .partner-marquee__icon-play,
+.partner-marquee__toggle[aria-pressed="true"] .partner-marquee__icon-pause {
+  display: none;
+}
+
+.partner-marquee__toggle[aria-pressed="true"] .partner-marquee__icon-play {
+  display: block;
 }
 
 .partner-logo-card {
@@ -1383,17 +1379,6 @@ blockquote {
 
 
 
-
-.tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-pill);
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  background: var(--color-accent-light);
-  color: var(--color-primary);
-  border: 1px solid var(--color-accent-mid);
-}
 
 
 /* ─── 11. SERVICE CARDS ────────────────────────────── */
@@ -1921,11 +1906,6 @@ blockquote {
   box-shadow: var(--shadow-sm);
 }
 
-.highlight-box--dark {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(0,200,168,0.2);
-}
-
 .check-list {
   display: flex;
   flex-direction: column;
@@ -1953,10 +1933,6 @@ blockquote {
   background-repeat: no-repeat;
   flex-shrink: 0;
   margin-top: 2px;
-}
-
-.check-list--white li {
-  color: rgba(255,255,255,0.8);
 }
 
 
@@ -2009,14 +1985,11 @@ blockquote {
 /* ─── 24. UTILITIES ────────────────────────────────── */
 .mt-sm { margin-top: var(--space-sm); }
 .mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mt-xl { margin-top: var(--space-xl); }
-.mb-sm { margin-bottom: var(--space-sm); }
 .mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
 .mb-xl { margin-bottom: var(--space-xl); }
 
-.visually-hidden {
+.visually-hidden,
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -2027,8 +2000,6 @@ blockquote {
   white-space: nowrap;
   border: 0;
 }
-
-.sr-only { @extend .visually-hidden; }
 
 
 /* --- Premium polish: global visual hierarchy --- */
@@ -2106,11 +2077,6 @@ blockquote {
 
 
 
-
-.tag{
-  font-weight: 700;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
-}
 
 
 .diff-box,
@@ -2435,8 +2401,8 @@ blockquote {
 
   .hub-hero__inner,
   .avgs-hero__inner {
-    text-align: left !important;
-    margin-inline: 0 !important;
+    text-align: left;
+    margin-inline: 0;
     max-width: 100%;
   }
 
@@ -2534,7 +2500,7 @@ blockquote {
 
   .avgs-journey__inner {
     display: grid !important;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
     gap: 0.5rem !important;
   }
 
@@ -2616,7 +2582,7 @@ blockquote {
     .koop-section,
     .quality-section
   ) {
-    padding-block: clamp(3rem, 11vw, 4.25rem) !important;
+    padding-block: clamp(3rem, 11vw, 4.25rem);
     max-width: 100vw;
     overflow: hidden;
   }
@@ -2634,7 +2600,7 @@ blockquote {
     .section-title.text-center,
     .section-subtitle.text-center
   ) {
-    text-align: left !important;
+    text-align: left;
     margin-inline: 0 !important;
   }
 
@@ -2666,7 +2632,7 @@ blockquote {
     .info-card,
     .faq-item
   ) {
-    border-radius: 18px !important;
+    border-radius: 18px;
     max-width: 100%;
     min-width: 0;
   }
@@ -2675,18 +2641,18 @@ blockquote {
     .info-card__body,
     .info-card__header
   ) {
-    padding: 1.25rem !important;
+    padding: 1.25rem;
   }
 
   /* Content-Block: CTA-Button + Info-Card auf Mobile */
   :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .content-block__inner {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .content-block .btn {
-    width: 100% !important;
-    justify-content: center !important;
-    font-size: var(--fs-xs) !important;
+    width: 100%;
+    justify-content: center;
+    font-size: var(--fs-xs);
     white-space: normal;
     text-align: center;
   }
@@ -2714,7 +2680,7 @@ blockquote {
     .audit-card,
     .legal-notice__box
   ) {
-    gap: 0.75rem !important;
+    gap: 0.75rem;
   }
 
   :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
@@ -2772,39 +2738,13 @@ blockquote {
     font-size: clamp(1.9rem, 8.8vw, 2.28rem) !important;
   }
 
-  
-
-  
-
-  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
-    .timeline__item,
-    .proc-item,
-    .process-timeline-item
-  ) {
-    grid-template-columns: 42px 1fr !important;
-  }
-
-  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main .timeline__content {
-    padding-left: 1rem !important;
-  }
-
-  :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
-    .timeline__marker,
-    .proc-num,
-    .process-timeline-num
-  ) {
-    width: 38px !important;
-    height: 38px !important;
-    font-size: 0.95rem !important;
-  }
-
   :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
     .traps-pivot,
     .legal-notice__box,
     .symptom-cta
   ) {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   :is(.hub-hero, .sl-hero, .avgs-hero, .crisis-hero, .struct-hero, .bp-hero, .ar-hero, .inst-hero) ~ main :is(
@@ -2824,7 +2764,7 @@ blockquote {
     .pillar__content,
     .phase
   ) {
-    padding: 1.15rem !important;
+    padding: 1.15rem;
   }
 }
 
@@ -2905,7 +2845,7 @@ blockquote {
 @media (max-width: 480px) {
   /* Stats: 2×2 statt 4×1 */
   .v4-stats__grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* Nav Mega Menu Services — mehr Luft */

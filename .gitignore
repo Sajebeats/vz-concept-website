@@ -29,3 +29,8 @@ package-lock.json
 _vorschau/
 Claude outputs/
 tmp/
+
+# Notizen fuer den Live-Gang (bleiben lokal, Repo ist oeffentlich)
+COMMIT-TEXT.txt
+LIVE-STELLEN.txt
+LIVE-STELLEN.bat

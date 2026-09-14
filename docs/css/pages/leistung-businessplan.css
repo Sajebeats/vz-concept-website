@@ -44,27 +44,6 @@
     .chapter-card__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.65}
 
     /* ══ EINSATZBEREICHE — 4 Karten ═════════════════════════════ */
-    .usecase-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-off-white)}
-    .usecase-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md);margin-top:clamp(2rem,4vw,3rem)}
-    .uc-card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.5rem,3vw,2.25rem);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
-    .uc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-    .uc-card--bank::before{background:linear-gradient(90deg,#1a6b9a,rgba(26,107,154,.3))}
-    .uc-card--investor::before{background:linear-gradient(90deg,#7b5c00,rgba(123,92,0,.3))}
-    .uc-card--foerder::before{background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.3))}
-    .uc-card--orientierung::before{background:linear-gradient(90deg,#553c9a,rgba(85,60,154,.3))}
-    .uc-card:hover{border-color:rgba(0,200,168,.25);box-shadow:var(--shadow-md);transform:translateY(-4px)}
-    .uc-card__tag{display:inline-flex;align-items:center;gap:.35rem;font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;border-radius:var(--radius-pill);padding:.3rem .85rem;margin-bottom:var(--space-md);width:fit-content}
-    .uc-card--bank .uc-card__tag{background:rgba(26,107,154,.1);color:#1a6b9a;border:1px solid rgba(26,107,154,.2)}
-    .uc-card--investor .uc-card__tag{background:rgba(234,179,8,.1);color:#7b5c00;border:1px solid rgba(234,179,8,.2)}
-    .uc-card--foerder .uc-card__tag{background:var(--color-accent-light);color:#00875c;border:1px solid rgba(0,200,168,.25)}
-    .uc-card--orientierung .uc-card__tag{background:rgba(85,60,154,.08);color:#553c9a;border:1px solid rgba(85,60,154,.2)}
-    .uc-card__title{font-size:clamp(1.05rem,1.9vw,1.25rem);color:var(--color-primary);font-weight:700;margin-bottom:.625rem;line-height:1.3}
-    .uc-card__text{color:var(--color-text-muted);font-size:var(--fs-sm);line-height:1.75;margin-bottom:var(--space-md);flex:1}
-    .uc-card__focus{display:flex;flex-direction:column;gap:.4rem;border-top:1px solid var(--color-border);padding-top:var(--space-md)}
-    .uc-card__focus-label{font-size:var(--fs-xs);font-weight:700;color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.2rem}
-    .uc-card__focus-item{display:flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);color:var(--color-primary);font-weight:500}
-    .uc-card__focus-item svg{width:13px;height:13px;color:var(--color-accent);flex-shrink:0}
-
     /* ══ VERGLEICH — DIY vs. Professionell ══════════════════════ */
     .compare-section{padding-block:clamp(4rem,8vw,6.5rem);background:var(--color-white)}
     .compare-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:clamp(2rem,4vw,3rem);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);box-shadow:var(--shadow-sm)}
@@ -88,16 +67,6 @@
 
     /* ══ PROZESS — 3 Schritte ════════════════════════════════════ */
     .bp-process{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(180deg,#f4faf9 0%,var(--color-off-white) 100%)}
-    .bp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md);margin-top:clamp(2rem,4vw,3rem);position:relative}
-    .bp-steps::before{content:'';position:absolute;top:44px;left:calc(16.67% + 1rem);right:calc(16.67% + 1rem);height:2px;background:linear-gradient(90deg,var(--color-accent),rgba(0,200,168,.2));display:block}
-    .bp-step{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.5rem,3vw,2.25rem);display:flex;flex-direction:column;align-items:flex-start;gap:.875rem;position:relative;z-index:1;box-shadow:var(--shadow-sm);transition:border-color .25s ease,box-shadow .25s ease}
-    .bp-step:hover{border-color:rgba(0,200,168,.25);box-shadow:var(--shadow-md)}
-    .bp-step__num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);font-family:var(--font-heading);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 6px 20px rgba(12,53,48,.25)}
-    .bp-step__label{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.08em}
-    .bp-step__title{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--color-primary);font-weight:700;line-height:1.3}
-    .bp-step__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.75}
-    .bp-step__detail{margin-top:.25rem;padding:.5rem .75rem;background:var(--color-off-white);border:1px solid var(--color-border);border-radius:var(--radius-md);font-size:var(--fs-xs);color:var(--color-text-muted);line-height:1.5}
-
     /* ══ WARUM VANESSA — mit Foto ════════════════════════════ */
     .why-section{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(135deg,#081F1C 0%,var(--color-primary) 100%)}
     .why-inner{display:grid;grid-template-columns:300px 1fr;gap:clamp(3rem,6vw,5rem);align-items:start}
@@ -160,15 +129,11 @@
     }
     @media(max-width:768px){
       .chapters-grid{grid-template-columns:repeat(2,1fr)}
-      .usecase-cards{grid-template-columns:1fr}
       .compare-grid{grid-template-columns:1fr}.compare-divider{display:none}.compare-col--diy{border-bottom:1px solid var(--color-border)}
-      .bp-steps{grid-template-columns:1fr}.bp-steps::before{display:none}
-    }
+}
     @media(max-width:540px){
       .chapters-grid{grid-template-columns:1fr}
     }
 
     /* ══ TRUST RATING ══ */
-    .bp-hero__trust-item--rating{color:rgba(255,255,255,.82);font-weight:600;text-decoration:none;transition:color .2s ease}
-    .bp-hero__trust-item--rating:hover{color:#fff}
     .sl-hero__stars{color:#ffc247;letter-spacing:1px;font-size:.95em}

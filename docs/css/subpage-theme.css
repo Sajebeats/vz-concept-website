@@ -428,14 +428,6 @@ body {
   box-shadow: 0 0 0 6px #061916, 0 0 24px rgba(0, 200, 168, 0.08);
 }
 
-.process-card__ghost {
-  color: rgba(120, 234, 215, 0.08);
-}
-
-.process-connector {
-  background: linear-gradient(90deg, rgba(120, 234, 215, 0.62), rgba(120, 234, 215, 0.16));
-}
-
 /* ── Verwandte Leistungen: Startseiten-Nummern (01/02/03) ── */
 :is(.related-cards, .leistungen-grid) {
   counter-reset: vz-rel;
@@ -458,10 +450,6 @@ body {
 
 /* ── Doppelte Prozess-Nummern: der grosse Ghost unten entfaellt,
       der Marker-Kreis oben bleibt (Dennis, 19.07.2026) ── */
-.process-card__ghost {
-  display: none;
-}
-
 /* ── Icons: hochwertige Fassung statt nackter Strich-Icons ── */
 /* Auf dunklen Karten: Teal-Glas-Kachel */
 :is(.recognition__item, .symptom-card, .trap-card, .benefit-card,

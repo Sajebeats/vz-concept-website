@@ -98,15 +98,6 @@
     /* ══ PROZESS — 4 Schritte ════════════════════════════════════ */
     .process-section{padding-block:clamp(4rem,8vw,6.5rem);background:linear-gradient(180deg,#f4faf9 0%,var(--color-off-white) 100%)}
     .process-steps{display:flex;flex-direction:column;gap:0;margin-top:clamp(2rem,4vw,3.5rem);max-width:800px;margin-inline:auto}
-    .proc-item{display:grid;grid-template-columns:56px 1fr;gap:clamp(1.5rem,3vw,2.5rem);position:relative;padding-bottom:clamp(1.5rem,3vw,2rem)}
-    .proc-item:last-child{padding-bottom:0}
-    .proc-item:not(:last-child)::after{content:'';position:absolute;top:56px;left:27px;width:2px;height:calc(100% - 28px);background:linear-gradient(180deg,rgba(0,200,168,.35),rgba(0,200,168,.05));display:block}
-    .proc-item__num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--color-primary),#0e4a3f);color:var(--color-accent);font-family:var(--font-heading);font-size:1.2rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 24px rgba(12,53,48,.25);position:relative;z-index:1}
-    .proc-item__content{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:clamp(1.25rem,2.5vw,1.75rem)}
-    .proc-item__tag{font-size:var(--fs-xs);font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem}
-    .proc-item__title{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--color-primary);font-weight:700;margin-bottom:.5rem;line-height:1.3}
-    .proc-item__text{font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.75}
-
     /* ══ FAQ ════════════════════════════════════════════════════ */
     .faq-section{padding-block:clamp(4rem,8vw,6rem);background:var(--color-white)}
     .faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:760px;margin:clamp(2rem,4vw,3rem) auto 0}
@@ -172,13 +163,8 @@
       .compare-split{grid-template-columns:1fr}
     }
     @media(max-width:540px){
-      .proc-item{grid-template-columns:44px 1fr;gap:1rem}
-      .proc-item__num{width:44px;height:44px;font-size:1rem}
-      .proc-item:not(:last-child)::after{left:21px}
       .legal-notice__box{flex-direction:column;gap:.75rem}
     }
 
     /* ══ TRUST RATING ══ */
-    .ar-hero__trust-item--rating{color:rgba(255,255,255,.82);font-weight:600;text-decoration:none;transition:color .2s ease}
-    .ar-hero__trust-item--rating:hover{color:#fff}
     .sl-hero__stars{color:#ffc247;letter-spacing:1px;font-size:.95em}

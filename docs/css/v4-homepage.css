@@ -7,111 +7,8 @@
 /* ── Seitenspezifische Ergänzungen ── */
 
 /* Branchen-Tags */
-.branche-strip {
-  background: var(--color-accent-light);
-  border-top: 1px solid var(--color-accent-mid);
-  border-bottom: 1px solid var(--color-accent-mid);
-  padding-block: var(--space-sm);
-  overflow: hidden;
-}
-
-.branche-strip__inner {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.branche-strip__dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  flex-shrink: 0;
-}
-
 /* Differenzierung-Box */
-.diff-box {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-}
-
-.diff-box__col {
-  padding: var(--space-xl);
-  background: var(--color-white);
-}
-
-.diff-box__col--dark {
-  background: var(--color-primary);
-}
-
-.diff-box__label {
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: var(--space-md);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.diff-box__col .diff-box__label {
-  color: var(--color-text-muted);
-}
-
-.diff-box__col--dark .diff-box__label {
-  color: var(--color-accent);
-}
-
-.diff-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.625rem;
-  font-size: var(--fs-sm);
-  padding-block: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
-  line-height: 1.45;
-  color: var(--color-text-muted);
-}
-
-.diff-list li:last-child { border-bottom: none; }
-
-.diff-box__col--dark .diff-list li {
-  color: rgba(255,255,255,0.75);
-  border-color: rgba(255,255,255,0.08);
-}
-
-.diff-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
 /* Kennzahlen-Band */
-.kpi-band {
-  background: var(--color-primary);
-  padding-block: var(--space-2xl);
-}
-
-@media (max-width: 768px) {
-  .diff-box {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Neue Startseiten-Version: Conversion-Struktur im bestehenden Branding */
 .home-v4 {
   background: var(--color-white);
@@ -607,6 +504,21 @@
 
 .v4-partners .partner-marquee::after {
   background: linear-gradient(270deg, rgba(250, 253, 252, 1), rgba(250, 253, 252, 0));
+}
+
+/* Pause-Schalter auf hellem Untergrund (Startseite) */
+.v4-partners .partner-marquee__toggle {
+  border-color: rgba(12, 53, 48, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-text-muted);
+  box-shadow: 0 4px 14px rgba(12, 53, 48, 0.1);
+}
+
+.v4-partners .partner-marquee__toggle:hover,
+.v4-partners .partner-marquee__toggle:focus-visible {
+  background: var(--color-white);
+  border-color: rgba(0, 168, 141, 0.5);
+  color: var(--color-accent-text);
 }
 
 .v4-partners .partner-logo-card {
@@ -1851,10 +1763,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .v4-stats {
-    padding-block: 3.5rem;
-  }
-
   .v4-section {
     padding-block: 4rem;
   }
@@ -1862,8 +1770,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .v4-hero__content > *,
-  .v4-hero__background img,
-  .motion-ready .reveal-item {
+  .v4-hero__background img {
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
@@ -2192,121 +2099,7 @@
 }
 
 /* ══ Vanessa-Story-Zitat (in v4-why) ════════════════════════ */
-.v4-why__quote {
-  position: relative;
-  margin: 1.75rem 0 1.5rem;
-  padding: 1.5rem 1.5rem 1.5rem 2.5rem;
-  background: rgba(0, 200, 168, 0.06);
-  border-left: 3px solid var(--color-accent);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-}
-
-.v4-why__quote::before {
-  content: '“';
-  position: absolute;
-  top: 0.4rem;
-  left: 0.8rem;
-  font-family: var(--font-script);
-  font-size: 3rem;
-  line-height: 1;
-  color: var(--color-accent);
-  opacity: 0.5;
-}
-
-.v4-why__quote p {
-  margin: 0 0 0.7rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(1rem, 1.25vw, 1.12rem);
-  line-height: 1.65;
-  font-style: italic;
-}
-
-.v4-why__quote footer {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
 /* ══ Erwartungs-Info nach Calendly-CTA ══════════════════════ */
-.v4-after-click {
-  position: relative;
-  padding: clamp(1.6rem, 3vw, 2.3rem);
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
-  border: 1px solid rgba(120, 234, 215, 0.19);
-  border-radius: 17px;
-  text-align: left;
-  box-shadow:
-    0 22px 46px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.v4-after-click__title {
-  margin: 0 0 1.35rem;
-  color: var(--color-white);
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-
-.v4-after-click__steps {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: after-step;
-  display: grid;
-  gap: 0;
-}
-
-.v4-after-click__steps li {
-  counter-increment: after-step;
-  min-height: 3.7rem;
-  padding: 0 0 1rem 3rem;
-  margin-bottom: 1rem;
-  position: relative;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: var(--fs-sm);
-  line-height: 1.55;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.v4-after-click__steps li:last-child {
-  min-height: 2.7rem;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  border-bottom: 0;
-}
-
-.v4-after-click__steps li::before {
-  content: counter(after-step);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9px;
-  background: rgba(0, 200, 168, 0.12);
-  border: 1px solid rgba(120, 234, 215, 0.22);
-  color: #78ead7;
-  font-weight: 700;
-  font-size: 0.78rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.v4-after-click__steps strong {
-  display: block;
-  color: var(--color-white);
-  margin-bottom: 0.1rem;
-}
-
-.v4-after-click__steps span {
-  display: block;
-  color: rgba(255, 255, 255, 0.6);
-}
-
 .v4-calendly-shell {
   min-width: 0;
   width: 100%;
@@ -2555,12 +2348,35 @@
   height: 100%;
 }
 
-/* Das Partnerband bleibt als Orientierung aktiv, laeuft bei reduzierter
-   Bewegung aber deutlich langsamer als im regulaeren Modus. */
+/* Wer reduzierte Bewegung eingestellt hat, bekommt das Partnerband ohne Lauf:
+   Die sechs Logos stehen dann als Raster nebeneinander, die Dublette fuer den
+   nahtlosen Uebergang, die Verlaufsmasken und der Pause-Schalter entfallen.
+   (korrigiert 11.09. — vorher lief das Band auch bei reduzierter Bewegung weiter,
+   was WCAG 2.3.3 und der Nutzereinstellung widerspricht.) */
 @media (prefers-reduced-motion: reduce) {
   .partner-marquee__track {
-    animation: partnerMarquee 60s linear infinite !important;
-    animation-play-state: running !important;
+    animation: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    width: 100%;
+  }
+
+  .partner-marquee__track > * {
+    width: auto;
+    min-width: 0;
+  }
+
+  .partner-marquee__track > [aria-hidden="true"] {
+    display: none;
+  }
+
+  .v4-partners .partner-marquee::before,
+  .v4-partners .partner-marquee::after {
+    display: none;
+  }
+
+  .partner-marquee__toggle {
+    display: none;
   }
 }
 

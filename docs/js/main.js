@@ -408,4 +408,17 @@
 
   initHomeMotion();
   initCountUp();
+
+  /* ---------- Partner-Logoband: anhalten / fortsetzen (WCAG 2.2.2) ---------- */
+  document.querySelectorAll('[data-marquee-toggle]').forEach(function (btn) {
+    var band = btn.closest('.partner-marquee');
+    if (!band) return;
+    var label = btn.querySelector('[data-marquee-label]');
+    btn.addEventListener('click', function () {
+      var paused = band.classList.toggle('is-paused');
+      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      if (label) label.textContent = paused ? 'Logo-Band fortsetzen' : 'Logo-Band anhalten';
+    });
+  });
+
 })();
