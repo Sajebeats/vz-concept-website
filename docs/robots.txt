@@ -4,7 +4,9 @@
 User-agent: *
 Allow: /
 
-# Interne Seite nicht indexieren (wird gerade überarbeitet)
+# Hinweis: /leistung-traeger ist bewusst nicht im Index. Das steuert das
+# meta-robots-Tag der Seite selbst - hier absichtlich kein Disallow, sonst
+# koennten Crawler das noindex gar nicht erst lesen.
 
 # KI-Crawler ausdrücklich erlaubt (Generative Engine Optimization)
 User-agent: GPTBot

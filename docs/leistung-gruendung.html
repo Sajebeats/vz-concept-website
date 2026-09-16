@@ -40,12 +40,39 @@
   "serviceType": "Gründungsberatung",
   "description": "Wirtschaftliche Prüfung von Geschäftsideen: Markt, Zielgruppe, Zahlen und nächster Schritt. Klare Einordnung statt Bauchgefühl.",
   "url": "https://vz-concept.de/leistung-gruendung",
-  "provider": {
-    "@type": "Organization",
-    "@id": "https://vz-concept.de/#organization",
-    "name": "VZ Concept & Consulting UG",
-    "url": "https://vz-concept.de/"
-  },
+  "provider": [
+    {
+      "@type": "Organization",
+      "@id": "https://vz-concept.de/#organization",
+      "name": "VZ Concept & Consulting UG",
+      "url": "https://vz-concept.de/"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vz-concept.de/ueber-mich#vanessa",
+      "name": "Vanessa Zimmer",
+      "jobTitle": "Gründungs- und Unternehmensberaterin",
+      "url": "https://vz-concept.de/ueber-mich",
+      "worksFor": { "@id": "https://vz-concept.de/#organization" },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Abschluss",
+          "name": "Betriebswirtin (IWW), FernUniversität Hagen"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Zertifikat",
+          "name": "AEVO-geprüfte Ausbildereignung"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/vzconcept/",
+        "https://www.instagram.com/v.z.concept__consulting/",
+        "https://www.facebook.com/VanessaZimmerConcept"
+      ]
+    }
+  ],
   "areaServed": [
     {
       "@type": "City",
@@ -59,6 +86,33 @@
   "audience": {
     "@type": "Audience",
     "audienceType": "Gründer:innen, Selbstständige, Unternehmen"
+  },
+  "availableChannel": [
+    {
+      "@type": "ServiceChannel",
+      "name": "Persönlich in Berlin (nach Absprache)",
+      "serviceLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Berlin",
+          "addressCountry": "DE"
+        }
+      }
+    },
+    {
+      "@type": "ServiceChannel",
+      "name": "Video-Beratung, deutschlandweit",
+      "serviceUrl": "https://vz-concept.de/erstgespraech"
+    }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "name": "Erstgespräch, 30 Minuten",
+    "description": "Kostenloses und unverbindliches Erstgespräch. Umfang und Preis der weiteren Beratung werden danach individuell vereinbart.",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "url": "https://vz-concept.de/erstgespraech"
   }
 }
   </script>
@@ -125,6 +179,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nein. Das Erstgespräch kostet dich 30 Minuten — keine Verpflichtung, kein Verkaufsgespräch, kein Druck. Du bekommst eine ehrliche Einschätzung deiner Situation. Ob wir danach zusammenarbeiten, entscheidest du."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Findet die Beratung in Berlin statt — oder auch online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beides. Die VZ Concept & Consulting UG hat ihren Sitz in Berlin; persönliche Termine sind nach Absprache möglich. Ein großer Teil der Begleitung läuft per Video — deshalb arbeite ich mit Gründer:innen aus ganz Deutschland. Am Ablauf ändert das nichts, nur am Weg dorthin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was genau ist eine Gründungsberatung — und was ist sie nicht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine Gründungsberatung prüft, ob eine Geschäftsidee wirtschaftlich tragfähig ist: Markt, Zielgruppe, Preise, Kalkulation und der nächste konkrete Schritt. Sie ist keine Motivationsveranstaltung und ersetzt weder Steuer- noch Rechtsberatung. Bei VZ Concept begleitet Vanessa Zimmer diesen Prozess — Betriebswirtin (IWW) mit 16 Jahren eigener unternehmerischer Erfahrung, mit dem ausdrücklichen Auftrag, auch abzuraten, wenn die Zahlen nicht tragen."
           }
         }
       ]
@@ -266,22 +336,22 @@
             <a class="sl-hero__trust-item sl-hero__trust-item--rating" href="https://www.google.com/search?q=VZ+Concept+Unternehmensberater" target="_blank" rel="noopener noreferrer" aria-label="5,0 von 5 Sternen aus 9 Google-Bewertungen"><span class="sl-hero__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>5,0 &middot; 9 Google-Bewertungen</a>
           </div>
         </div>
-        <div class="sl-hero-card" aria-hidden="true">
+        <div class="sl-hero-card">
           <p class="sl-hero-card__label">Auf einen Blick</p>
           <div class="sl-hero-card__row">
-            <div class="sl-hero-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="sl-hero-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
             <div><p class="sl-hero-card__key">F&uuml;r wen</p><p class="sl-hero-card__val">Gr&uuml;nder:innen vor oder in einer fr&uuml;hen Aufbauphase</p></div>
           </div>
           <div class="sl-hero-card__row">
-            <div class="sl-hero-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="sl-hero-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div><p class="sl-hero-card__key">Format</p><p class="sl-hero-card__val">Einzelsitzungen oder Begleitung &uuml;ber mehrere Schritte</p></div>
           </div>
           <div class="sl-hero-card__row">
-            <div class="sl-hero-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+            <div class="sl-hero-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
             <div><p class="sl-hero-card__key">F&ouml;rderung</p><p class="sl-hero-card__val">AVGS kann bis zu 100&thinsp;% abdecken</p></div>
           </div>
           <div class="sl-hero-card__row">
-            <div class="sl-hero-card__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="sl-hero-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <div><p class="sl-hero-card__key">Erster Schritt</p><p class="sl-hero-card__val">30 Min. Erstgespr&auml;ch &mdash; unverbindlich, klar</p></div>
           </div>
         </div>
@@ -321,12 +391,12 @@
           <div>
             <p class="section-label">Typische Situation</p>
             <h2 class="recognition__heading" id="rec-title">Kommt dir das bekannt vor?</h2>
-            <p class="recognition__sub">Viele Menschen, die gr&uuml;nden wollen, stecken genau an diesen drei Stellen fest. Nicht weil die Idee schlecht ist &mdash; sondern weil ihnen niemand eine ehrliche Einordnung gibt.</p>
+            <p class="recognition__sub">Gr&uuml;nden klingt am Anfang nach Freiheit, Vision und &bdquo;endlich mein eigenes Ding&ldquo;. Die Realit&auml;t besteht zwischendurch aber auch aus Excel-Tabellen, Existenz&auml;ngsten und zu vielen Ideen gleichzeitig. <strong>Ich kenne beides.</strong></p>
           </div>
           <div class="recognition__list">
             <div class="recognition__item">
               <div class="recognition__item-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-              <p class="recognition__item-text"><strong>Die Idee ist klar &mdash; die Zahlen nicht.</strong>Du wei&szlig;t, was du anbieten m&ouml;chtest. Aber ob das auch wirtschaftlich funktioniert, ob die Kalkulation stimmt und was du wirklich verdienen wirst &mdash; das bleibt vage.</p>
+              <p class="recognition__item-text"><strong>Nicht zu wenig Ideen. Zu viele gleichzeitig.</strong>Irgendwo zwischen Motivation, F&ouml;rderm&ouml;glichkeiten, Businessplan und Realit&auml;t verliert sich der klare Blick. Was fehlt, ist nicht die n&auml;chste Idee &mdash; sondern die Entscheidung, welche davon tr&auml;gt.</p>
             </div>
             <div class="recognition__item">
               <div class="recognition__item-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -419,7 +489,7 @@
           </div>
           <div>
             <p class="section-label">Warum mit Vanessa</p>
-            <h2 id="why-title" style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-lg)">Ich kenne den Unterschied zwischen Plan und Realit&auml;t.</h2>
+            <h2 id="why-title" style="font-size:clamp(1.5rem,2.8vw,2rem);color:var(--color-primary);margin-bottom:var(--space-lg)">Struktur in Gedanken, Zahlen und Prozesse &mdash; ohne die Vision kaputtzureden.</h2>
             <blockquote class="why-vanessa__quote">&bdquo;Ich habe 16 Jahre lang Unternehmen gef&uuml;hrt. Ich wei&szlig;, was es bedeutet wenn die Zahlen nicht stimmen &mdash; und ich sage es dir, bevor du es auf die harte Tour lernst.&ldquo;</blockquote>
             <p class="why-vanessa__sub">Viele Beratungen best&auml;tigen, was der Kunde h&ouml;ren will. Ich mache das Gegenteil: Ich pr&uuml;fe mit dir, ob dein Vorhaben unter realen Bedingungen funktioniert &mdash; mit Branchenwissen aus Gesundheit, Beauty, Pflege und Dienstleistung.</p>
             <div class="credential-list" style="margin-block:var(--space-lg)">
@@ -487,6 +557,10 @@
                   <div><p class="info-row__label">Format</p><p class="info-row__value">Einzelsitzungen oder Begleitung &uuml;ber mehrere Schritte</p></div>
                 </div>
                 <div class="info-row">
+                  <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                  <div><p class="info-row__label">Ort</p><p class="info-row__value">Sitz in Berlin &mdash; pers&ouml;nliche Termine nach Absprache, sonst per Video deutschlandweit</p></div>
+                </div>
+                <div class="info-row">
                   <div class="info-row__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
                   <div><p class="info-row__label">Hinweis</p><p class="info-row__value">M&ouml;gliche F&ouml;rderwege werden nur dann einbezogen, wenn sie fachlich passen</p></div>
                 </div>
@@ -545,6 +619,14 @@
           <details class="faq-item">
             <summary>Bin ich nach dem Erstgespr&auml;ch zu irgendetwas verpflichtet?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
             <div class="faq-item__body">Nein. Das Erstgespr&auml;ch kostet dich 30 Minuten &mdash; keine Verpflichtung, kein Verkaufsgespr&auml;ch, kein Druck. Du bekommst eine ehrliche Einsch&auml;tzung deiner Situation. Ob wir danach zusammenarbeiten, entscheidest du.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Findet die Beratung in Berlin statt &mdash; oder auch online?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Beides. Die VZ Concept &amp; Consulting UG hat ihren Sitz in Berlin; pers&ouml;nliche Termine sind nach Absprache m&ouml;glich. Ein gro&szlig;er Teil der Begleitung l&auml;uft per Video &mdash; deshalb arbeite ich mit Gr&uuml;nder:innen aus ganz Deutschland. Am Ablauf &auml;ndert das nichts, nur am Weg dorthin.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Was genau ist eine Gr&uuml;ndungsberatung &mdash; und was ist sie nicht?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></summary>
+            <div class="faq-item__body">Eine Gr&uuml;ndungsberatung pr&uuml;ft, ob eine Gesch&auml;ftsidee wirtschaftlich tragf&auml;hig ist: Markt, Zielgruppe, Preise, Kalkulation und der n&auml;chste konkrete Schritt. Sie ist keine Motivationsveranstaltung und ersetzt weder Steuer- noch Rechtsberatung. Bei VZ Concept begleitet Vanessa Zimmer diesen Prozess &mdash; Betriebswirtin (IWW) mit 16 Jahren eigener unternehmerischer Erfahrung, mit dem ausdr&uuml;cklichen Auftrag, auch abzuraten, wenn die Zahlen nicht tragen.</div>
           </details>
         </div>
       </div>
