@@ -547,3 +547,170 @@ body {
     transform: none;
   }
 }
+
+/* ── Fallbeispiele (Stimmen-Seite ausführlich, Leistungsseiten kompakt) ──
+      Quelle: Case-Study-Fragebogen, anonymisiert freigegeben (24.09.2026) */
+.ref-cases {
+  background: var(--surface-mint);
+  border-block: 1px solid var(--surface-border-light);
+  scroll-margin-top: 76px;
+}
+
+.ref-cases__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.vz-case-teaser {
+  background: var(--surface-light);
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.vz-case-teaser__title {
+  margin-bottom: var(--space-lg);
+  color: var(--color-primary);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.vz-case {
+  overflow: hidden;
+  border: 1px solid rgba(11, 118, 105, 0.2);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.vz-case__head {
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3.5vw, 2.75rem) var(--space-md);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.vz-case__kicker {
+  margin-bottom: 0.35rem;
+  color: var(--color-accent-ink);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.vz-case__title {
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  line-height: 1.2;
+}
+
+.vz-case__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vz-case__tags li {
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-light);
+  color: var(--color-primary);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.vz-case__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr 0.9fr;
+}
+
+.vz-case__col {
+  padding: clamp(1.25rem, 2.6vw, 2rem) clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.vz-case__col + .vz-case__col {
+  border-left: 1px solid var(--color-border-light);
+}
+
+.vz-case__label {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.vz-case__col p:not(.vz-case__label) {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.vz-case__col--result {
+  background: var(--color-primary);
+}
+
+.vz-case .vz-case__col--result .vz-case__label {
+  color: #78ead7;
+}
+
+.vz-case .vz-case__col--result p:not(.vz-case__label) {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.vz-case__quote {
+  margin: 0;
+  padding: var(--space-md) clamp(1.5rem, 3.5vw, 2.75rem);
+  border-top: 1px solid var(--color-border-light);
+  background: var(--color-off-white);
+}
+
+.vz-case__quote blockquote {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  border: 0;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.vz-case__quote figcaption {
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.vz-case__more {
+  padding: 0 clamp(1.5rem, 3.5vw, 2.75rem) var(--space-md);
+  background: var(--color-off-white);
+}
+
+.vz-case__more a {
+  color: var(--color-accent-ink);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.vz-case__more a::after {
+  content: " →";
+}
+
+@media (max-width: 900px) {
+  .vz-case__grid {
+    grid-template-columns: 1fr;
+  }
+  .vz-case__col + .vz-case__col {
+    border-left: 0;
+    border-top: 1px solid var(--color-border-light);
+  }
+}
