@@ -2413,110 +2413,299 @@
   line-height: 1.65;
 }
 
-.v4-router {
+/* ── Wegweiser „Wo stehst du gerade?“ (24.09.2026, ersetzt die 4 Router-Kacheln)
+      Desktop: links Situationen, rechts Antwortkarte (alle Karten im selben
+      Grid-Feld → kein Springen beim Umschalten). Mobil/ohne JS: Akkordeon. ── */
+.v4-way {
   display: grid;
-  /* 1x4-Reihe statt 2x2 ab 961px (10.09., Startseite straffen) — ab 960px greift
-     die bestehende Media-Query weiter unten und stellt automatisch auf 2 Spalten um. */
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(0.9rem, 1.4vw, 1.25rem);
-  border: 0;
+  gap: 0.65rem;
 }
 
-.v4-router-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 232px; /* gekürzt von 280px am 10.09. — Inhalt (Icon+Tag+Titel+Button) braucht das nicht */
-  padding: clamp(1.3rem, 2vw, 1.7rem);
-  color: var(--color-white);
-  background: var(--surface-dark);
+.v4-way__head {
+  margin: 0;
+  font-size: inherit;
+}
+
+.v4-way__tab {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) 22px;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.1rem 1.25rem;
   border: 1px solid rgba(120, 234, 215, 0.16);
   border-radius: var(--radius-md);
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  overflow: hidden;
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background-color 0.28s ease;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
-.v4-router-card + .v4-router-card {
-  border-top: 1px solid rgba(120, 234, 215, 0.16);
+.v4-way__tab:hover {
+  border-color: rgba(120, 234, 215, 0.45);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.v4-router-card:hover,
-.v4-router-card:focus-within {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.82);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 26px rgba(255, 255, 255, 0.14),
-    0 24px 50px rgba(0, 0, 0, 0.26),
-    inset 0 0 20px rgba(255, 255, 255, 0.025);
+.v4-way__tab:focus-visible {
+  outline: 3px solid rgba(0, 200, 168, 0.5);
+  outline-offset: 3px;
 }
 
-.v4-router-card__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.v4-way__tab[aria-expanded="true"] {
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+.v4-way__icon {
+  display: grid;
+  place-items: center;
   width: 46px;
   height: 46px;
-  margin-bottom: 1.25rem;
-  color: #78ead7;
-  background: rgba(0, 200, 168, 0.08);
-  border: 1px solid rgba(120, 234, 215, 0.18);
+  border: 1px solid rgba(120, 234, 215, 0.2);
   border-radius: 10px;
+  background: rgba(0, 200, 168, 0.06);
+  color: #78ead7;
 }
 
-.v4-router-card__icon svg {
-  width: 23px;
-  height: 23px;
+.v4-way__icon svg {
+  width: 22px;
+  height: 22px;
 }
 
-.v4-router-card__tag {
-  margin: 0 0 0.7rem;
-  color: var(--color-white);
+.v4-way__label {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.v4-way__name {
   font-family: var(--font-heading);
-  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.v4-way__sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.v4-way__chev {
+  display: grid;
+  place-items: center;
+  color: rgba(120, 234, 215, 0.6);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.v4-way__chev svg {
+  width: 18px;
+  height: 18px;
+}
+
+.v4-way__tab[aria-expanded="true"] .v4-way__chev {
+  color: var(--color-accent);
+}
+
+.v4-way__panel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  color: var(--color-text);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+}
+
+.v4-way__tag {
+  margin: 0;
+  color: var(--color-accent-ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.v4-way__title {
+  margin: 0.75rem 0 0.8rem;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 2.8vw, 2.45rem);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
-  text-align: left;
-  text-transform: none;
 }
 
-.v4-router-card__title {
-  max-width: 520px;
-  margin: 0 0 1.5rem;
-  color: rgba(255, 255, 255, 0.68);
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 1.25vw, 1.12rem);
-  font-weight: 400;
-  line-height: 1.55;
-  overflow-wrap: normal;
-  hyphens: none;
+.v4-way__text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.04rem;
+  line-height: 1.7;
 }
 
-.v4-router-card > .v4-router-card__link {
-  justify-content: flex-start;
-  width: fit-content;
+.v4-way__questions {
+  margin: 1.5rem 0 1.75rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-light);
+}
+
+.v4-way__questions p {
+  margin: 0 0 0.55rem;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.v4-way__questions ul {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.v4-way__questions li {
+  position: relative;
+  padding-left: 1.3rem;
+  color: var(--color-primary);
+  line-height: 1.5;
+}
+
+.v4-way__questions li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0.1rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.v4-way__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.4rem;
   margin-top: auto;
-  color: #78ead7;
 }
 
-.v4-router-card > .v4-router-card__link.btn--primary {
-  justify-content: center;
-  padding: 0.82rem 1.25rem;
-  color: var(--color-primary-deep);
-  border-color: rgba(0, 200, 168, 0.75);
-  background: linear-gradient(135deg, #19d6b6 0%, var(--color-accent) 52%, #00ae93 100%);
-  box-shadow: 0 12px 28px rgba(0, 200, 168, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+.v4-way__more {
+  color: var(--color-accent-ink);
+  font-weight: 700;
 }
 
-.v4-router-card > .v4-router-card__link.btn--primary:hover,
-.v4-router-card > .v4-router-card__link.btn--primary:focus-visible {
-  color: var(--color-primary-deep);
-  border-color: rgba(0, 200, 168, 0.95);
-  box-shadow: 0 18px 36px rgba(0, 200, 168, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+.v4-way__more:hover {
+  color: var(--color-primary);
+}
+
+/* Mit JS: nur die gewählte Antwort zeigen */
+.v4-way.is-ready .v4-way__panel:not(.is-open) {
+  display: none;
+}
+
+/* Desktop mit JS: zweispaltiger Wegweiser */
+@media (min-width: 961px) {
+  .v4-way.is-ready {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.28fr);
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 3vw, 2.75rem);
+  }
+
+  /* Die vier Auswahlfelder füllen die Höhe der Antwortkarte */
+  .v4-way.is-ready .v4-way__head {
+    grid-column: 1;
+    display: flex;
+  }
+
+  .v4-way.is-ready .v4-way__tab {
+    height: 100%;
+  }
+
+  .v4-way.is-ready .v4-way__panel {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    align-self: stretch;
+  }
+
+  /* Alle Antworten teilen sich ein Feld: die höchste bestimmt die Höhe */
+  .v4-way.is-ready .v4-way__panel:not(.is-open) {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .v4-way.is-ready .v4-way__panel.is-open {
+    animation: wayIn 0.35s ease both;
+  }
+
+  .v4-way__tab .v4-way__chev {
+    transform: none;
+  }
+}
+
+/* Mobil: Akkordeon, Chevron zeigt nach unten */
+@media (max-width: 960px) {
+  .v4-way__chev {
+    transform: rotate(90deg);
+  }
+
+  .v4-way__tab[aria-expanded="true"] .v4-way__chev {
+    transform: rotate(-90deg);
+  }
+
+  .v4-way__panel {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .v4-way__tab {
+    grid-template-columns: 40px minmax(0, 1fr) 18px;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .v4-way__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .v4-way__panel {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .v4-way__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@keyframes wayIn {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v4-way__tab,
+  .v4-way__chev {
+    transition: none;
+  }
+
+  .v4-way.is-ready .v4-way__panel.is-open {
+    animation: none;
+  }
 }
 
 .v4-router-fallback {
@@ -2534,20 +2723,6 @@
   #zielgruppen .v4-section-head {
     grid-template-columns: minmax(0, 1.15fr) minmax(250px, 0.85fr);
     column-gap: 2.5rem;
-  }
-}
-
-/* Eigener Breakpoint fürs 1x4-Layout (10.09.): bei 961–1180px werden die Karten
-   sonst so schmal, dass der Button-Text ("Businessplan erstellen" etc., white-space: nowrap)
-   aus der Karte hinausläuft — per Playwright gemessen und hier korrigiert, statt nur angenommen. */
-@media (max-width: 1180px) {
-  .v4-router {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-  }
-
-  .v4-router-card {
-    min-height: auto;
   }
 }
 
@@ -2578,20 +2753,6 @@
     font-size: clamp(2.8rem, 14vw, 3.5rem);
   }
 
-  .v4-router {
-    grid-template-columns: 1fr;
-  }
-
-  .v4-router-card {
-    min-height: 0;
-    padding: 1.5rem 1.25rem;
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
-  }
-
-  .v4-router-card > .v4-router-card__link.btn--primary {
-    width: 100%;
-  }
-
   .v4-router-fallback {
     display: grid;
     justify-items: center;
@@ -2603,22 +2764,6 @@
     margin-left: 0;
     white-space: normal;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .v4-router-card,
-  .v4-router-card__link svg {
-    transition: none !important;
-  }
-
-  .motion-soft .v4-router-card.reveal-item {
-    transition: opacity 0.48s ease !important;
-    transition-delay: var(--motion-delay, 0ms) !important;
-  }
-
-  .v4-router-card:hover,
-  .v4-router-card:focus-within,
-  .v4-router-card__link svg { transform: none !important; }
 }
 
 @media (max-width: 1024px) and (min-width: 641px) {

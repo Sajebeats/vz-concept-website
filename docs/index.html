@@ -414,34 +414,90 @@
           <p class="v4-kicker">Orientierung</p>
           <h2 class="v4-title" id="v4-zielgruppen-title">Wo stehst du gerade?</h2>
           <p class="v4-lead">
-            Vier Themen. Ein Ziel: eine wirtschaftlich tragfähige Entscheidung.
+            Wähle deine Situation. Du siehst sofort, worum es geht und wie ich dir helfe.
           </p>
         </div>
-        <div class="v4-router" aria-label="Vier Beratungsschwerpunkte">
-          <article class="v4-router-card v4-router-card--gruendung">
-            <span class="v4-router-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg></span>
-            <h3 class="v4-router-card__tag">Gründung</h3>
-            <p class="v4-router-card__title">Idee, Markt und Zahlen prüfen, bevor du investierst.</p>
-            <a href="leistung-gruendung" class="btn btn--primary v4-router-card__link">Gründung klären<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </article>
-          <article class="v4-router-card v4-router-card--struktur">
-            <span class="v4-router-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V9m6 9V5m6 13v-7m4 7V3"/><path d="m4 7 6-4 6 6 4-6"/></svg></span>
-            <h3 class="v4-router-card__tag">Struktur &amp; Wachstum</h3>
-            <p class="v4-router-card__title">Abläufe, Preise und Verantwortung so ordnen, dass Wachstum dich entlastet.</p>
-            <a href="leistung-struktur" class="btn btn--primary v4-router-card__link">Struktur ordnen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </article>
-          <article class="v4-router-card v4-router-card--krise">
-            <span class="v4-router-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/><path d="M17 3h4v4"/><path d="m21 3-5 5"/></svg></span>
-            <h3 class="v4-router-card__tag">Krise &amp; Neuaufstellung</h3>
-            <p class="v4-router-card__title">Klar erkennen, was noch trägt – und welcher nächste Schritt realistisch ist.</p>
-            <a href="leistung-krise" class="btn btn--primary v4-router-card__link">Situation einordnen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </article>
-          <article class="v4-router-card v4-router-card--businessplan">
-            <span class="v4-router-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h6m-6 4h6"/></svg></span>
-            <h3 class="v4-router-card__tag">Businessplan</h3>
-            <p class="v4-router-card__title">Ein belastbarer Plan für Förderung, Bank, Investor oder deine eigene Orientierung.</p>
-            <a href="leistung-businessplan" class="btn btn--primary v4-router-card__link">Businessplan erstellen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </article>
+        <div class="v4-way" data-way aria-label="Vier Beratungsschwerpunkte">
+          <h3 class="v4-way__head">
+            <button type="button" class="v4-way__tab" id="way-tab-gruendung" aria-expanded="true" aria-controls="way-gruendung">
+              <span class="v4-way__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 7.2v9.6L12 21l7.5-4.2V7.2L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg></span>
+              <span class="v4-way__label"><span class="v4-way__name">Gründung</span><span class="v4-way__sub">Ich will gründen, aber nicht blind.</span></span>
+              <span class="v4-way__chev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></span>
+            </button>
+          </h3>
+          <div class="v4-way__panel is-open" id="way-gruendung" role="region" aria-labelledby="way-tab-gruendung">
+            <p class="v4-way__tag">Gründung</p>
+            <p class="v4-way__title">Idee, Markt und Zahlen prüfen, bevor du investierst.</p>
+            <p class="v4-way__text">Wir rechnen durch, ob dein Vorhaben trägt: Angebot, Zielgruppe, Preise und laufende Kosten. Du bekommst eine ehrliche Einschätzung, auch wenn sie unbequem ist.</p>
+            <div class="v4-way__questions">
+              <p>Typische Fragen</p>
+              <ul><li>Kann ich damit wirklich meinen Lebensunterhalt verdienen?</li><li>Welche Kosten habe ich übersehen?</li><li>Kann ich dafür Fördermittel bekommen?</li></ul>
+            </div>
+            <div class="v4-way__actions">
+              <a href="leistung-gruendung" class="btn btn--primary">Gründung klären<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <a href="erstgespraech#buchung" class="v4-way__more">Kostenloses Erstgespräch</a>
+            </div>
+          </div>
+          <h3 class="v4-way__head">
+            <button type="button" class="v4-way__tab" id="way-tab-struktur" aria-expanded="false" aria-controls="way-struktur">
+              <span class="v4-way__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V9m6 9V5m6 13v-7m4 7V3"/><path d="m4 7 6-4 6 6 4-6"/></svg></span>
+              <span class="v4-way__label"><span class="v4-way__name">Struktur &amp; Wachstum</span><span class="v4-way__sub">Es läuft, aber alles hängt an mir.</span></span>
+              <span class="v4-way__chev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></span>
+            </button>
+          </h3>
+          <div class="v4-way__panel" id="way-struktur" role="region" aria-labelledby="way-tab-struktur">
+            <p class="v4-way__tag">Struktur &amp; Wachstum</p>
+            <p class="v4-way__title">Abläufe, Preise und Verantwortung so ordnen, dass Wachstum dich entlastet.</p>
+            <p class="v4-way__text">Wir schauen, wo Zeit, Geld und Qualität verloren gehen, und legen fest, was sich zuerst ändern muss. Mit klaren Zuständigkeiten statt Dauerfeuer.</p>
+            <div class="v4-way__questions">
+              <p>Typische Fragen</p>
+              <ul><li>Wo verliere ich aktuell Geld?</li><li>Lohnt sich dieser nächste Schritt?</li><li>Wie mache ich den Betrieb unabhängiger von mir?</li></ul>
+            </div>
+            <div class="v4-way__actions">
+              <a href="leistung-struktur" class="btn btn--primary">Struktur ordnen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <a href="erstgespraech#buchung" class="v4-way__more">Kostenloses Erstgespräch</a>
+            </div>
+          </div>
+          <h3 class="v4-way__head">
+            <button type="button" class="v4-way__tab" id="way-tab-krise" aria-expanded="false" aria-controls="way-krise">
+              <span class="v4-way__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/><path d="M17 3h4v4"/><path d="m21 3-5 5"/></svg></span>
+              <span class="v4-way__label"><span class="v4-way__name">Krise &amp; Neuaufstellung</span><span class="v4-way__sub">Mein Unternehmen steht unter Druck.</span></span>
+              <span class="v4-way__chev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></span>
+            </button>
+          </h3>
+          <div class="v4-way__panel" id="way-krise" role="region" aria-labelledby="way-tab-krise">
+            <p class="v4-way__tag">Krise &amp; Neuaufstellung</p>
+            <p class="v4-way__title">Klar erkennen, was noch trägt, und welcher nächste Schritt realistisch ist.</p>
+            <p class="v4-way__text">Wir verschaffen uns einen ehrlichen Überblick über Zahlen und Verpflichtungen und ordnen die Optionen: stabilisieren, umbauen oder geordnet aussteigen. Rechtliche Fragen klären wir früh mit Fachleuten.</p>
+            <div class="v4-way__questions">
+              <p>Typische Fragen</p>
+              <ul><li>Was hat jetzt Vorrang?</li><li>Welche Maßnahmen sind wirtschaftlich sinnvoll?</li><li>Wie komme ich wieder zu klaren Entscheidungen?</li></ul>
+            </div>
+            <div class="v4-way__actions">
+              <a href="leistung-krise" class="btn btn--primary">Situation einordnen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <a href="erstgespraech#buchung" class="v4-way__more">Kostenloses Erstgespräch</a>
+            </div>
+          </div>
+          <h3 class="v4-way__head">
+            <button type="button" class="v4-way__tab" id="way-tab-businessplan" aria-expanded="false" aria-controls="way-businessplan">
+              <span class="v4-way__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h6m-6 4h6"/></svg></span>
+              <span class="v4-way__label"><span class="v4-way__name">Businessplan</span><span class="v4-way__sub">Ich brauche einen belastbaren Plan.</span></span>
+              <span class="v4-way__chev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></span>
+            </button>
+          </h3>
+          <div class="v4-way__panel" id="way-businessplan" role="region" aria-labelledby="way-tab-businessplan">
+            <p class="v4-way__tag">Businessplan</p>
+            <p class="v4-way__title">Ein belastbarer Plan für Förderung, Bank, Investor oder deine eigene Orientierung.</p>
+            <p class="v4-way__text">Text und Zahlen, die zusammenpassen: Markt, Angebot und Finanzplanung mit Liquiditäts- und Rentabilitätsvorschau. Mit dir erarbeitet oder für dich erstellt, je nachdem, was du brauchst.</p>
+            <div class="v4-way__questions">
+              <p>Typische Fragen</p>
+              <ul><li>Überzeugt mein Plan Bank oder Förderstelle?</li><li>Sind meine Zahlen realistisch?</li><li>Wie schnell kann der Plan fertig sein?</li></ul>
+            </div>
+            <div class="v4-way__actions">
+              <a href="leistung-businessplan" class="btn btn--primary">Businessplan erstellen<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              <a href="erstgespraech#buchung" class="v4-way__more">Kostenloses Erstgespräch</a>
+            </div>
+          </div>
         </div>
         <p class="v4-router-fallback">Noch unsicher? <a href="erstgespraech" class="btn btn--outline-white">In 30 Minuten klären wir den passenden Weg →</a></p>
       </div>

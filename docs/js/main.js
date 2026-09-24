@@ -240,7 +240,7 @@
   function initHomeMotion() {
     const hero = document.querySelector('.v4-hero');
     const specificEls = document.querySelectorAll(
-      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .vz-step, .fact, .stat-item, .about-hero__inner, .about-proof__item, .about-section__head, .about-story__media, .about-chapter, .about-pullquote, .about-principle, .about-cv-item, .about-focus-item, .about-cta__inner, .v4-partners__top > *, .partner-marquee, .v4-section-head > *, .v4-router-card, .v4-split > *, .v4-compare__side, .v4-situation-topics li, .v4-offer-card, .v4-center-cta, .v4-proof-image, .v4-why__bio, .v4-proof-points div, .v4-stats__card, .v4-process article, .v4-testimonials article, .v4-faq-panel, .v4-final-cta .v4-hero__actions'
+      '.service-card, .zielgruppe-card, .testimonial-card, .process-step, .vz-step, .fact, .stat-item, .about-hero__inner, .about-proof__item, .about-section__head, .about-story__media, .about-chapter, .about-pullquote, .about-principle, .about-cv-item, .about-focus-item, .about-cta__inner, .v4-partners__top > *, .partner-marquee, .v4-section-head > *, .v4-way, .v4-split > *, .v4-compare__side, .v4-situation-topics li, .v4-offer-card, .v4-center-cta, .v4-proof-image, .v4-why__bio, .v4-proof-points div, .v4-stats__card, .v4-process article, .v4-testimonials article, .v4-faq-panel, .v4-final-cta .v4-hero__actions'
     );
 
     // Generische Reveal-Ziele auf Unterseiten: Karten, Items, Steps,
@@ -279,7 +279,7 @@
       el.classList.add('reveal-item');
     });
 
-    document.querySelectorAll('.v4-section-head, .v4-partners__top, .v4-router, .v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-process, .v4-testimonials, .about-proof__grid').forEach(function (group) {
+    document.querySelectorAll('.v4-section-head, .v4-partners__top, .v4-situation-list, .v4-offer-grid, .v4-proof-points, .v4-process, .v4-testimonials, .about-proof__grid').forEach(function (group) {
       setMotionDelay(Array.from(group.children), 85, 0);
     });
 
@@ -408,6 +408,61 @@
 
   initHomeMotion();
   initCountUp();
+
+  /* ---------- Wegweiser „Wo stehst du gerade?“ (Startseite) ----------
+     Desktop: Auswahl links, Antwort rechts (immer genau eine offen).
+     Mobil: Akkordeon, die offene Antwort lässt sich auch wieder schließen. */
+  document.querySelectorAll('[data-way]').forEach(function (way) {
+    var tabs = Array.prototype.slice.call(way.querySelectorAll('.v4-way__tab'));
+    if (!tabs.length) return;
+    var desktop = window.matchMedia('(min-width: 961px)');
+
+    function panelOf(tab) {
+      return document.getElementById(tab.getAttribute('aria-controls'));
+    }
+
+    function setOpen(target) {
+      tabs.forEach(function (tab) {
+        var open = tab === target;
+        tab.setAttribute('aria-expanded', String(open));
+        var panel = panelOf(tab);
+        if (panel) panel.classList.toggle('is-open', open);
+      });
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () {
+        var isOpen = tab.getAttribute('aria-expanded') === 'true';
+        if (isOpen && !desktop.matches) {
+          setOpen(null);
+          return;
+        }
+        setOpen(tab);
+      });
+      tab.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (e.key === 'Home') next = tabs[0];
+        if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (!next) return;
+        e.preventDefault();
+        next.focus();
+        if (desktop.matches) setOpen(next);
+      });
+    });
+
+    // Beim Wechsel auf Desktop muss immer eine Antwort offen sein
+    var ensureOne = function () {
+      if (desktop.matches && !tabs.some(function (t) { return t.getAttribute('aria-expanded') === 'true'; })) {
+        setOpen(tabs[0]);
+      }
+    };
+    if (desktop.addEventListener) desktop.addEventListener('change', ensureOne);
+    else if (desktop.addListener) desktop.addListener(ensureOne);
+
+    way.classList.add('is-ready');
+  });
 
   /* ---------- Partner-Logoband: anhalten / fortsetzen (WCAG 2.2.2) ---------- */
   document.querySelectorAll('[data-marquee-toggle]').forEach(function (btn) {
