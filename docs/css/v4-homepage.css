@@ -2348,35 +2348,15 @@
   height: 100%;
 }
 
-/* Wer reduzierte Bewegung eingestellt hat, bekommt das Partnerband ohne Lauf:
-   Die sechs Logos stehen dann als Raster nebeneinander, die Dublette fuer den
-   nahtlosen Uebergang, die Verlaufsmasken und der Pause-Schalter entfallen.
-   (korrigiert 11.09. — vorher lief das Band auch bei reduzierter Bewegung weiter,
-   was WCAG 2.3.3 und der Nutzereinstellung widerspricht.) */
+/* Partnerband bei reduzierter Bewegung: laeuft deutlich langsamer weiter statt
+   zu stoppen. Das ist die dokumentierte Ausnahme aus design-guidelines.md §6/§9
+   (Entscheidung Dennis). WCAG 2.2.2 bleibt erfuellt: Pause-Schalter, Anhalten
+   beim Ueberfahren und bei Tastaturfokus (style.css, Abschnitt Partner-Marquee).
+   (24.09.: Stillstand-Regel vom 11.09. zurueckgenommen, da sie der Ausnahme
+   widersprach und das Band auf Windows mit „Animationen aus“ komplett stoppte.) */
 @media (prefers-reduced-motion: reduce) {
   .partner-marquee__track {
-    animation: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    width: 100%;
-  }
-
-  .partner-marquee__track > * {
-    width: auto;
-    min-width: 0;
-  }
-
-  .partner-marquee__track > [aria-hidden="true"] {
-    display: none;
-  }
-
-  .v4-partners .partner-marquee::before,
-  .v4-partners .partner-marquee::after {
-    display: none;
-  }
-
-  .partner-marquee__toggle {
-    display: none;
+    animation-duration: 84s;
   }
 }
 

@@ -1139,7 +1139,7 @@ blockquote {
   align-items: stretch;
   gap: 0.9rem;
   width: max-content;
-  animation: partnerMarquee 36s linear infinite;
+  animation: partnerMarquee 42s linear infinite; /* 7 Logos je Haelfte */
   animation-play-state: running;
   will-change: transform;
 }
